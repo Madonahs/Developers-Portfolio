@@ -1,6 +1,8 @@
 # GrowWithGoogleTeamProject
 Grow With Google Scholarship Team Project.
 
+subject to change.
+
 This is a TEAM PROJECT.
 
 Things we're targeting in Stage 1:
