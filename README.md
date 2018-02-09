@@ -22,7 +22,7 @@ Things we're targeting in Stage 1:
 ## API Instructions
 - Download Postman: https://www.getpostman.com/
 - Mimick this screenshot to send request: https://drive.google.com/file/d/1mEEUqbIyCVexqlwnOYUTTMDr0cGfsyiG/view?usp=sharing
- - request type: get
+ - request type: POST
  - request url: 188.166.69.159:3000/basic
  - authorization type: basic auth
  - username: google
