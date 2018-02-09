@@ -6,125 +6,152 @@
     android:layout_height="match_parent"
     tools:context="com.madonasyombua.growwithgoogleteamproject.MainActivity">
 
-    <!--  Let's add some comments -->
+    <!--  TODO Text View on TOP -->
+    <!--  This Text View shows the Welcom! text on top. Need to beautify it using a logo or a
+    better font scheme-->
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="178dp"
-        android:layout_height="33dp"
+        android:id="@+id/tv_welcome"
+        android:layout_width="208dp"
+        android:layout_height="30dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="16dp"
         android:text="Welcome!"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <!-- email EditText? -->
-        <EditText
-            android:id="@+id/editText"
+
+    <!-- Edit Text to enter a password. It will automatically show asterisks while entering password-->
+    <EditText
+            android:id="@+id/tv_passowrd"
             android:layout_width="311dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:ems="10"
-            android:hint="Enter your password"
+            android:hint="@string/password"
             android:inputType="textPassword"
-            app:layout_constraintStart_toStartOf="@+id/editText2"
-            app:layout_constraintTop_toBottomOf="@+id/editText2" />
+            app:layout_constraintStart_toStartOf="@+id/tv_username"
+            app:layout_constraintTop_toBottomOf="@+id/tv_username" />
 
-   <!-- we can also try to declare string --->
+   <!-- Edit Text to use email address as a unique username. We can use simple string as well,
+    however email address will give us two options:
+    1. We can send an email to the user that he has logged into the app.(Stage 4/5)
+    2. Like most if websites(say gmail), username and email address works as username for login
+    so a little in line with that to maintain a unique searchable string while asking less info
+    from user. -->
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/tv_username"
         android:layout_width="309dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
         android:layout_marginTop="28dp"
         android:ems="10"
-        android:hint="Enter your email address or username"
+        android:hint="@string/username"
         android:inputType="textEmailAddress"
-        android:labelFor="@id/editText2"
+        android:labelFor="@id/tv_username"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
-  <!-- --->
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+
+    <!-- TODO  Text View on Social Login Icons -->
+    <!-- This  Text View currently sits on Social Login Icons. Need to replace it with an image or
+     beautify it with fonts -->
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_social_login"
         android:layout_width="159dp"
         android:layout_height="29dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="112dp"
         android:layout_marginTop="20dp"
         android:text="Social Login"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.161"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_signin" />
     
-  <!-- --->
+    <!-- This Floating action button is used to connect user through google plus login.
+    Images can also be used instead -->
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/btn_google_plus"
         android:layout_width="58dp"
         android:layout_height="64dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="104dp"
         android:layout_marginTop="8dp"
         android:clickable="true"
+        android:focusable="true"
         app:backgroundTint="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ic_google_plus" android:focusable="true"/>
-  <!-- --->
+        app:layout_constraintTop_toBottomOf="@+id/tv_social_login"
+        app:layout_constraintVertical_bias="0.685"
+        app:srcCompat="@drawable/ic_google_plus" />
+  <!-- Sign In button, clickable, once clicked should take you to member's page after login -->
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_signin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/button_shape"
         android:backgroundTint="@android:color/holo_blue_dark"
-        android:text="Sign In"
+        android:text="@string/register_signin_text"
         android:textColor="#FFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
-  <!-- --->
+        app:layout_constraintTop_toBottomOf="@+id/tv_passowrd" />
+  <!-- Login button, initially blued, should be greyed when Sign Up is selceted. Should work in
+  current activity or a Fragment launched from this activity-->
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/button_shape"
         android:textColor="#FFFF"
         android:backgroundTint="@color/colorPrimaryDark"
-        android:text="Login"
+        android:text="@string/login_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-  <!-- --->
+        app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
+  <!-- Sign Up button, initially greyed out. Once clicked should give a separate layout to sign up -->
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="88dp"
+        android:layout_marginRight="88dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/button_shape"
         android:backgroundTint="?attr/colorButtonNormal"
-        android:text="Sign Up"
+        android:text="@string/signup_text"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-  <!-- --->
+        app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
+
+    <!-- This Floating action button is used to connect user through facebook login.
+    Images can also be used instead -->
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton3"
+        android:id="@+id/btn_facebook"
         android:layout_width="79dp"
         android:layout_height="58dp"
         android:layout_marginBottom="16dp"
-        android:layout_marginStart="124dp"
+        android:layout_marginStart="128dp"
         android:layout_marginTop="8dp"
         android:clickable="true"
+        android:focusable="true"
         app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/facebook_login" android:focusable="true"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_social_login"
+        app:layout_constraintVertical_bias="0.685"
+        app:srcCompat="@drawable/facebook_login" />
+
+    <!-- TODO Add a divider line above social login icons or below social login text view if image
+      or beautiful font not possible -->
 
 </android.support.constraint.ConstraintLayout>

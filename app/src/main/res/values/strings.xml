@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">GrowWithGoogleTeamProject</string>
+    <string name="username">Enter your email address or username</string>
+    <string name="password">Enter your password</string>
+    <string name="login_text">Login</string>
+    <string name="signup_text">Sign Up</string>
+    <string name="register_signin_text">Sign In</string>
 </resources>
