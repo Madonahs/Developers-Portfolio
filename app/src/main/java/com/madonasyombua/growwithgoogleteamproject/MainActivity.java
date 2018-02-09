@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-// getting the EditText and Button Id on the Layout I will comment them for now then we can connect with the ids
+// EditText and Button Id on the Layout I will comment them for now then we can connect with the ids
        /*
         emailEnter=findViewById(R.id...);
         passwordEnter=findViewById(R.id...);
@@ -26,20 +26,20 @@ public class MainActivity extends AppCompatActivity {
         signupLink=findViewById(R.id...);*/
 
 
-       loginButton.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               //looking at creating a login method Login(); to help with validation
-           }
-       });
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //looking at creating a login method Login(); to help with validation
+            }
+        });
 
-       signupLink.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
+        signupLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-               //start the sign up Activity.
-           }
-       });
+                //start the sign up Activity.
+            }
+        });
     }
 
 
