@@ -15,3 +15,20 @@ Things we're targeting in Stage 1:
 5. Till the final server and API format gets frozen(accepted and set up), everyone must be able to launch the app and fetch a connection through HTTP URL.
 6. First cut of the app must be able to make HTTP requests, and get a response as a handshake, not necessarily getting full payload response.
 7. Initial mock up screens to be prepared for first cut.
+
+
+## API Instructions 
+- Download Postman: https://www.getpostman.com/
+- Mimick this screenshot to send request: https://drive.google.com/file/d/1mEEUqbIyCVexqlwnOYUTTMDr0cGfsyiG/view?usp=sharing
+ - request type: get
+ - request url: 188.166.69.159:3000/basic
+ - authorization type: basic auth
+ - username: google
+ - password: group
+   
+  ### Expected results:
+  - id: 1
+  - name: Grow with Google
+   
+   in Json Format
+   
