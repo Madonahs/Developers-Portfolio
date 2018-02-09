@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
+//
     private static final String TAG = "LoginActivity";
     EditText emailEnter;
     EditText passwordEnter;
