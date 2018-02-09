@@ -19,3 +19,18 @@ Things we're targeting in Stage 1:
 
 ![syombua1](https://user-images.githubusercontent.com/11560987/36005973-f9b39102-0cff-11e8-8b07-1c754393cdb6.jpg)
 
+## API Instructions
+- Download Postman: https://www.getpostman.com/
+- Mimick this screenshot to send request: https://drive.google.com/file/d/1mEEUqbIyCVexqlwnOYUTTMDr0cGfsyiG/view?usp=sharing
+ - request type: get
+ - request url: 188.166.69.159:3000/basic
+ - authorization type: basic auth
+ - username: google
+ - password: group
+
+  ### Expected results:
+  - id: 1
+  - name: Grow with Google
+
+   in Json Format
+
