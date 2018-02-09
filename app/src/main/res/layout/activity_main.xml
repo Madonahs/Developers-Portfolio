@@ -30,7 +30,7 @@
             app:layout_constraintStart_toStartOf="@+id/editText2"
             app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
-   <!-- --->
+   <!-- we can also try to declare string --->
     <EditText
         android:id="@+id/editText2"
         android:layout_width="309dp"
