@@ -31,8 +31,8 @@
         android:background="@drawable/button_rounded"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:drawableRight="@drawable/ic_arrow_forward"
         android:layout_gravity="center"
-        android:text="@string/login"
         android:fontFamily="@font/raleway"
         android:id="@+id/login_fragment_button"/>
 </LinearLayout>

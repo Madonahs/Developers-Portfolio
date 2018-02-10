@@ -35,14 +35,16 @@
         android:textSize="20sp"
         android:fontFamily="@font/raleway"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="0dp" />
 
     <Button
-        android:background="@drawable/button_rounded"
+        android:id="@+id/register_fragment_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/register"
+        android:padding="5dp"
+        android:background="@drawable/button_rounded"
+        android:drawableRight="@drawable/ic_arrow_forward"
         android:fontFamily="@font/raleway"
-        android:id="@+id/register_fragment_button"/>
+        android:layout_marginBottom="3dp"/>
 </LinearLayout>
