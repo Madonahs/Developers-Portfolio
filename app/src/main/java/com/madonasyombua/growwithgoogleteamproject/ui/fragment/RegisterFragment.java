@@ -2,6 +2,8 @@ package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,9 @@ import android.widget.Toast;
 
 import com.madonasyombua.growwithgoogleteamproject.R;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Created by Ayo on 2/9/2018.
  */
@@ -19,8 +24,13 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 public class RegisterFragment extends Fragment {
     private static final String TAG = "RegisterFragment";
 
-    private EditText username, email, password;
+    private TextInputEditText username, email, password;
     private Button btn_register;
+    private TextInputLayout til_username, til_email, til_password;
+
+    private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
+    private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+    private Matcher matcher;
 
     /*
    * This class is used to get data from the fragment like the username and stuff.
@@ -38,10 +48,25 @@ public class RegisterFragment extends Fragment {
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"Registering", Toast.LENGTH_SHORT).show();
+                String username_txt = extractText(username);
+                String email_txt = extractText(email);
+                String password_txt = extractText(password);
+
+                Toast.makeText(getActivity(), "Registering", Toast.LENGTH_SHORT).show();
+
             }
         });
 
         return view;
+    }
+
+    private String extractText(EditText text){
+        String newText = text.getText().toString().trim();
+        return newText;
+    }
+
+    public boolean validateEmail(String email) {
+        matcher = pattern.matcher(email);
+        return matcher.matches();
     }
 }

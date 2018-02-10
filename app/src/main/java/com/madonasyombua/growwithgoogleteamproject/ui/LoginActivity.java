@@ -1,11 +1,8 @@
 package com.madonasyombua.growwithgoogleteamproject.ui;
 
-import android.graphics.Color;
-import android.graphics.LinearGradient;
-import android.graphics.Shader;
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -83,8 +80,6 @@ public class LoginActivity extends AppCompatActivity {
         adapter.addFragment(new RegisterFragment());
         viewPager.setAdapter(adapter);
     }
-
-    // TODO: 2/9/2018 Can someone add design to the button and backgroung?
 
     // TODO: 2/9/2018 Add the social network button
 }
