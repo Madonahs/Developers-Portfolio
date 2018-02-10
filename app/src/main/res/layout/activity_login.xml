@@ -4,21 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.madonasyombua.growwithgoogleteamproject.LoginActivity">
+    tools:context="com.madonasyombua.growwithgoogleteamproject.LoginActivity"
+    android:orientation="horizontal">
 
-    <!-- Welcome TextView-->
-
-    <TextView
-        android:id="@+id/welcome"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/raleway"
-        android:gravity="center"
-        android:paddingTop="43dp"
-        android:text="@string/welcome"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+     >
 
-        android:textSize="38sp"
-        android:textStyle="bold" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="162dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/logo"/>
+
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:gravity="center"
+            android:paddingTop="0dp"
+            android:text="@string/welcome"
+            android:textSize="38sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+    <!-- Welcome TextView-->
+
+
 
 
 
