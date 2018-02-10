@@ -16,7 +16,7 @@ Things we're targeting in Stage 1:
 6. First cut of the app must be able to make HTTP requests, and get a response as a handshake, not necessarily getting full payload response.
 7. Initial mock up screens to be prepared for first cut.
 
-
+Design by Madonah Syombua
 ![syombua1](https://user-images.githubusercontent.com/11560987/36005973-f9b39102-0cff-11e8-8b07-1c754393cdb6.jpg)
 
 ## API Instructions
