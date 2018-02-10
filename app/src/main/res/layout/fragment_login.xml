@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+    <EditText
+        android:hint="@string/username"
+        android:inputType="text"
+        android:id="@+id/edit_username"
+        android:layout_width="match_parent"
+        android:textSize="20sp"
+        android:fontFamily="@font/raleway"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:hint="@string/password"
+        android:id="@+id/edit_password"
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:textSize="20sp"
+        android:fontFamily="@font/raleway"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/login"
+        android:fontFamily="@font/raleway"
+        android:id="@+id/login_fragment_button"/>
+</LinearLayout>

@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">GrowWithGoogleTeamProject</string>
     <string name="welcome">Welcome!</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">login</string>
+    <string name="email">Email</string>
+    <string name="register">Register</string>
+    <string name="social_network">Social Network</string>
 </resources>
