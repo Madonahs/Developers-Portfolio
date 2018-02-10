@@ -1,37 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:focusableInTouchMode="true">
 
     <EditText
+        android:background="@drawable/edit_text_custom"
         android:hint="@string/username"
         android:id="@+id/edit_username"
         android:layout_width="match_parent"
         android:textSize="20sp"
         android:fontFamily="@font/raleway"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"/>
 
     <EditText
+        android:background="@drawable/edit_text_custom"
         android:hint="@string/email"
         android:id="@+id/edit_email"
         android:inputType="textEmailAddress"
         android:layout_width="match_parent"
         android:textSize="20sp"
         android:fontFamily="@font/raleway"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp" />
 
     <EditText
+        android:background="@drawable/edit_text_custom"
         android:hint="@string/password"
         android:id="@+id/edit_password"
         android:inputType="textPassword"
         android:layout_width="match_parent"
         android:textSize="20sp"
         android:fontFamily="@font/raleway"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp" />
 
     <Button
+        android:background="@drawable/button_rounded"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

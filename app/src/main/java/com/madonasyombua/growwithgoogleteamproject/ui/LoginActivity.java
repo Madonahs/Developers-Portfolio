@@ -28,18 +28,16 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //Including color in the TextView.
-        mWelcome = findViewById(R.id.welcome);
-        int[] color = {Color.rgb( 0, 0, 205),Color.CYAN};
-        float[] position = {0, 1};
-        Shader.TileMode tile_mode = Shader.TileMode.MIRROR;
-        LinearGradient lin_grad = new LinearGradient(0, 0, 0, 200,color,position, tile_mode);
-        Shader shader_gradient = lin_grad;
-        mWelcome.getPaint().setShader(shader_gradient);
-
+        /***
+         * NOTE: Removed the welcome text since we already got a pretty cool logo
+         */
 
         login = findViewById(R.id.btn_login);
         register = findViewById(R.id.btn_register);
+
+        // Buttons initial state
+        login.setBackgroundResource(R.drawable.button_rounded_focused);
+        register.setBackgroundResource(R.drawable.button_rounded_normal);
 
         //I used viewpager because it helps with switching between fragments
         viewPager = findViewById(R.id.container);
@@ -51,6 +49,10 @@ public class LoginActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Toggle buttons
+                login.setBackgroundResource(R.drawable.button_rounded_normal);
+                register.setBackgroundResource(R.drawable.button_rounded_focused);
+
                 Toast.makeText(LoginActivity.this, "Going to register fragment", Toast.LENGTH_SHORT).show();
                 registerFragment();
             }
@@ -59,6 +61,10 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Toggle buttons
+                login.setBackgroundResource(R.drawable.button_rounded_focused);
+                register.setBackgroundResource(R.drawable.button_rounded_normal);
+
                 Toast.makeText(LoginActivity.this, "Going to login fragment", Toast.LENGTH_SHORT).show();
                 setViewPager(viewPager);
             }
