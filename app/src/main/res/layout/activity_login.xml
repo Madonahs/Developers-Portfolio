@@ -53,6 +53,7 @@
 
         <!---This fragment will have both login and register on the same activity-->
         <!-- TODO: Change this ViewPager's height to wrap content instead of being hardcoded. -->
+        <!--- when changed to wrap content, the fragments didn't show-->
         <android.support.v4.view.ViewPager
             android:id="@+id/container"
             android:layout_width="match_parent"
