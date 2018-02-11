@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <!-- Logo -->
         <ImageView
@@ -26,7 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="10dp">
+            android:padding="7dp"
+            android:clipToPadding="false">
 
             <Button
                 android:id="@+id/btn_login"
@@ -36,7 +38,8 @@
                 android:layout_marginRight="16dp"
                 android:fontFamily="@font/raleway"
                 android:layout_weight="1"
-                android:text="@string/login" />
+                android:text="@string/login"
+                />
 
             <Button
                 android:id="@+id/btn_register"
@@ -53,7 +56,6 @@
 
         <!---This fragment will have both login and register on the same activity-->
         <!-- COMPLETE: Change this ViewPager's height to wrap content instead of being hardcoded. -->
-        <!--- when changed to wrap content, the fragments didn't show-->
         <!-- Add Class that will manage ViewPager -->
         <com.madonasyombua.growwithgoogleteamproject.ui.fragment.ViewPagerManagement
             android:id="@+id/container"
