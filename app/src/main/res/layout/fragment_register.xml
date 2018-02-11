@@ -2,13 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:focusableInTouchMode="true"
     android:orientation="vertical">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/til_username"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:hintEnabled="false">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/edit_username"
@@ -25,7 +27,8 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/til_email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:hintEnabled="false">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/edit_email"
@@ -42,7 +45,9 @@
     <android.support.design.widget.TextInputLayout
         android:id="@+id/til_password"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:hintEnabled="false"
+        android:paddingBottom="8dp">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/edit_password"
@@ -61,9 +66,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="3dp"
+        android:paddingTop="2dp"
         android:background="@drawable/button_rounded"
         android:drawableRight="@drawable/ic_arrow_forward"
         android:fontFamily="@font/raleway"
-        android:padding="5dp" />
+         />
 </LinearLayout>
