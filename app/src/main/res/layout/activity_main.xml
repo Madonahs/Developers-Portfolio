@@ -4,24 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/display"
     tools:context="com.madonasyombua.growwithgoogleteamproject.MainActivity">
 
     <!--  TODO Text View on TOP -->
     <!--  This Text View shows the Welcom! text on top. Need to beautify it using a logo or a
     better font scheme-->
-    <TextView
-        android:id="@+id/tv_welcome"
-        android:layout_width="208dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="16dp"
-        android:text="Welcome!"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.426"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Edit Text to enter a password. It will automatically show asterisks while entering password-->
     <EditText
@@ -64,11 +52,12 @@
         android:layout_height="29dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="112dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif"
         android:text="Social Login"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.161"
+        app:layout_constraintHorizontal_bias="0.238"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_signin" />
     
@@ -80,6 +69,7 @@
         android:layout_height="64dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="104dp"
+        android:layout_marginRight="104dp"
         android:layout_marginTop="8dp"
         android:clickable="true"
         android:focusable="true"
@@ -111,13 +101,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
         android:layout_marginLeft="76dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/button_shape"
-        android:textColor="#FFFF"
         android:backgroundTint="@color/colorPrimaryDark"
         android:text="@string/login_text"
+        android:textColor="#FFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
   <!-- Sign Up button, initially greyed out. Once clicked should give a separate layout to sign up -->
     <Button
         android:id="@+id/btn_signup"
@@ -125,13 +115,13 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="88dp"
         android:layout_marginRight="88dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/button_shape"
         android:backgroundTint="?attr/colorButtonNormal"
         android:text="@string/signup_text"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <!-- This Floating action button is used to connect user through facebook login.
     Images can also be used instead -->
@@ -141,6 +131,7 @@
         android:layout_height="58dp"
         android:layout_marginBottom="16dp"
         android:layout_marginStart="128dp"
+        android:layout_marginLeft="128dp"
         android:layout_marginTop="8dp"
         android:clickable="true"
         android:focusable="true"
@@ -150,6 +141,18 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_social_login"
         app:layout_constraintVertical_bias="0.685"
         app:srcCompat="@drawable/facebook_login" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="314dp"
+        android:layout_height="95dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
     <!-- TODO Add a divider line above social login icons or below social login text view if image
       or beautiful font not possible -->
