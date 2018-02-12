@@ -17,6 +17,9 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by Ayo on 2/9/2018.
  */
@@ -24,9 +27,10 @@ import java.util.regex.Pattern;
 public class RegisterFragment extends Fragment {
     private static final String TAG = "RegisterFragment";
 
-    private TextInputEditText username, email, password;
-    private Button btn_register;
-    private TextInputLayout til_username, til_email, til_password;
+    @BindView(R.id.edit_username) TextInputEditText mUserNameEditText;
+    @BindView(R.id.edit_email) TextInputEditText mEmailEditText;
+    @BindView(R.id.edit_password) TextInputEditText mPasswordEditText;
+    @BindView(R.id.register_fragment_button) Button mRegisterButton;
 
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
@@ -40,17 +44,14 @@ public class RegisterFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_register, container, false);
-        username = view.findViewById(R.id.edit_username);
-        email = view.findViewById(R.id.edit_email);
-        password = view.findViewById(R.id.edit_password);
-        btn_register = view.findViewById(R.id.register_fragment_button);
+        ButterKnife.bind(this,view);
 
-        btn_register.setOnClickListener(new View.OnClickListener() {
+        mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username_txt = extractText(username);
-                String email_txt = extractText(email);
-                String password_txt = extractText(password);
+                String username_txt = extractText(mUserNameEditText);
+                String email_txt = extractText(mEmailEditText);
+                String password_txt = extractText(mPasswordEditText);
 
                 Toast.makeText(getActivity(), "Registering", Toast.LENGTH_SHORT).show();
 
