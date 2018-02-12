@@ -9,5 +9,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />
+    <!-- Can we create an AppBar for the Gravator? just a suggestion-->
+
+    <!--<include
+        layout="@layout/app_bar_profile"
+        inside the appbar we can add a  another layoutn content_profile?" just a thought />
+        />-->
+
 
 </FrameLayout>
