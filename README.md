@@ -16,21 +16,10 @@ Things we're targeting in Stage 1:
 6. First cut of the app must be able to make HTTP requests, and get a response as a handshake, not necessarily getting full payload response.
 7. Initial mock up screens to be prepared for first cut.
 
-
+Design by Madonah Syombua
 ![syombua1](https://user-images.githubusercontent.com/11560987/36005973-f9b39102-0cff-11e8-8b07-1c754393cdb6.jpg)
 
 ## API Instructions
 - Download Postman: https://www.getpostman.com/
-- Mimick this screenshot to send request: https://drive.google.com/file/d/1mEEUqbIyCVexqlwnOYUTTMDr0cGfsyiG/view?usp=sharing
- - request type: POST
- - request url: 188.166.69.159:3000/basic
- - authorization type: basic auth
- - username: google
- - password: group
 
-  ### Expected results:
-  - id: 1
-  - name: Grow with Google
-
-   in Json Format
-
+Please check here for latest API details, this is the README of API repo https://github.com/boredomdenied/GwGTeamProjectApi/blob/master/README.md
