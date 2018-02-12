@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintEnabled="false">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edit_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:background="@drawable/edit_text_custom"
+            android:fontFamily="@font/raleway"
+            android:hint="@string/username"
+            android:textSize="20sp" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintEnabled="false">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edit_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:background="@drawable/edit_text_custom"
+            android:fontFamily="@font/raleway"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:textSize="20sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintEnabled="false"
+        android:paddingBottom="8dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edit_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/edit_text_custom"
+            android:fontFamily="@font/raleway"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textSize="20sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/register_fragment_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="2dp"
+        android:background="@drawable/button_rounded"
+        android:drawableRight="@drawable/ic_arrow_forward"
+        android:fontFamily="@font/raleway"
+         />
+</LinearLayout>
