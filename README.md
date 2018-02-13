@@ -23,3 +23,9 @@ Design by Madonah Syombua
 - Download Postman: https://www.getpostman.com/
 
 Please check here for latest API details, this is the README of API repo https://github.com/boredomdenied/GwGTeamProjectApi/blob/master/README.md
+
+## External Libraries
+Intro - Ahoy! OnBoard - https://github.com/codemybrainsout/ahoy-onboarding
+
+Bind Views - ButterKnife - https://github.com/JakeWharton/butterknife
+

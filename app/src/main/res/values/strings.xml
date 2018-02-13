@@ -9,8 +9,10 @@
     <string name="social_network">Social Login</string>
 
 
+    <item name="visible" type="id" />
+    <item name="masked" type="id" />
 
-        <item name="visible" type="id"/>
-        <item name="masked" type="id"/>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Profile Fragment</string>
 
 </resources>
