@@ -17,7 +17,8 @@ Things we're targeting in Stage 1:
 7. Initial mock up screens to be prepared for first cut.
 
 Design by Madonah Syombua
-![syombuaimage](https://user-images.githubusercontent.com/11560987/36179343-84b055f8-10e1-11e8-892e-8798595a0beb.png)
+![syombua](https://user-images.githubusercontent.com/11560987/36179671-dab3911c-10e2-11e8-9e8a-aabd4b74cc36.png)
+
 
 
 ## API Instructions
