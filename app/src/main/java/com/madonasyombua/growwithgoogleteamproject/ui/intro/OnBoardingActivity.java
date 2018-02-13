@@ -30,12 +30,13 @@ public class OnBoardingActivity extends AhoyOnboarderActivity {
         card1.setDescriptionColor(R.color.grey_200);
 
 
+
         AhoyOnboarderCard card2 = new AhoyOnboarderCard("Collaborate", "We want you to add to this app, so fork us on Github and join the fun", R.drawable.logo);
         card2.setBackgroundColor(R.color.black_transparent);
         card2.setTitleColor(R.color.white);
         card2.setDescriptionColor(R.color.grey_200);
 
-        AhoyOnboarderCard card3 = new AhoyOnboarderCard("Add More", "Give me ideas", R.drawable.logo);
+        AhoyOnboarderCard card3 = new AhoyOnboarderCard("I want to officially ", "Thank you for participating", R.drawable.logo);
         card3.setBackgroundColor(R.color.black_transparent);
         card3.setTitleColor(R.color.white);
         card3.setDescriptionColor(R.color.grey_200);
