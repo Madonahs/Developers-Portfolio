@@ -32,8 +32,8 @@ Bind Views - ButterKnife - https://github.com/JakeWharton/butterknife
 
 
 ## Incase you encounter Errors when trying to run the project
-Step 1: Open the folder shown 
+1: Open the folder shown 
 ![step 1](https://user-images.githubusercontent.com/11560987/36135523-4978ef1c-1051-11e8-9900-b15847692260.PNG)
 
-Step 2: Expand and run the show below.
+2: Expand and run the show below.
 ![step 2](https://user-images.githubusercontent.com/11560987/36135524-4aa70bee-1051-11e8-924c-ae70f2f22c30.PNG)
