@@ -29,7 +29,7 @@ Intro - Ahoy! OnBoard - https://github.com/codemybrainsout/ahoy-onboarding
 
 Bind Views - ButterKnife - https://github.com/JakeWharton/butterknife
 
-## Ensuring your fork is uptodate:
+## Ensuring your fork is up to date:
 Info: https://gist.github.com/CristinaSolana/1885435
 
 ## Incase you encounter Errors when trying to run the project
