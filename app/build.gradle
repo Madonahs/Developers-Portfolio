@@ -27,5 +27,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:26.1.0'
+    compile 'com.codemybrainsout.onboarding:onboarder:1.0.4'
+    compile 'com.jonathanfinerty.once:once:1.2.2'
+
 
 }
