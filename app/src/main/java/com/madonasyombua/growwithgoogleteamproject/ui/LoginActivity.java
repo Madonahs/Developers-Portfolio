@@ -1,8 +1,10 @@
 package com.madonasyombua.growwithgoogleteamproject.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,18 +14,23 @@ import com.madonasyombua.growwithgoogleteamproject.Adapter.FragmentsAdapter;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.LoginFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.RegisterFragment;
+import com.madonasyombua.growwithgoogleteamproject.ui.intro.OnBoardingActivity;
+
+import jonathanfinerty.once.Once;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static final String TAG = "LoginActivity";
     TextView mWelcome;
     FragmentsAdapter fragmentsAdapter;
     ViewPager viewPager;
     @BindView(R.id.btn_login) Button mLoginButton;
     @BindView(R.id.btn_register) Button mRegisterButton;
 
+    static final int SHOW_INTRO = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +77,24 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        //setup the onboarding activity
+        Once.initialise(this);
+        if (!Once.beenDone(Once.THIS_APP_INSTALL, "showTutorial")){
+            Log.i(TAG, "onCreate: First time");
+            startActivityForResult(new Intent(this, OnBoardingActivity.class), SHOW_INTRO);
+        }
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == SHOW_INTRO){
+            if (resultCode == RESULT_OK){
+                Once.markDone("showTutorial");
+            }
+        }
+    }
+
+
 
     private void setViewPager(ViewPager viewPager){
         FragmentsAdapter adapter = new FragmentsAdapter(getSupportFragmentManager());
