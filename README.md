@@ -19,7 +19,8 @@ Things we're targeting in Stage 1:
 Design by Madonah Syombua
 ![syombua](https://user-images.githubusercontent.com/11560987/36179671-dab3911c-10e2-11e8-9e8a-aabd4b74cc36.png)
 
-
+## Authors
+We will add all Authors once done
 
 ## API Instructions
 - Download Postman: https://www.getpostman.com/
