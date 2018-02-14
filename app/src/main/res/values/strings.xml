@@ -15,4 +15,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Profile Fragment</string>
 
+    <!-- Facebook -->
+    <string name="facebook_app_id">2100423613573087</string>
+    <string name="fb_login_protocol_scheme">fb2100423613573087</string>
+
+
 </resources>
