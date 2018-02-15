@@ -33,7 +33,8 @@ public class LoginActivity extends AppCompatActivity {
     Button mFacebookLoginButton, mGoogleLoginButton;
     CallbackManager mCallbackManager;
 
-    // Facebook permission
+    // Facebook permissions - public profile, email
+    // TODO: Add more permissions as needed and make sure to add it to the permission array list below
     private static final String PUBLIC_PROFILE_PERMISSION = "public_profile";
     private static final String EMAIL_PERMISSION = "email";
 
@@ -97,6 +98,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Toast.makeText(getBaseContext(), R.string.facebook_login_success, Toast.LENGTH_LONG).show();
+                Log.d(TAG, "Facebook user id: " + loginResult.getAccessToken().getUserId());
+                Log.d(TAG, "Facebook access token: " + loginResult.getAccessToken().getToken());
 
                 // TODO: Use the returned token from loginResult to make a graph API request for user info (name, email, ....)
                 // For now, redirect user to the profile activity
