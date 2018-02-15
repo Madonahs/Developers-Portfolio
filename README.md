@@ -16,21 +16,27 @@ Things we're targeting in Stage 1:
 6. First cut of the app must be able to make HTTP requests, and get a response as a handshake, not necessarily getting full payload response.
 7. Initial mock up screens to be prepared for first cut.
 
+Design by Madonah Syombua
+![syombua](https://user-images.githubusercontent.com/11560987/36179671-dab3911c-10e2-11e8-9e8a-aabd4b74cc36.png)
 
-![syombua1](https://user-images.githubusercontent.com/11560987/36005973-f9b39102-0cff-11e8-8b07-1c754393cdb6.jpg)
+## Authors
+We will add all Authors once done
 
 ## API Instructions
 - Download Postman: https://www.getpostman.com/
-- Mimick this screenshot to send request: https://drive.google.com/file/d/1mEEUqbIyCVexqlwnOYUTTMDr0cGfsyiG/view?usp=sharing
- - request type: POST
- - request url: 188.166.69.159:3000/basic
- - authorization type: basic auth
- - username: google
- - password: group
 
-  ### Expected results:
-  - id: 1
-  - name: Grow with Google
+Please check here for latest API details, this is the README of API repo https://github.com/boredomdenied/GwGTeamProjectApi/blob/master/README.md
 
-   in Json Format
+## External Libraries
+Intro - Ahoy! OnBoard - https://github.com/codemybrainsout/ahoy-onboarding
 
+Bind Views - ButterKnife - https://github.com/JakeWharton/butterknife
+
+## Ensuring your fork is up to date:
+Info: https://gist.github.com/CristinaSolana/1885435
+
+## Incase you encounter Errors when trying to run the project
+1: Open the folder shown.
+
+2: Expand and run the show below.
+![step 2](https://user-images.githubusercontent.com/11560987/36135524-4aa70bee-1051-11e8-924c-ae70f2f22c30.PNG)
