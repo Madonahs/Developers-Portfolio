@@ -55,6 +55,7 @@
                         android:layout_gravity="bottom|center_horizontal">
 
                         //TODO: Add drawable start
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -83,11 +84,16 @@
                             android:paddingStart="@dimen/button_padding"
                             android:text="@string/edit_profile"
                             android:textColor="@android:color/white"
-                            android:textSize="@dimen/text_size"
+                            android:textSize="@dimen/small_text_size"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
                     </android.support.constraint.ConstraintLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:background="@color/colorPrimary" />
                 </LinearLayout>
             </android.support.design.widget.CollapsingToolbarLayout>
 
@@ -105,6 +111,184 @@
             <!--android:layout_height="wrap_content" />-->
             //TODO: Add Content
             //NOTE: this viewgroup supports only one direct child
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/fab_margin"
+                android:layout_marginRight="@dimen/fab_margin">
+                //TODO: populate from model using data variable
+                //Intro and content
+
+                <TextView
+                    android:id="@+id/intro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="intro_head"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/intro_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="lorem_ipsum"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/intro" />
+                //Following
+
+                <TextView
+                    android:id="@+id/following_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="425"
+                    android:textSize="@dimen/big_text_size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/intro_content" />
+
+                <TextView
+                    android:id="@+id/following_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Following"
+                    app:layout_constraintBottom_toBottomOf="@+id/line"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/following_count" />
+                //followers
+
+                <TextView
+                    android:id="@+id/follower_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="27K"
+                    android:textSize="@dimen/big_text_size"
+                    app:layout_constraintEnd_toStartOf="@+id/project_count"
+                    app:layout_constraintStart_toEndOf="@+id/following_count"
+                    app:layout_constraintTop_toBottomOf="@+id/intro_content" />
+
+                <TextView
+                    android:id="@+id/follower_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Followers"
+                    app:layout_constraintBottom_toBottomOf="@+id/line"
+                    app:layout_constraintEnd_toStartOf="@+id/project_txt"
+                    app:layout_constraintStart_toEndOf="@+id/following_txt"
+                    app:layout_constraintTop_toBottomOf="@+id/follower_count"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                //Projects
+                <TextView
+                    android:id="@+id/project_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="434"
+                    android:textSize="@dimen/big_text_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/follower_count"
+                    app:layout_constraintTop_toBottomOf="@+id/intro_content" />
+
+                <TextView
+                    android:id="@+id/project_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Projects"
+                    app:layout_constraintBottom_toBottomOf="@+id/line"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/follower_txt"
+                    app:layout_constraintTop_toBottomOf="@+id/project_count" />
+
+                <View
+                    android:id="@+id/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginBottom="@dimen/fab_margin"
+                    android:layout_marginTop="@dimen/fab_margin"
+                    android:background="@color/colorPrimary"
+                    app:layout_constraintBottom_toTopOf="@+id/contact_info"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="183dp" />
+
+                <LinearLayout
+                    android:id="@+id/contact_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    //TODO: populate from model using data variable
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/fab_margin"
+                        android:layout_marginTop="@dimen/fab_margin"
+                        android:drawableLeft="@drawable/ic_home"
+                        android:drawableStart="@drawable/ic_home"
+                        android:text="Stuff" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/fab_margin"
+                        android:layout_marginTop="@dimen/fab_margin"
+                        android:drawableLeft="@drawable/ic_phone"
+                        android:drawableStart="@drawable/ic_phone"
+                        android:text="Stuff" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/fab_margin"
+                        android:layout_marginTop="@dimen/fab_margin"
+                        android:drawableLeft="@drawable/ic_email"
+                        android:drawableStart="@drawable/ic_email"
+                        android:text="Stuff" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/fab_margin"
+                        android:layout_marginTop="@dimen/fab_margin"
+                        android:drawableLeft="@drawable/ic_web"
+                        android:drawableStart="@drawable/ic_web"
+                        android:text="Stuff" />
+                </LinearLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
 
         </android.support.v4.widget.NestedScrollView>
 

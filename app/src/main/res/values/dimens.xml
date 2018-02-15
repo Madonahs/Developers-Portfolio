@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="stroke_size">2dp</dimen>
-    <dimen name="text_size">12sp</dimen>
+    <dimen name="small_text_size">12sp</dimen>
+    <dimen name="big_text_size">30sp</dimen>
     <dimen name="button_padding">25dp</dimen>
     <dimen name="corner_radius">24dp</dimen>
+    <dimen name="margin">8dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>
