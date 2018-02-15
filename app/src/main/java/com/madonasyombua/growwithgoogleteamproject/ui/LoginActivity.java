@@ -7,18 +7,35 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.internal.CallbackManagerImpl;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
 import com.madonasyombua.growwithgoogleteamproject.Adapter.FragmentsAdapter;
+import com.madonasyombua.growwithgoogleteamproject.ProfileActivity;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityLoginBinding;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.LoginFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.RegisterFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.intro.OnBoardingActivity;
 
+import java.util.Arrays;
+
 import jonathanfinerty.once.Once;
 
 public class LoginActivity extends AppCompatActivity {
+
+    Button mFacebookLoginButton, mGoogleLoginButton;
+    CallbackManager mCallbackManager;
+
+    // Facebook permission
+    private static final String PUBLIC_PROFILE_PERMISSION = "public_profile";
+    private static final String EMAIL_PERMISSION = "email";
 
     private ActivityLoginBinding binding;
     private static final String TAG = "LoginActivity";
@@ -29,13 +46,12 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
 
-        /***
-         * NOTE: Removed the welcome text since we already got a pretty cool logo
-         */
+        mCallbackManager = CallbackManager.Factory.create();
 
+        mFacebookLoginButton = (Button) findViewById(R.id.btn_facebook_login);
+        mGoogleLoginButton = (Button) findViewById(R.id.btn_google_login);
 
         // Buttons initial state
-
         binding.btnLogin.setBackgroundResource(R.drawable.button_rounded_focused);
         binding.btnRegister.setBackgroundResource(R.drawable.button_rounded_normal);
 
@@ -68,6 +84,37 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        // Custom facebook login button
+        mFacebookLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this, Arrays.asList(PUBLIC_PROFILE_PERMISSION, EMAIL_PERMISSION));
+            }
+        });
+
+
+        LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Toast.makeText(getBaseContext(), R.string.facebook_login_success, Toast.LENGTH_LONG).show();
+
+                // TODO: Use the returned token from loginResult to make a graph API request for user info (name, email, ....)
+                // For now, redirect user to the profile activity
+                Intent profileIntent = new Intent(getBaseContext(), ProfileActivity.class);
+                startActivity(profileIntent);
+            }
+
+            @Override
+            public void onCancel() {
+                Toast.makeText(getBaseContext(), R.string.facebook_login_cancel, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Toast.makeText(getBaseContext(), R.string.facebook_login_error, Toast.LENGTH_LONG).show();
+            }
+        });
+
         //setup the onboarding activity
         Once.initialise(this);
         if (!Once.beenDone(Once.THIS_APP_INSTALL, "showTutorial")) {
@@ -82,6 +129,8 @@ public class LoginActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 Once.markDone("showTutorial");
             }
+        } else if (requestCode == CallbackManagerImpl.RequestCodeOffset.Login.toRequestCode()){
+            mCallbackManager.onActivityResult(requestCode, resultCode, data);
         }
     }
 
