@@ -1,6 +1,7 @@
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.madonasyombua.growwithgoogleteamproject.R;
+import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentProfileBinding;
+import com.madonasyombua.growwithgoogleteamproject.models.User;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +30,7 @@ public class ProfileFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private FragmentProfileBinding mBinding;
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,7 +69,11 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        mBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_profile, container, false);
+
+        //Add dummy user
+        mBinding.setUser(new User());
+        return  mBinding.getRoot();
     }
 
     // TODO: Rename method, update argument and hook method into UI event

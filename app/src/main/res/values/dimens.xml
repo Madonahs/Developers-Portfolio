@@ -5,6 +5,6 @@
     <dimen name="big_text_size">30sp</dimen>
     <dimen name="button_padding">25dp</dimen>
     <dimen name="corner_radius">24dp</dimen>
-    <dimen name="margin">8dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
 </resources>
