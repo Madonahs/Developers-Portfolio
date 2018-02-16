@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.madonasyombua.growwithgoogleteamproject.ui.LoginActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="vertical"
+        >
+
+        <!-- Logo -->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="162dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/logo" />
+
+        <!-- Sign in and Sign up buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="7dp"
+            android:clipToPadding="false">
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_rounded"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/raleway"
+                android:layout_weight="1"
+                android:text="@string/login"/>
+
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_rounded"
+                android:fontFamily="@font/raleway"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="1"
+                android:text="@string/register" />
+
+        </LinearLayout>
+
+
+        <!---This fragment will have both login and register on the same activity-->
+        <!-- COMPLETE: Change this ViewPager's height to wrap content instead of being hardcoded. -->
+        <!-- Add Class that will manage ViewPager -->
+        <com.madonasyombua.growwithgoogleteamproject.ui.fragment.ViewPagerManagement
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="16dp">
+
+        </com.madonasyombua.growwithgoogleteamproject.ui.fragment.ViewPagerManagement>
+
+        <!-- Social login -->
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/raleway"
+            android:text="@string/social_network"
+            android:textSize="20sp" />
+
+        <!-- Facebook and Google+ login buttons -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="50dp">
+
+            <!-- These buttons will eventually change to use the ones from SDKs when we are ready
+                 to implement the social login.
+
+                 TODO: Change to the provided buttons from facebook/google SDKs
+            -->
+            <Button
+                android:id="@+id/btn_facebook_login"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/ic_facebook"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/raleway"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btn_google_login"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/ic_google"
+                android:fontFamily="@font/raleway"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <!---Button for social network-->
+</ScrollView>
+</layout>
