@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,6 +74,7 @@ public class ProfileFragment extends Fragment {
 
         //Add dummy user
         mBinding.setUser(new User());
+        mBinding.intro.setText(Html.fromHtml("<u>Intro</u>"));
         return  mBinding.getRoot();
     }
 

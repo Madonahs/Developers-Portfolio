@@ -119,12 +119,15 @@
 
                 <TextView
                     android:id="@+id/intro"
+                    android:textColor="#004ecb"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_8"
                     android:layout_marginStart="@dimen/margin_8"
                     android:layout_marginTop="@dimen/margin_8"
-                    android:text="intro"
+                    android:text="Intro"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -225,7 +228,7 @@
 
                 <LinearLayout
                     android:id="@+id/contact_info"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_8"
                     android:layout_marginTop="@dimen/margin_16"
