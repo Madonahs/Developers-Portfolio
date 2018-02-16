@@ -25,7 +25,7 @@ import com.madonasyombua.growwithgoogleteamproject.ui.fragment.RegisterFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.intro.OnBoardingActivity;
 
 import java.util.Arrays;
-
+// I see we have a jonathanfinerty import here, I hope we can get details on it
 import jonathanfinerty.once.Once;
 
 public class LoginActivity extends AppCompatActivity {
