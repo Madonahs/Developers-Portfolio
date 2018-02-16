@@ -17,7 +17,10 @@ Things we're targeting in Stage 1:
 7. Initial mock up screens to be prepared for first cut.
 
 Design by Madonah Syombua
-![syombua1](https://user-images.githubusercontent.com/11560987/36005973-f9b39102-0cff-11e8-8b07-1c754393cdb6.jpg)
+![syombua](https://user-images.githubusercontent.com/11560987/36179671-dab3911c-10e2-11e8-9e8a-aabd4b74cc36.png)
+
+## Authors
+We will add all Authors once done
 
 ## API Instructions
 - Download Postman: https://www.getpostman.com/
@@ -29,3 +32,11 @@ Intro - Ahoy! OnBoard - https://github.com/codemybrainsout/ahoy-onboarding
 
 Bind Views - ButterKnife - https://github.com/JakeWharton/butterknife
 
+## Ensuring your fork is up to date:
+Info: https://gist.github.com/CristinaSolana/1885435
+
+## Incase you encounter Errors when trying to run the project
+1: Open the folder shown.
+
+2: Expand and run the show below.
+![step 2](https://user-images.githubusercontent.com/11560987/36135524-4aa70bee-1051-11e8-924c-ae70f2f22c30.PNG)

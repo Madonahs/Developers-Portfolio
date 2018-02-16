@@ -17,4 +17,14 @@
     <string name="edit_profile">EDIT PROFILE</string>
     <string name="online">Online</string>
 
+    <!-- Facebook -->
+    <string name="facebook_app_id">2100423613573087</string>
+    <string name="fb_login_protocol_scheme">fb2100423613573087</string>
+
+    <!-- Facebook login toast messages -->
+    <string name="facebook_login_success">Successfully logged in...</string>
+    <string name="facebook_login_cancel">Facebook login cancelled...</string>
+    <string name="facebook_login_error">Facebook login failed...</string>
+
+
 </resources>
