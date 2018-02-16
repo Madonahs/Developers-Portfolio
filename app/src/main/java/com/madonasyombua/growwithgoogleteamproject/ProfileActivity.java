@@ -15,7 +15,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileFragmen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        //TODO: Need handle screen orientation changes
+        //TODO: Need to handle screen orientation changes
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.add(R.id.container,new ProfileFragment());
         ft.commit();
