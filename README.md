@@ -1,4 +1,4 @@
-# Grow With Google Team Project - 
+# Grow With Google Team Project 
 Grow With Google Scholarship Team Project.
 
 ## Programmer Portfolio App
