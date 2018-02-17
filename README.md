@@ -17,7 +17,15 @@ An open mind and an open heart.
 
 See also the list of [contributors](https://github.com/Madonahs/GrowWithGoogleTeamProject/settings/collaboration) who participated in this project.
 
-Design by Madonah Syombua
+## Contributing
+Read [Contributing](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
+
+## Code of Conduct
+
+Read [Code of Conduct](https://github.com/Madonahs/GrowWithGoogleTeamProject/blob/master/CODE_OF_CONDUCT.md)
+
+## Design by Madonah Syombua
+
 ![syombua](https://user-images.githubusercontent.com/11560987/36179671-dab3911c-10e2-11e8-9e8a-aabd4b74cc36.png)
 
 ## License
