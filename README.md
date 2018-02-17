@@ -13,6 +13,8 @@ An open mind and an open heart.
 * **Rado RAMBININTSOA** - *Team Member*
 * **Emmanuel Ayo** - *Team Member*
 * **Maher Soua** - *Team Member*
+* **Clever Chuk** - *Team Member*
+
 
 
 See also the list of [contributors](https://github.com/Madonahs/GrowWithGoogleTeamProject/settings/collaboration) who participated in this project.
