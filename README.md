@@ -1,9 +1,12 @@
-# GrowWithGoogleTeamProject
+# Grow With Google Team Project - 
 Grow With Google Scholarship Team Project.
 
 ## Programmer Portfolio App
 
 The project is meant to help programmers have a portfolio sharing platform, programmers are welcome to share their projects and they can interact and show employers what they have done in the app, one doesnt have to create a website to showcase his/her work. The project was done by team members participating in the Grow With Google Scholarship Program offered by Google|Udacity. 
+
+### Prerequisites
+An open mind and an open heart.
 
 ## Authors
 * **Madona Syombua** - *Lead Team Member* 
@@ -17,6 +20,13 @@ See also the list of [contributors] https://github.com/Madonahs/GrowWithGoogleTe
 Design by Madonah Syombua
 ![syombua](https://user-images.githubusercontent.com/11560987/36179671-dab3911c-10e2-11e8-9e8a-aabd4b74cc36.png)
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Thank you to Google/Udacity for bringing this community together.
 
 ## External Libraries
 Intro - Ahoy! OnBoard - https://github.com/codemybrainsout/ahoy-onboarding
