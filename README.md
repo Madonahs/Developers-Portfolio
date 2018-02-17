@@ -1,26 +1,23 @@
 # GrowWithGoogleTeamProject
 Grow With Google Scholarship Team Project.
 
-subject to change.
+## Programmer Portfolio App
 
-This is a TEAM PROJECT.
+The project is meant to help programmers have a portfolio sharing platform, programmers are welcome to share their projects and they can interact and show employers what they have done in the app, one doesnt have to create a website to showcase his/her work. The project was done by team members participating in the Grow With Google Scholarship Program offered by Google|Udacity. 
 
-Things we're targeting in Stage 1:
-1. Create a place holder for our project. GitHub is one of the choices.
-2. All interested members would fork from the directory and work on their individual branches.
-3. These branches would serve as pull requests for version upgrades.
-4. Initial setup for the app creation is to create an empty activity to have text fields and buttons for login and signing up options. Two approaches for framework creation:
-   a) Use local database sqlite to check for username and password entry & add/register a new user.
-    b) Use local node or other server to fetch response for HTTP queries to serve login/register request.
-5. Till the final server and API format gets frozen(accepted and set up), everyone must be able to launch the app and fetch a connection through HTTP URL.
-6. First cut of the app must be able to make HTTP requests, and get a response as a handshake, not necessarily getting full payload response.
-7. Initial mock up screens to be prepared for first cut.
+## Authors
+* **Madona Syombua** - *Lead Team Member* 
+* **Rado RAMBININTSOA** - *Team Member*
+* **Emmanuel Ayo** - *Team Member*
+* **Maher Soua** - *Team Member*
+
+
+See also the list of [contributors] https://github.com/Madonahs/GrowWithGoogleTeamProject/settings/collaboration who participated in this project.
 
 Design by Madonah Syombua
 ![syombua](https://user-images.githubusercontent.com/11560987/36179671-dab3911c-10e2-11e8-9e8a-aabd4b74cc36.png)
 
-## Authors
-We will add all Authors once done
+
 
 ## API Instructions
 - Download Postman: https://www.getpostman.com/
