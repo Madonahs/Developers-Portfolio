@@ -13,7 +13,7 @@ An open mind and an open heart.
 * **Rado RAMBININTSOA** - *Team Member*
 * **Emmanuel Ayo** - *Team Member*
 * **Maher Soua** - *Team Member*
-* **Clever Chuk** - *Team Member*
+* **Chukwubuikem Ume-Ugwa** - *Team Member*
 
 
 
