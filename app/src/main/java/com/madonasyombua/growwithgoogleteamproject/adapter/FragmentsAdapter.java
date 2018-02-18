@@ -1,4 +1,4 @@
-package com.madonasyombua.growwithgoogleteamproject.Adapter;
+package com.madonasyombua.growwithgoogleteamproject.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
