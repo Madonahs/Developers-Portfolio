@@ -13,7 +13,7 @@
     <item name="masked" type="id" />
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Profile Fragment</string>
+    <string name="hello_blank_fragment1">Profile Fragment</string>
     <string name="edit_profile">EDIT PROFILE</string>
     <string name="online">Online</string>
 
@@ -25,6 +25,13 @@
     <string name="facebook_login_success">Successfully logged in...</string>
     <string name="facebook_login_cancel">Facebook login cancelled...</string>
     <string name="facebook_login_error">Facebook login failed...</string>
+    <string name="interest">Interests</string>
+    <string name="projects">Projects</string>
+    <string name="feeds">Feeds</string>
+    <string name="profile">Profile</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
