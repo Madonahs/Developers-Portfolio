@@ -1,31 +1,43 @@
-# GrowWithGoogleTeamProject
+# Grow With Google Team Project 
 Grow With Google Scholarship Team Project.
 
-subject to change.
+## Dev's Portfolio App
 
-This is a TEAM PROJECT.
+The project is meant to help programmers have a portfolio sharing platform, programmers are welcome to share their projects and they can interact and show employers what they have done in the app, one doesnt have to create a website to showcase his/her work. The project was done by team members participating in the Grow With Google Scholarship Program offered by Google|Udacity. 
 
-Things we're targeting in Stage 1:
-1. Create a place holder for our project. GitHub is one of the choices.
-2. All interested members would fork from the directory and work on their individual branches.
-3. These branches would serve as pull requests for version upgrades.
-4. Initial setup for the app creation is to create an empty activity to have text fields and buttons for login and signing up options. Two approaches for framework creation:
-   a) Use local database sqlite to check for username and password entry & add/register a new user.
-    b) Use local node or other server to fetch response for HTTP queries to serve login/register request.
-5. Till the final server and API format gets frozen(accepted and set up), everyone must be able to launch the app and fetch a connection through HTTP URL.
-6. First cut of the app must be able to make HTTP requests, and get a response as a handshake, not necessarily getting full payload response.
-7. Initial mock up screens to be prepared for first cut.
-
-Design by Madonah Syombua
-![syombua](https://user-images.githubusercontent.com/11560987/36179671-dab3911c-10e2-11e8-9e8a-aabd4b74cc36.png)
+### Prerequisites
+An open mind and an open heart.
 
 ## Authors
-We will add all Authors once done
+* **Madona Syombua** - *Lead Team Member* 
+* **Rado RAMBININTSOA** - *Team Member*
+* **Ayobami Emmanuel Adewale** - *Team Member*
+* **Maher Soua** - *Team Member*
+* **Chukwubuikem Ume-Ugwa** - *Team Member*
+* **Jantz Carney** - *Team Member*
 
-## API Instructions
-- Download Postman: https://www.getpostman.com/
 
-Please check here for latest API details, this is the README of API repo https://github.com/boredomdenied/GwGTeamProjectApi/blob/master/README.md
+
+See also the list of [contributors](https://github.com/Madonahs/GrowWithGoogleTeamProject/settings/collaboration) who participated in this project.
+
+## Contributing
+Read [Contributing](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
+
+## Code of Conduct
+
+Read [Code of Conduct](https://github.com/Madonahs/GrowWithGoogleTeamProject/blob/master/CODE_OF_CONDUCT.md)
+
+## Design Mock up by Madonah Syombua
+
+![madonah syombua](https://user-images.githubusercontent.com/11560987/36348146-a8a19fc6-142e-11e8-8e9a-31f5e3d22f2b.png)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* I personally wanted to thank everyone who accepted my ideas and helped make this project the best, I appreciate you.Also thank you to Google|Udacity for bringing this community together.
 
 ## External Libraries
 Intro - Ahoy! OnBoard - https://github.com/codemybrainsout/ahoy-onboarding
