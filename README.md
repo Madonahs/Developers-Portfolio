@@ -1,7 +1,7 @@
 # Grow With Google Team Project 
 Grow With Google Scholarship Team Project.
 
-## Programmer Portfolio App
+## Dev's Portfolio App
 
 The project is meant to help programmers have a portfolio sharing platform, programmers are welcome to share their projects and they can interact and show employers what they have done in the app, one doesnt have to create a website to showcase his/her work. The project was done by team members participating in the Grow With Google Scholarship Program offered by Google|Udacity. 
 
