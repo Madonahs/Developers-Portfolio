@@ -26,9 +26,9 @@ Read [Contributing](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
 
 Read [Code of Conduct](https://github.com/Madonahs/GrowWithGoogleTeamProject/blob/master/CODE_OF_CONDUCT.md)
 
-## Design by Madonah Syombua
+## Design Mock up by Madonah Syombua
 
-![syombua](https://user-images.githubusercontent.com/11560987/36179671-dab3911c-10e2-11e8-9e8a-aabd4b74cc36.png)
+![madonah syombua](https://user-images.githubusercontent.com/11560987/36348146-a8a19fc6-142e-11e8-8e9a-31f5e3d22f2b.png)
 
 ## License
 
