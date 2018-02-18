@@ -11,7 +11,7 @@ An open mind and an open heart.
 ## Authors
 * **Madona Syombua** - *Lead Team Member* 
 * **Rado RAMBININTSOA** - *Team Member*
-* **Emmanuel Ayo** - *Team Member*
+* **Ayobami Emmanuel Adewale** - *Team Member*
 * **Maher Soua** - *Team Member*
 * **Chukwubuikem Ume-Ugwa** - *Team Member*
 * **Jantz Carney** - *Team Member*
