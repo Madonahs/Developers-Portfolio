@@ -14,6 +14,7 @@ An open mind and an open heart.
 * **Emmanuel Ayo** - *Team Member*
 * **Maher Soua** - *Team Member*
 * **Chukwubuikem Ume-Ugwa** - *Team Member*
+* **Jantz Carney** - *Team Member*
 
 
 
