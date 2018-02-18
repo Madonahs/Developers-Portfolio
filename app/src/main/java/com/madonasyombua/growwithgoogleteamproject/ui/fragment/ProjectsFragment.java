@@ -1,14 +1,27 @@
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
 import android.content.Context;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.madonasyombua.growwithgoogleteamproject.Adapter.PortfolioAdapter;
 import com.madonasyombua.growwithgoogleteamproject.R;
+import com.madonasyombua.growwithgoogleteamproject.models.Portfolio;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +36,9 @@ public class ProjectsFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private List<Portfolio> portfolioList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private PortfolioAdapter mAdapter;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -62,10 +78,22 @@ public class ProjectsFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_projects, container, false);
+        View view = inflater.inflate(R.layout.fragment_projects, container, false);
+        recyclerView = view.findViewById(R.id.portfolio_recycler_view);
+
+        mAdapter = new PortfolioAdapter(portfolioList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
+
+        testPortfolioData();
+
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -73,6 +101,22 @@ public class ProjectsFragment extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
+    }
+
+    private void testPortfolioData() {
+        Portfolio portfolio = new Portfolio("Simple Maths", "Android Application", "Simple Maths is a" +
+                "mobile app project that I did for kids. It's a learning app for Arithmetic and Alphabetics", R.drawable.ic_facebook);
+        portfolioList.add(portfolio);
+
+        portfolio = new Portfolio("Essay Tutors", "Web Development", "This is an online tutoring network" +
+                "for teachers and students.", R.drawable.ic_google);
+        portfolioList.add(portfolio);
+
+        portfolio = new Portfolio("Budgeting Buddy", "Android Development", "This is a budgeting planner" +
+                "and expense tracking mobile device for Android devices.", R.drawable.ic_facebook);
+        portfolioList.add(portfolio);
+
+        mAdapter.notifyDataSetChanged();
     }
 
     @Override
