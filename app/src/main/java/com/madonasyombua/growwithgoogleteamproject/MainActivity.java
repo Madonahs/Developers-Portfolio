@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private FragmentsAdapter fragmentsAdapter;
     //fragment to start when login and sign up is successful
-    //private Fragment fragment = new ProfileFragment();
+    //private Fragment fragment = new FeedsFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-//i am cautious in using binding since i dont know much about it. Would love to learn more.
+//i am cautious in using binding since i don't know much about it. Would love to learn more.
 
    /* private void setViewPager(ViewPager viewPager){
         fragmentsAdapter = new FragmentsAdapter(getSupportFragmentManager());
