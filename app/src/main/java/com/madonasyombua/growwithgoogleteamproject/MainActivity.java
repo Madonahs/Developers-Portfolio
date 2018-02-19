@@ -3,17 +3,31 @@ package com.madonasyombua.growwithgoogleteamproject;
  * Created by madona on 2/8/18.
  */
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
 import com.madonasyombua.growwithgoogleteamproject.adapter.FragmentsAdapter;
 import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityMainBinding;
+import com.madonasyombua.growwithgoogleteamproject.ui.fragment.FeedsFragment;
+import com.madonasyombua.growwithgoogleteamproject.ui.fragment.InterestFragment;
+import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProfileFragment;
+import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProjectsFragment;
+import com.madonasyombua.growwithgoogleteamproject.util.BottomNavigationViewHelper;
 import com.madonasyombua.growwithgoogleteamproject.util.Session;
 
 public class MainActivity extends AppCompatActivity {
-    private ActivityMainBinding binding;
-    private FragmentsAdapter fragmentsAdapter;
+    //private ActivityMainBinding binding;
+    //private FragmentsAdapter fragmentsAdapter;
+
     //fragment to start when login and sign up is successful
-    //private Fragment fragment = new FeedsFragment();
+   // private Fragment fragment = new FeedsFragment();
+
+    //for now i will start nothing
+    private Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
       //This is my bottom navigator for easy navigation couldn't draw this on my mockup since it was difficult to squeeze everything.
-       /* BottomNavigationView navigation = findViewById(R.id.navigation);
+        BottomNavigationView navigation = findViewById(R.id.navigation);
         BottomNavigationViewHelper.disableShiftMode(navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);*/
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
        /* FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.content, fragment);
@@ -55,34 +69,34 @@ public class MainActivity extends AppCompatActivity {
 
     }
     // Here i am trying to switch activities on my bottom navigation
-   /* private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
+     // we will start the fragments once we have worked on them.
             switch (item.getItemId()) {
                 case R.id.action_feeds:
-                    fragment = new FeedsFragment();
+                    //fragment = new FeedsFragment();
                     break;
                 case R.id.action_interests:
-                    fragment = new InterestFragment();
+                   // fragment = new InterestFragment();
                     break;
                 case R.id.action_projects:
-                    fragment = new ProjectsFragment();
+                 //   fragment = new ProjectsFragment();
                     break;
                 case R.id.action_profile:
-                    fragment = new ProfileFragment();
+                //    fragment = new ProfileFragment();
                     break;
 
             }
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+           /* FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.content, fragment);
-            transaction.commit();
+            transaction.commit();*/
             return true;
         }
 
-    };*/
+    };
 
     @Override
     public void onBackPressed(){
