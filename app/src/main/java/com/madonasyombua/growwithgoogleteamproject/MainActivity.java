@@ -2,25 +2,11 @@ package com.madonasyombua.growwithgoogleteamproject;
 /**
  * Created by madona on 2/8/18.
  */
-import android.content.Intent;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
 
-import com.madonasyombua.growwithgoogleteamproject.Adapter.FragmentsAdapter;
+import com.madonasyombua.growwithgoogleteamproject.adapter.FragmentsAdapter;
 import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityMainBinding;
-import com.madonasyombua.growwithgoogleteamproject.ui.LoginActivity;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.FeedsFragment;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.InterestFragment;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.LoginFragment;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProfileFragment;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProjectsFragment;
-import com.madonasyombua.growwithgoogleteamproject.util.BottomNavigationViewHelper;
 import com.madonasyombua.growwithgoogleteamproject.util.Session;
 
 public class MainActivity extends AppCompatActivity {

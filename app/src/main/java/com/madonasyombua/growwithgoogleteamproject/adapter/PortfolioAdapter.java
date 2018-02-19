@@ -1,4 +1,4 @@
-package com.madonasyombua.growwithgoogleteamproject.Adapter;
+package com.madonasyombua.growwithgoogleteamproject.adapter;
 
 /**
  * Created by jantz on 2/18/2018.
