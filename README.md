@@ -37,7 +37,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* I personally wanted to thank everyone who accepted my ideas and helped make this project the best, I appreciate you.Also thank you to Google|Udacity for bringing this community together.
+* I personally wanted to thank everyone who accepted my ideas and helped make this project the best, I appreciate you. Also thank you to Google|Udacity for bringing this community together.
 
 ## External Libraries
 Intro - Ahoy! OnBoard - https://github.com/codemybrainsout/ahoy-onboarding
