@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProfileFragment;
 
 public class ProfileActivity extends AppCompatActivity implements ProfileFragment.OnFragmentInteractionListener{
-//to started once the email and password authentication goes through.
+//to started once the email and password authentication goes through..
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
