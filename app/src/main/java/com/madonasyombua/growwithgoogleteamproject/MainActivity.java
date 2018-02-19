@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
-import com.madonasyombua.growwithgoogleteamproject.adapter.FragmentsAdapter;
+import com.madonasyombua.growwithgoogleteamproject.Adapter.FragmentsAdapter;
 import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityMainBinding;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.LoginFragment;
 
