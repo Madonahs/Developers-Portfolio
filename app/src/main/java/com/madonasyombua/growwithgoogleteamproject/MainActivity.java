@@ -2,6 +2,8 @@ package com.madonasyombua.growwithgoogleteamproject;
 /**
  * Created by madona on 2/8/18.
  */
+
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -10,8 +12,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.madonasyombua.growwithgoogleteamproject.adapter.FragmentsAdapter;
-import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityMainBinding;
+import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.FeedsFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.InterestFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProfileFragment;
@@ -19,7 +20,7 @@ import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProjectsFragment;
 import com.madonasyombua.growwithgoogleteamproject.util.BottomNavigationViewHelper;
 import com.madonasyombua.growwithgoogleteamproject.util.Session;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener {
     //private ActivityMainBinding binding;
     //private FragmentsAdapter fragmentsAdapter;
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     //for now i will start nothing
     private Fragment fragment;
+    FragmentTransaction transaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationViewHelper.disableShiftMode(navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-       /* FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.content, fragment);
-        transaction.commit();*/
+        transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(R.id.content, new FeedsFragment());
+        transaction.commit();
 
 
     }
@@ -77,22 +79,21 @@ public class MainActivity extends AppCompatActivity {
      // we will start the fragments once we have worked on them.
             switch (item.getItemId()) {
                 case R.id.action_feeds:
-                    //fragment = new FeedsFragment();
+                    fragment = new FeedsFragment();
                     break;
                 case R.id.action_interests:
-                   // fragment = new InterestFragment();
+                    fragment = new InterestFragment();
                     break;
                 case R.id.action_projects:
-                 //   fragment = new ProjectsFragment();
+                   fragment = new ProjectsFragment();
                     break;
                 case R.id.action_profile:
-                //    fragment = new ProfileFragment();
+                    fragment = new ProfileFragment();
                     break;
 
             }
-           /* FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
             transaction.replace(R.id.content, fragment);
-            transaction.commit();*/
             return true;
         }
 
@@ -103,5 +104,9 @@ public class MainActivity extends AppCompatActivity {
         moveTaskToBack(true);
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
 }
 
