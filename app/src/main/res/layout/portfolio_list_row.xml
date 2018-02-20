@@ -14,6 +14,7 @@
         <TextView
             android:id="@+id/title"
             android:text="@string/placeholder_project_name"
+            android:fontFamily="@font/raleway"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimary"
@@ -24,6 +25,7 @@
             android:text="@string/placeholder_project_short_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             android:textSize="14sp"/>
@@ -31,6 +33,7 @@
             android:id="@+id/longDescription"
             android:paddingBottom="8dp"
             android:paddingTop="8dp"
+            android:fontFamily="@font/raleway"
             android:text="@string/placeholder_project_long_description"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
@@ -44,6 +47,7 @@
             android:background="@drawable/small_blue_oval_background"
             android:clickable="true"
             android:focusable="true"
+            android:fontFamily="@font/raleway"
             android:text="@string/view"/>
         <LinearLayout
             android:paddingTop="10dp"
@@ -60,6 +64,7 @@
                 android:text="@string/placeholder_project_likes_count"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
+                android:fontFamily="@font/raleway"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimary"/>
         </LinearLayout>

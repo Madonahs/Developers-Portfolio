@@ -142,6 +142,7 @@
                     android:layout_marginEnd="@dimen/margin_8"
                     android:layout_marginStart="@dimen/margin_8"
                     android:layout_marginTop="@dimen/margin_8"
+                    android:fontFamily="@font/raleway"
                     android:text="@{user.intro}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

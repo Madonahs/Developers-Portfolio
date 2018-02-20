@@ -25,11 +25,10 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     //private FragmentsAdapter fragmentsAdapter;
 
     //fragment to start when login and sign up is successful
-   // private Fragment fragment = new FeedsFragment();
+    private Fragment fragment = new FeedsFragment();
 
     //for now i will start nothing
-    private Fragment fragment;
-    FragmentTransaction transaction;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +48,10 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         BottomNavigationViewHelper.disableShiftMode(navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.content, new FeedsFragment());
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.content, fragment);
         transaction.commit();
+
 
 
     }
@@ -93,7 +93,10 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
             }
 
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.content, fragment);
+            transaction.commit();
+            //transaction.replace(R.id.content, fragment);
             return true;
         }
 

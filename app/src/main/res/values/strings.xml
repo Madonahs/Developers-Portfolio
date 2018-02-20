@@ -32,11 +32,12 @@
     <string name="profile">Profile</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Feeds Fragment to start here Thanks team for your patience and support on this project</string>
     <string name="placeholder_project_name">Project Name</string>
     <string name="placeholder_project_short_description">Short Description</string>
     <string name="placeholder_project_long_description">Long Description</string>
     <string name="placeholder_project_likes_count">Number of likes</string>
+    <string name="hello_blank">Interest to go here waiting for this layout.</string>
 
 
 </resources>
