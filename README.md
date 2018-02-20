@@ -15,6 +15,8 @@ An open mind and an open heart.
 * **Maher Soua** - *Team Member*
 * **Chukwubuikem Ume-Ugwa** - *Team Member*
 * **Jantz Carney** - *Team Member*
+* **Srinath Chintapalli** - *Team Member*
+
 
 
 
