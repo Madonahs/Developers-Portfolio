@@ -38,8 +38,8 @@ public class LoginFragment extends Fragment {
                 String password_text = extractText(binding.editPassword);
 
                 Toast.makeText(getActivity(), "Logging in", Toast.LENGTH_SHORT).show();
-                //TODO: Remove line
-                startActivity(new Intent(getActivity(), ProfileActivity.class));
+                //TODO: start MainActivity from Here
+               // startActivity(new Intent(getActivity(), ProfileActivity.class));
             }
         });
 
