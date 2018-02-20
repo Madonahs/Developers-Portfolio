@@ -44,12 +44,11 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.11'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
 
- profileActivity
     // CircleImageView Lib
     compile 'de.hdodenhof:circleimageview:2.1.0'
-=======
+
     // Facebook SDK
     implementation 'com.facebook.android:facebook-login:[4,5)'
- master
+
 
 }

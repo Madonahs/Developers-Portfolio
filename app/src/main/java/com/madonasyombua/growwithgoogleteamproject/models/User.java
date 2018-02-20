@@ -10,7 +10,7 @@ package com.madonasyombua.growwithgoogleteamproject.models;
 public class User {
     private String name, followers, following, projects;
     private String email, location, phone, website, intro;
-    private String status;
+    private boolean status;
 
 
     //TODO: Remove default values and
@@ -25,7 +25,7 @@ public class User {
         this.email = "email@email.com";
         this.following = "425";
         this.projects = "434";
-        this.status = "Online";
+        this.status = true;
 
     }
 
@@ -69,7 +69,7 @@ public class User {
         return intro;
     }
 
-    public String getStatus() {
+    public boolean getStatus() {
         return status;
     }
 }
