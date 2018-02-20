@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     //fragment to start when login and sign up is successful
     private Fragment fragment = new FeedsFragment();
 
-    //for now i will start nothing
 
 
     @Override
@@ -96,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.content, fragment);
             transaction.commit();
-            //transaction.replace(R.id.content, fragment);
+
             return true;
         }
 
