@@ -20,8 +20,6 @@ An open mind and an open heart.
 
 
 
-See also the list of [contributors](https://github.com/Madonahs/GrowWithGoogleTeamProject/settings/collaboration) who participated in this project.
-
 ## Contributing
 Read [Contributing](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
 
