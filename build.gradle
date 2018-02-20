@@ -8,8 +8,6 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
-        classpath 'com.jakewharton:butterknife-gradle-plugin:8.8.1'
-        
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -25,4 +23,25 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+// Define version in a single place
+ext{
+    // SDK and tools
+    minSdkVersion = 15
+    targetSdkVersion = 27
+    compileSdkVersion = 27
+
+    // App dependencies
+    supportLibraryVersion = '27.0.2'
+    junitVersion = '4.12'
+    butterKnifeVersion = '8.8.1'
+    daggerVersion = '2.11'
+    runnerVersion = '1.0.1'
+    espressoVersion = '3.0.1'
+    constraintLayoutVersion = '1.0.2'
+    onBoarderVersion = '1.0.4'
+    onceVersion = '1.2.2'
+    circleImageViewVersion = '2.1.0'
+    facebookLoginVersion = '4.30.0'
 }
