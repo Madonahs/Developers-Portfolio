@@ -10,14 +10,15 @@ An open mind and an open heart.
 
 ## Authors
 * **Madona Syombua** - *Lead Team Member* 
-* **Rado RAMBININTSOA** - *Team Member*
-* **Emmanuel Ayo** - *Team Member*
+* **Rado RAMBININTSOA** - *Lead Team Member*
+* **Ayobami Emmanuel Adewale** - *Team Member*
 * **Maher Soua** - *Team Member*
 * **Chukwubuikem Ume-Ugwa** - *Team Member*
+* **Jantz Carney** - *Team Member*
+* **Srinath Chintapalli** - *Team Member*
 
 
 
-See also the list of [contributors](https://github.com/Madonahs/GrowWithGoogleTeamProject/settings/collaboration) who participated in this project.
 
 ## Contributing
 Read [Contributing](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
@@ -36,7 +37,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* I personally wanted to thank everyone who accepted my ideas and helped make this project the best, I appreciate you.Also thank you to Google|Udacity for bringing this community together.
+* I personally wanted to thank everyone who accepted my ideas and helped make this project the best, I appreciate you. Also thank you to Google|Udacity for bringing this community together.
 
 ## External Libraries
 Intro - Ahoy! OnBoard - https://github.com/codemybrainsout/ahoy-onboarding
