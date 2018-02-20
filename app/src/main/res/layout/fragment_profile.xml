@@ -49,6 +49,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/margin_8"
                         android:text="@{user.name}"
+                        android:fontFamily="@font/raleway"
                         android:textColor="@android:color/white"
                         android:textSize="20sp" />
 
@@ -67,6 +68,7 @@
                             android:layout_marginLeft="@dimen/margin_8"
                             android:layout_marginStart="@dimen/margin_8"
                             android:layout_marginTop="@dimen/margin_8"
+                            android:fontFamily="@font/raleway"
                             android:text="@{user.status}"
                             android:textColor="@android:color/white"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -84,6 +86,7 @@
                             android:layout_marginTop="@dimen/margin_8"
                             android:background="@drawable/button_transparent"
                             android:paddingEnd="@dimen/button_padding"
+                            android:fontFamily="@font/raleway"
                             android:paddingStart="@dimen/button_padding"
                             android:text="@string/edit_profile"
                             android:textColor="@android:color/white"
@@ -119,17 +122,18 @@
 
                 <TextView
                     android:id="@+id/intro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_8"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:fontFamily="@font/raleway"
+                    android:text="Intro"
                     android:textColor="#004ecb"
                     android:textSize="24dp"
                     android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_8"
-                    android:layout_marginStart="@dimen/margin_8"
-                    android:layout_marginTop="@dimen/margin_8"
-                    android:text="Intro"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="@dimen/margin_8" />
 
                 <TextView
                     android:id="@+id/intro_content"
@@ -159,6 +163,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_16"
+                    android:fontFamily="@font/raleway"
                     android:text="Following"
                     app:layout_constraintStart_toStartOf="@+id/following_count"
                     app:layout_constraintTop_toBottomOf="@+id/following_count" />
@@ -186,6 +191,7 @@
                     android:layout_marginEnd="@dimen/margin_8"
                     android:layout_marginStart="@dimen/margin_8"
                     android:layout_marginTop="@dimen/margin_16"
+                    android:fontFamily="@font/raleway"
                     android:text="Followers"
                     app:layout_constraintEnd_toStartOf="@+id/project_txt"
                     app:layout_constraintStart_toEndOf="@+id/following_txt"
@@ -208,6 +214,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_16"
+                    android:fontFamily="@font/raleway"
                     android:text="Projects"
                     app:layout_constraintStart_toStartOf="@+id/project_count"
                     app:layout_constraintTop_toBottomOf="@+id/project_count" />
@@ -248,6 +255,7 @@
                         android:layout_marginTop="@dimen/margin_16"
                         android:drawableLeft="@drawable/ic_home"
                         android:drawableStart="@drawable/ic_home"
+                        android:fontFamily="@font/raleway"
                         android:text="@{user.location}" />
 
                     <TextView
@@ -257,6 +265,7 @@
                         android:layout_marginTop="@dimen/margin_16"
                         android:drawableLeft="@drawable/ic_phone"
                         android:drawableStart="@drawable/ic_phone"
+                        android:fontFamily="@font/raleway"
                         android:text="@{user.phone}" />
 
                     <TextView
@@ -266,6 +275,7 @@
                         android:layout_marginTop="@dimen/margin_16"
                         android:drawableLeft="@drawable/ic_email"
                         android:drawableStart="@drawable/ic_email"
+                        android:fontFamily="@font/raleway"
                         android:text="@{user.email}" />
 
                     <TextView
@@ -275,6 +285,7 @@
                         android:layout_marginTop="@dimen/margin_16"
                         android:drawableLeft="@drawable/ic_web"
                         android:drawableStart="@drawable/ic_web"
+                        android:fontFamily="@font/raleway"
                         android:text="@{user.website}" />
 
                 </LinearLayout>
