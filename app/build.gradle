@@ -56,8 +56,12 @@ dependencies {
     implementation "com.facebook.android:facebook-login:$rootProject.ext.facebookLoginVersion"
 
     // Firebase
-    implementation "com.google.firebase:firebase-database:$rootProject.ext.firebaseDatabaseVersion"
-    implementation "com.google.firebase:firebase-core:$rootProject.ext.firebaseDatabaseVersion"
+    implementation "com.google.firebase:firebase-database:$rootProject.ext.playServicesVersion"
+    implementation "com.google.firebase:firebase-core:$rootProject.ext.playServicesVersion"
+    //Firebase SDK
+    compile "com.google.firebase:firebase-auth:$rootProject.ext.playServicesVersion"
+    compile "com.google.android.gms:play-services-auth:$rootProject.ext.playServicesVersion"
+
 }
 
 

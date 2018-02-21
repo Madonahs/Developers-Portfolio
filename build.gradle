@@ -45,4 +45,5 @@ ext {
     circleImageViewVersion = '2.1.0'
     facebookLoginVersion = '4.30.0'
     firebaseDatabaseVersion = '11.0.4'
+    playServicesVersion = '11.8.0'
 }
