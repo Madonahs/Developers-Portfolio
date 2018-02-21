@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.madonasyombua.growwithgoogleteamproject.R;
+import com.madonasyombua.growwithgoogleteamproject.database.DataManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentRegisterBinding;
 
 import java.util.regex.Matcher;
@@ -43,6 +45,8 @@ public class RegisterFragment extends Fragment {
                 String username_txt = extractText(binding.editUsername);
                 String email_txt = extractText(binding.editEmail);
                 String password_txt = extractText(binding.editPassword);
+                DataManager.saveUserInfo(username_txt);
+                Log.d("RegisterFragment", "clicked");
                 Toast.makeText(getActivity(), "Registering", Toast.LENGTH_SHORT).show();
 
             }

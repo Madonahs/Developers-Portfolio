@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    dataBinding{
+    dataBinding {
         enabled = true
     }
     defaultConfig {
@@ -34,7 +34,7 @@ dependencies {
     androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
 
-   //AhoyOnBoard library
+    //AhoyOnBoard library
     compile "com.codemybrainsout.onboarding:onboarder:$rootProject.ext.onBoarderVersion"
     compile "com.jonathanfinerty.once:once:$rootProject.ext.onceVersion"
 
@@ -44,10 +44,10 @@ dependencies {
 
     // Dagger
     compile "com.google.dagger:dagger-android:$rootProject.ext.daggerVersion"
-    compile "com.google.dagger:dagger-android-support:$rootProject.ext.daggerVersion" // if you use the support libraries
+    compile "com.google.dagger:dagger-android-support:$rootProject.ext.daggerVersion"
+    // if you use the support libraries
     annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.ext.daggerVersion"
     annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
-
 
     // CircleImageView Lib
     compile "de.hdodenhof:circleimageview:$rootProject.ext.circleImageViewVersion"
@@ -55,4 +55,10 @@ dependencies {
     // Facebook SDK
     implementation "com.facebook.android:facebook-login:$rootProject.ext.facebookLoginVersion"
 
+    // Firebase
+    implementation "com.google.firebase:firebase-database:$rootProject.ext.firebaseDatabaseVersion"
+    implementation "com.google.firebase:firebase-core:$rootProject.ext.firebaseDatabaseVersion"
 }
+
+
+apply plugin: 'com.google.gms.google-services'

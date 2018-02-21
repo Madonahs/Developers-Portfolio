@@ -11,6 +11,7 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        classpath 'com.google.gms:google-services:3.1.0'
     }
 }
 
@@ -43,4 +44,5 @@ ext {
     onceVersion = '1.2.2'
     circleImageViewVersion = '2.1.0'
     facebookLoginVersion = '4.30.0'
+    firebaseDatabaseVersion = '11.0.4'
 }
