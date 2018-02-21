@@ -120,15 +120,15 @@ public class ProfileFragment extends Fragment {
     private void setStatus(boolean online){
         if(online)
         {
-            mBinding.status.setCompoundDrawables(getActivity().getResources()
-                    .getDrawable(R.drawable.ic_online),null,null,null);
-            mBinding.status.setText("Online");
+            mBinding.status.setCompoundDrawablesWithIntrinsicBounds(getResources()
+                            .getDrawable(R.drawable.ic_online),null,null,null);
+            mBinding.status.setText(getString(R.string.online));
         }
         else
         {
-            mBinding.status.setCompoundDrawables(getActivity().getResources()
+            mBinding.status.setCompoundDrawablesWithIntrinsicBounds(getResources()
                     .getDrawable(R.drawable.ic_offline),null,null,null);
-            mBinding.status.setText("Offline");
+            mBinding.status.setText(getString(R.string.offline));
         }
 
     }
