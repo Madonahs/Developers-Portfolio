@@ -73,7 +73,7 @@
                             android:layout_marginLeft="@dimen/margin_8"
                             android:layout_marginStart="@dimen/margin_8"
                             android:layout_marginTop="@dimen/margin_8"
-                            android:text="@{user.status}"
+
                             android:textColor="@android:color/white"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"

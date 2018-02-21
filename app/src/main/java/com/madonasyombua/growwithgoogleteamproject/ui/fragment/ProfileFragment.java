@@ -104,9 +104,7 @@ public class ProfileFragment extends Fragment {
         mListener = null;
     }
 
-<<<<<<< HEAD
 
-=======
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -124,17 +122,17 @@ public class ProfileFragment extends Fragment {
     private void setStatus(boolean online){
         if(online)
         {
-            mBinding.status.setCompoundDrawablesWithIntrinsicBounds(getResources()
-                            .getDrawable(R.drawable.ic_online),null,null,null);
-            mBinding.status.setText(getString(R.string.online));
+           // mBinding.status.setCompoundDrawablesWithIntrinsicBounds(getResources()
+         //                   .getDrawable(R.drawable.ic_online),null,null,null);
+        //    mBinding.status.setText(getString(R.string.online));
         }
         else
         {
-            mBinding.status.setCompoundDrawablesWithIntrinsicBounds(getResources()
-                    .getDrawable(R.drawable.ic_offline),null,null,null);
-            mBinding.status.setText(getString(R.string.offline));
+        //    mBinding.status.setCompoundDrawablesWithIntrinsicBounds(getResources()
+        //            .getDrawable(R.drawable.ic_offline),null,null,null);
+      //      mBinding.status.setText(getString(R.string.offline));
         }
 
     }
->>>>>>> 226cb7f1cae8eff096b0bc717d9c2d9a66646082
+
 }
