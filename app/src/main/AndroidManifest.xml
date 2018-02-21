@@ -44,7 +44,7 @@
         <!-- <activity android:name=".ui.LoginActivity"> -->
         <!-- I am starting the Main Activity lets start the class from there then call login Activity for now so that we can work on inside the app i will stop the login-->
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,7 +53,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ProfileActivity"
+            android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.intro.OnBoardingActivity"

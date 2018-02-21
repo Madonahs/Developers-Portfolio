@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.madonasyombua.growwithgoogleteamproject.MainActivity;
 import com.madonasyombua.growwithgoogleteamproject.ProfileActivity;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentLoginBinding;
@@ -39,7 +40,8 @@ public class LoginFragment extends Fragment {
 
                 Toast.makeText(getActivity(), "Logging in", Toast.LENGTH_SHORT).show();
                 //TODO: start MainActivity from Here
-               // startActivity(new Intent(getActivity(), ProfileActivity.class));
+                startActivity(new Intent(getActivity(), MainActivity.class));
+
             }
         });
 

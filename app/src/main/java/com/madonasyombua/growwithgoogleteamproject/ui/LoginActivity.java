@@ -16,6 +16,7 @@ import com.facebook.FacebookException;
 import com.facebook.internal.CallbackManagerImpl;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import com.madonasyombua.growwithgoogleteamproject.MainActivity;
 import com.madonasyombua.growwithgoogleteamproject.adapter.FragmentsAdapter;
 import com.madonasyombua.growwithgoogleteamproject.ProfileActivity;
 import com.madonasyombua.growwithgoogleteamproject.R;
@@ -66,8 +67,8 @@ public class LoginActivity extends AppCompatActivity {
                 // Toggle buttons
                 binding.btnLogin.setBackgroundResource(R.drawable.button_rounded_normal);
                 binding.btnRegister.setBackgroundResource(R.drawable.button_rounded_focused);
-                Toast.makeText(LoginActivity.this, "Going to register fragment", Toast.LENGTH_SHORT).show();
-                registerFragment();
+               Toast.makeText(LoginActivity.this, "Going to register fragment", Toast.LENGTH_SHORT).show();
+               registerFragment();
             }
         });
 
@@ -78,10 +79,8 @@ public class LoginActivity extends AppCompatActivity {
                 // Toggle buttons
                 binding.btnLogin.setBackgroundResource(R.drawable.button_rounded_focused);
                 binding.btnRegister.setBackgroundResource(R.drawable.button_rounded_normal);
-
-
                 Toast.makeText(LoginActivity.this, "Going to login fragment", Toast.LENGTH_SHORT).show();
-                setViewPager(binding.container);
+               setViewPager(binding.container);
             }
         });
 
@@ -103,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 // TODO: Use the returned token from loginResult to make a graph API request for user info (name, email, ....)
                 // For now, redirect user to the profile activity
-                Intent profileIntent = new Intent(getBaseContext(), ProfileActivity.class);
+                Intent profileIntent = new Intent(getBaseContext(), MainActivity.class);
                 startActivity(profileIntent);
             }
 
