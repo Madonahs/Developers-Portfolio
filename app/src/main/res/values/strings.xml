@@ -16,7 +16,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment1">Profile Fragment</string>
     <string name="edit_profile">EDIT PROFILE</string>
-    <string name="online">Online</string>
 
     <!-- Facebook -->
     <string name="facebook_app_id">2100423613573087</string>
@@ -26,6 +25,7 @@
     <string name="facebook_login_success">Successfully logged in...</string>
     <string name="facebook_login_cancel">Facebook login cancelled...</string>
     <string name="facebook_login_error">Facebook login failed...</string>
+
     <string name="interest">Interests</string>
     <string name="projects">Projects</string>
     <string name="feeds">Feeds</string>
@@ -39,6 +39,10 @@
     <string name="placeholder_project_likes_count">Number of likes</string>
     <string name="hello_blank">Interest to go here waiting for this layout.</string>
     <string name="project_screenshot">Project_screenshot</string>
+
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+
 
 
 </resources>
