@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp">
+    android:layout_marginTop="8dp"
+    >
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -40,6 +41,7 @@
                 app:layout_constraintStart_toEndOf="@+id/title"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/logo" />
+
          <!-- Textview one -->
             <TextView
                 android:id="@+id/title"
@@ -53,6 +55,7 @@
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <!-- Textview two -->
             <TextView
                 android:id="@+id/shortDescription"
@@ -82,6 +85,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/portfolio_image"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/shortDescription" />
+
    <!-- the view Button , once clicked should lead to the projects website -->
             <Button
                 android:id="@+id/btn_login"
