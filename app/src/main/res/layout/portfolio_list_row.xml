@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp">
 
     <android.support.v7.widget.CardView
         android:layout_width="368dp"
         android:layout_height="160dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
+        app:cardElevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <android.support.constraint.ConstraintLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/ic_facebook"
+                android:id="@+id/portfolio_image"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:contentDescription="@string/project_screenshot"
@@ -41,11 +43,11 @@
                 android:id="@+id/title"
                 android:layout_width="192dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/placeholder_project_name"
                 android:fontFamily="@font/raleway"
+                android:text="@string/placeholder_project_name"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -54,10 +56,10 @@
                 android:id="@+id/shortDescription"
                 android:layout_width="192dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:fontFamily="@font/raleway"
+                android:layout_marginStart="8dp"
                 android:ellipsize="end"
+                android:fontFamily="@font/raleway"
                 android:text="@string/placeholder_project_short_description"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/title" />
@@ -65,31 +67,32 @@
             <TextView
                 android:id="@+id/longDescription"
                 android:layout_width="192dp"
-                android:layout_height="34dp"
+                android:layout_height="55dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:fontFamily="@font/raleway"
                 android:layout_marginTop="8dp"
                 android:ellipsize="end"
+                android:fontFamily="@font/raleway"
+                android:maxLines="3"
                 android:text="@string/lorem_ipsum"
-                app:layout_constraintEnd_toStartOf="@+id/ic_facebook"
+                app:layout_constraintEnd_toStartOf="@+id/portfolio_image"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/shortDescription" />
 
             <Button
-                android:id="@+id/portfolio_image"
+                android:id="@+id/btn_login"
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
-                android:fontFamily="@font/raleway"
                 android:background="@drawable/button_rounded"
+                android:fontFamily="@font/raleway"
                 android:text="@string/view"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/longDescription" />
+                app:layout_constraintTop_toBottomOf="@+id/longDescription"
+                app:layout_constraintVertical_bias="0.75" />
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.CardView>
