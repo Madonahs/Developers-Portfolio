@@ -43,4 +43,5 @@ ext {
     onceVersion = '1.2.2'
     circleImageViewVersion = '2.1.0'
     facebookLoginVersion = '4.30.0'
+    playServicesVersion = '11.8.0'
 }
