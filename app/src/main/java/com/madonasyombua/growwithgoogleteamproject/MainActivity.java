@@ -180,7 +180,7 @@ public class MainActivity
     public void onFragmentInteraction(Uri uri) {
 
     }
-
+//
     // i am cautious in using binding since i don't know much about it. Would love to learn more.
    /* private void setViewPager(ViewPager viewPager){
         fragmentsAdapter = new FragmentsAdapter(getSupportFragmentManager());
