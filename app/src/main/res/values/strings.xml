@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Team Project</string>
+    <string name="app_name">Devs Portfolio</string>
     <string name="welcome">Welcome!</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -51,6 +51,7 @@
     <string name="placeholder_project_long_description">Long Description</string>
     <string name="placeholder_project_likes_count">Number of likes</string>
     <string name="hello_blank">Interest to go here waiting for this layout.</string>
+    <string name="project_screenshot">Project_screenshot</string>
 
     <!-- Drawer related -->
     <string name="drawer_messages_title">Messages</string>

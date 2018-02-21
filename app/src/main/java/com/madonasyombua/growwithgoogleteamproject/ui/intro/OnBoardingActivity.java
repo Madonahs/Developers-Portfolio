@@ -24,19 +24,19 @@ public class OnBoardingActivity extends AhoyOnboarderActivity {
         super.onCreate(savedInstanceState);
 
         //Creating the cards for the intro
-        AhoyOnboarderCard card1 = new AhoyOnboarderCard("Welcome", "This is a group project made for people to collaborate on",R.drawable.logo);
+        AhoyOnboarderCard card1 = new AhoyOnboarderCard("Developers Portfolio", "Welcome! ",R.drawable.logo);
         card1.setBackgroundColor(R.color.black_transparent);
         card1.setTitleColor(R.color.white);
         card1.setDescriptionColor(R.color.grey_200);
 
 
 
-        AhoyOnboarderCard card2 = new AhoyOnboarderCard("Collaborate", "We want you to add to this app, so fork us on Github and join the fun", R.drawable.logo);
+        AhoyOnboarderCard card2 = new AhoyOnboarderCard("About", "We want to help developers get a platform to share their projects and showcase their work for free.", R.drawable.logo);
         card2.setBackgroundColor(R.color.black_transparent);
         card2.setTitleColor(R.color.white);
         card2.setDescriptionColor(R.color.grey_200);
 
-        AhoyOnboarderCard card3 = new AhoyOnboarderCard("I want to officially ", "Thank you for participating", R.drawable.logo);
+        AhoyOnboarderCard card3 = new AhoyOnboarderCard("Share Your Work", "Thank you for using our platform. Enjoy", R.drawable.logo);
         card3.setBackgroundColor(R.color.black_transparent);
         card3.setTitleColor(R.color.white);
         card3.setDescriptionColor(R.color.grey_200);
@@ -48,7 +48,7 @@ public class OnBoardingActivity extends AhoyOnboarderActivity {
 
         setOnboardPages(pages);
         setGradientBackground();
-        setFinishButtonTitle("Begin");
+        setFinishButtonTitle("Click To Proceed");
         showNavigationControls(true);
 
         Log.i(TAG, "onCreate: Setting up the cards");

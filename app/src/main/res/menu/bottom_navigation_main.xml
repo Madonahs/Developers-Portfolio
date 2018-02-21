@@ -21,7 +21,7 @@
     <item
         android:id="@+id/action_projects"
         android:enabled="true"
-        android:icon="@drawable/ic_briefcase_w"
+        android:icon="@drawable/briefcase_outline"
         android:title="@string/projects"
         app:showAsAction="ifRoom" />
 
