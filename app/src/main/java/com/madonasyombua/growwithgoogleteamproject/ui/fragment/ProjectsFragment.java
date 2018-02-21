@@ -25,7 +25,7 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ProjectsFragment.OnFragmentInteractionListener} interface
+ *
  * to handle interaction events.
  * Use the {@link ProjectsFragment#newInstance} factory method to
  * create an instance of this fragment.
@@ -104,15 +104,15 @@ public class ProjectsFragment extends Fragment {
 
     private void testPortfolioData() {
         Portfolio portfolio = new Portfolio("Simple Maths", "Android Application", "Simple Maths is a" +
-                "mobile app project that I did for kids. It's a learning app for Arithmetic and Alphabetics", R.drawable.ic_facebook);
+                "mobile app project that I did for kids. It's a learning app for Arithmetic and Alphabetics", R.drawable.logo);
         portfolioList.add(portfolio);
 
         portfolio = new Portfolio("Essay Tutors", "Web Development", "This is an online tutoring network" +
-                "for teachers and students.", R.drawable.ic_google);
+                "for teachers and students.", R.drawable.logo);
         portfolioList.add(portfolio);
 
         portfolio = new Portfolio("Budgeting Buddy", "Android Development", "This is a budgeting planner" +
-                "and expense tracking mobile device for Android devices.", R.drawable.ic_facebook);
+                "and expense tracking mobile device for Android devices.", R.drawable.logo);
         portfolioList.add(portfolio);
 
         mAdapter.notifyDataSetChanged();
