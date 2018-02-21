@@ -2,8 +2,6 @@ package com.madonasyombua.growwithgoogleteamproject.database;
 
 import android.util.Log;
 
-import com.google.android.gms.internal.qg;
-import com.google.android.gms.internal.rx;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

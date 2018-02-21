@@ -1,29 +1,25 @@
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
 import android.content.Context;
-import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentProfileBinding;
-import com.madonasyombua.growwithgoogleteamproject.models.User;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
-
+ * {@link FeedsFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ProfileFragment#newInstance} factory method to
+ * Use the {@link FeedsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProfileFragment extends Fragment {
+public class FeedsFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -32,11 +28,10 @@ public class ProfileFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private FragmentProfileBinding mBinding;
 
     private OnFragmentInteractionListener mListener;
 
-    public ProfileFragment() {
+    public FeedsFragment() {
         // Required empty public constructor
     }
 
@@ -46,11 +41,11 @@ public class ProfileFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ProfileFragment.
+     * @return A new instance of fragment FeedsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ProfileFragment newInstance(String param1, String param2) {
-        ProfileFragment fragment = new ProfileFragment();
+    public static FeedsFragment newInstance(String param1, String param2) {
+        FeedsFragment fragment = new FeedsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,12 +66,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_profile, container, false);
-
-        //Add dummy user
-        mBinding.setUser(new User());
-        mBinding.intro.setText(Html.fromHtml("<u>Intro</u>"));
-        return  mBinding.getRoot();
+        return inflater.inflate(R.layout.fragment_feeds, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -102,6 +92,5 @@ public class ProfileFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
-
 
 }
