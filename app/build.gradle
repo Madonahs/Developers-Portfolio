@@ -1,8 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
+
+    compileSdkVersion 27
+    dataBinding {
+
     compileSdkVersion rootProject.ext.compileSdkVersion
     dataBinding{
+
         enabled = true
     }
     defaultConfig {
@@ -23,6 +28,19 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:27.0.2'
+    implementation 'com.android.support:support-v4:27.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:27.0.2'
+
+    //AhoyOnBoard library
+    compile 'com.codemybrainsout.onboarding:onboarder:1.0.4'
+    compile 'com.jonathanfinerty.once:once:1.2.2'
+
     implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
     implementation "com.android.support:support-v4:$rootProject.ext.supportLibraryVersion"
     implementation "com.android.support:design:$rootProject.ext.supportLibraryVersion"
@@ -33,6 +51,7 @@ dependencies {
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
     androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
+
 
    //AhoyOnBoard library
     compile "com.codemybrainsout.onboarding:onboarder:$rootProject.ext.onBoarderVersion"
@@ -48,11 +67,10 @@ dependencies {
     annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.ext.daggerVersion"
     annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
 
-
     // CircleImageView Lib
     compile "de.hdodenhof:circleimageview:$rootProject.ext.circleImageViewVersion"
 
     // Facebook SDK
     implementation "com.facebook.android:facebook-login:$rootProject.ext.facebookLoginVersion"
 
-}
+}}

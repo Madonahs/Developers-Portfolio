@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- social feeds to be displayed here-->
+
+    <item
+        android:id="@+id/action_feeds"
+        android:enabled="true"
+        android:icon="@drawable/ic_home_white"
+        android:title="@string/feeds"
+        app:showAsAction="ifRoom" />
+   <!-- interests to go here-->
+    <item
+        android:id="@+id/action_interests"
+        android:enabled="true"
+       android:icon="@drawable/ic_info_white"
+        android:title="@string/interest"
+        app:showAsAction="ifRoom" />
+    <!-- project portfolio -->
+
+    <item
+        android:id="@+id/action_projects"
+        android:enabled="true"
+        android:icon="@drawable/briefcase_outline"
+        android:title="@string/projects"
+        app:showAsAction="ifRoom" />
+
+    <!-- profile activity -->
+    <item
+        android:id="@+id/action_profile"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_profile"
+        android:title="@string/profile"
+        app:showAsAction="ifRoom" />
+</menu>
