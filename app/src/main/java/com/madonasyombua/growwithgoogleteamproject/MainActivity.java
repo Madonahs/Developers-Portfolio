@@ -165,12 +165,25 @@ public class MainActivity
             case R.id.manage_profile:
                 // Take user to edit profile screen
                 return false;
+
+            case R.id.notifications:
+                // Take user to notification screen
+                return false;
+
+            case R.id.settings:
+                // Take user to setting screen
+                return false;
+
             case R.id.about:
                 // Take user to about screen
                 return false;
             case R.id.help:
                 // Take user to help screen
                 return false;
+            case R.id.logout:
+                // logout
+                return false;
+
             default:
                 return false;
         }
