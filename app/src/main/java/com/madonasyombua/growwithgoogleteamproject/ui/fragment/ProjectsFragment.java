@@ -104,7 +104,7 @@ public class ProjectsFragment extends Fragment {
 
     private void testPortfolioData() {
         Portfolio portfolio = new Portfolio("Simple Maths", "Android Application", "Simple Maths is a" +
-                "mobile app project that I did for kids. It's a learning app for Arithmetic and Alphabetics", R.drawable.logo);
+                "mobile app project that I did for kids. It's a learning app for Arithmetic", R.drawable.ic_facebook);
         portfolioList.add(portfolio);
 
         portfolio = new Portfolio("Essay Tutors", "Web Development", "This is an online tutoring network" +
@@ -112,7 +112,7 @@ public class ProjectsFragment extends Fragment {
         portfolioList.add(portfolio);
 
         portfolio = new Portfolio("Budgeting Buddy", "Android Development", "This is a budgeting planner" +
-                "and expense tracking mobile device for Android devices.", R.drawable.logo);
+                " and expense tracking mobile device for Android devices.", R.drawable.ic_google);
         portfolioList.add(portfolio);
 
         mAdapter.notifyDataSetChanged();
