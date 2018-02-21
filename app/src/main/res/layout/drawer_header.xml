@@ -7,7 +7,8 @@
     android:layout_height="@dimen/drawer_header_height"
     android:background="@color/colorPrimary"
     android:fitsSystemWindows="true"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    >
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/drawer_header_user_image"
@@ -20,7 +21,8 @@
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/logo" />
+        tools:src="@drawable/logo"
+        />
 
     <TextView
         android:id="@+id/drawer_header_user_name"
@@ -28,26 +30,27 @@
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/white"
-        android:typeface="serif"
+        android:fontFamily="@font/raleway"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/drawer_header_user_image"
         app:layout_constraintVertical_bias="0.0"
-        tools:text="Madonah Syombua" />
-
+        tools:text="@string/name" />
+<!-- Get the Title  -->
     <TextView
         android:id="@+id/drawer_header_user_profession"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         android:textColor="@android:color/white"
-        android:typeface="sans"
+        android:fontFamily="@font/raleway"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/drawer_header_user_name"
         app:layout_constraintVertical_bias="0.0"
-        tools:text="Android Developer" />
+        android:paddingBottom="50dp"
+        tools:text="@string/title" />
 
 </android.support.constraint.ConstraintLayout>

@@ -4,10 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
     <!-- Can we create an AppBar for the Gravator? just a suggestion-->
 
-    <!--<include
-        layout="@layout/app_bar_profile"
-        inside the appbar we can add a  another layoutn content_profile?" just a thought />
-        />-->
     <data>
         <variable
             name="user"
