@@ -1,8 +1,17 @@
 package com.madonasyombua.growwithgoogleteamproject.database;
 
+import android.app.Activity;
+import android.content.Context;
+import android.support.annotation.NonNull;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
@@ -17,17 +26,42 @@ import java.util.Map;
 public class DataManager {
 
     private static final String TAG = "DataManger";
+    private static FirebaseAuth firebaseAuth;
 
-    public static void saveUserInfo(String name){
+    public static void saveUserInfo(User user){
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("userInfos");
+        DatabaseReference ref = database.getReference("users");
 
-        Log.d(TAG, ""+ref);
         String id = ref.push().getKey();
-        Map<String, User> users = new HashMap<>();
-        users.put("email", new User(name));
+        ref.setValue(user);
 
-        Log.d(TAG, ""+ref.setValue(new User(name)));
+    }
 
+    public static void registerUser(Activity context, User user){
+        firebaseAuth.createUserWithEmailAndPassword(user.getEmail(), user.getPassword())
+                .addOnCompleteListener(context, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            FirebaseUser user = firebaseAuth.getCurrentUser();
+                        } else {
+
+                        }
+                    }
+                });
+    }
+
+    public static void signinUser(Activity activity, User user){
+        firebaseAuth.signInWithEmailAndPassword(user.getEmail(), user.getPassword())
+                .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            FirebaseUser user = firebaseAuth.getCurrentUser();
+                        } else {
+
+                        }
+                    }
+                });
     }
 }
