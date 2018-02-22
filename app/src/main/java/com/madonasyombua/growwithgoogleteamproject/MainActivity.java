@@ -69,13 +69,7 @@ public class MainActivity
         //setViewPager(binding.content);
 
 
-        Session session = new Session(getBaseContext());
-        /*
-        if (session.getuserId() == 0) {
-            // start Login Activity
-             startActivity(new Intent(this, LoginActivity.class));
-        }
-        */
+
 
         //This is my bottom navigator for easy navigation couldn't draw this on my mockup
         // since it was difficult to squeeze everything.
