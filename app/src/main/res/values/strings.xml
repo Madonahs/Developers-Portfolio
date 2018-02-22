@@ -63,9 +63,7 @@
     <string name="drawer_logout_title">Log out</string>
 
     <!-- Sample or test user details -->
-    <string name="sample_user_name" translatable="false">Madonah Syombua</string>
+    <string name="sample_user_name" translatable="false">Srinath</string>
     <string name="sample_user_profession" translatable="false">Software Engineer</string>
-    <string name="name">Madonah Syombua</string>
-    <string name="title">Software Engineer</string>
 
 </resources>
