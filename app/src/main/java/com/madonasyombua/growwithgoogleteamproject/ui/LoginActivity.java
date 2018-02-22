@@ -17,17 +17,18 @@ import com.facebook.internal.CallbackManagerImpl;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.madonasyombua.growwithgoogleteamproject.MainActivity;
-import com.madonasyombua.growwithgoogleteamproject.adapter.FragmentsAdapter;
-import com.madonasyombua.growwithgoogleteamproject.ProfileActivity;
 import com.madonasyombua.growwithgoogleteamproject.R;
+import com.madonasyombua.growwithgoogleteamproject.adapter.FragmentsAdapter;
 import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityLoginBinding;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.LoginFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.RegisterFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.intro.OnBoardingActivity;
 
 import java.util.Arrays;
-// I see we have a jonathanfinerty import here, I hope we can get details on it
+
 import jonathanfinerty.once.Once;
+
+// I see we have a jonathanfinerty import here, I hope we can get details on it
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -81,6 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                 binding.btnRegister.setBackgroundResource(R.drawable.button_rounded_normal);
                 Toast.makeText(LoginActivity.this, "Going to login fragment", Toast.LENGTH_SHORT).show();
                setViewPager(binding.container);
+
             }
         });
 
@@ -146,6 +148,11 @@ public class LoginActivity extends AppCompatActivity {
     private void registerFragment() {
         FragmentsAdapter adapter = new FragmentsAdapter(getSupportFragmentManager());
         adapter.addFragment(new RegisterFragment());
+        binding.container.setAdapter(adapter);
+    }
+    private void loginFragment(){
+        FragmentsAdapter adapter = new FragmentsAdapter(getSupportFragmentManager());
+        adapter.addFragment(new LoginFragment());
         binding.container.setAdapter(adapter);
     }
 
