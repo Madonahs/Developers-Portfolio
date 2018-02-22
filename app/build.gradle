@@ -2,14 +2,8 @@ apply plugin: 'com.android.application'
 
 android {
 
-    compileSdkVersion 27
-    dataBinding {
-
     compileSdkVersion rootProject.ext.compileSdkVersion
-    dataBinding{
-
-        enabled = true
-    }
+    dataBinding.enabled = true
     defaultConfig {
         applicationId "com.madonasyombua.growwithgoogleteamproject"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -29,17 +23,12 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:27.0.2'
-    implementation 'com.android.support:support-v4:27.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:design:27.0.2'
-
-    //AhoyOnBoard library
-    compile 'com.codemybrainsout.onboarding:onboarder:1.0.4'
-    compile 'com.jonathanfinerty.once:once:1.2.2'
+    // Please change versions in the project level build.gradle file
+    // and should you want to add a new dependency, follow the below pattern
+    implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
+    implementation "com.android.support:support-v4:$rootProject.ext.supportLibraryVersion"
+    compile "com.android.support:design:$rootProject.ext.supportLibraryVersion"
+    compile "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
 
     implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
     implementation "com.android.support:support-v4:$rootProject.ext.supportLibraryVersion"
@@ -52,8 +41,7 @@ dependencies {
     androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
 
-
-   //AhoyOnBoard library
+    //AhoyOnBoard library
     compile "com.codemybrainsout.onboarding:onboarder:$rootProject.ext.onBoarderVersion"
     compile "com.jonathanfinerty.once:once:$rootProject.ext.onceVersion"
 
@@ -63,7 +51,8 @@ dependencies {
 
     // Dagger
     compile "com.google.dagger:dagger-android:$rootProject.ext.daggerVersion"
-    compile "com.google.dagger:dagger-android-support:$rootProject.ext.daggerVersion" // if you use the support libraries
+    compile "com.google.dagger:dagger-android-support:$rootProject.ext.daggerVersion"
+    // if you use the support libraries
     annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.ext.daggerVersion"
     annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
 
@@ -73,4 +62,4 @@ dependencies {
     // Facebook SDK
     implementation "com.facebook.android:facebook-login:$rootProject.ext.facebookLoginVersion"
 
-}}
+}

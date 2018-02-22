@@ -10,6 +10,7 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     >
 
+    <!-- User profile pic -->
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/drawer_header_user_image"
         android:layout_width="@dimen/profile_width"
@@ -24,6 +25,7 @@
         tools:src="@drawable/logo"
         />
 
+    <!-- Username -->
     <TextView
         android:id="@+id/drawer_header_user_name"
         android:layout_width="wrap_content"
@@ -36,8 +38,9 @@
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/drawer_header_user_image"
         app:layout_constraintVertical_bias="0.0"
-        tools:text="@string/name" />
-<!-- Get the Title  -->
+        tools:text="Username" />
+
+    <!-- User profession -->
     <TextView
         android:id="@+id/drawer_header_user_profession"
         android:layout_width="wrap_content"
@@ -51,6 +54,6 @@
         app:layout_constraintTop_toBottomOf="@+id/drawer_header_user_name"
         app:layout_constraintVertical_bias="0.0"
         android:paddingBottom="50dp"
-        tools:text="@string/title" />
+        tools:text="Profession" />
 
 </android.support.constraint.ConstraintLayout>
