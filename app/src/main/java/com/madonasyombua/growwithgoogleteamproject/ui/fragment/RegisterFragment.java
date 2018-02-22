@@ -11,9 +11,12 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.madonasyombua.growwithgoogleteamproject.MainActivity;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.database.DataManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentRegisterBinding;
+import com.madonasyombua.growwithgoogleteamproject.models.User;
+import com.madonasyombua.growwithgoogleteamproject.ui.LoginActivity;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -45,7 +48,7 @@ public class RegisterFragment extends Fragment {
                 String username_txt = extractText(binding.editUsername);
                 String email_txt = extractText(binding.editEmail);
                 String password_txt = extractText(binding.editPassword);
-                DataManager.saveUserInfo(username_txt);
+                DataManager.registerUser(getActivity(), new User(username_txt, email_txt, password_txt));
                 Log.d("RegisterFragment", "clicked");
                 Toast.makeText(getActivity(), "Registering", Toast.LENGTH_SHORT).show();
 
