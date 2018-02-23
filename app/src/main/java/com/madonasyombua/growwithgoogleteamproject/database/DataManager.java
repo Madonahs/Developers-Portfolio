@@ -25,6 +25,8 @@ import java.util.Map;
  * Created by mahersoua on 21/02/2018.
  */
 
+//Hey i will add the Geo Address Class on our branch for now so that i can see how we can use it. @mahar :) let me remove it from your branch.
+
 public class DataManager extends AppCompatActivity {
 
     private static final String TAG = "DataManger";
