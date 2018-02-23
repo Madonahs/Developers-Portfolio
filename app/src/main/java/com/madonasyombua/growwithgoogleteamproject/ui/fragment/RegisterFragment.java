@@ -4,20 +4,16 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.madonasyombua.growwithgoogleteamproject.MainActivity;
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.database.DataManager;
 import com.madonasyombua.growwithgoogleteamproject.database.LoginManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentRegisterBinding;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
-import com.madonasyombua.growwithgoogleteamproject.ui.LoginActivity;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

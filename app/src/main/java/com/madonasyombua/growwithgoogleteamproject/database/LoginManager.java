@@ -16,11 +16,12 @@ import com.madonasyombua.growwithgoogleteamproject.models.User;
  */
 
 public class LoginManager {
+
+    private static final String TAG = "DataManger";
     private static FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private static FirebaseUser mCurrentUser;
 
     public static FirebaseUser registerUser(final Activity activity, User user){
-        FirebaseUser currentUser;
         firebaseAuth.createUserWithEmailAndPassword(user.getEmail(), user.getPassword())
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
                     @Override
