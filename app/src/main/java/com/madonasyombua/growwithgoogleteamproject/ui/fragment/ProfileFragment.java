@@ -75,6 +75,7 @@ public class ProfileFragment extends Fragment {
 
         //Add dummy user
         mBinding.setUser(new User());
+        setStatus(true);
         mBinding.intro.setText(Html.fromHtml("<u>Intro</u>"));
         return  mBinding.getRoot();
     }
@@ -103,5 +104,21 @@ public class ProfileFragment extends Fragment {
         mListener = null;
     }
 
+
+    private void setStatus(boolean online){
+        if(online)
+        {
+            mBinding.status.setCompoundDrawablesWithIntrinsicBounds(getResources()
+                            .getDrawable(R.drawable.ic_online),null,null,null);
+            mBinding.status.setText(getString(R.string.online));
+        }
+        else
+        {
+            mBinding.status.setCompoundDrawablesWithIntrinsicBounds(getResources()
+                    .getDrawable(R.drawable.ic_offline),null,null,null);
+            mBinding.status.setText(getString(R.string.offline));
+        }
+
+    }
 
 }
