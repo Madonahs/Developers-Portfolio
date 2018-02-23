@@ -9,9 +9,10 @@
         inside the appbar we can add a  another layoutn content_profile?" just a thought />
         />-->
     <data>
+
         <variable
             name="user"
-            type="com.madonasyombua.growwithgoogleteamproject.models.User"/>
+            type="com.madonasyombua.growwithgoogleteamproject.models.User" />
     </data>
 
     <android.support.design.widget.CoordinatorLayout
@@ -49,8 +50,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/margin_8"
-                        android:text="@{user.name}"
                         android:fontFamily="@font/raleway"
+                        android:text="@{user.name}"
                         android:textColor="@android:color/white"
                         android:textSize="20sp" />
 
@@ -63,9 +64,6 @@
 
                         <TextView
                             android:id="@+id/status"
-                            android:drawablePadding="@dimen/margin_8"
-                            android:fontFamily="@font/raleway"
-                            android:textSize="@dimen/small_text_size"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start|bottom"
@@ -73,14 +71,16 @@
                             android:layout_marginLeft="@dimen/margin_8"
                             android:layout_marginStart="@dimen/margin_8"
                             android:layout_marginTop="@dimen/margin_8"
-
+                            android:drawablePadding="@dimen/margin_8"
+                            android:fontFamily="@font/raleway"
                             android:textColor="@android:color/white"
+
+                            android:textSize="@dimen/small_text_size"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <Button
-                            android:fontFamily="@font/raleway"
                             android:id="@+id/btn_edit_profile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -90,6 +90,7 @@
                             android:layout_marginRight="@dimen/margin_8"
                             android:layout_marginTop="@dimen/margin_8"
                             android:background="@drawable/button_transparent"
+                            android:fontFamily="@font/raleway"
                             android:paddingEnd="@dimen/button_padding"
 
                             android:paddingStart="@dimen/button_padding"
@@ -129,6 +130,7 @@
                     android:id="@+id/intro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_8"
                     android:layout_marginStart="@dimen/margin_8"
                     android:layout_marginTop="@dimen/margin_8"
                     android:fontFamily="@font/raleway"
@@ -137,17 +139,16 @@
                     android:textSize="24dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginLeft="@dimen/margin_8" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:fontFamily="@font/raleway"
                     android:id="@+id/intro_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin_8"
                     android:layout_marginStart="@dimen/margin_8"
                     android:layout_marginTop="@dimen/margin_8"
+                    android:fontFamily="@font/raleway"
 
                     android:text="@{user.intro}"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -156,11 +157,11 @@
                 //Following
 
                 <TextView
-                    android:fontFamily="@font/raleway"
                     android:id="@+id/following_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_16"
+                    android:fontFamily="@font/raleway"
                     android:text="@{user.following}"
                     android:textSize="@dimen/big_text_size"
                     app:layout_constraintStart_toStartOf="@+id/intro_content"
@@ -179,20 +180,20 @@
                 //followers
 
                 <TextView
-                    android:fontFamily="@font/raleway"
                     android:id="@+id/follower_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin_8"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="@dimen/margin_8"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="@dimen/margin_16"
+                    android:fontFamily="@font/raleway"
                     android:text="@{user.followers}"
                     android:textSize="@dimen/big_text_size"
                     app:layout_constraintEnd_toStartOf="@+id/project_count"
                     app:layout_constraintStart_toEndOf="@+id/following_count"
-                    app:layout_constraintTop_toBottomOf="@+id/intro_content"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginRight="@dimen/margin_8" />
+                    app:layout_constraintTop_toBottomOf="@+id/intro_content" />
 
                 <TextView
 
@@ -211,22 +212,22 @@
                 //Projects
 
                 <TextView
-                    android:fontFamily="@font/raleway"
                     android:id="@+id/project_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_16"
+                    android:fontFamily="@font/raleway"
                     android:text="@{user.projects}"
                     android:textSize="@dimen/big_text_size"
                     app:layout_constraintEnd_toEndOf="@+id/intro_content"
                     app:layout_constraintTop_toBottomOf="@+id/intro_content" />
 
                 <TextView
-                    android:fontFamily="@font/raleway"
                     android:id="@+id/project_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_16"
+                    android:fontFamily="@font/raleway"
 
                     android:text="Projects"
                     app:layout_constraintStart_toStartOf="@+id/project_count"
@@ -250,63 +251,60 @@
                     android:id="@+id/contact_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_8"
                     android:layout_marginStart="@dimen/margin_8"
                     android:layout_marginTop="@dimen/margin_16"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/intro_content"
                     app:layout_constraintStart_toStartOf="@+id/intro_content"
-                    app:layout_constraintTop_toBottomOf="@+id/line"
-                    android:layout_marginLeft="@dimen/margin_8">
+                    app:layout_constraintTop_toBottomOf="@+id/line">
 
                     //TODO: populate from model using data variable
 
                     <TextView
-                        android:drawablePadding="@dimen/margin_8"
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/margin_16"
                         android:layout_marginTop="@dimen/margin_16"
                         android:drawableLeft="@drawable/ic_home"
+                        android:drawablePadding="@dimen/drawable_padding"
                         android:drawableStart="@drawable/ic_home"
                         android:fontFamily="@font/raleway"
                         android:text="@{user.location}" />
 
                     <TextView
-                        android:drawablePadding="@dimen/margin_8"
-                        android:fontFamily="@font/raleway"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/margin_16"
                         android:layout_marginTop="@dimen/margin_16"
                         android:drawableLeft="@drawable/ic_phone"
+                        android:drawablePadding="@dimen/drawable_padding"
                         android:drawableStart="@drawable/ic_phone"
+                        android:fontFamily="@font/raleway"
 
                         android:text="@{user.phone}" />
 
                     <TextView
-                        android:drawablePadding="@dimen/margin_8"
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/margin_16"
                         android:layout_marginTop="@dimen/margin_16"
                         android:drawableLeft="@drawable/ic_email"
+                        android:drawablePadding="@dimen/drawable_padding"
                         android:drawableStart="@drawable/ic_email"
                         android:fontFamily="@font/raleway"
                         android:text="@{user.email}" />
 
                     <TextView
-                        android:drawablePadding="@dimen/margin_8"
-                        android:fontFamily="@font/raleway"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/margin_16"
                         android:layout_marginTop="@dimen/margin_16"
                         android:drawableLeft="@drawable/ic_web"
+                        android:drawablePadding="@dimen/drawable_padding"
                         android:drawableStart="@drawable/ic_web"
-
+                        android:fontFamily="@font/raleway"
                         android:text="@{user.website}" />
 
                 </LinearLayout>
