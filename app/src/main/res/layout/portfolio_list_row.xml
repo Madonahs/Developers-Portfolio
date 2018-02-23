@@ -144,7 +144,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/fifth_bg"
+                android:background="@color/grey_200"
                 android:contentDescription="@string/project_screenshot"
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
