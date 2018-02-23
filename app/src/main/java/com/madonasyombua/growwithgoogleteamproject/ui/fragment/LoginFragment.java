@@ -20,7 +20,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.madonasyombua.growwithgoogleteamproject.MainActivity;
 import com.madonasyombua.growwithgoogleteamproject.R;
+import com.madonasyombua.growwithgoogleteamproject.database.LoginManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentLoginBinding;
+import com.madonasyombua.growwithgoogleteamproject.models.User;
+import com.madonasyombua.growwithgoogleteamproject.ui.LoginActivity;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
@@ -31,7 +34,6 @@ import static android.widget.Toast.LENGTH_SHORT;
 public class LoginFragment extends Fragment {
     private FragmentLoginBinding binding;
     private static final String TAG = "LoginFragment";
-    private FirebaseAuth mAuth;
     /*
     * This class is used to get data from the fragment like the username and stuff.
     * It also binds the views
@@ -45,10 +47,10 @@ public class LoginFragment extends Fragment {
             public void onClick(View view) {
                 String email_text = extractText(binding.editEmail);
                 String password_text = extractText(binding.editPassword);
-                mAuth = FirebaseAuth.getInstance();
-                LoginUser(email_text,password_text);
 
-                if(mAuth.getCurrentUser()!=null) {
+                FirebaseUser currentUser = LoginManager.signinUser(getActivity(), new User(email_text, password_text));
+
+                if(currentUser!=null) {
 
 
                     Toast.makeText(getActivity(), "Logging in", LENGTH_SHORT).show();
@@ -68,28 +70,7 @@ public class LoginFragment extends Fragment {
         return newText;
     }
 
-    private void LoginUser(String email, final String password) {
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.e(TAG, "signInWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-
-                        }
-                        else
-                            Log.e(TAG,"SigninWithEmail:Failure");
-
-
-
-                        // ...
-                    }
-                });
-
-        }
-    }
+}
 
 
 
