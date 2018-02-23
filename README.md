@@ -15,17 +15,14 @@ An open mind and an open heart.
 * **Maher Soua** - *Team Member*
 * **Chukwubuikem Ume-Ugwa** - *Team Member*
 * **Jantz Carney** - *Team Member*
+* **Hemantkumar Nimje** - *Team Member*
 * **Srinath Chintapalli** - *Team Member*
 
 
 
-
 ## Contributing
-Please Dont Push to the Master without @madonahs , @radoalbert110 , @emmaunel Please we try to follow this rules to avoid confusion and conflicts. We must ensure we have a clean tree.
 
-Please dont do a PR and Merge it on your own without anyone else reviewing or approving You will be removed from Contributors. This will be termed malicious.
-
-Read Also  [Contributing](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
+Read  [Contributing](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
 
 ## Code of Conduct
 
@@ -33,7 +30,8 @@ Read [Code of Conduct](https://github.com/Madonahs/GrowWithGoogleTeamProject/blo
 
 ## Design Mock up by Madonah Syombua
 
-![madonah syombua](https://user-images.githubusercontent.com/11560987/36348146-a8a19fc6-142e-11e8-8e9a-31f5e3d22f2b.png)
+![madonasyombua](https://user-images.githubusercontent.com/11560987/36572114-9a8f9706-17ff-11e8-8253-4e30f53bfbcf.png)
+
 
 ## License
 
