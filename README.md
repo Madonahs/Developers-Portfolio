@@ -21,10 +21,8 @@ An open mind and an open heart.
 
 
 ## Contributing
-Please Dont Push to the Master without @madonahs , @radoalbert110 , @emmaunel Please we try to follow this rules to avoid confusion and conflicts. We must ensure we have a clean tree.
 
-
-Read Also  [Contributing](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
+Read  [Contributing](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
 
 ## Code of Conduct
 
