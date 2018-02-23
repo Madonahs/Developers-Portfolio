@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Team Project</string>
+    <string name="app_name">Devs Portfolio</string>
     <string name="welcome">Welcome!</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -7,13 +7,25 @@
     <string name="email">Email</string>
     <string name="register">Register</string>
     <string name="social_network">Social Login</string>
-    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="view">View</string>
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem
+        ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </string>
 
     <item name="visible" type="id" />
     <item name="masked" type="id" />
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Profile Fragment</string>
+    <string name="hello_blank_fragment1">Profile Fragment</string>
     <string name="edit_profile">EDIT PROFILE</string>
     <string name="online">Online</string>
 
@@ -22,9 +34,36 @@
     <string name="fb_login_protocol_scheme">fb2100423613573087</string>
 
     <!-- Facebook login toast messages -->
-    <string name="facebook_login_success">Successfully logged in...</string>
-    <string name="facebook_login_cancel">Facebook login cancelled...</string>
-    <string name="facebook_login_error">Facebook login failed...</string>
+    <string name="facebook_login_success">Log in successful</string>
+    <string name="facebook_login_cancel">Facebook login cancelled</string>
+    <string name="facebook_login_error">Facebook login failed</string>
+    <string name="interest">Interests</string>
+    <string name="projects">Projects</string>
+    <string name="feeds">Feeds</string>
+    <string name="profile">Profile</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">
+        Feeds Fragment to start here Thanks team for your patience and support on this project
+    </string>
+    <string name="placeholder_project_name">Project Name</string>
+    <string name="placeholder_project_short_description">Short Description</string>
+    <string name="placeholder_project_long_description">Long Description</string>
+    <string name="placeholder_project_likes_count">Number of likes</string>
+    <string name="hello_blank">Interest to go here waiting for this layout.</string>
+    <string name="project_screenshot">Project_screenshot</string>
+
+    <!-- Drawer related -->
+    <string name="drawer_messages_title">Messages</string>
+    <string name="drawer_manage_profile_title">Manage Profile</string>
+    <string name="drawer_about_title">About</string>
+    <string name="drawer_help_title">Help</string>
+    <string name="drawer_notifications_title">Notifications</string>
+    <string name="drawer_settings_title">Settings</string>
+    <string name="drawer_logout_title">Log out</string>
+
+    <!-- Sample or test user details -->
+    <string name="sample_user_name" translatable="false">UserName</string>
+    <string name="sample_user_profession" translatable="false">Profession</string>
 
 </resources>
