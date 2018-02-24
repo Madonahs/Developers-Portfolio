@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.database.LoginManager;
+import com.madonasyombua.growwithgoogleteamproject.database.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentRegisterBinding;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
 
@@ -45,7 +45,7 @@ public class RegisterFragment extends Fragment {
                 String username_txt = extractText(binding.editUsername);
                 String email_txt = extractText(binding.editEmail);
                 String password_txt = extractText(binding.editPassword);
-                LoginManager.registerUser(getActivity(), new User(username_txt, email_txt, password_txt));
+                AppLoginManager.registerUser(getActivity(), new User(username_txt, email_txt, password_txt));
                 Toast.makeText(getActivity(), "Registering", Toast.LENGTH_SHORT).show();
             }
         });

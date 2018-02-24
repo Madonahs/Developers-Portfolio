@@ -19,6 +19,7 @@ import com.facebook.login.LoginResult;
 import com.madonasyombua.growwithgoogleteamproject.MainActivity;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.adapter.FragmentsAdapter;
+import com.madonasyombua.growwithgoogleteamproject.database.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityLoginBinding;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.LoginFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.RegisterFragment;
@@ -30,7 +31,7 @@ import jonathanfinerty.once.Once;
 
 // I see we have a jonathanfinerty import here, I hope we can get details on it
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements AppLoginManager.LoginInterface {
 
     Button mFacebookLoginButton, mGoogleLoginButton;
     CallbackManager mCallbackManager;
@@ -154,6 +155,22 @@ public class LoginActivity extends AppCompatActivity {
         FragmentsAdapter adapter = new FragmentsAdapter(getSupportFragmentManager());
         adapter.addFragment(new LoginFragment());
         binding.container.setAdapter(adapter);
+    }
+
+    public void showHideProgressBar(){
+        //binding.container.
+    }
+
+    @Override
+    public void onSigninSuccess() {
+        startActivity(new Intent(this, MainActivity.class));
+        Toast.makeText(this, "onSigninSuccess", Toast.LENGTH_SHORT).show();
+        // Toast.makeText(getActivity(), "Could not Login :( ... try registering", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onRegistrationSuccess() {
+        Toast.makeText(this, "onRegistrationSuccess", Toast.LENGTH_SHORT).show();
     }
 
     // TODO: 2/9/2018 Add the social network button

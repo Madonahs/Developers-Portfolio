@@ -1,6 +1,7 @@
 package com.madonasyombua.growwithgoogleteamproject.database;
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.widget.Toast;
 
@@ -15,7 +16,7 @@ import com.madonasyombua.growwithgoogleteamproject.models.User;
  * Created by mahersoua on 23/02/2018.
  */
 
-public class LoginManager {
+public class AppLoginManager {
 
     private static final String TAG = "DataManger";
     private static FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -28,6 +29,7 @@ public class LoginManager {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             mCurrentUser = firebaseAuth.getCurrentUser();
+                            ((LoginInterface)activity).onRegistrationSuccess();
                         } else {
                             Toast.makeText(activity, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
@@ -43,11 +45,17 @@ public class LoginManager {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             mCurrentUser = firebaseAuth.getCurrentUser();
+                            ((LoginInterface)activity).onSigninSuccess();
                         } else {
                             Toast.makeText(activity, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
         return mCurrentUser;
+    }
+
+    public interface LoginInterface {
+        void onSigninSuccess ();
+        void onRegistrationSuccess();
     }
 }
