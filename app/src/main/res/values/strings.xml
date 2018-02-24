@@ -26,6 +26,7 @@
     <string name="facebook_login_error">Facebook login failed...</string>
     <string name="online">Online</string>
     <string name="offline">Offline</string>
+    <string name="submit">Submit</string>
 
 
 </resources>
