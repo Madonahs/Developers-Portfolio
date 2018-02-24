@@ -14,6 +14,7 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.database.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentRegisterBinding;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
+import com.madonasyombua.growwithgoogleteamproject.ui.LoginActivity;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -46,6 +47,7 @@ public class RegisterFragment extends Fragment {
                 String email_txt = extractText(binding.editEmail);
                 String password_txt = extractText(binding.editPassword);
                 AppLoginManager.registerUser(getActivity(), new User(username_txt, email_txt, password_txt));
+                ((LoginActivity) getActivity()).showHideProgressBar(true);
                 Toast.makeText(getActivity(), "Registering", Toast.LENGTH_SHORT).show();
             }
         });

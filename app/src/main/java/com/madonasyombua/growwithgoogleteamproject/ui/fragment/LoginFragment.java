@@ -17,6 +17,7 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.database.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentLoginBinding;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
+import com.madonasyombua.growwithgoogleteamproject.ui.LoginActivity;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
@@ -43,6 +44,7 @@ public class LoginFragment extends Fragment {
                 String password_text = extractText(binding.editPassword);
 
                 AppLoginManager.signinUser(getActivity(), new User(email_text, password_text));
+                ((LoginActivity) getActivity()).showHideProgressBar(true);
             }
         });
 

@@ -157,20 +157,35 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
         binding.container.setAdapter(adapter);
     }
 
-    public void showHideProgressBar(){
-        //binding.container.
+    public void showHideProgressBar(boolean show){
+        if(show){
+            binding.loginLoader.setVisibility(View.VISIBLE);
+        } else {
+            binding.loginLoader.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
     public void onSigninSuccess() {
         startActivity(new Intent(this, MainActivity.class));
+        showHideProgressBar(false);
         Toast.makeText(this, "onSigninSuccess", Toast.LENGTH_SHORT).show();
-        // Toast.makeText(getActivity(), "Could not Login :( ... try registering", Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onRegistrationSuccess() {
+        showHideProgressBar(false);
         Toast.makeText(this, "onRegistrationSuccess", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onSigninFailed() {
+        showHideProgressBar(false);
+    }
+
+    @Override
+    public void onRegistrationFailed() {
+        showHideProgressBar(false);
     }
 
     // TODO: 2/9/2018 Add the social network button

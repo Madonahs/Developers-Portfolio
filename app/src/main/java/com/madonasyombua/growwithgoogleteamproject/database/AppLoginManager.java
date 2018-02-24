@@ -31,6 +31,7 @@ public class AppLoginManager {
                             mCurrentUser = firebaseAuth.getCurrentUser();
                             ((LoginInterface)activity).onRegistrationSuccess();
                         } else {
+                            ((LoginInterface)activity).onRegistrationFailed();
                             Toast.makeText(activity, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -47,6 +48,7 @@ public class AppLoginManager {
                             mCurrentUser = firebaseAuth.getCurrentUser();
                             ((LoginInterface)activity).onSigninSuccess();
                         } else {
+                            ((LoginInterface)activity).onSigninFailed();
                             Toast.makeText(activity, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -57,5 +59,7 @@ public class AppLoginManager {
     public interface LoginInterface {
         void onSigninSuccess ();
         void onRegistrationSuccess();
+        void onSigninFailed();
+        void onRegistrationFailed();
     }
 }
