@@ -10,6 +10,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentProfileBinding;
@@ -36,29 +40,23 @@ public class ProfileFragmentDialog extends DialogFragment {
         mListener = (OnSubmitListener) fragment;
     }
 
-    @NonNull
+
+    @Nullable
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(getLayoutInflater(),
-                R.layout.fragment_profile_dialog,null,false);
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                R.layout.fragment_profile_dialog,container,false);
+        mBinding.submitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.submit(submit());
+            }
+        });
 
-        builder.setView(mBinding.getRoot())
-                .setPositiveButton(R.string.submit, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        mListener.submit(submit());
-                    }
-                });
 
-        return builder.create();
+        return mBinding.getRoot();
     }
 
-    public static ProfileFragmentDialog getInstance(ProfileFragment profileFragment) {
-        ProfileFragmentDialog dialog = new ProfileFragmentDialog();
-        dialog.setTargetFragment(profileFragment,0);
-        return dialog;
-    }
 
     private Bundle submit(){
         Bundle data = new Bundle(5);

@@ -71,14 +71,15 @@ public class ProfileFragment extends Fragment implements ProfileFragmentDialog.O
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final ProfileFragmentDialog dialog = new ProfileFragmentDialog();
-//        dialog.setTargetFragment(this,0);
+
         // Inflate the layout for this fragment
         mBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_profile, container, false);
         mBinding.btnEditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ProfileFragmentDialog dialog = new ProfileFragmentDialog();
                 dialog.show(getFragmentManager(),"update-profile-fragment");
+                dialog.setTargetFragment(ProfileFragment.this,0);
             }
         });
 
