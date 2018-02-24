@@ -17,19 +17,21 @@ import com.facebook.internal.CallbackManagerImpl;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.madonasyombua.growwithgoogleteamproject.MainActivity;
-import com.madonasyombua.growwithgoogleteamproject.adapter.FragmentsAdapter;
-import com.madonasyombua.growwithgoogleteamproject.ProfileActivity;
 import com.madonasyombua.growwithgoogleteamproject.R;
+import com.madonasyombua.growwithgoogleteamproject.adapter.FragmentsAdapter;
+import com.madonasyombua.growwithgoogleteamproject.database.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityLoginBinding;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.LoginFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.RegisterFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.intro.OnBoardingActivity;
 
 import java.util.Arrays;
-// I see we have a jonathanfinerty import here, I hope we can get details on it
+
 import jonathanfinerty.once.Once;
 
-public class LoginActivity extends AppCompatActivity {
+// I see we have a jonathanfinerty import here, I hope we can get details on it
+
+public class LoginActivity extends AppCompatActivity implements AppLoginManager.LoginInterface {
 
     Button mFacebookLoginButton, mGoogleLoginButton;
     CallbackManager mCallbackManager;
@@ -81,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                 binding.btnRegister.setBackgroundResource(R.drawable.button_rounded_normal);
                 Toast.makeText(LoginActivity.this, "Going to login fragment", Toast.LENGTH_SHORT).show();
                setViewPager(binding.container);
+
             }
         });
 
@@ -147,6 +150,42 @@ public class LoginActivity extends AppCompatActivity {
         FragmentsAdapter adapter = new FragmentsAdapter(getSupportFragmentManager());
         adapter.addFragment(new RegisterFragment());
         binding.container.setAdapter(adapter);
+    }
+    private void loginFragment(){
+        FragmentsAdapter adapter = new FragmentsAdapter(getSupportFragmentManager());
+        adapter.addFragment(new LoginFragment());
+        binding.container.setAdapter(adapter);
+    }
+
+    public void showHideProgressBar(boolean show){
+        if(show){
+            binding.loginLoader.setVisibility(View.VISIBLE);
+        } else {
+            binding.loginLoader.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    @Override
+    public void onSigninSuccess() {
+        startActivity(new Intent(this, MainActivity.class));
+        showHideProgressBar(false);
+        Toast.makeText(this, "onSigninSuccess", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRegistrationSuccess() {
+        showHideProgressBar(false);
+        Toast.makeText(this, "onRegistrationSuccess", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onSigninFailed() {
+        showHideProgressBar(false);
+    }
+
+    @Override
+    public void onRegistrationFailed() {
+        showHideProgressBar(false);
     }
 
     // TODO: 2/9/2018 Add the social network button

@@ -8,9 +8,9 @@ package com.madonasyombua.growwithgoogleteamproject.models;
     Just a dummy model test the fragment
  */
 public class User {
-    private String name, followers, following, projects;
-    private String email, location, phone, website, intro;
-    private String status;
+    private String name, password, followers, following, projects,
+            email, location, phone, website, intro,status;
+    private Portfolio portfolio;
 
 
     //TODO: Remove default values and
@@ -29,13 +29,25 @@ public class User {
 
     }
 
-    public User(String name) {
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(String name, String email, String password) {
         this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
+    public void setPortfolio(Portfolio portfolio){
+        this.portfolio = portfolio;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
+    public String getPassword() { return this.password;}
 
     public String getFollowers() {
         return followers;
