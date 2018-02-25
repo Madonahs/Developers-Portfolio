@@ -46,6 +46,7 @@ public class RegisterFragment extends Fragment {
                 String username_txt = extractText(binding.editUsername);
                 String email_txt = extractText(binding.editEmail);
                 String password_txt = extractText(binding.editPassword);
+
                 AppLoginManager.registerUser(getActivity(), new User(username_txt, email_txt, password_txt));
                 ((LoginActivity) getActivity()).showHideProgressBar(true);
                 Toast.makeText(getActivity(), "Registering", Toast.LENGTH_SHORT).show();

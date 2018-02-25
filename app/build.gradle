@@ -9,7 +9,7 @@ android {
 
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    dataBinding.enabled = true
+
 
     defaultConfig {
         applicationId "com.madonasyombua.growwithgoogleteamproject"
