@@ -1,5 +1,6 @@
 package com.madonasyombua.growwithgoogleteamproject;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -169,6 +170,9 @@ public class MainActivity
 
             case R.id.about:
                 // Take user to about screen
+                Intent intent = new Intent(this,AboutActivity.class);
+                startActivity(intent);
+
                 return false;
             case R.id.help:
                 // Take user to help screen

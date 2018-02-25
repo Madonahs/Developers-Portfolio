@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.madonasyombua.growwithgoogleteamproject.AboutActivity"
+    android:background="@drawable/background_about">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:paddingLeft="10dp" android:paddingStart="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:paddingTop="0dp"
+            android:text="@string/brief"
+            android:textColor="@color/white"
+            android:textSize="35sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:paddingEnd="6dp"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:paddingStart="3dp"
+            android:paddingTop="10dp"
+            android:text="@string/developer1"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:paddingEnd="6dp"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:paddingStart="6dp"
+            android:paddingTop="8dp"
+            android:text="@string/developers"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:textColor="@color/white"
+            android:paddingTop="6dp"
+            android:paddingLeft="6dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="18sp"
+            android:text="@string/developer2"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:textColor="@color/white"
+            android:paddingTop="4dp"
+            android:paddingLeft="6dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="18sp"
+            android:text="@string/developer3"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:textColor="@color/white"
+            android:paddingTop="6dp"
+            android:paddingLeft="6dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="18sp"
+            android:text="@string/developer4"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:textColor="@color/white"
+            android:paddingTop="4dp"
+            android:paddingLeft="6dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="18sp"
+            android:text="@string/developer5"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:textColor="@color/white"
+            android:paddingTop="4dp"
+            android:paddingLeft="6dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="18sp"
+            android:text="@string/developer6"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:textColor="@color/white"
+            android:paddingTop="4dp"
+            android:paddingLeft="6dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="18sp"
+            android:text="@string/developer7"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:textColor="@color/white"
+            android:paddingTop="4dp"
+            android:paddingLeft="6dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="18sp"
+            android:text="@string/developer8"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:textColor="@color/white"
+            android:paddingTop="20dp"
+            android:paddingLeft="6dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="12sp"
+            android:text="@string/developer9"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway"
+            android:textColor="@color/white"
+            android:paddingTop="0dp"
+            android:paddingLeft="6dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="12sp"
+            android:text="@string/google"
+
+            />
+
+
+    </LinearLayout>
+    </ScrollView>
+</FrameLayout>

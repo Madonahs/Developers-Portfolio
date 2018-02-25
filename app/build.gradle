@@ -27,6 +27,7 @@ dependencies {
     // and should you want to add a new dependency, follow the below pattern
     implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
     implementation "com.android.support:support-v4:$rootProject.ext.supportLibraryVersion"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     compile "com.android.support:design:$rootProject.ext.supportLibraryVersion"
     compile "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
 
@@ -41,10 +42,7 @@ dependencies {
     androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
 
-
-
-
-   //AhoyOnBoard library
+    //AhoyOnBoard library
     compile "com.codemybrainsout.onboarding:onboarder:$rootProject.ext.onBoarderVersion"
     compile "com.jonathanfinerty.once:once:$rootProject.ext.onceVersion"
 
@@ -64,5 +62,12 @@ dependencies {
 
     // Facebook SDK
     implementation "com.facebook.android:facebook-login:$rootProject.ext.facebookLoginVersion"
+    // Google Play
+    implementation 'com.google.android.gms:play-services-auth:11.8.0'
 }
+
+
+
+
+
 
