@@ -70,17 +70,19 @@
 
     <string name="online">Online</string>
     <string name="offline">Offline</string>
-    <string name="brief">About</string>
-    <string name="developer1">The project is meant to help programmers have a portfolio sharing platform, programmers are welcome to share their projects and they can interact and show employers what they have done in the app, one doesnt have to create a website to showcase his/her work. The project was done by team members participating in the Grow With Google Scholarship Program offered by Google|Udacity.</string>
-    <string name="developers">Developers</string>
-    <string name="developer2">Madona Syombua</string>
-    <string name="developer3">Rado RAMBININTSOA</string>
-    <string name="developer4">Emmanuel Adewale</string>
-    <string name="developer5">Maher Soua</string>
-    <string name="developer6">Chukwubuikem Ume-Ugwa</string>
-    <string name="developer7">Hemantkumar Nimje</string>
-    <string name="developer8">Jantz Carney</string>
-    <string name="developer9">Acknowledgment</string>
+
+    <!-- About activity screen -->
+    <string name="about">About</string>
+    <string name="about_detail">The project is meant to help programmers have a portfolio sharing platform, programmers are welcome to share their projects and they can interact and show employers what they have done in the app, one doesnt have to create a website to showcase his/her work. The project was done by team members participating in the Grow With Google Scholarship Program offered by Google|Udacity.</string>
+    <string name="about_developer_heading">Developers</string>
+    <string name="about_developer_name1">Madona Syombua</string>
+    <string name="about_developer_name2">Rado RAMBININTSOA</string>
+    <string name="about_developer_name3">Emmanuel Adewale</string>
+    <string name="about_developer_name4">Maher Soua</string>
+    <string name="about_developer_name5">Chukwubuikem Ume-Ugwa</string>
+    <string name="about_developer_name6">Hemantkumar Nimje</string>
+    <string name="about_developer_name7">Jantz Carney</string>
+    <string name="acknowledgement">Acknowledgment</string>
     <string name="google"><![CDATA[Google & Udacity]]></string>
 
 
