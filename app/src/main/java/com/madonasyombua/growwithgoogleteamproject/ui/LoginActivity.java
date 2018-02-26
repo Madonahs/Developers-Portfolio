@@ -16,6 +16,12 @@ import com.facebook.FacebookException;
 import com.facebook.internal.CallbackManagerImpl;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 import com.madonasyombua.growwithgoogleteamproject.MainActivity;
 import com.madonasyombua.growwithgoogleteamproject.adapter.FragmentsAdapter;
 import com.madonasyombua.growwithgoogleteamproject.ProfileActivity;
@@ -42,6 +48,9 @@ public class LoginActivity extends AppCompatActivity {
     private ActivityLoginBinding binding;
     private static final String TAG = "LoginActivity";
     static final int SHOW_INTRO = 1;
+
+    GoogleSignInClient mGoogleSignInClient;
+    private static final int GOOGLE_SIGN_IN_REQUEST_CODE = 500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +101,18 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        // Google login set up
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                                        .requestEmail()
+                                        .build();
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        mGoogleLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signInWithGoogle();
+            }
+        });
 
         LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -132,7 +153,13 @@ public class LoginActivity extends AppCompatActivity {
                 Once.markDone("showTutorial");
             }
         } else if (requestCode == CallbackManagerImpl.RequestCodeOffset.Login.toRequestCode()){
+
             mCallbackManager.onActivityResult(requestCode, resultCode, data);
+
+        } else if (requestCode == GOOGLE_SIGN_IN_REQUEST_CODE) {
+
+            Task<GoogleSignInAccount> gTask = GoogleSignIn.getSignedInAccountFromIntent(data);
+            handleGoogleSignInResult(gTask);
         }
     }
 
@@ -149,5 +176,52 @@ public class LoginActivity extends AppCompatActivity {
         binding.container.setAdapter(adapter);
     }
 
-    // TODO: 2/9/2018 Add the social network button
+    /***
+     * Handle google sign in process
+     *
+     * @param
+     * @return
+     */
+    private void signInWithGoogle() {
+
+        // Create a google sign in intent
+        Intent googleSignInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(googleSignInIntent, GOOGLE_SIGN_IN_REQUEST_CODE);
+    }
+
+    /***
+     * Handles google sign in result
+     *
+     * @param completedTask
+     * @return
+     */
+    private void handleGoogleSignInResult(Task<GoogleSignInAccount> completedTask) {
+
+        try {
+            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+
+            // Successfully signed in
+            if (account != null) {
+
+                // TODO: All user's basic info such as name can now be obtained from the account object
+                String personName = account.getDisplayName();
+                String personEmail = account.getEmail();
+
+                // For debugging purposes only
+                Log.d(TAG, "Google info " + personName + " - " + personEmail);
+
+                // Start MainActivity
+                Intent mainActivityIntent = new Intent(getBaseContext(), MainActivity.class);
+
+                // TODO: User info can be passed in to the MainActivity as EXTRA or stored locally in db or Firebase
+                startActivity(mainActivityIntent);
+            }
+
+        } catch (ApiException e) {
+
+            // Google sign in failed
+            e.printStackTrace();
+        }
+
+    }
 }
