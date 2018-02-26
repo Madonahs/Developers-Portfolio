@@ -35,9 +35,8 @@ import java.util.Arrays;
 // I see we have a jonathanfinerty import here, I hope we can get details on it
 import jonathanfinerty.once.Once;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
-    Button mFacebookLoginButton, mGoogleLoginButton;
     CallbackManager mCallbackManager;
 
     // Facebook permissions - public profile, email
@@ -59,8 +58,11 @@ public class LoginActivity extends AppCompatActivity {
 
         mCallbackManager = CallbackManager.Factory.create();
 
-        mFacebookLoginButton = (Button) findViewById(R.id.btn_facebook_login);
-        mGoogleLoginButton = (Button) findViewById(R.id.btn_google_login);
+        // Binding and listening to all the buttons
+        binding.btnLogin.setOnClickListener(this);
+        binding.btnRegister.setOnClickListener(this);
+        binding.btnFacebookLogin.setOnClickListener(this);
+        binding.btnGoogleLogin.setOnClickListener(this);
 
         // Buttons initial state
         binding.btnLogin.setBackgroundResource(R.drawable.button_rounded_focused);
@@ -69,50 +71,11 @@ public class LoginActivity extends AppCompatActivity {
         //this will set login fragment as the first thing you see
         setViewPager(binding.container);
 
-        //Switch between login fragment and register fragment
-        binding.btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Toggle buttons
-                binding.btnLogin.setBackgroundResource(R.drawable.button_rounded_normal);
-                binding.btnRegister.setBackgroundResource(R.drawable.button_rounded_focused);
-               Toast.makeText(LoginActivity.this, "Going to register fragment", Toast.LENGTH_SHORT).show();
-               registerFragment();
-            }
-        });
-
-
-        binding.btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Toggle buttons
-                binding.btnLogin.setBackgroundResource(R.drawable.button_rounded_focused);
-                binding.btnRegister.setBackgroundResource(R.drawable.button_rounded_normal);
-                Toast.makeText(LoginActivity.this, "Going to login fragment", Toast.LENGTH_SHORT).show();
-               setViewPager(binding.container);
-            }
-        });
-
-        // Custom facebook login button
-        mFacebookLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this, Arrays.asList(PUBLIC_PROFILE_PERMISSION, EMAIL_PERMISSION));
-            }
-        });
-
         // Google login set up
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                                         .requestEmail()
                                         .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
-        mGoogleLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signInWithGoogle();
-            }
-        });
 
         LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -122,9 +85,9 @@ public class LoginActivity extends AppCompatActivity {
                 Log.d(TAG, "Facebook access token: " + loginResult.getAccessToken().getToken());
 
                 // TODO: Use the returned token from loginResult to make a graph API request for user info (name, email, ....)
-                // For now, redirect user to the profile activity
-                Intent profileIntent = new Intent(getBaseContext(), MainActivity.class);
-                startActivity(profileIntent);
+                // Redirect user to the MainActivity
+                Intent mainActivityIntent = new Intent(getBaseContext(), MainActivity.class);
+                startActivity(mainActivityIntent);
             }
 
             @Override
@@ -177,6 +140,46 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     /***
+     * Handle login process when the login button is pressed
+     */
+    private void handleLoginProcess() {
+        // Toggle buttons
+        binding.btnLogin.setBackgroundResource(R.drawable.button_rounded_focused);
+        binding.btnRegister.setBackgroundResource(R.drawable.button_rounded_normal);
+
+        Toast.makeText(LoginActivity.this, "Going to login fragment", Toast.LENGTH_SHORT).show();
+        setViewPager(binding.container);
+
+    }
+
+    /**
+     * Handle registration process when the register button is clicked
+     *
+     * @param
+     * @return
+     */
+    private void handleRegistrationProcess() {
+        // Toggle buttons
+        binding.btnLogin.setBackgroundResource(R.drawable.button_rounded_normal);
+        binding.btnRegister.setBackgroundResource(R.drawable.button_rounded_focused);
+
+        Toast.makeText(LoginActivity.this, "Going to register fragment", Toast.LENGTH_SHORT).show();
+        registerFragment();
+
+    }
+
+
+    /***
+     * Handle facebook log in
+     *
+     * @param
+     * @return
+     */
+    private void signInWithFacebook() {
+        LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this, Arrays.asList(PUBLIC_PROFILE_PERMISSION, EMAIL_PERMISSION));
+    }
+
+    /***
      * Handle google sign in process
      *
      * @param
@@ -192,7 +195,7 @@ public class LoginActivity extends AppCompatActivity {
     /***
      * Handles google sign in result
      *
-     * @param completedTask
+     * @param completedTask - completed GoogleSignInAccount task
      * @return
      */
     private void handleGoogleSignInResult(Task<GoogleSignInAccount> completedTask) {
@@ -221,6 +224,33 @@ public class LoginActivity extends AppCompatActivity {
 
             // Google sign in failed
             e.printStackTrace();
+        }
+
+    }
+
+    /***
+     * Detect click events for all the different views (buttons)
+     *
+     * @param v - view
+     */
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+
+            case R.id.btn_register:
+                handleRegistrationProcess();
+                break;
+            case R.id.btn_login:
+                handleLoginProcess();
+                break;
+
+            case R.id.btn_facebook_login:
+                signInWithFacebook();
+                break;
+
+            case R.id.btn_google_login:
+                signInWithGoogle();
+                break;
         }
 
     }
