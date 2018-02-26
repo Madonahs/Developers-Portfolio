@@ -84,6 +84,10 @@
     <string name="about_developer_name7">Jantz Carney</string>
     <string name="acknowledgement">Acknowledgment</string>
     <string name="google"><![CDATA[Google & Udacity]]></string>
+    <string name="faq">FAQ</string>
+    <string name="back">Back</string>
+    <string name="contactus">Contact us</string>
+    <string name="terms">Terms and Privacy Policy</string>
 
 
 </resources>

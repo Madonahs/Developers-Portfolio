@@ -67,8 +67,10 @@
         <activity
             android:name=".ProjectsActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".AboutActivity"
-            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".AboutActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".HelpActivity"></activity>
     </application>
 
 </manifest>

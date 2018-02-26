@@ -70,7 +70,6 @@
                             android:drawablePadding="@dimen/margin_8"
                             android:fontFamily="@font/raleway"
                             android:textColor="@android:color/white"
-
                             android:textSize="@dimen/small_text_size"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +87,6 @@
                             android:background="@drawable/button_transparent"
                             android:fontFamily="@font/raleway"
                             android:paddingEnd="@dimen/button_padding"
-
                             android:paddingStart="@dimen/button_padding"
                             android:text="@string/edit_profile"
                             android:textColor="@android:color/white"
