@@ -82,7 +82,7 @@ public class ProfileFragmentDialog extends DialogFragment {
         data.putString(Constant.INTRO,mBinding.introEdit.getText().toString());
         data.putString(Constant.PHONE,mBinding.phoneEdit.getText().toString());
 
-        data.putString(Constant.LOCATION,mBinding.locationEdit.getText().toString());
+        data.putString(Constant.LOCATION,mBinding.homeEdit.getText().toString());
         data.putString(Constant.WEB,mBinding.webEdit.getText().toString());
         data.putString(Constant.EMAIL,mBinding.emailEdit.getText().toString());
 

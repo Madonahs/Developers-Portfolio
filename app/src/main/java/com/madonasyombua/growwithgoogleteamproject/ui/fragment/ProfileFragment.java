@@ -3,13 +3,17 @@ package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GestureDetectorCompat;
 import android.text.Html;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -75,6 +79,19 @@ public class ProfileFragment extends Fragment implements ProfileFragmentDialog.O
                 dialog.show(getChildFragmentManager(), TAG);
             }
         });
+
+        View.OnTouchListener onTouchListener =new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return touchHandler(view.getId(),motionEvent);
+            }
+        };
+
+        //On touch listener to handle to user interactions
+        mBinding.webTv.setOnTouchListener(onTouchListener);
+        mBinding.emailTv.setOnTouchListener(onTouchListener);
+        mBinding.phoneTv.setOnTouchListener(onTouchListener);
+        mBinding.homeTv.setOnTouchListener(onTouchListener);
 
 
         mBinding.setUser(user);
@@ -159,4 +176,35 @@ public class ProfileFragment extends Fragment implements ProfileFragmentDialog.O
             mBinding.status.setText(getString(R.string.offline));
         }
     }
+
+    private boolean touchHandler(final int id, MotionEvent event){
+        GestureDetector.SimpleOnGestureListener listener = new GestureDetector.SimpleOnGestureListener(){
+
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                Intent intent = null;
+                switch (id){
+                    case R.id.home_tv:
+                        break;
+                    case R.id.phone_tv:
+                        break;
+                    case R.id.email_tv:
+                        break;
+                    case R.id.web_tv:
+                        intent = new Intent(Intent.ACTION_VIEW,Uri.parse("https://cleverchuk.github.io"));
+                        break;
+                }
+                if(intent.resolveActivity(getActivity().getPackageManager()) != null) startActivity(intent);
+                return true;
+            }
+
+            @Override
+            public boolean onDown(MotionEvent e) {
+                return true;
+            }
+        };
+        GestureDetectorCompat gestureDetectorCompat = new GestureDetectorCompat(getActivity(),listener);
+       return gestureDetectorCompat.onTouchEvent(event);
+    }
+
 }
