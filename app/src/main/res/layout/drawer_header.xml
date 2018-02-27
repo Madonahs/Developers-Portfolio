@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/drawer_header_height"
+    android:background="@color/colorPrimary"
+    android:fitsSystemWindows="true"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    >
+
+    <!-- User profile pic -->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/drawer_header_user_image"
+        android:layout_width="@dimen/profile_width"
+        android:layout_height="@dimen/profile_height"
+        android:layout_marginTop="@dimen/drawer_header_vertical_spacing"
+        app:civ_border_color="@android:color/white"
+        app:civ_border_width="@dimen/profile_pic_outer_rim"
+        app:civ_fill_color="@color/colorPrimary"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/logo"
+        />
+
+    <!-- Username -->
+    <TextView
+        android:id="@+id/drawer_header_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/raleway"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drawer_header_user_image"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Username" />
+
+    <!-- User profession -->
+    <TextView
+        android:id="@+id/drawer_header_user_profession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/raleway"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drawer_header_user_name"
+        app:layout_constraintVertical_bias="0.0"
+        android:paddingBottom="50dp"
+        tools:text="Profession" />
+
+</android.support.constraint.ConstraintLayout>

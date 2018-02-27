@@ -1,24 +1,22 @@
 package com.madonasyombua.growwithgoogleteamproject;
 
-
+/**
+ * Created by madona on 2/15/18.
+ */
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-
-import com.madonasyombua.growwithgoogleteamproject.dialogs.ProfileFragmentDialog;
+import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProfileFragment;
 
-public class ProfileActivity extends AppCompatActivity implements ProfileFragment.OnFragmentInteractionListener {
+public class ProfileActivity extends AppCompatActivity implements OnFragmentInteractionListener {
     private static String TAG = "profile-fragment";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
-        //TODO: Need to handle screen orientation changes
         FragmentManager fm = getSupportFragmentManager();
         ProfileFragment profileFragment = (ProfileFragment) fm.findFragmentByTag(TAG);
 
