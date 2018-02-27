@@ -27,16 +27,17 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment1">Profile Fragment</string>
     <string name="edit_profile">EDIT PROFILE</string>
-    <string name="online">Online</string>
 
     <!-- Facebook -->
     <string name="facebook_app_id">2100423613573087</string>
     <string name="fb_login_protocol_scheme">fb2100423613573087</string>
 
     <!-- Facebook login toast messages -->
+
     <string name="facebook_login_success">Log in successful</string>
     <string name="facebook_login_cancel">Facebook login cancelled</string>
     <string name="facebook_login_error">Facebook login failed</string>
+
     <string name="interest">Interests</string>
     <string name="projects">Projects</string>
     <string name="feeds">Feeds</string>
@@ -53,6 +54,7 @@
     <string name="hello_blank">Interest to go here waiting for this layout.</string>
     <string name="project_screenshot">Project_screenshot</string>
 
+
     <!-- Drawer related -->
     <string name="drawer_messages_title">Messages</string>
     <string name="drawer_manage_profile_title">Manage Profile</string>
@@ -65,5 +67,11 @@
     <!-- Sample or test user details -->
     <string name="sample_user_name" translatable="false">UserName</string>
     <string name="sample_user_profession" translatable="false">Profession</string>
+
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+    <string name="submit">Submit</string>
+    <string name="intro">Intro</string>
+
 
 </resources>
