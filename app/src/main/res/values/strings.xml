@@ -73,6 +73,8 @@
     <string name="offline">Offline</string>
     <string name="submit">Submit</string>
     <string name="intro">Intro</string>
+    <string name="pref_login_status_key">pref_logging_status</string>
+    <bool name="pref_login_status_default_key">false</bool>
 
 
 </resources>
