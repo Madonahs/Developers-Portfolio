@@ -109,7 +109,13 @@
                 android:layout_weight="1" />
 
         </LinearLayout>
-
+        <!-- Margin top is a bad idea here we should root container for ConstraintLayout -->
+        <ProgressBar
+            android:id="@+id/login_loader"
+            android:visibility="invisible"
+            android:layout_marginTop="-200dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 

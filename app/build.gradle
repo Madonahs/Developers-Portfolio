@@ -3,7 +3,14 @@ apply plugin: 'com.android.application'
 android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
+    dataBinding{
+        enabled = true
+    }
+
+
+    compileSdkVersion rootProject.ext.compileSdkVersion
     dataBinding.enabled = true
+
     defaultConfig {
         applicationId "com.madonasyombua.growwithgoogleteamproject"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -29,20 +36,12 @@ dependencies {
     implementation "com.android.support:support-v4:$rootProject.ext.supportLibraryVersion"
     compile "com.android.support:design:$rootProject.ext.supportLibraryVersion"
     compile "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
-
-    implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
-    implementation "com.android.support:support-v4:$rootProject.ext.supportLibraryVersion"
-    implementation "com.android.support:design:$rootProject.ext.supportLibraryVersion"
     implementation "com.android.support:support-annotations:$rootProject.ext.supportLibraryVersion"
-    implementation "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
 
     // Test libraries
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
     androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
-
-
-
 
    //AhoyOnBoard library
     compile "com.codemybrainsout.onboarding:onboarder:$rootProject.ext.onBoarderVersion"
@@ -65,9 +64,16 @@ dependencies {
     // Facebook SDK
     implementation "com.facebook.android:facebook-login:$rootProject.ext.facebookLoginVersion"
 
-
     // Google Play
     implementation 'com.google.android.gms:play-services-auth:11.8.0'
 
+    // Firebase
+    implementation "com.google.firebase:firebase-database:$rootProject.ext.playServicesVersion"
+    implementation "com.google.firebase:firebase-core:$rootProject.ext.playServicesVersion"
+    //Firebase SDK
+    implementation "com.google.firebase:firebase-auth:$rootProject.ext.playServicesVersion"
+    implementation "com.google.android.gms:play-services-auth:$rootProject.ext.playServicesVersion"
+
 }
 
+apply plugin: 'com.google.gms.google-services'

@@ -16,8 +16,9 @@ import javax.annotation.Nonnull;
  * A blueprint for user
  */
 public class User {
-    private String name, followers, following, projects;
-    private String email, location, phone, website, intro;
+    private String name, password, followers, following, projects,
+            email, location, phone, website, intro;
+    private Portfolio portfolio;
     private boolean status;
 
 
@@ -37,8 +38,19 @@ public class User {
 
     }
 
-    public User(String name) {
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(String name, String email, String password) {
         this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
+    public void setPortfolio(Portfolio portfolio){
+        this.portfolio = portfolio;
     }
 
     public static User build(@NonNull Bundle data) {
@@ -64,8 +76,9 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
+    public String getPassword() { return this.password;}
 
     public String getFollowers() {
         return followers;
