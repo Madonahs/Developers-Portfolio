@@ -36,7 +36,6 @@ public class MainActivity
 
     //fragment to start when login and sign up is successful
     private Fragment fragment = new FeedsFragment();
-
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.drawer_container)

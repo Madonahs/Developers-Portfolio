@@ -5,25 +5,25 @@ package com.madonasyombua.growwithgoogleteamproject;
  */
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-
 import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProfileFragment;
 
-
 public class ProfileActivity extends AppCompatActivity implements OnFragmentInteractionListener {
-//to started once the email and password authentication goes through.
+    private static String TAG = "profile-fragment";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        FragmentManager fm = getSupportFragmentManager();
+        ProfileFragment profileFragment = (ProfileFragment) fm.findFragmentByTag(TAG);
 
-        //TODO: Need to handle screen orientation changes
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.add(R.id.container,new ProfileFragment());
-        ft.commit();
+        if (profileFragment == null) {
+            profileFragment = new ProfileFragment();
+            fm.beginTransaction().add(R.id.container, profileFragment, TAG).commit();
+        }
     }
 
     @Override
