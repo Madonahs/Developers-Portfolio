@@ -23,19 +23,21 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.madonasyombua.growwithgoogleteamproject.MainActivity;
-import com.madonasyombua.growwithgoogleteamproject.adapter.FragmentsAdapter;
-import com.madonasyombua.growwithgoogleteamproject.ProfileActivity;
 import com.madonasyombua.growwithgoogleteamproject.R;
+import com.madonasyombua.growwithgoogleteamproject.adapter.FragmentsAdapter;
+import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityLoginBinding;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.LoginFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.RegisterFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.intro.OnBoardingActivity;
 
 import java.util.Arrays;
-// I see we have a jonathanfinerty import here, I hope we can get details on it
+
 import jonathanfinerty.once.Once;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+// I see we have a jonathanfinerty import here, I hope we can get details on it
+
+public class LoginActivity extends AppCompatActivity implements AppLoginManager.LoginInterface, View.OnClickListener {
 
     CallbackManager mCallbackManager;
 
@@ -76,6 +78,38 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                         .requestEmail()
                                         .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        //Switch between login fragment and register fragment
+        binding.btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Toggle buttons
+                binding.btnLogin.setBackgroundResource(R.drawable.button_rounded_normal);
+                binding.btnRegister.setBackgroundResource(R.drawable.button_rounded_focused);
+               Toast.makeText(LoginActivity.this, "Going to register fragment", Toast.LENGTH_SHORT).show();
+               registerFragment();
+            }
+        });
+
+
+        binding.btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Toggle buttons
+                binding.btnLogin.setBackgroundResource(R.drawable.button_rounded_focused);
+                binding.btnRegister.setBackgroundResource(R.drawable.button_rounded_normal);
+                Toast.makeText(LoginActivity.this, "Going to login fragment", Toast.LENGTH_SHORT).show();
+               setViewPager(binding.container);
+
+            }
+        });
+
+        // Custom facebook login button
+        binding.btnFacebookLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this, Arrays.asList(PUBLIC_PROFILE_PERMISSION, EMAIL_PERMISSION));
+            }
+        });
 
         LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -137,6 +171,42 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         FragmentsAdapter adapter = new FragmentsAdapter(getSupportFragmentManager());
         adapter.addFragment(new RegisterFragment());
         binding.container.setAdapter(adapter);
+    }
+    private void loginFragment(){
+        FragmentsAdapter adapter = new FragmentsAdapter(getSupportFragmentManager());
+        adapter.addFragment(new LoginFragment());
+        binding.container.setAdapter(adapter);
+    }
+
+    public void showHideProgressBar(boolean show){
+        if(show){
+            binding.loginLoader.setVisibility(View.VISIBLE);
+        } else {
+            binding.loginLoader.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    @Override
+    public void onSigninSuccess() {
+        startActivity(new Intent(this, MainActivity.class));
+        showHideProgressBar(false);
+        Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRegistrationSuccess() {
+        showHideProgressBar(false);
+        Toast.makeText(this, "Registration Success", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onSigninFailed() {
+        showHideProgressBar(false);
+    }
+
+    @Override
+    public void onRegistrationFailed() {
+        showHideProgressBar(false);
     }
 
     /***
