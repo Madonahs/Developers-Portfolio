@@ -73,6 +73,22 @@
     <string name="offline">Offline</string>
     <string name="submit">Submit</string>
     <string name="intro">Intro</string>
+    <string name="contactus">Contact Us</string>
+    <string name="faq">FAQ</string>
+    <string name="terms">Terms and Conditions</string>
+    <string name="back">Back</string>
+    <string name="about">About</string>
+    <string name="about_detail">The project is meant to help programmers have a portfolio sharing platform, programmers are welcome to share their projects and they can interact and show employers what they have done in the app, one doesnt have to create a website to showcase his/her work. The project was done by team members participating in the Grow With Google Scholarship Program offered by Google|Udacity.</string>
+    <string name="about_developer_heading">Developers</string>
+    <string name="about_developer_name1">Madonah Syombua</string>
+    <string name="about_developer_name2">Rado RAMBININTSOA</string>
+    <string name="about_developer_name3">Emmanuel Adewale</string>
+    <string name="about_developer_name4">Maher Soua</string>
+    <string name="about_developer_name5">Clever Chuk</string>
+    <string name="about_developer_name6">Hemantkumar Nimje</string>
+    <string name="about_developer_name7">Jantz Carney</string>
+    <string name="acknowledgement">Acknowledgment</string>
+    <string name="google">Thank you Google | Udacity.</string>
 
 
 </resources>

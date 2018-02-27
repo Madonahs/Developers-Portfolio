@@ -12,6 +12,7 @@
 
     <!-- No action bar styling. For activities that does not require an action bar please
      add use this as the theme by adding this to the android manifest file for the respective activity -->
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
