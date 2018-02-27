@@ -1,25 +1,20 @@
 package com.madonasyombua.growwithgoogleteamproject.dialogs;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentProfileBinding;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentProfileDialogBinding;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProfileFragment;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
 /**
@@ -36,6 +31,11 @@ public class ProfileFragmentDialog extends DialogFragment {
     private FragmentProfileDialogBinding mBinding;
     private OnSubmitListener mListener;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+//        setStyle(); inherits app theme
+    }
 
     @Override
     public void onStart() {
@@ -79,17 +79,32 @@ public class ProfileFragmentDialog extends DialogFragment {
 
     private Bundle submit(){
         Bundle data = new Bundle(5);
-        data.putString(Constant.INTRO,mBinding.introEdit.getText().toString());
-        data.putString(Constant.PHONE,mBinding.phoneEdit.getText().toString());
+        data.putString(Constant.INTRO,getString(mBinding.introEdit));
+        data.putString(Constant.PHONE,getString(mBinding.phoneEdit));
 
-        data.putString(Constant.LOCATION,mBinding.homeEdit.getText().toString());
-        data.putString(Constant.WEB,mBinding.webEdit.getText().toString());
-        data.putString(Constant.EMAIL,mBinding.emailEdit.getText().toString());
+        data.putString(Constant.LOCATION,getString(mBinding.homeEdit));
+        data.putString(Constant.WEB,getString(mBinding.webEdit));
+        data.putString(Constant.EMAIL,getString(mBinding.emailEdit));
 
         return data;
     }
 
+    private String getString(@NonNull View view){
+        if(view instanceof EditText){
+            return ((EditText)view).getText().toString();
+        }else if(view instanceof TextView)
+            return ((TextView)view).getText().toString();
+
+        return view.toString();
+    }
+
+
+    /**
+     * Implement this to get data from this fragment
+     */
     public interface OnSubmitListener{
         void submit(Bundle data);
     }
+
+
 }

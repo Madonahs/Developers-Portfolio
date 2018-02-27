@@ -21,7 +21,6 @@ import com.madonasyombua.growwithgoogleteamproject.ui.fragment.InterestFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProfileFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProjectsFragment;
 import com.madonasyombua.growwithgoogleteamproject.util.BottomNavigationViewHelper;
-import com.madonasyombua.growwithgoogleteamproject.util.Session;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,7 +34,9 @@ public class MainActivity
     //private FragmentsAdapter fragmentsAdapter;
 
     //fragment to start when login and sign up is successful
-    private Fragment fragment = new FeedsFragment();
+    private Fragment fragment;
+    private static final String TAG ="current-frag";
+    
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.drawer_container)
@@ -68,6 +69,10 @@ public class MainActivity
         //setViewPager(binding.content);
 
 
+        fragment = getSupportFragmentManager().findFragmentByTag(TAG);
+        if(fragment == null){
+            fragment = new FeedsFragment();
+        }
 
 
         //This is my bottom navigator for easy navigation couldn't draw this on my mockup
@@ -77,7 +82,7 @@ public class MainActivity
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.content, fragment);
+        transaction.replace(R.id.content, fragment,TAG);
         transaction.commit();
     }
 
@@ -129,7 +134,7 @@ public class MainActivity
             }
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.content, fragment);
+            transaction.replace(R.id.content, fragment,TAG);
             transaction.commit();
 
             return true;
