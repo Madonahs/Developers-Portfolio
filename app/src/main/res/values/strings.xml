@@ -70,8 +70,8 @@
 
     <string name="online">Online</string>
     <string name="offline">Offline</string>
-
-
+    <string name="submit">Submit</string>
+    <string name="intro">Intro</string>
 
 
 </resources>
