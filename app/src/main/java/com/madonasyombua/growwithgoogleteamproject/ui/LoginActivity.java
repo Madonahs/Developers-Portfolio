@@ -216,6 +216,16 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
         showHideProgressBar(false);
     }
 
+    @Override
+    public void onResetPasswordSuccess() {
+        Toast.makeText(this, "onResetPasswordSuccess", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onResetPasswordFailed() {
+        Toast.makeText(this, "onResetPasswordFailed", Toast.LENGTH_SHORT).show();
+    }
+
     /***
      * Handle login process when the login button is pressed
      */
