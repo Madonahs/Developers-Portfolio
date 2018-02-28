@@ -42,7 +42,7 @@
         <!-- </intent-filter> -->
         <!-- </activity> -->
         <!-- <activity android:name=".ui.LoginActivity"> -->
-        <!-- I am starting the Main Activity lets start the class from there then call login Activity for now so that we can work on inside the app i will stop the login-->
+        <!-- I am starting the Main Activity lets start the class from there then call login Activity for now so that we can work on inside the app i will stop the login -->
         <activity
             android:name=".ui.LoginActivity"
             android:theme="@style/AppTheme">
@@ -67,6 +67,9 @@
         <activity
             android:name=".ProjectsActivity"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
     </application>
 
 </manifest>

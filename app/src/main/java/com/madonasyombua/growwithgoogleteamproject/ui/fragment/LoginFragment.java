@@ -1,6 +1,5 @@
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,10 +10,11 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.madonasyombua.growwithgoogleteamproject.MainActivity;
-import com.madonasyombua.growwithgoogleteamproject.ProfileActivity;
 import com.madonasyombua.growwithgoogleteamproject.R;
+import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentLoginBinding;
+import com.madonasyombua.growwithgoogleteamproject.models.User;
+import com.madonasyombua.growwithgoogleteamproject.ui.LoginActivity;
 
 /**
  * Created by Ayo on 2/9/2018.
@@ -23,7 +23,6 @@ import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentLoginBind
 public class LoginFragment extends Fragment {
     private FragmentLoginBinding binding;
     private static final String TAG = "LoginFragment";
-
     /*
     * This class is used to get data from the fragment like the username and stuff.
     * It also binds the views
@@ -32,16 +31,21 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login, container, false);
+
         binding.loginFragmentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username_text = extractText(binding.editUsername);
+                String email_text = extractText(binding.editEmail);
                 String password_text = extractText(binding.editPassword);
 
-                Toast.makeText(getActivity(), "Logging in", Toast.LENGTH_SHORT).show();
-                //TODO: start MainActivity from Here
-                startActivity(new Intent(getActivity(), MainActivity.class));
+                if(email_text.isEmpty() || password_text.isEmpty()){
+                    // TODO add toast or change input color to show user that is required
+                    Toast.makeText(getContext(), "Username and password are required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
+                AppLoginManager.signinUser(getActivity(), new User(email_text, password_text));
+                ((LoginActivity) getActivity()).showHideProgressBar(true);
             }
         });
 
@@ -52,6 +56,7 @@ public class LoginFragment extends Fragment {
         String newText = text.getText().toString().trim();
         return newText;
     }
-
-
 }
+
+
+
