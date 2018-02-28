@@ -1,5 +1,6 @@
 package com.madonasyombua.growwithgoogleteamproject;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -177,6 +178,8 @@ public class MainActivity
 
             case R.id.settings:
                 // Take user to setting screen
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
                 return false;
 
             case R.id.about:
