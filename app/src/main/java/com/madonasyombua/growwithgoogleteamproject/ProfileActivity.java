@@ -11,7 +11,7 @@ import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteract
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProfileFragment;
 
 public class ProfileActivity extends AppCompatActivity implements OnFragmentInteractionListener {
-    private static String TAG = "profile-fragment";
+    private static final String TAG = "profile-fragment";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
