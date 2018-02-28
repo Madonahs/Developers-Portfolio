@@ -18,7 +18,9 @@ An open mind and an open heart.
 * **Hemantkumar Nimje** - *Team Member*
 * **Srinath Chintapalli** - *Team Member*
 
+Also checkout the entire list of [Collaborators](https://github.com/Madonahs/GrowWithGoogleTeamProject/settings/collaboration)
 
+Thank you team.
 
 ## Contributing
 
