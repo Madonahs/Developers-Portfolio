@@ -18,7 +18,9 @@ An open mind and an open heart.
 * **Hemantkumar Nimje** - *Team Member*
 * **Srinath Chintapalli** - *Team Member*
 
+Also checkout the entire list of [Collaborators](https://github.com/Madonahs/GrowWithGoogleTeamProject/settings/collaboration)
 
+Thank you team.
 
 ## Contributing
 
@@ -49,8 +51,4 @@ Bind Views - ButterKnife - https://github.com/JakeWharton/butterknife
 ## Ensuring your fork is up to date:
 Info: https://gist.github.com/CristinaSolana/1885435
 
-## Incase you encounter Errors when trying to run the project
-1: Open the folder shown.
 
-2: Expand and run the show below.
-![step 2](https://user-images.githubusercontent.com/11560987/36135524-4aa70bee-1051-11e8-924c-ae70f2f22c30.PNG)

@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
+import com.madonasyombua.growwithgoogleteamproject.ui.fragment.AboutFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.FeedsFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.InterestFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProfileFragment;
@@ -69,10 +71,12 @@ public class MainActivity
         //setViewPager(binding.content);
 
 
+
         fragment = getSupportFragmentManager().findFragmentByTag(TAG);
         if(fragment == null){
             fragment = new FeedsFragment();
         }
+
 
 
         //This is my bottom navigator for easy navigation couldn't draw this on my mockup
@@ -142,7 +146,7 @@ public class MainActivity
 
     };
 
-    /** When back button pressed hide navigation drawer if open else move task to back  */
+    // When back button pressed hide navigation drawer if open else move task to back
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -152,9 +156,13 @@ public class MainActivity
         }
     }
 
+    // Implement Navigation Drawer list item click listener
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // After implementation return true for the below cases
+        Fragment fragment = null;
+        Class fragmentClass;
         switch (item.getItemId()) {
             case R.id.messages:
                 // Take user to messages screen
@@ -180,8 +188,13 @@ public class MainActivity
             case R.id.logout:
                 // logout
                 return false;
+
         }
         return false;
+
+
+
+
     }
 
     /** Implement Navigation Drawer list item click listener */
