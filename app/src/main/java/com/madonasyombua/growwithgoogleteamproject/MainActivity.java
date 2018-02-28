@@ -28,7 +28,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity
         extends AppCompatActivity
-        implements OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener {
+        implements OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener{
 
     //private ActivityMainBinding binding;
     //private FragmentsAdapter fragmentsAdapter;
@@ -36,7 +36,7 @@ public class MainActivity
     //fragment to start when login and sign up is successful
     private Fragment fragment;
     private static final String TAG ="current-frag";
-    
+
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.drawer_container)
@@ -152,7 +152,6 @@ public class MainActivity
         }
     }
 
-    /** Implement Navigation Drawer list item click listener */
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // After implementation return true for the below cases
@@ -181,11 +180,11 @@ public class MainActivity
             case R.id.logout:
                 // logout
                 return false;
-
-            default:
-                return false;
         }
+        return false;
     }
+
+    /** Implement Navigation Drawer list item click listener */
 
     @Override
     public void onFragmentInteraction(Uri uri) {
