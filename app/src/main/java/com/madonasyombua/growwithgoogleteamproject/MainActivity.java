@@ -172,9 +172,9 @@ public class MainActivity
                 // Take user to edit profile screen
                 return false;
 
-            case R.id.notifications:
+          //  case R.id.notifications:
                 // Take user to notification screen
-                return false;
+             //   return false;
 
             case R.id.settings:
                 // Take user to setting screen
