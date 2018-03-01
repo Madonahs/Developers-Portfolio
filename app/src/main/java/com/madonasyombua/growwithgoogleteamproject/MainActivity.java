@@ -1,11 +1,13 @@
 package com.madonasyombua.growwithgoogleteamproject;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,6 +18,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
+import com.madonasyombua.growwithgoogleteamproject.ui.fragment.AboutFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.FeedsFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.InterestFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProfileFragment;
@@ -28,13 +31,15 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity
         extends AppCompatActivity
-        implements OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener {
+        implements OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener{
 
     //private ActivityMainBinding binding;
     //private FragmentsAdapter fragmentsAdapter;
 
     //fragment to start when login and sign up is successful
-    private Fragment fragment = new FeedsFragment();
+    private Fragment fragment;
+    private static final String TAG ="current-frag";
+
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.drawer_container)
@@ -67,6 +72,14 @@ public class MainActivity
         //setViewPager(binding.content);
 
 
+
+        fragment = getSupportFragmentManager().findFragmentByTag(TAG);
+        if(fragment == null){
+            fragment = new FeedsFragment();
+        }
+
+
+
         //This is my bottom navigator for easy navigation couldn't draw this on my mockup
         // since it was difficult to squeeze everything.
         BottomNavigationView navigation = findViewById(R.id.navigation);
@@ -74,7 +87,7 @@ public class MainActivity
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.content, fragment);
+        transaction.replace(R.id.content, fragment,TAG);
         transaction.commit();
     }
 
@@ -126,7 +139,7 @@ public class MainActivity
             }
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.content, fragment);
+            transaction.replace(R.id.content, fragment,TAG);
             transaction.commit();
 
             return true;
@@ -145,9 +158,12 @@ public class MainActivity
     }
 
     // Implement Navigation Drawer list item click listener
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // After implementation return true for the below cases
+        Fragment fragment = null;
+        Class fragmentClass;
         switch (item.getItemId()) {
             case R.id.messages:
                 // Take user to messages screen
@@ -156,12 +172,14 @@ public class MainActivity
                 // Take user to edit profile screen
                 return false;
 
-            case R.id.notifications:
+          //  case R.id.notifications:
                 // Take user to notification screen
-                return false;
+             //   return false;
 
             case R.id.settings:
                 // Take user to setting screen
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
                 return false;
 
             case R.id.about:
@@ -174,10 +192,15 @@ public class MainActivity
                 // logout
                 return false;
 
-            default:
-                return false;
         }
+        return false;
+
+
+
+
     }
+
+    /** Implement Navigation Drawer list item click listener */
 
     @Override
     public void onFragmentInteraction(Uri uri) {

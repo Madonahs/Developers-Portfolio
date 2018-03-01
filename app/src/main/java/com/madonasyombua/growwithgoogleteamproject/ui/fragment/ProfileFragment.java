@@ -1,9 +1,7 @@
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,10 +15,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentProfileBinding;
 import com.madonasyombua.growwithgoogleteamproject.dialogs.ProfileFragmentDialog;
+import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
@@ -76,6 +74,7 @@ public class ProfileFragment extends Fragment implements ProfileFragmentDialog.O
         mBinding.btnEditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //TODO: Show dialog with app theme
                 dialog = new ProfileFragmentDialog();
                 dialog.show(getChildFragmentManager(), TAG);
             }

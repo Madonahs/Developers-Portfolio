@@ -196,14 +196,17 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
     public void onSigninSuccess() {
         startActivity(new Intent(this, MainActivity.class));
         showHideProgressBar(false);
+
         LoginStatusManager.storeLoginStatus(this);
-        Toast.makeText(this, "onSigninSuccess", Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
     public void onRegistrationSuccess() {
         showHideProgressBar(false);
-        Toast.makeText(this, "onRegistrationSuccess", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Registration Success", Toast.LENGTH_SHORT).show();
     }
 
     @Override
