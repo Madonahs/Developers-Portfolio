@@ -15,13 +15,16 @@ An open mind and an open heart.
 * **Maher Soua** - *Team Member*
 * **Chukwubuikem Ume-Ugwa** - *Team Member*
 * **Jantz Carney** - *Team Member*
+* **Hemantkumar Nimje** - *Team Member*
 * **Srinath Chintapalli** - *Team Member*
 
+Also checkout the entire list of [Collaborators](https://github.com/Madonahs/GrowWithGoogleTeamProject/settings/collaboration)
 
-
+Thank you team.
 
 ## Contributing
-Read [Contributing](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
+
+Read  [Contributing](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
 
 ## Code of Conduct
 
@@ -29,11 +32,13 @@ Read [Code of Conduct](https://github.com/Madonahs/GrowWithGoogleTeamProject/blo
 
 ## Design Mock up by Madonah Syombua
 
-![madonah syombua](https://user-images.githubusercontent.com/11560987/36348146-a8a19fc6-142e-11e8-8e9a-31f5e3d22f2b.png)
+![syombuamadona](https://user-images.githubusercontent.com/11560987/36858976-aa804258-1d42-11e8-9278-b90762987037.png)
+
+
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+See the [LICENSE.md](LICENSE.txt) file for details
 
 ## Acknowledgments
 
@@ -47,8 +52,4 @@ Bind Views - ButterKnife - https://github.com/JakeWharton/butterknife
 ## Ensuring your fork is up to date:
 Info: https://gist.github.com/CristinaSolana/1885435
 
-## Incase you encounter Errors when trying to run the project
-1: Open the folder shown.
 
-2: Expand and run the show below.
-![step 2](https://user-images.githubusercontent.com/11560987/36135524-4aa70bee-1051-11e8-924c-ae70f2f22c30.PNG)
