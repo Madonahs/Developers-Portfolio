@@ -27,6 +27,7 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.adapter.FragmentsAdapter;
 import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityLoginBinding;
+import com.madonasyombua.growwithgoogleteamproject.login.LoginStatusManager;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.LoginFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.RegisterFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.intro.OnBoardingActivity;
@@ -56,6 +57,11 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(LoginStatusManager.getLoginStatus(this)){
+            startActivity(new Intent(this, MainActivity.class));
+            return;
+        }
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
 
         mCallbackManager = CallbackManager.Factory.create();
@@ -190,7 +196,8 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
     public void onSigninSuccess() {
         startActivity(new Intent(this, MainActivity.class));
         showHideProgressBar(false);
-        Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
+        LoginStatusManager.storeLoginStatus(this);
+        Toast.makeText(this, "onSigninSuccess", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -207,6 +214,16 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
     @Override
     public void onRegistrationFailed() {
         showHideProgressBar(false);
+    }
+
+    @Override
+    public void onResetPasswordSuccess() {
+        Toast.makeText(this, "onResetPasswordSuccess", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onResetPasswordFailed() {
+        Toast.makeText(this, "onResetPasswordFailed", Toast.LENGTH_SHORT).show();
     }
 
     /***
