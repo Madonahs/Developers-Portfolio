@@ -32,7 +32,8 @@ Read [Code of Conduct](https://github.com/Madonahs/GrowWithGoogleTeamProject/blo
 
 ## Design Mock up by Madonah Syombua
 
-![madonasyombua](https://user-images.githubusercontent.com/11560987/36572114-9a8f9706-17ff-11e8-8253-4e30f53bfbcf.png)
+![syombuamadona](https://user-images.githubusercontent.com/11560987/36858976-aa804258-1d42-11e8-9278-b90762987037.png)
+
 
 
 ## License
