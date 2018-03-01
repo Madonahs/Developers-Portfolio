@@ -109,6 +109,10 @@
 </android.support.v7.widget.CardView>
 <!-- I have left this commented here incase we might need it -->
 
+
+<!-- Working on the portfolio_list_row.xml which was overridden and lost -->
+
+
 <!--<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
