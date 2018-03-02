@@ -73,6 +73,10 @@
     <string name="offline">Offline</string>
     <string name="submit">Submit</string>
     <string name="intro">Intro</string>
+
+    <string name="pref_login_status_key">pref_logging_status</string>
+    <bool name="pref_login_status_default_key">false</bool>
+
     <string name="contactus">Contact Us</string>
     <string name="faq">FAQ</string>
     <string name="terms">Terms and Conditions</string>
@@ -162,6 +166,7 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+>>>>>>> master
 
 
 </resources>
