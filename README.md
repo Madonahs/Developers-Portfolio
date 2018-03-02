@@ -53,3 +53,24 @@ Bind Views - ButterKnife - https://github.com/JakeWharton/butterknife
 Info: https://gist.github.com/CristinaSolana/1885435
 
 
+## Handling config files:
+Since config files may contain sensitive information about our app, it's best practice to not put them
+out on the public repo for the whole world to see. Therefore, we decided to share them privately
+among team members. 
+
+Currently, we have 2 json config files, *credentials.json* and *google-services.json*, that our app requires in order to work properly. 
+These files are required in order for google sign in features to work.
+
+1. Download **credentials.json** and **google-services.json** from our *GrowWithGoogleTeam* slack team.
+(if you would like to be invited, send your email to @Madonahs)
+
+2. Copy the downloaded files above into the **app** folder of your project.
+
+    a. Open the **GrowWithGoogleTeamProject** app on Android Studio.
+    
+    b. Change the file explore view to **Project** (default view is usually *Android*)
+    
+    c. Right-click the **app** folder and paste in the config files
+    
+3. Rebuild project.
+

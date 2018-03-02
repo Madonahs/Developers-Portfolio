@@ -5,8 +5,6 @@ import android.support.annotation.NonNull;
 
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
-import javax.annotation.Nonnull;
-
 /**
  * Created by chuk on 2/15/18.
  */

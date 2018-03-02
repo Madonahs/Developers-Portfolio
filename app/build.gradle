@@ -78,5 +78,4 @@ dependencies {
     implementation "com.google.android.gms:play-services-auth:$rootProject.ext.playServicesVersion"
 
 }
-
 apply plugin: 'com.google.gms.google-services'
