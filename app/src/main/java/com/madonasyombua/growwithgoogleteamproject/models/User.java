@@ -1,15 +1,22 @@
 package com.madonasyombua.growwithgoogleteamproject.models;
 
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+
+import com.madonasyombua.growwithgoogleteamproject.util.Constant;
+
 /**
  * Created by chuk on 2/15/18.
  */
 
-/*
-    Just a dummy model test the fragment
+/**
+ * {@link User}
+ * A blueprint for user
  */
 public class User {
-    private String name, followers, following, projects;
-    private String email, location, phone, website, intro;
+    private String name, password, followers, following, projects,
+            email, location, phone, website, intro;
+    private Portfolio portfolio;
     private boolean status;
 
 
@@ -29,13 +36,47 @@ public class User {
 
     }
 
-    public User(String name) {
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(String name, String email, String password) {
         this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
+    public void setPortfolio(Portfolio portfolio){
+        this.portfolio = portfolio;
+    }
+
+    public static User build(@NonNull Bundle data) {
+        User user = new User();
+        user.setLocation(data.getString(Constant.LOCATION));
+        user.setPhone(data.getString(Constant.PHONE));
+        user.setEmail(data.getString(Constant.EMAIL));
+
+        user.setWebsite(data.getString(Constant.WEB));
+        user.setIntro(data.getString(Constant.INTRO));
+        return user;
+    }
+
+
+    public static User build(@NonNull User user,@NonNull Bundle data) {
+        user.setLocation(data.getString(Constant.LOCATION));
+        user.setPhone(data.getString(Constant.PHONE));
+        user.setEmail(data.getString(Constant.EMAIL));
+
+        user.setWebsite(data.getString(Constant.WEB));
+        user.setIntro(data.getString(Constant.INTRO));
+        return user;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
+    public String getPassword() { return this.password;}
 
     public String getFollowers() {
         return followers;
@@ -71,5 +112,29 @@ public class User {
 
     public boolean getStatus() {
         return status;
+    }
+
+    public void setLocation(String location) {
+        if (!location.isEmpty()) this.location = location;
+    }
+
+    public void setEmail(String email) {
+        if (!email.isEmpty())this.email = email;
+    }
+
+    public void setPhone(String phone) {
+        if (!phone.isEmpty()) this.phone = phone;
+    }
+
+    public void setWebsite(String website) {
+        if (!website.isEmpty()) this.website = website;
+    }
+
+    public void setIntro(String intro) {
+        if (!intro.isEmpty()) this.intro = intro;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }
