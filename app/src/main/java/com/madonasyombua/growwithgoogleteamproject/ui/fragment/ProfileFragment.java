@@ -30,7 +30,8 @@ import com.madonasyombua.growwithgoogleteamproject.util.Constant;
  * Use the {@link ProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProfileFragment extends Fragment implements ProfileFragmentDialog.OnSubmitListener {
+public class ProfileFragment extends Fragment
+        implements ProfileFragmentDialog.OnSubmitListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -80,7 +81,7 @@ public class ProfileFragment extends Fragment implements ProfileFragmentDialog.O
             }
         });
 
-        View.OnTouchListener onTouchListener =new View.OnTouchListener() {
+        View.OnTouchListener onTouchListener = new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 return touchHandler(view.getId(),motionEvent);
@@ -125,6 +126,8 @@ public class ProfileFragment extends Fragment implements ProfileFragmentDialog.O
         user = User.build(user, data);
         mBinding.setUser(user);
     }
+
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -190,7 +193,7 @@ public class ProfileFragment extends Fragment implements ProfileFragmentDialog.O
                 return true;
             }
         };
-        GestureDetectorCompat gestureDetectorCompat = new GestureDetectorCompat(getActivity(),listener);
+        GestureDetectorCompat gestureDetectorCompat = new GestureDetectorCompat(getContext(),listener);
        return gestureDetectorCompat.onTouchEvent(event);
     }
 
