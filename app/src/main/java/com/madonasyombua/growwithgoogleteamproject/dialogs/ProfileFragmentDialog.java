@@ -32,12 +32,6 @@ public class ProfileFragmentDialog extends DialogFragment {
     private OnSubmitListener mListener;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        setStyle(); inherits app theme
-    }
-
-    @Override
     public void onStart() {
         super.onStart();
         getDialog().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,

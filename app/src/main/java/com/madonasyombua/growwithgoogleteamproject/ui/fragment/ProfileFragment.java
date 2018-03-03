@@ -25,13 +25,13 @@ import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
-
+ * <p>
  * to handle interaction events.
  * Use the {@link ProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class ProfileFragment extends Fragment
-        implements ProfileFragmentDialog.OnSubmitListener{
+        implements ProfileFragmentDialog.OnSubmitListener, View.OnTouchListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -43,7 +43,9 @@ public class ProfileFragment extends Fragment
     private FragmentProfileBinding mBinding;
     private ProfileFragmentDialog dialog;
     private OnFragmentInteractionListener mListener;
+    private GestureDetectorCompat gd;
     private User user;
+    private int id;
 
     private static final String TAG = "update-profile-fragment";
 
@@ -62,6 +64,38 @@ public class ProfileFragment extends Fragment
         }
         //TODO: remove
         user = new User();
+
+        GestureDetector.SimpleOnGestureListener listener = new GestureDetector.SimpleOnGestureListener() {
+
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                Intent intent = null;
+                switch (id) {
+                    case R.id.home_tv:
+                        //TODO: Handle doubleTap
+                        break;
+                    case R.id.phone_tv:
+                        //TODO: Handle doubleTap
+                        break;
+                    case R.id.email_tv:
+                        //TODO: Handle doubleTap
+                        break;
+                    case R.id.web_tv:
+                        //TODO: Handle doubleTap
+                        intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cleverchuk.github.io"));
+                        break;
+                }
+                if (intent.resolveActivity(getActivity().getPackageManager()) != null)
+                    startActivity(intent);
+                return true;
+            }
+
+            @Override
+            public boolean onDown(MotionEvent e) {
+                return true;
+            }
+        };
+        gd = new GestureDetectorCompat(getActivity(), listener);
     }
 
     @Override
@@ -81,18 +115,12 @@ public class ProfileFragment extends Fragment
             }
         });
 
-        View.OnTouchListener onTouchListener = new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                return touchHandler(view.getId(),motionEvent);
-            }
-        };
 
         //On touch listener to handle to user interactions
-        mBinding.webTv.setOnTouchListener(onTouchListener);
-        mBinding.emailTv.setOnTouchListener(onTouchListener);
-        mBinding.phoneTv.setOnTouchListener(onTouchListener);
-        mBinding.homeTv.setOnTouchListener(onTouchListener);
+        mBinding.webTv.setOnTouchListener(this);
+        mBinding.emailTv.setOnTouchListener(this);
+        mBinding.phoneTv.setOnTouchListener(this);
+        mBinding.homeTv.setOnTouchListener(this);
 
 
         mBinding.setUser(user);
@@ -127,7 +155,12 @@ public class ProfileFragment extends Fragment
         mBinding.setUser(user);
     }
 
-
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        id = v.getId();
+        gd.onTouchEvent(event);
+        return true;
+    }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -166,35 +199,4 @@ public class ProfileFragment extends Fragment
             mBinding.status.setText(getString(R.string.offline));
         }
     }
-
-    private boolean touchHandler(final int id, MotionEvent event){
-        GestureDetector.SimpleOnGestureListener listener = new GestureDetector.SimpleOnGestureListener(){
-
-            @Override
-            public boolean onDoubleTap(MotionEvent e) {
-                Intent intent = null;
-                switch (id){
-                    case R.id.home_tv:
-                        break;
-                    case R.id.phone_tv:
-                        break;
-                    case R.id.email_tv:
-                        break;
-                    case R.id.web_tv:
-                        intent = new Intent(Intent.ACTION_VIEW,Uri.parse("https://cleverchuk.github.io"));
-                        break;
-                }
-                if(intent.resolveActivity(getActivity().getPackageManager()) != null) startActivity(intent);
-                return true;
-            }
-
-            @Override
-            public boolean onDown(MotionEvent e) {
-                return true;
-            }
-        };
-        GestureDetectorCompat gestureDetectorCompat = new GestureDetectorCompat(getContext(),listener);
-       return gestureDetectorCompat.onTouchEvent(event);
-    }
-
 }
