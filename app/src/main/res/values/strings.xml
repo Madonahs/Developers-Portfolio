@@ -164,4 +164,18 @@
     <string name="pref_title_vibrate">Vibrate</string>
 
 
+    <!-- Interest layout -->
+    <string name="dummy_position">Android Developer</string>
+    <string name="dummy_following_count_value">425</string>
+    <string name="following">Following</string>
+    <string name="dummy_followers_count_value">27K</string>
+    <string name="followers">Followers</string>
+    <string name="dummy_project_count_value">434</string>
+
+    <string name="dummy_interest_title">Mathematics</string>
+    <string name="dummy_interest_count_value">745</string>
+    <string name="posts">Posts</string>
+    <string name="dummy_likes_count_value">14K</string>
+    <string name="likes">Likes</string>
+
 </resources>
