@@ -5,5 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.madonasyombua.growwithgoogleteamproject.FeedsActivity">
+<!-- to be removed just a demo :) but here is where one starts to write something -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="56dp"
+        android:paddingLeft="12dp"
+        android:gravity="center"
+        android:text="@string/dummy"
+        android:textColor="@color/grey_600"/>
 
 </android.support.constraint.ConstraintLayout>
