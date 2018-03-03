@@ -9,15 +9,14 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.madonasyombua.growwithgoogleteamproject.FeedsActivity;
-import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
 import com.madonasyombua.growwithgoogleteamproject.R;
+import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -102,6 +101,7 @@ public class FeedsFragment extends Fragment implements LoaderManager.LoaderCallb
     private void openFeedsActivity(@SuppressWarnings("unused") View view) {
         Intent intent = new Intent(this.getActivity(), FeedsActivity.class);
         startActivity(intent);
+        Toast.makeText(getContext(), "Adding Feed", Toast.LENGTH_SHORT).show();
 
     }
 
