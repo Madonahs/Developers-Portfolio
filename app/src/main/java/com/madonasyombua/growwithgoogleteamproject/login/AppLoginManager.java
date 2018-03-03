@@ -55,10 +55,26 @@ public class AppLoginManager {
         return mCurrentUser;
     }
 
+    public static void resetPassword(final Activity activity, String email){
+        firebaseAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            ((LoginInterface)activity).onResetPasswordSuccess();
+                        } else {
+                            ((LoginInterface)activity).onResetPasswordFailed();
+                        }
+                    }
+                });
+    }
+
     public interface LoginInterface {
         void onSigninSuccess ();
         void onRegistrationSuccess();
         void onSigninFailed();
         void onRegistrationFailed();
+        void onResetPasswordSuccess();
+        void onResetPasswordFailed();
     }
 }

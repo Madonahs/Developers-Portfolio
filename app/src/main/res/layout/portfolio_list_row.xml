@@ -206,7 +206,8 @@
                 app:layout_constraintBottom_toTopOf="@+id/btn_login"
                 app:layout_constraintEnd_toStartOf="@+id/portfolio_vertical_divider"
                 app:layout_constraintStart_toStartOf="@+id/shortDescription"
-                app:layout_constraintTop_toBottomOf="@+id/shortDescription" />
+                app:layout_constraintTop_toBottomOf="@+id/shortDescription"
+                android:layout_marginLeft="8dp" />
 
 
             <Button
