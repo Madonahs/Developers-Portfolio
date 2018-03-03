@@ -11,12 +11,10 @@ An open mind and an open heart.
 ## Authors
 * **Madona Syombua** - *Lead Team Member* 
 * **Rado RAMBININTSOA** - *Ass. Team Member*
-* **Ayobami Emmanuel Adewale** - *Team Member*
+* **Ayobami Adewale** - *Team Member*
 * **Maher Soua** - *Team Member*
 * **Chukwubuikem Ume-Ugwa** - *Team Member*
-* **Jantz Carney** - *Team Member*
 * **Hemantkumar Nimje** - *Team Member*
-* **Srinath Chintapalli** - *Team Member*
 
 Also checkout the entire list of [Collaborators](https://github.com/Madonahs/GrowWithGoogleTeamProject/settings/collaboration)
 
