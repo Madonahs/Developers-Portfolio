@@ -71,18 +71,18 @@ public class ProfileFragment extends Fragment
             public boolean onDoubleTap(MotionEvent e) {
                 Intent intent = null;
                 switch (id) {
-                    case R.id.home_tv:
-                        //TODO: Handle doubleTap
-                        break;
                     case R.id.phone_tv:
-                        //TODO: Handle doubleTap
+                        intent = new Intent(Intent.ACTION_DIAL);
+                        intent.setData(Uri.parse("tel:" + mBinding.phoneTv.getText()));
                         break;
                     case R.id.email_tv:
-                        //TODO: Handle doubleTap
+                        intent = new Intent(Intent.ACTION_SENDTO);
+                        intent.setData(Uri.parse("mailto:"+mBinding.emailTv.getText()));
                         break;
                     case R.id.web_tv:
-                        //TODO: Handle doubleTap
-                        intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cleverchuk.github.io"));
+                        intent = new Intent(Intent.ACTION_VIEW,
+                                Uri.parse("https://" + mBinding.webTv.getText()/*assuming no one
+                                adds https:// to their web link*/));
                         break;
                 }
                 if (intent.resolveActivity(getActivity().getPackageManager()) != null)
@@ -96,6 +96,7 @@ public class ProfileFragment extends Fragment
             }
         };
         gd = new GestureDetectorCompat(getActivity(), listener);
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -105,11 +106,9 @@ public class ProfileFragment extends Fragment
         // Inflate the layout for this fragment
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false);
 
-        //TODO: set listener for UI components
         mBinding.btnEditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: Show dialog with app theme
                 dialog = new ProfileFragmentDialog();
                 dialog.show(getChildFragmentManager(), TAG);
             }

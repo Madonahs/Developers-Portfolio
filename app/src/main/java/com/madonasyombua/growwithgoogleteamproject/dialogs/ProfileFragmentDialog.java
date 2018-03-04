@@ -83,7 +83,7 @@ public class ProfileFragmentDialog extends DialogFragment {
         return data;
     }
 
-    private String getString(@NonNull View view){
+    public static String getString(@NonNull View view){
         if(view instanceof EditText){
             return ((EditText)view).getText().toString();
         }else if(view instanceof TextView)
