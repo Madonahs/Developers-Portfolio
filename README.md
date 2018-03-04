@@ -15,7 +15,7 @@ An open mind and an open heart.
 * **Maher Soua** - *Team Member*
 * **CleverChuk** - *Team Member*
 * **Hemantkumar Nimje** - *Team Member*
-* **Jantz Carney ** - *Team Member*
+* **Jantz Carney** - *Team Member*
 
 Also checkout the entire list of [Collaborators](https://github.com/Madonahs/GrowWithGoogleTeamProject/settings/collaboration)
 
