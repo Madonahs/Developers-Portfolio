@@ -13,7 +13,7 @@ An open mind and an open heart.
 * **Rado RAMBININTSOA** - *Ass. Team Member*
 * **Ayobami Adewale** - *Team Member*
 * **Maher Soua** - *Team Member*
-* **Chukwubuikem Ume-Ugwa** - *Team Member*
+* **CleverChuk** - *Team Member*
 * **Hemantkumar Nimje** - *Team Member*
 
 Also checkout the entire list of [Collaborators](https://github.com/Madonahs/GrowWithGoogleTeamProject/settings/collaboration)
