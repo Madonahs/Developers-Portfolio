@@ -60,7 +60,7 @@ Currently, we have 2 json config files, *credentials.json* and *google-services.
 These files are required in order for google sign in features to work.
 
 1. Download **credentials.json** and **google-services.json** from our *GrowWithGoogleTeam* slack team.
-(if you would like to be invited, send your email to @Madonahs)
+(if you would like to be invited, send your email to @syombuamadona@gmail.com)
 
 2. Copy the downloaded files above into the **app** folder of your project.
 
