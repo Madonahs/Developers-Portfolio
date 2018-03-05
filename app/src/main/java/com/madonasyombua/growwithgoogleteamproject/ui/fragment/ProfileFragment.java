@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GestureDetectorCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -155,6 +156,18 @@ public class ProfileFragment extends Fragment
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+    }
+
+    @Override
     public boolean onTouch(View v, MotionEvent event) {
         id = v.getId();
         gd.onTouchEvent(event);
@@ -188,7 +201,6 @@ public class ProfileFragment extends Fragment
 
     private void setStatus(boolean online) {
         if (online) {
-
             mBinding.status.setCompoundDrawablesWithIntrinsicBounds(getResources()
                     .getDrawable(R.drawable.ic_online), null, null, null);
             mBinding.status.setText(getString(R.string.online));

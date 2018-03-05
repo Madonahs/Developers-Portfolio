@@ -57,6 +57,12 @@ public class ProfileFragmentDialog extends DialogFragment {
         mBinding.submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!validatePhone(mBinding.phoneEdit.getText().toString()))
+                {
+                    mBinding.phoneEdit.requestFocus();
+                    mBinding.phoneEdit.setError("invalid number");
+                    return;
+                }
                 mListener.submit(submit());
                 getDialog().dismiss();
             }
@@ -72,6 +78,7 @@ public class ProfileFragmentDialog extends DialogFragment {
     }
 
     private Bundle submit(){
+
         Bundle data = new Bundle(5);
         data.putString(Constant.INTRO,getString(mBinding.introEdit));
         data.putString(Constant.PHONE,getString(mBinding.phoneEdit));
@@ -90,6 +97,10 @@ public class ProfileFragmentDialog extends DialogFragment {
             return ((TextView)view).getText().toString();
 
         return view.toString();
+    }
+
+    private boolean validatePhone(String phone){
+        return phone.length()==10;
     }
 
 
