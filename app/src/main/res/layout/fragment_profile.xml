@@ -20,7 +20,7 @@
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorPrimary"
             android:fitsSystemWindows="true">
 
             <android.support.design.widget.CollapsingToolbarLayout
@@ -280,7 +280,8 @@
                         android:layout_marginTop="@dimen/margin_16"
                         android:drawableLeft="@drawable/ic_web"
                         android:drawableStart="@drawable/ic_web"
-                        android:text="@{user.website}" />
+                        android:text="@{user.website}"
+                       />
 
                 </LinearLayout>
 
