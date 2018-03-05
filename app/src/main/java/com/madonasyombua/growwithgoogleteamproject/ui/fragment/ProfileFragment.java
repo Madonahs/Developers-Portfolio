@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.PhoneNumberUtils;
 import android.text.Html;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -122,6 +123,7 @@ public class ProfileFragment extends Fragment
         mBinding.homeTv.setOnTouchListener(this);
 
 
+        user.setPhone(PhoneNumberUtils.formatNumber(user.getPhone()));
         mBinding.setUser(user);
         setStatus(false/*TODO: Replace with user.getStatus*/);
         mBinding.intro.setText(Html.fromHtml("<u>Intro</u>"));
@@ -151,6 +153,7 @@ public class ProfileFragment extends Fragment
     public void submit(Bundle data) {
         //TODO: update DB with data
         user = User.build(user, data);
+        user.setPhone(PhoneNumberUtils.formatNumber(user.getPhone()));
         mBinding.setUser(user);
     }
 
