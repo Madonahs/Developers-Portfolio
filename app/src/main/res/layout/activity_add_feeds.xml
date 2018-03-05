@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.madonasyombua.growwithgoogleteamproject.AddFeeds">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_add_feed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="8dp" />
+
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.madonasyombua.growwithgoogleteamproject.ui.fragment.AddFeedsFragment"
+        android:id="@+id/add_feeds"
+        tools:layout="@layout/fragment_add_feeds" />
+
+</android.support.constraint.ConstraintLayout>

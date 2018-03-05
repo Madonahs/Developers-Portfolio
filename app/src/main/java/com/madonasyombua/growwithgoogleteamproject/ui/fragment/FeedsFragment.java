@@ -9,14 +9,22 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.madonasyombua.growwithgoogleteamproject.FeedsActivity;
+import com.madonasyombua.growwithgoogleteamproject.AddFeeds;
 import com.madonasyombua.growwithgoogleteamproject.R;
+import com.madonasyombua.growwithgoogleteamproject.adapter.FeedsAdapter;
 import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
+import com.madonasyombua.growwithgoogleteamproject.models.Feeds;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,7 +33,8 @@ import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteract
  * Use the {@link FeedsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FeedsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
+public class FeedsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> ,
+AddFeedsFragment.onFragmentInteraction{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -36,6 +45,9 @@ public class FeedsFragment extends Fragment implements LoaderManager.LoaderCallb
     private String mParam2;
     private View view;
     private OnFragmentInteractionListener mListener;
+    private List<Feeds> feedsList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private FeedsAdapter adapter;
 
     public FeedsFragment() {
         // Required empty public constructor
@@ -80,7 +92,16 @@ public class FeedsFragment extends Fragment implements LoaderManager.LoaderCallb
         if (((AppCompatActivity) getActivity()).getSupportActionBar() != null)
             ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.home);*/
 
+       recyclerView = view.findViewById(R.id.feeds_recyclerview);
+       adapter = new FeedsAdapter(feedsList);
 
+       RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+       recyclerView.setLayoutManager(layoutManager);
+       recyclerView.setHasFixedSize(true);
+       recyclerView.setItemAnimator(new DefaultItemAnimator());
+       recyclerView.setAdapter(adapter);
+
+       testFeeds();
 
          //starting the float button
         FloatingActionButton addFeeds =  view.findViewById(R.id.add_feeds);
@@ -97,9 +118,22 @@ public class FeedsFragment extends Fragment implements LoaderManager.LoaderCallb
 
         return view;
     }
-//my method to open the FeedsActivity
+
+
+    private void testFeeds() {
+        feedsList.add(new Feeds("Stuff", R.drawable.logo));
+        feedsList.add(new Feeds("Stuffs", R.drawable.logo));
+        feedsList.add(new Feeds("Stuffss", R.drawable.logo));
+        feedsList.add(new Feeds("Stuffssss", R.drawable.logo));
+        feedsList.add(new Feeds("Stuffsssss", R.drawable.logo));
+        feedsList.add(new Feeds("Stuffssssss", R.drawable.logo));
+
+        adapter.notifyDataSetChanged();
+    }
+
+    //my method to open the FeedsActivity
     private void openFeedsActivity(@SuppressWarnings("unused") View view) {
-        Intent intent = new Intent(this.getActivity(), FeedsActivity.class);
+        Intent intent = new Intent(this.getActivity(), AddFeeds.class);
         startActivity(intent);
         Toast.makeText(getContext(), "Adding Feed", Toast.LENGTH_SHORT).show();
 
@@ -142,5 +176,10 @@ public class FeedsFragment extends Fragment implements LoaderManager.LoaderCallb
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
 
+    }
+
+    @Override
+    public void receivedStringandImage(String title) {
+        feedsList.add(new Feeds(title, R.drawable.logo));
     }
 }
