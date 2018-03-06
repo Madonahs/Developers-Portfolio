@@ -31,10 +31,6 @@ public class MainActivity
         extends AppCompatActivity
         implements OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener{
 
-    //private ActivityMainBinding binding;
-    //private FragmentsAdapter fragmentsAdapter;
-
-    //fragment to start when login and sign up is successful
     private Fragment fragment;
     private static final String TAG ="current-frag";
 
@@ -55,31 +51,22 @@ public class MainActivity
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        // Get all user information views from the drawer header view
+        /** Get all user information views from the drawer header view*/
         View drawerHeaderView = navView.getHeaderView(0);
         profilePicView = drawerHeaderView.findViewById(R.id.drawer_header_user_image);
         userName = drawerHeaderView.findViewById(R.id.drawer_header_user_name);
         userProfession = drawerHeaderView.findViewById(R.id.drawer_header_user_profession);
 
-        // Set action bar, navigation drawer, navigation drawer header
+        /**Set action bar, navigation drawer, navigation drawer header*/
         setSupportActionBar(toolbar);
         setupNavDrawer();
         setDrawerHeader();
-
-        // binding  = DataBindingUtil.setContentView(this,R.layout.activity_main_content);
-        //setViewPager(binding.content);
-
-
 
         fragment = getSupportFragmentManager().findFragmentByTag(TAG);
         if(fragment == null){
             fragment = new FeedsFragment();
         }
 
-
-
-        //This is my bottom navigator for easy navigation couldn't draw this on my mockup
-        // since it was difficult to squeeze everything.
         BottomNavigationView navigation = findViewById(R.id.navigation);
         BottomNavigationViewHelper.disableShiftMode(navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -114,7 +101,6 @@ public class MainActivity
         userProfession.setText(getString(R.string.sample_user_profession));
     }
 
-    // Here i am trying to switch activities on my bottom navigation
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -145,7 +131,7 @@ public class MainActivity
 
     };
 
-    // When back button pressed hide navigation drawer if open else move task to back
+    /**When back button pressed hide navigation drawer if open else move task to back*/
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -155,8 +141,7 @@ public class MainActivity
         }
     }
 
-    // Implement Navigation Drawer list item click listener
-
+    /** Implement Navigation Drawer list item click listener*/
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // After implementation return true for the below cases
@@ -169,10 +154,6 @@ public class MainActivity
             case R.id.manage_profile:
                 // Take user to edit profile screen
                 return false;
-
-          //  case R.id.notifications:
-                // Take user to notification screen
-             //   return false;
 
             case R.id.settings:
                 // Take user to setting screen
@@ -194,8 +175,6 @@ public class MainActivity
         return false;
 
 
-
-
     }
 
     /** Implement Navigation Drawer list item click listener */
@@ -204,12 +183,5 @@ public class MainActivity
     public void onFragmentInteraction(Uri uri) {
 
     }
-//
-    // i am cautious in using binding since i don't know much about it. Would love to learn more.
-   /* private void setViewPager(ViewPager viewPager){
-        fragmentsAdapter = new FragmentsAdapter(getSupportFragmentManager());
-        fragmentsAdapter.addFragment(new LoginFragment());
-        viewPager.setAdapter(fragmentsAdapter);
-    }*/
 }
 
