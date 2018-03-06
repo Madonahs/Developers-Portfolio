@@ -3,7 +3,7 @@ Grow With Google Scholarship Team Project.
 
 ## Dev's Portfolio App
 
-The project is meant to help programmers have a portfolio sharing platform, programmers are welcome to share their projects and they can interact and show employers what they have done in the app, one doesnt have to create a website to showcase his/her work. The project was done by team members participating in the Grow With Google Scholarship Program offered by Google|Udacity. 
+This is a Social App for Developers to share their portfolio and also get to interact with other users through messages and sharing projects, programmers are welcome to share their projects and they can interact and show employers what they have done in the app, one doesnt have to create a website to showcase his/her work.The project is being done by team members participating in the Grow With Google Scholarship Program offered by Google|Udacity. 
 
 ### Prerequisites
 An open mind and an open heart.
@@ -15,7 +15,7 @@ An open mind and an open heart.
 * **Maher Soua** - *Team Member*
 * **CleverChuk** - *Team Member*
 * **Hemantkumar Nimje** - *Team Member*
-* **Jantz Carney** - *Team Member*
+* **Srinath** - *Team Member*
 
 Also checkout the entire list of [Collaborators](https://github.com/Madonahs/GrowWithGoogleTeamProject/settings/collaboration)
 
@@ -47,6 +47,12 @@ See the [LICENSE.md](LICENSE.txt) file for details
 Intro - Ahoy! OnBoard - https://github.com/codemybrainsout/ahoy-onboarding
 
 Bind Views - ButterKnife - https://github.com/JakeWharton/butterknife
+
+Dagger - https://github.com/google/dagger
+
+Profile Picture - CircleImageview - https://github.com/hdodenhof/CircleImageView
+
+Database - Firebase - https:firebase.com
 
 ## Ensuring your fork is up to date:
 Info: https://gist.github.com/CristinaSolana/1885435
