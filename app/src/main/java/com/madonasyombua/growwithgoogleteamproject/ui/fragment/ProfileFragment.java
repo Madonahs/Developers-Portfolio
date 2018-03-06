@@ -201,6 +201,12 @@ public class ProfileFragment extends Fragment
         return fragment;
     }
 
+    /**
+     * Sets the user status and updates indicator
+     * according to online state
+     *
+     * @param online The status of the user
+     */
     private void setStatus(boolean online) {
         if (online) {
             mBinding.status.setCompoundDrawablesWithIntrinsicBounds(getResources()
