@@ -45,9 +45,13 @@ See the [LICENSE.md](LICENSE.txt) file for details
 
 ## External Libraries
 Intro - Ahoy! OnBoard - https://github.com/codemybrainsout/ahoy-onboarding
+
 Bind Views - ButterKnife - https://github.com/JakeWharton/butterknife
+
 Dagger - https://github.com/google/dagger
+
 Profile Picture - CircleImageview - https://github.com/hdodenhof/CircleImageView
+
 Database - Firebase - https:firebase.com
 
 ## Ensuring your fork is up to date:
