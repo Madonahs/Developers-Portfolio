@@ -57,4 +57,6 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
             ButterKnife.bind(this, itemView);
         }
     }
+
+    public void setFeedsList(List<Feeds> feeds){ this.feedsList = feeds; }
 }

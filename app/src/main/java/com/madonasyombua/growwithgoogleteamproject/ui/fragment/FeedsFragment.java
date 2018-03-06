@@ -1,6 +1,5 @@
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -12,6 +11,7 @@ import android.support.v4.content.Loader;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,13 +33,14 @@ import java.util.List;
  * Use the {@link FeedsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FeedsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> ,
-AddFeedsFragment.onFragmentInteraction{
+public class FeedsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+
+    private static final String TAG = "FeedsFragment";
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -48,6 +49,16 @@ AddFeedsFragment.onFragmentInteraction{
     private List<Feeds> feedsList = new ArrayList<>();
     private RecyclerView recyclerView;
     private FeedsAdapter adapter;
+
+    // FIXME: 3/5/2018 This is the data being received from AddFeeds but at the first run it is null.
+//    String feedtitle = getArguments().getString("FEEDS_TITLE");
+//    String feedDescription = getArguments().getString("FEEDS_DESCRIPTION");
+//
+/// /    String feedtitle = "ahahkfdh";
+//    String feedDescription = "adkjlfajdlfaj";
+
+    String feedtitle;
+    String feedDescription;
 
     public FeedsFragment() {
         // Required empty public constructor
@@ -85,27 +96,28 @@ AddFeedsFragment.onFragmentInteraction{
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_feeds, container, false);
-        //Home ToolBar
+//        //Home ToolBar
+//
+//       /* Toolbar toolbar =  view.findViewById(R.id.feedsToolbar);
+//        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+//        if (((AppCompatActivity) getActivity()).getSupportActionBar() != null)
+//            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.home);*/
 
-       /* Toolbar toolbar =  view.findViewById(R.id.feedsToolbar);
-        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-        if (((AppCompatActivity) getActivity()).getSupportActionBar() != null)
-            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.home);*/
+        recyclerView = view.findViewById(R.id.feeds_recyclerview);
+        adapter = new FeedsAdapter(feedsList);
 
-       recyclerView = view.findViewById(R.id.feeds_recyclerview);
-       adapter = new FeedsAdapter(feedsList);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
 
-       RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
-       recyclerView.setLayoutManager(layoutManager);
-       recyclerView.setHasFixedSize(true);
-       recyclerView.setItemAnimator(new DefaultItemAnimator());
-       recyclerView.setAdapter(adapter);
+//       dataFromActivity();
+//       testFeeds();
 
-       testFeeds();
-
-         //starting the float button
-        FloatingActionButton addFeeds =  view.findViewById(R.id.add_feeds);
-        if ( addFeeds != null)
+        //starting the float button
+        FloatingActionButton addFeeds = view.findViewById(R.id.add_feeds);
+        if (addFeeds != null)
             addFeeds.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -115,8 +127,46 @@ AddFeedsFragment.onFragmentInteraction{
         getLoaderManager().initLoader(0, null, this);
 
 
+        if (feedsList == null) {
+            return null;
+        } else {
+            try{
+                feedtitle = this.getArguments().getString("FEEDS_TITLE");
+                feedDescription = this.getArguments().getString("FEEDS_DESCRIPTION");
+            } catch (NullPointerException e){
+                Log.e(TAG, "dataFromActivity: " + e);
+            }
+        }
 
+        feedsList.add(new Feeds(feedtitle, feedDescription));
+        adapter.setFeedsList(feedsList);
+        adapter.notifyDataSetChanged();
         return view;
+    }
+
+    private void dataFromActivity() {
+
+//        this.getArguments().getString("FEEDS_TITLE");
+//        this.getArguments().getString("FEEDS_DESCRIPTION");
+//
+        try {
+            feedtitle = this.getArguments().getString("FEEDS_TITLE");
+            feedDescription = this.getArguments().getString("FEEDS_DESCRIPTION");
+            feedsList.add(new Feeds(feedtitle, feedDescription));
+            adapter.setFeedsList(feedsList);
+            adapter.notifyDataSetChanged();
+
+        } catch (NullPointerException e) {
+            Log.e(TAG, "dataFromActivity: " + e);
+        }
+        Toast.makeText(getContext(), "ignore", Toast.LENGTH_SHORT).show();
+
+
+//         else {
+//            feedsList.add(new Feeds(feedtitle, feedDescription));
+//            adapter.setFeedsList(feedsList);
+//            adapter.notifyDataSetChanged();
+//        }
     }
 
 
@@ -146,22 +196,6 @@ AddFeedsFragment.onFragmentInteraction{
         }
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
@@ -178,8 +212,4 @@ AddFeedsFragment.onFragmentInteraction{
 
     }
 
-    @Override
-    public void receivedStringandImage(String title) {
-        feedsList.add(new Feeds(title, R.drawable.logo));
-    }
 }
