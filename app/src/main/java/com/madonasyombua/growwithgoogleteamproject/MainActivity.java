@@ -29,10 +29,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity
         extends AppCompatActivity
-        implements OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener{
+        implements OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener {
 
     private Fragment fragment;
-    private static final String TAG ="current-frag";
+    private static final String TAG = "current-frag";
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -61,22 +61,27 @@ public class MainActivity
         setSupportActionBar(toolbar);
         setupNavDrawer();
         setDrawerHeader();
-
         fragment = getSupportFragmentManager().findFragmentByTag(TAG);
-        if(fragment == null){
+        if (fragment == null) {
             fragment = new FeedsFragment();
         }
+
+
+        //This is my bottom navigator for easy navigation couldn't draw this on my mockup
+        // since it was difficult to squeeze everything.
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         BottomNavigationViewHelper.disableShiftMode(navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.content, fragment,TAG);
+        transaction.replace(R.id.content, fragment, TAG);
         transaction.commit();
     }
 
-    /** Set up the drawer */
+    /**
+     * Set up the drawer
+     */
     private void setupNavDrawer() {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -92,7 +97,9 @@ public class MainActivity
         }
     }
 
-    /** Set user information - profile pic, name, profession */
+    /**
+     * Set user information - profile pic, name, profession
+     */
     private void setDrawerHeader() {
         // Logo image, sample username, sample user profession used here
         // Can be swapped with Picasso or Glide image loader
@@ -123,7 +130,7 @@ public class MainActivity
             }
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.content, fragment,TAG);
+            transaction.replace(R.id.content, fragment, TAG);
             transaction.commit();
 
             return true;
@@ -155,6 +162,10 @@ public class MainActivity
                 // Take user to edit profile screen
                 return false;
 
+            //  case R.id.notifications:
+            // Take user to notification screen
+            //   return false;
+
             case R.id.settings:
                 // Take user to setting screen
                 Intent intent = new Intent(this, SettingsActivity.class);
@@ -177,7 +188,9 @@ public class MainActivity
 
     }
 
-    /** Implement Navigation Drawer list item click listener */
+    /**
+     * Implement Navigation Drawer list item click listener
+     */
 
     @Override
     public void onFragmentInteraction(Uri uri) {

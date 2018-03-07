@@ -31,22 +31,22 @@ public class RegisterFragment extends Fragment {
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
     private Matcher matcher;
 
-    /*
-   * This class is used to get data from the fragment like the username and stuff.
-   * It also binds the views
-    */
+    /**
+     * This class is used to get data from the fragment like the username and stuff.
+     * It also binds the views
+     */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_register, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register, container, false);
         binding.registerFragmentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String username_txt = extractText(binding.editUsername);
                 String email_txt = extractText(binding.editEmail);
                 String password_txt = extractText(binding.editPassword);
-                if(username_txt.isEmpty() || email_txt.isEmpty() || password_txt.isEmpty()){
+                if (username_txt.isEmpty() || email_txt.isEmpty() || password_txt.isEmpty()) {
                     // TODO add toast or change input color to show user that is required
                     Toast.makeText(getContext(), "Username and password are required", Toast.LENGTH_SHORT).show();
                     return;
@@ -60,7 +60,7 @@ public class RegisterFragment extends Fragment {
         return binding.getRoot();
     }
 
-    private String extractText(EditText text){
+    private String extractText(EditText text) {
         String newText = text.getText().toString().trim();
         return newText;
     }
