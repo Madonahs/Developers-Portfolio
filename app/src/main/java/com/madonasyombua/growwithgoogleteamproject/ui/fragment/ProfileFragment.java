@@ -27,7 +27,7 @@ import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * <p>
+ *
  * to handle interaction events.
  * Use the {@link ProfileFragment#newInstance} factory method to
  * create an instance of this fragment.

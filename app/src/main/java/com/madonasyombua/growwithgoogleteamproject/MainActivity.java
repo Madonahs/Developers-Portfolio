@@ -29,14 +29,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity
         extends AppCompatActivity
-        implements OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener{
+        implements OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener {
 
     //private ActivityMainBinding binding;
     //private FragmentsAdapter fragmentsAdapter;
 
     //fragment to start when login and sign up is successful
     private Fragment fragment;
-    private static final String TAG ="current-frag";
+    private static final String TAG = "current-frag";
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -70,12 +70,10 @@ public class MainActivity
         //setViewPager(binding.content);
 
 
-
         fragment = getSupportFragmentManager().findFragmentByTag(TAG);
-        if(fragment == null){
+        if (fragment == null) {
             fragment = new FeedsFragment();
         }
-
 
 
         //This is my bottom navigator for easy navigation couldn't draw this on my mockup
@@ -85,11 +83,13 @@ public class MainActivity
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.content, fragment,TAG);
+        transaction.replace(R.id.content, fragment, TAG);
         transaction.commit();
     }
 
-    /** Set up the drawer */
+    /**
+     * Set up the drawer
+     */
     private void setupNavDrawer() {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -105,7 +105,9 @@ public class MainActivity
         }
     }
 
-    /** Set user information - profile pic, name, profession */
+    /**
+     * Set user information - profile pic, name, profession
+     */
     private void setDrawerHeader() {
         // Logo image, sample username, sample user profession used here
         // Can be swapped with Picasso or Glide image loader
@@ -137,7 +139,7 @@ public class MainActivity
             }
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.content, fragment,TAG);
+            transaction.replace(R.id.content, fragment, TAG);
             transaction.commit();
 
             return true;
@@ -170,9 +172,9 @@ public class MainActivity
                 // Take user to edit profile screen
                 return false;
 
-          //  case R.id.notifications:
-                // Take user to notification screen
-             //   return false;
+            //  case R.id.notifications:
+            // Take user to notification screen
+            //   return false;
 
             case R.id.settings:
                 // Take user to setting screen
@@ -194,11 +196,11 @@ public class MainActivity
         return false;
 
 
-
-
     }
 
-    /** Implement Navigation Drawer list item click listener */
+    /**
+     * Implement Navigation Drawer list item click listener
+     */
 
     @Override
     public void onFragmentInteraction(Uri uri) {
