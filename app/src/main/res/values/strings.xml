@@ -183,5 +183,12 @@
     <string name="posts">Posts</string>
     <string name="dummy_likes_count_value">14K</string>
     <string name="likes">Likes</string>
+    <string name="add_feeds">Add Feeds</string>
+    <string name="hint">Name</string>
+    <string name="hint_description">Description</string>
+    <string name="period">Period</string>
+    <string name="start">Start</string>
+    <string name="month1">Month</string>
+    <string name="expensesall">ExpenseAll</string>
 
 </resources>

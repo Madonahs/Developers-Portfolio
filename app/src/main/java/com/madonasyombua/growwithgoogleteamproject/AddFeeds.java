@@ -1,19 +1,25 @@
 package com.madonasyombua.growwithgoogleteamproject;
 
+import android.database.Cursor;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.FeedsFragment;
 
 public class AddFeeds extends AppCompatActivity {
 
     private static final String TAG = "AddFeeds";
-    TextInputEditText edit_project_name, edit_project_description;
+    EditText edit_project_name, edit_project_description;
     Button btn;
+    private View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +30,18 @@ public class AddFeeds extends AppCompatActivity {
 //        toolbar.setTitle("Add to your Feeds");
 
 
-        edit_project_name = (TextInputEditText)findViewById(R.id.edit_project_name);
-        edit_project_description = findViewById(R.id.edit_project_description);
+        edit_project_name = findViewById(R.id.addName);
+        edit_project_description = findViewById(R.id.addDescription);
+        /**I was trying this */
+       /* final FloatingActionButton addingFeed =  view.findViewById(R.id.button_add_feed);
+        addingFeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendData();
+                finish();
+                add info to db
+
+        });
 
         btn = findViewById(R.id.button_add_feed);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -34,7 +50,7 @@ public class AddFeeds extends AppCompatActivity {
                 sendData();
                 finish();
             }
-        });
+        });*/
     }
 
     private void sendData() {
@@ -47,5 +63,10 @@ public class AddFeeds extends AppCompatActivity {
 
         Log.i(TAG, "sendData: " + bundle);
     }
+
+
+
+
+
 
 }

@@ -74,6 +74,7 @@ public class MainActivity
         fragment = getSupportFragmentManager().findFragmentByTag(TAG);
         if(fragment == null){
             fragment = new FeedsFragment();
+
         }
 
 
@@ -123,7 +124,7 @@ public class MainActivity
             // we will start the fragments once we have worked on them.
             switch (item.getItemId()) {
                 case R.id.action_feeds:
-                    fragment = new FeedsFragment();
+                   fragment = new FeedsFragment();
                     break;
                 case R.id.action_interests:
                     fragment = new InterestFragment();
