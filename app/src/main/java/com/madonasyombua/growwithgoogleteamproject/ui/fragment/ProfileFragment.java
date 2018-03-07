@@ -15,13 +15,17 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentProfileBinding;
 import com.madonasyombua.growwithgoogleteamproject.dialogs.ProfileFragmentDialog;
 import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
+import com.madonasyombua.growwithgoogleteamproject.util.FirebaseAction;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -149,9 +153,19 @@ public class ProfileFragment extends Fragment
 
     @Override
     public void submit(Bundle data) {
-        //TODO: update DB with data
         user = User.build(user, data);
         mBinding.setUser(user);
+        FirebaseAction.write(user, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                if (databaseError == null) {
+                    Toast.makeText(getContext(), "User created", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), "Error creating user:" +
+                            databaseError.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override

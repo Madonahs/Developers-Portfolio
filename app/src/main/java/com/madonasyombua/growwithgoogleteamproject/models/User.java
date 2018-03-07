@@ -3,6 +3,7 @@ package com.madonasyombua.growwithgoogleteamproject.models;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
+import com.google.firebase.database.Exclude;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
 /**
@@ -13,27 +14,28 @@ import com.madonasyombua.growwithgoogleteamproject.util.Constant;
  * {@link User}
  * A blueprint for user
  */
-public class User {
+public class User extends FirebaseObject {
     private String name, password, followers, following, projects,
             email, location, phone, website, intro;
     private Portfolio portfolio;
     private boolean status;
 
+    // Empty constructor
+    public User() {}
 
-    //TODO: Remove default values and
-    public User() {
-        this.name = "Cleverchuk";
 
-        this.followers = "27K";
-        this.intro = "My intro, everything special";
-        this.location = "Death Valley";
-        this.phone = "000-000-0000";
-        this.website = "cleverchuk.github.io";
-        this.email = "email@email.com";
-        this.following = "425";
-        this.projects = "434";
-        this.status = true;
+    // Must override and exclude or it will be written to firebase!
+    @Exclude
+    @Override
+    public String getPath() {
+        return getBase() + getKey();
+    }
 
+    // Must override and exclude or it will be written to firebase!
+    @Exclude
+    @Override
+    public String getBase() {
+        return Paths.USER + Paths.SL;
     }
 
     public User(String email, String password) {
