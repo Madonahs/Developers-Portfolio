@@ -1,4 +1,4 @@
-package com.madonasyombua.growwithgoogleteamproject;
+package com.madonasyombua.growwithgoogleteamproject.actvities;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -18,6 +18,8 @@ import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
 import android.text.TextUtils;
 import android.view.MenuItem;
+
+import com.madonasyombua.growwithgoogleteamproject.R;
 
 import java.util.List;
 

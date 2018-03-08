@@ -19,7 +19,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <!-- Base application theme. -->
     <style name="FontTheme" parent="Theme.AppCompat.Light.NoActionBar">

@@ -4,11 +4,16 @@
 
     <!-- Internet permission -->
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+
     <uses-permission android:name="android.permission.CALL_PHONE" />
+
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_icon"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -35,20 +40,13 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
-        <!-- <activity android:name=".MainActivity"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.MAIN" /> -->
-        <!-- </intent-filter> -->
-        <!-- </activity> -->
-        <!-- <activity android:name=".ui.LoginActivity"> -->
         <!-- I am starting the Main Activity lets start the class from there then call login Activity for now so that we can work on inside the app i will stop the login -->
         <activity
-            android:name=".MainActivity"
-            android:label="@string/home"
+            android:name=".actvities.MainActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -56,24 +54,15 @@
             android:name=".ui.intro.OnBoardingActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".InterestActivity"
-            android:label="@string/interest"
+            android:name=".actvities.InterestActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".FeedsActivity"
-            android:label="@string/feeds"
+            android:name=".actvities.ProjectsActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ProjectsActivity"
-            android:label="@string/projects"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".ProfileActivity"
-            android:label="@string/projects"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".SettingsActivity"
+            android:name=".actvities.SettingsActivity"
             android:label="@string/title_activity_settings" />
+        <activity android:name=".actvities.AddFeeds"></activity>
     </application>
 
 </manifest>
