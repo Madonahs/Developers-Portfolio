@@ -24,8 +24,8 @@ import com.google.android.gms.tasks.Task;
 import com.madonasyombua.growwithgoogleteamproject.actvities.MainActivity;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.adapter.FragmentsAdapter;
-import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityLoginBinding;
+import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.login.LoginStatusManager;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.LoginFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.RegisterFragment;
@@ -270,9 +270,6 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
 
     /***
      * Handle google sign in process
-     *
-     * @param
-     * @return
      */
     private void signInWithGoogle() {
 
@@ -285,7 +282,6 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
      * Handles google sign in result
      *
      * @param completedTask - completed GoogleSignInAccount task
-     * @return
      */
     private void handleGoogleSignInResult(Task<GoogleSignInAccount> completedTask) {
 
@@ -341,6 +337,5 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
                 signInWithGoogle();
                 break;
         }
-
     }
 }

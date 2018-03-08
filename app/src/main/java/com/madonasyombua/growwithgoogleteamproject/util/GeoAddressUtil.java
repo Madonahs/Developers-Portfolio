@@ -1,9 +1,12 @@
 package com.madonasyombua.growwithgoogleteamproject.util;
 
 import android.app.Activity;
+import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 import android.widget.Toast;
+
+import com.google.android.gms.maps.model.LatLng;
 
 import java.util.List;
 
@@ -33,5 +36,20 @@ public class GeoAddressUtil {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static LatLng getLatLng(Context context, String name){
+        Geocoder gc = new Geocoder(context);
+        LatLng pos = null;
+
+        try{
+            List<Address> addr = gc.getFromLocationName(name,1);
+            double lat = addr.get(0).getLatitude();
+            double lng = addr.get(0).getLongitude();
+
+            pos = new LatLng(lat,lng);
+        }catch (Exception ignore){}
+
+        return pos;
     }
 }

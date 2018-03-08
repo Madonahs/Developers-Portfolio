@@ -8,30 +8,36 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GestureDetectorCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.telephony.PhoneNumberUtils;
 import android.text.Html;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentProfileBinding;
 import com.madonasyombua.growwithgoogleteamproject.dialogs.ProfileFragmentDialog;
 import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
+import com.madonasyombua.growwithgoogleteamproject.util.FirebaseAction;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
-
+ *
  * to handle interaction events.
  * Use the {@link ProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class ProfileFragment extends Fragment
-        implements ProfileFragmentDialog.OnSubmitListener{
+        implements ProfileFragmentDialog.OnSubmitListener, View.OnTouchListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -43,7 +49,9 @@ public class ProfileFragment extends Fragment
     private FragmentProfileBinding mBinding;
     private ProfileFragmentDialog dialog;
     private OnFragmentInteractionListener mListener;
+    private GestureDetectorCompat gd;
     private User user;
+    private int id;
 
     private static final String TAG = "update-profile-fragment";
 
@@ -62,6 +70,38 @@ public class ProfileFragment extends Fragment
         }
         //TODO: remove
         user = new User();
+
+        GestureDetector.SimpleOnGestureListener listener = new GestureDetector.SimpleOnGestureListener() {
+
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                Intent intent = null;
+                switch (id) {
+                    case R.id.phone_tv:
+                        intent = new Intent(Intent.ACTION_DIAL);
+                        intent.setData(Uri.parse("tel:" + mBinding.phoneTv.getText()));
+                        break;
+                    case R.id.email_tv:
+                        intent = new Intent(Intent.ACTION_SENDTO);
+                        intent.setData(Uri.parse("mailto:"+mBinding.emailTv.getText()));
+                        break;
+                    case R.id.web_tv:
+                        intent = new Intent(Intent.ACTION_VIEW,
+                                Uri.parse("https://" + mBinding.webTv.getText()/*assuming no one
+                                adds https:// to their web link*/));
+                        break;
+                }
+                if (intent.resolveActivity(getActivity().getPackageManager()) != null)
+                    startActivity(intent);
+                return true;
+            }
+
+            @Override
+            public boolean onDown(MotionEvent e) {
+                return true;
+            }
+        };
+        gd = new GestureDetectorCompat(getActivity(), listener);
     }
 
     @Override
@@ -71,30 +111,23 @@ public class ProfileFragment extends Fragment
         // Inflate the layout for this fragment
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false);
 
-        //TODO: set listener for UI components
         mBinding.btnEditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: Show dialog with app theme
                 dialog = new ProfileFragmentDialog();
                 dialog.show(getChildFragmentManager(), TAG);
             }
         });
 
-        View.OnTouchListener onTouchListener = new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                return touchHandler(view.getId(),motionEvent);
-            }
-        };
 
         //On touch listener to handle to user interactions
-        mBinding.webTv.setOnTouchListener(onTouchListener);
-        mBinding.emailTv.setOnTouchListener(onTouchListener);
-        mBinding.phoneTv.setOnTouchListener(onTouchListener);
-        mBinding.homeTv.setOnTouchListener(onTouchListener);
+        mBinding.webTv.setOnTouchListener(this);
+        mBinding.emailTv.setOnTouchListener(this);
+        mBinding.phoneTv.setOnTouchListener(this);
+        mBinding.homeTv.setOnTouchListener(this);
 
-
+        //FIXME:  java.lang.NullPointerException:
+//        user.setPhone(PhoneNumberUtils.formatNumber(user.getPhone()));
         mBinding.setUser(user);
         setStatus(false/*TODO: Replace with user.getStatus*/);
         mBinding.intro.setText(Html.fromHtml("<u>Intro</u>"));
@@ -122,12 +155,40 @@ public class ProfileFragment extends Fragment
 
     @Override
     public void submit(Bundle data) {
-        //TODO: update DB with data
         user = User.build(user, data);
+        user.setPhone(PhoneNumberUtils.formatNumber(user.getPhone()));
         mBinding.setUser(user);
+        FirebaseAction.write(user, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                if (databaseError == null) {
+                    Toast.makeText(getContext(), "User created", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), "Error creating user:" +
+                            databaseError.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        id = v.getId();
+        gd.onTouchEvent(event);
+        return true;
+    }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -154,9 +215,14 @@ public class ProfileFragment extends Fragment
         return fragment;
     }
 
+    /**
+     * Sets the user status and updates indicator
+     * according to online state
+     *
+     * @param online The status of the user
+     */
     private void setStatus(boolean online) {
         if (online) {
-
             mBinding.status.setCompoundDrawablesWithIntrinsicBounds(getResources()
                     .getDrawable(R.drawable.ic_online), null, null, null);
             mBinding.status.setText(getString(R.string.online));
@@ -166,35 +232,4 @@ public class ProfileFragment extends Fragment
             mBinding.status.setText(getString(R.string.offline));
         }
     }
-
-    private boolean touchHandler(final int id, MotionEvent event){
-        GestureDetector.SimpleOnGestureListener listener = new GestureDetector.SimpleOnGestureListener(){
-
-            @Override
-            public boolean onDoubleTap(MotionEvent e) {
-                Intent intent = null;
-                switch (id){
-                    case R.id.home_tv:
-                        break;
-                    case R.id.phone_tv:
-                        break;
-                    case R.id.email_tv:
-                        break;
-                    case R.id.web_tv:
-                        intent = new Intent(Intent.ACTION_VIEW,Uri.parse("https://cleverchuk.github.io"));
-                        break;
-                }
-                if(intent.resolveActivity(getActivity().getPackageManager()) != null) startActivity(intent);
-                return true;
-            }
-
-            @Override
-            public boolean onDown(MotionEvent e) {
-                return true;
-            }
-        };
-        GestureDetectorCompat gestureDetectorCompat = new GestureDetectorCompat(getContext(),listener);
-       return gestureDetectorCompat.onTouchEvent(event);
-    }
-
 }
