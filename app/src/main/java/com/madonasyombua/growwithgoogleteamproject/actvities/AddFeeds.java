@@ -2,7 +2,6 @@ package com.madonasyombua.growwithgoogleteamproject.actvities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -42,7 +41,6 @@ public class AddFeeds extends AppCompatActivity {
     @BindView(R.id.imageButton)
     ImageButton imageButton;
 
-
     String project_name;
     String project_description;
 
@@ -57,10 +55,7 @@ public class AddFeeds extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_feeds);
-
         ButterKnife.bind(this);
-
-
 
         //init firebase
         database = FirebaseDatabase.getInstance();
@@ -140,9 +135,8 @@ public class AddFeeds extends AppCompatActivity {
         }
     }
 
-
     // FIXME: 3/7/2018 Figure out how to connect the user to storage
-    // TODO: 3/7/2018 Not fully done 
+    // TODO: 3/7/2018 Not fully done
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -154,7 +148,7 @@ public class AddFeeds extends AppCompatActivity {
                 break;
             case CAMERA_REQUEST_CODE:
                 if (resultCode == RESULT_OK){
-                    
+
                 }
         }
     }
@@ -184,4 +178,6 @@ public class AddFeeds extends AppCompatActivity {
 
         }
     }
+
+
 }

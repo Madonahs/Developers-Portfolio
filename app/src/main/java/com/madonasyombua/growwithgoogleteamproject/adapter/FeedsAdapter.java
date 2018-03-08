@@ -38,7 +38,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(FeedsAdapter.ViewHolder holder, int position) {
         holder.feed_title.setText(feedsList.get(position).getFeed_name());
-        holder.img_feeds.setImageResource(feedsList.get(position).getFeed_images());
+//        holder.img_feeds.setImageResource(feedsList.get(position).getFeed_images());
     }
 
     @Override

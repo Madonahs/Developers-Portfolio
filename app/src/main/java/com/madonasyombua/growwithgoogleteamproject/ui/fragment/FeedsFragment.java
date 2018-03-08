@@ -7,16 +7,19 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.madonasyombua.growwithgoogleteamproject.actvities.AddFeeds;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.adapter.FeedsAdapter;
+import com.madonasyombua.growwithgoogleteamproject.actvities.AddFeeds;
 import com.madonasyombua.growwithgoogleteamproject.models.Feeds;
+import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,11 +45,12 @@ public class FeedsFragment extends Fragment{
     private View view;
     private List<Feeds> feedsList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private FeedsAdapter adapter;
 
-    // FIXME: 3/5/2018 This is the data being received from AddFeeds but at the first run it is null.
-    String feedtitle;
-    String feedDescription;
+    private FirebaseRecyclerAdapter<Feeds, FeedsViewHolder> adapter;
+
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference reference = database.getReference(Constant.FIREBASE_FEEDS);
+
 
     public FeedsFragment() {
         // Required empty public constructor
@@ -85,9 +89,10 @@ public class FeedsFragment extends Fragment{
 
         view = inflater.inflate(R.layout.fragment_feeds, container, false);
 
-        recyclerView = view.findViewById(R.id.feeds_recyclerview);
-        adapter = new FeedsAdapter(feedsList);
+        //set up adapter
+//        setUpAdapter();
 
+        recyclerView = view.findViewById(R.id.feeds_recyclerview);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
@@ -103,46 +108,22 @@ public class FeedsFragment extends Fragment{
                 }
             });
 
-
-        if (feedsList == null) {
-            return null;
-        } else {
-            try{
-                feedtitle = this.getArguments().getString("FEEDS_TITLE");
-                feedDescription = this.getArguments().getString("FEEDS_DESCRIPTION");
-            } catch (NullPointerException e){
-                Log.e(TAG, "dataFromActivity: " + e);
-            }
-        }
-
-        feedsList.add(new Feeds(feedtitle, feedDescription));
-        adapter.setFeedsList(feedsList);
-        adapter.notifyDataSetChanged();
         return view;
     }
 
-    private void dataFromActivity() {
-
-        try {
-            feedtitle = this.getArguments().getString("FEEDS_TITLE");
-            feedDescription = this.getArguments().getString("FEEDS_DESCRIPTION");
-            feedsList.add(new Feeds(feedtitle, feedDescription));
-            adapter.setFeedsList(feedsList);
-            adapter.notifyDataSetChanged();
-
-        } catch (NullPointerException e) {
-            Log.e(TAG, "dataFromActivity: " + e);
-        }
-        Toast.makeText(getContext(), "ignore", Toast.LENGTH_SHORT).show();
-
-
-//         else {
-//            feedsList.add(new Feeds(feedtitle, feedDescription));
-//            adapter.setFeedsList(feedsList);
-//            adapter.notifyDataSetChanged();
-//        }
+    private void setUpAdapter() {
+        adapter = new FirebaseRecyclerAdapter<Feeds, FeedsViewHolder>(
+                Feeds.class,
+                R.layout.feeds_list_item,
+                FeedsViewHolder.class,
+                reference
+        ) {
+            @Override
+            protected void populateViewHolder(FeedsViewHolder viewHolder, Feeds model, int position) {
+                viewHolder.feed_title.setText(feedsList.get(position).getFeed_name());
+            }
+        };
     }
-
 
     //my method to open the FeedsActivity
     private void openFeedsActivity(@SuppressWarnings("unused") View view) {
@@ -152,5 +133,12 @@ public class FeedsFragment extends Fragment{
 
     }
 
+    private static class FeedsViewHolder extends RecyclerView.ViewHolder{
+        TextView feed_title;
 
+        public FeedsViewHolder(View itemView) {
+            super(itemView);
+            feed_title = itemView.findViewById(R.id.tv_feed_title);
+        }
+    }
 }
