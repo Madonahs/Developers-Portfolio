@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.madonasyombua.growwithgoogleteamproject.AddFeeds;
+import com.madonasyombua.growwithgoogleteamproject.actvities.AddFeeds;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.adapter.FeedsAdapter;
 import com.madonasyombua.growwithgoogleteamproject.models.Feeds;
@@ -84,12 +84,6 @@ public class FeedsFragment extends Fragment{
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_feeds, container, false);
-//        //Home ToolBar
-//
-//       /* Toolbar toolbar =  view.findViewById(R.id.feedsToolbar);
-//        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-//        if (((AppCompatActivity) getActivity()).getSupportActionBar() != null)
-//            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.home);*/
 
         recyclerView = view.findViewById(R.id.feeds_recyclerview);
         adapter = new FeedsAdapter(feedsList);

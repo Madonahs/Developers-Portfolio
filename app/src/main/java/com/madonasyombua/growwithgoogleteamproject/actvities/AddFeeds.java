@@ -1,7 +1,8 @@
-package com.madonasyombua.growwithgoogleteamproject;
+package com.madonasyombua.growwithgoogleteamproject.actvities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -22,6 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.models.Feeds;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
@@ -40,6 +42,7 @@ public class AddFeeds extends AppCompatActivity {
     @BindView(R.id.imageButton)
     ImageButton imageButton;
 
+
     String project_name;
     String project_description;
 
@@ -57,11 +60,24 @@ public class AddFeeds extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
+
+
         //init firebase
         database = FirebaseDatabase.getInstance();
         reference = database.getReference(Constant.FIREBASE_FEEDS);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference().child("feeds_photos");
+
+        //clear Feeds Button
+        ImageButton clearFeedsButton = findViewById(R.id.feedsClear);
+        if(clearFeedsButton != null)
+        clearFeedsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+
+            }
+        });
 
         //Adding to FIrebase
         FloatingActionButton addingFeed = findViewById(R.id.fab);

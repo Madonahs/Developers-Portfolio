@@ -1,4 +1,4 @@
-package com.madonasyombua.growwithgoogleteamproject;
+package com.madonasyombua.growwithgoogleteamproject.actvities;
 
 import android.content.res.Configuration;
 import android.os.Bundle;

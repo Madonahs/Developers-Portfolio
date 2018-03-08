@@ -38,7 +38,7 @@
         </activity>
         <!-- I am starting the Main Activity lets start the class from there then call login Activity for now so that we can work on inside the app i will stop the login -->
         <activity
-            android:name=".MainActivity"
+            android:name=".actvities.MainActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -50,18 +50,15 @@
             android:name=".ui.intro.OnBoardingActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".InterestActivity"
+            android:name=".actvities.InterestActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".FeedsActivity"
+            android:name=".actvities.ProjectsActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ProjectsActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".SettingsActivity"
+            android:name=".actvities.SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".AddFeeds"></activity>
+        <activity android:name=".actvities.AddFeeds"></activity>
     </application>
 
 </manifest>

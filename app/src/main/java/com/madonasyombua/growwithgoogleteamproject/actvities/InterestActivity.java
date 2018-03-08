@@ -1,7 +1,9 @@
-package com.madonasyombua.growwithgoogleteamproject;
+package com.madonasyombua.growwithgoogleteamproject.actvities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.madonasyombua.growwithgoogleteamproject.R;
 
 public class InterestActivity extends AppCompatActivity {
 
