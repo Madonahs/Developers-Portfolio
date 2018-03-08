@@ -74,6 +74,7 @@ dependencies {
     // Firebase
     implementation "com.google.firebase:firebase-database:$rootProject.ext.playServicesVersion"
     implementation "com.google.firebase:firebase-core:$rootProject.ext.playServicesVersion"
+    implementation "com.google.firebase:firebase-storage:$rootProject.ext.playServicesVersion"
     //Firebase SDK
     implementation "com.google.firebase:firebase-auth:$rootProject.ext.playServicesVersion"
     implementation "com.google.android.gms:play-services-auth:$rootProject.ext.playServicesVersion"

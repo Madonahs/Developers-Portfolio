@@ -1,13 +1,9 @@
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.Loader;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,7 +16,6 @@ import android.widget.Toast;
 import com.madonasyombua.growwithgoogleteamproject.AddFeeds;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.adapter.FeedsAdapter;
-import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
 import com.madonasyombua.growwithgoogleteamproject.models.Feeds;
 
 import java.util.ArrayList;
@@ -33,7 +28,7 @@ import java.util.List;
  * Use the {@link FeedsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FeedsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public class FeedsFragment extends Fragment{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -45,18 +40,11 @@ public class FeedsFragment extends Fragment implements LoaderManager.LoaderCallb
     private String mParam1;
     private String mParam2;
     private View view;
-    private OnFragmentInteractionListener mListener;
     private List<Feeds> feedsList = new ArrayList<>();
     private RecyclerView recyclerView;
     private FeedsAdapter adapter;
 
     // FIXME: 3/5/2018 This is the data being received from AddFeeds but at the first run it is null.
-//    String feedtitle = getArguments().getString("FEEDS_TITLE");
-//    String feedDescription = getArguments().getString("FEEDS_DESCRIPTION");
-//
-/// /    String feedtitle = "ahahkfdh";
-//    String feedDescription = "adkjlfajdlfaj";
-
     String feedtitle;
     String feedDescription;
 
@@ -112,10 +100,6 @@ public class FeedsFragment extends Fragment implements LoaderManager.LoaderCallb
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
-//       dataFromActivity();
-//       testFeeds();
-
-        //starting the float button
         FloatingActionButton addFeeds = view.findViewById(R.id.add_feeds);
         if (addFeeds != null)
             addFeeds.setOnClickListener(new View.OnClickListener() {
@@ -124,7 +108,6 @@ public class FeedsFragment extends Fragment implements LoaderManager.LoaderCallb
                     openFeedsActivity(view);
                 }
             });
-        getLoaderManager().initLoader(0, null, this);
 
 
         if (feedsList == null) {
@@ -146,9 +129,6 @@ public class FeedsFragment extends Fragment implements LoaderManager.LoaderCallb
 
     private void dataFromActivity() {
 
-//        this.getArguments().getString("FEEDS_TITLE");
-//        this.getArguments().getString("FEEDS_DESCRIPTION");
-//
         try {
             feedtitle = this.getArguments().getString("FEEDS_TITLE");
             feedDescription = this.getArguments().getString("FEEDS_DESCRIPTION");
@@ -170,17 +150,6 @@ public class FeedsFragment extends Fragment implements LoaderManager.LoaderCallb
     }
 
 
-    private void testFeeds() {
-        feedsList.add(new Feeds("Stuff", R.drawable.logo));
-        feedsList.add(new Feeds("Stuffs", R.drawable.logo));
-        feedsList.add(new Feeds("Stuffss", R.drawable.logo));
-        feedsList.add(new Feeds("Stuffssss", R.drawable.logo));
-        feedsList.add(new Feeds("Stuffsssss", R.drawable.logo));
-        feedsList.add(new Feeds("Stuffssssss", R.drawable.logo));
-
-        adapter.notifyDataSetChanged();
-    }
-
     //my method to open the FeedsActivity
     private void openFeedsActivity(@SuppressWarnings("unused") View view) {
         Intent intent = new Intent(this.getActivity(), AddFeeds.class);
@@ -189,27 +158,5 @@ public class FeedsFragment extends Fragment implements LoaderManager.LoaderCallb
 
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-
-    @Override
-    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        return null;
-    }
-
-    @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-
-    }
-
-    @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
-
-    }
 
 }

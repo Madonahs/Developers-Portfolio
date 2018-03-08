@@ -15,11 +15,6 @@ public class Feeds {
         this.feed_images = feed_images;
     }
 
-    public Feeds(String feed_name, int feed_images) {
-        this.feed_name = feed_name;
-        this.feed_images = feed_images;
-    }
-
     public Feeds(String feed_name, String feed_description) {
         this.feed_name = feed_name;
         this.feed_description = feed_description;

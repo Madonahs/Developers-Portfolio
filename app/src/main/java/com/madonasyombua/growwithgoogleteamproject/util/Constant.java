@@ -12,4 +12,6 @@ public class Constant {
     public static final String EMAIL = "email";
     public static final String USER = "user";
 
+    public static final String FIREBASE_FEEDS = "feeds";
+
 }
