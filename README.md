@@ -54,7 +54,7 @@ Dagger - https://github.com/google/dagger
 
 Profile Picture - CircleImageview - https://github.com/hdodenhof/CircleImageView
 
-Database - Firebase - https:firebase.com
+Database - Firebase - https://firebase.com
 
 ## Ensuring your fork is up to date:
 Info: https://gist.github.com/CristinaSolana/1885435
