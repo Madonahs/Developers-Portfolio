@@ -123,7 +123,8 @@ public class User {
     }
 
     public void setPhone(String phone) {
-        if (!phone.isEmpty()) this.phone = phone;
+        if (!phone.isEmpty()) this.phone = "("+phone.substring(0,3)+")-"+phone.substring(3,6)+
+                "-"+phone.substring(6,10);
     }
 
     public void setWebsite(String website) {

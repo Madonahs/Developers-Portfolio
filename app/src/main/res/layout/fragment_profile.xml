@@ -20,14 +20,13 @@
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/profile_bg"
+            android:background="@color/colorPrimary"
             android:fitsSystemWindows="true">
 
             <android.support.design.widget.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -94,8 +93,10 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="10dp"
-                        android:background="@color/colorPrimary" />
+                        android:layout_height="3dp"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:layout_marginBottom="@dimen/margin_8"
+                        android:background="@color/white" />
                 </LinearLayout>
             </android.support.design.widget.CollapsingToolbarLayout>
 
@@ -279,7 +280,8 @@
                         android:layout_marginTop="@dimen/margin_16"
                         android:drawableLeft="@drawable/ic_web"
                         android:drawableStart="@drawable/ic_web"
-                        android:text="@{user.website}" />
+                        android:text="@{user.website}"
+                       />
 
                 </LinearLayout>
 

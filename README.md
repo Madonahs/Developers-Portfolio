@@ -3,7 +3,10 @@ Grow With Google Scholarship Team Project.
 
 ## Dev's Portfolio App
 
-The project is meant to help programmers have a portfolio sharing platform, programmers are welcome to share their projects and they can interact and show employers what they have done in the app, one doesnt have to create a website to showcase his/her work. The project was done by team members participating in the Grow With Google Scholarship Program offered by Google|Udacity. 
+This is a Social App for Developers to share their portfolio and also get to interact with other users through messages and sharing projects, programmers are welcome to share their projects and they can interact and show employers what they have done in the app, one doesnt have to create a website to showcase his/her work.The project is being done by team members participating in the Grow With Google Scholarship Program offered by Google|Udacity. 
+
+## Mode
+Develop 🔧
 
 ### Prerequisites
 An open mind and an open heart.
@@ -11,12 +14,11 @@ An open mind and an open heart.
 ## Authors
 * **Madona Syombua** - *Lead Team Member* 
 * **Rado RAMBININTSOA** - *Ass. Team Member*
-* **Ayobami Emmanuel Adewale** - *Team Member*
+* **Ayobami Adewale** - *Team Member*
 * **Maher Soua** - *Team Member*
-* **Chukwubuikem Ume-Ugwa** - *Team Member*
-* **Jantz Carney** - *Team Member*
+* **CleverChuk** - *Team Member*
 * **Hemantkumar Nimje** - *Team Member*
-* **Srinath Chintapalli** - *Team Member*
+* **Srinath** - *Team Member*
 
 Also checkout the entire list of [Collaborators](https://github.com/Madonahs/GrowWithGoogleTeamProject/settings/collaboration)
 
@@ -49,6 +51,12 @@ Intro - Ahoy! OnBoard - https://github.com/codemybrainsout/ahoy-onboarding
 
 Bind Views - ButterKnife - https://github.com/JakeWharton/butterknife
 
+Dagger - https://github.com/google/dagger
+
+Profile Picture - CircleImageview - https://github.com/hdodenhof/CircleImageView
+
+Database - Firebase - https:firebase.com
+
 ## Ensuring your fork is up to date:
 Info: https://gist.github.com/CristinaSolana/1885435
 
@@ -62,7 +70,7 @@ Currently, we have 2 json config files, *credentials.json* and *google-services.
 These files are required in order for google sign in features to work.
 
 1. Download **credentials.json** and **google-services.json** from our *GrowWithGoogleTeam* slack team.
-(if you would like to be invited, send your email to @Madonahs)
+(if you would like to be invited, send your email to @syombuamadona@gmail.com)
 
 2. Copy the downloaded files above into the **app** folder of your project.
 

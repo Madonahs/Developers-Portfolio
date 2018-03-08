@@ -32,12 +32,6 @@ public class ProfileFragmentDialog extends DialogFragment {
     private OnSubmitListener mListener;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        setStyle(); inherits app theme
-    }
-
-    @Override
     public void onStart() {
         super.onStart();
         getDialog().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,
@@ -63,6 +57,12 @@ public class ProfileFragmentDialog extends DialogFragment {
         mBinding.submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!validatePhone(mBinding.phoneEdit.getText().toString()))
+                {
+                    mBinding.phoneEdit.requestFocus();
+                    mBinding.phoneEdit.setError("invalid number");
+                    return;
+                }
                 mListener.submit(submit());
                 getDialog().dismiss();
             }
@@ -78,6 +78,7 @@ public class ProfileFragmentDialog extends DialogFragment {
     }
 
     private Bundle submit(){
+
         Bundle data = new Bundle(5);
         data.putString(Constant.INTRO,getString(mBinding.introEdit));
         data.putString(Constant.PHONE,getString(mBinding.phoneEdit));
@@ -89,13 +90,17 @@ public class ProfileFragmentDialog extends DialogFragment {
         return data;
     }
 
-    private String getString(@NonNull View view){
+    public static String getString(@NonNull View view){
         if(view instanceof EditText){
             return ((EditText)view).getText().toString();
         }else if(view instanceof TextView)
             return ((TextView)view).getText().toString();
 
         return view.toString();
+    }
+
+    private boolean validatePhone(String phone){
+        return phone.length()==10;
     }
 
 
