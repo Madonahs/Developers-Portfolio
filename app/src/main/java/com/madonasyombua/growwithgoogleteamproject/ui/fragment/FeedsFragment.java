@@ -47,9 +47,7 @@ public class FeedsFragment extends Fragment{
     private RecyclerView recyclerView;
 
     private FirebaseRecyclerAdapter<Feeds, FeedsViewHolder> adapter;
-
-    private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference reference = database.getReference(Constant.FIREBASE_FEEDS);
+    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference(Constant.FIREBASE_FEEDS);
 
 
     public FeedsFragment() {
@@ -89,14 +87,12 @@ public class FeedsFragment extends Fragment{
 
         view = inflater.inflate(R.layout.fragment_feeds, container, false);
 
-        //set up adapter
-//        setUpAdapter();
-
         recyclerView = view.findViewById(R.id.feeds_recyclerview);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        setUpAdapter();
         recyclerView.setAdapter(adapter);
 
         FloatingActionButton addFeeds = view.findViewById(R.id.add_feeds);
@@ -111,6 +107,13 @@ public class FeedsFragment extends Fragment{
         return view;
     }
 
+    //my method to open the FeedsActivity
+    private void openFeedsActivity(@SuppressWarnings("unused") View view) {
+        Intent intent = new Intent(this.getActivity(), AddFeeds.class);
+        startActivity(intent);
+        Toast.makeText(getContext(), "Adding Feed", Toast.LENGTH_SHORT).show();
+    }
+
     private void setUpAdapter() {
         adapter = new FirebaseRecyclerAdapter<Feeds, FeedsViewHolder>(
                 Feeds.class,
@@ -120,17 +123,9 @@ public class FeedsFragment extends Fragment{
         ) {
             @Override
             protected void populateViewHolder(FeedsViewHolder viewHolder, Feeds model, int position) {
-                viewHolder.feed_title.setText(feedsList.get(position).getFeed_name());
+                viewHolder.setFeed_title(model.getFeed_name());
             }
         };
-    }
-
-    //my method to open the FeedsActivity
-    private void openFeedsActivity(@SuppressWarnings("unused") View view) {
-        Intent intent = new Intent(this.getActivity(), AddFeeds.class);
-        startActivity(intent);
-        Toast.makeText(getContext(), "Adding Feed", Toast.LENGTH_SHORT).show();
-
     }
 
     private static class FeedsViewHolder extends RecyclerView.ViewHolder{
@@ -139,6 +134,10 @@ public class FeedsFragment extends Fragment{
         public FeedsViewHolder(View itemView) {
             super(itemView);
             feed_title = itemView.findViewById(R.id.tv_feed_title);
+        }
+
+        public void setFeed_title(String title) {
+            feed_title.setText(title);
         }
     }
 }

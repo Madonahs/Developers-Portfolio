@@ -168,7 +168,6 @@ public class AddFeeds extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
-                        Log.i(TAG, "onComplete: Add Successful " + task);
                         Toast.makeText(AddFeeds.this, "The upload is successful", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(AddFeeds.this, "Failure", Toast.LENGTH_SHORT).show();
