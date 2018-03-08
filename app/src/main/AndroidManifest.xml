@@ -68,6 +68,10 @@
             android:label="@string/projects"
             android:theme="@style/AppTheme" />
         <activity
+            android:name=".ProfileActivity"
+            android:label="@string/projects"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
     </application>

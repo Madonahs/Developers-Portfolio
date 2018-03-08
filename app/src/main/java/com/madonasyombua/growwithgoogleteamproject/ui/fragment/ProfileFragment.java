@@ -126,8 +126,8 @@ public class ProfileFragment extends Fragment
         mBinding.phoneTv.setOnTouchListener(this);
         mBinding.homeTv.setOnTouchListener(this);
 
-
-        user.setPhone(PhoneNumberUtils.formatNumber(user.getPhone()));
+        //FIXME:  java.lang.NullPointerException:
+//        user.setPhone(PhoneNumberUtils.formatNumber(user.getPhone()));
         mBinding.setUser(user);
         setStatus(false/*TODO: Replace with user.getStatus*/);
         mBinding.intro.setText(Html.fromHtml("<u>Intro</u>"));
