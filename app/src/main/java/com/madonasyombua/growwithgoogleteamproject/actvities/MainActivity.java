@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
+import com.madonasyombua.growwithgoogleteamproject.ui.fragment.AboutFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.FeedsFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.InterestFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProfileFragment;
@@ -154,8 +156,6 @@ public class MainActivity
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // After implementation return true for the below cases
-        Fragment fragment = null;
-        Class fragmentClass;
         switch (item.getItemId()) {
             case R.id.messages:
                 // Take user to messages screen
@@ -172,9 +172,13 @@ public class MainActivity
 
             case R.id.about:
                 // Take user to about screen
+                Intent intent1 = new Intent(this, AboutActivity.class);
+                startActivity(intent1);
                 return false;
             case R.id.help:
                 // Take user to help screen
+                Intent intent2 = new Intent(this, HelpActivity.class);
+                startActivity(intent2);
                 return false;
             case R.id.logout:
                 // logout
@@ -182,6 +186,7 @@ public class MainActivity
 
         }
         return false;
+
 
 
     }

@@ -44,10 +44,6 @@ public class FeedsFragment extends Fragment{
     private RecyclerView recyclerView;
     private FeedsAdapter adapter;
 
-    // FIXME: 3/5/2018 This is the data being received from AddFeeds but at the first run it is null.
-    String feedtitle;
-    String feedDescription;
-
     public FeedsFragment() {
         // Required empty public constructor
     }
@@ -103,44 +99,7 @@ public class FeedsFragment extends Fragment{
                 }
             });
 
-
-        if (feedsList == null) {
-            return null;
-        } else {
-            try{
-                feedtitle = this.getArguments().getString("FEEDS_TITLE");
-                feedDescription = this.getArguments().getString("FEEDS_DESCRIPTION");
-            } catch (NullPointerException e){
-                Log.e(TAG, "dataFromActivity: " + e);
-            }
-        }
-
-        feedsList.add(new Feeds(feedtitle, feedDescription));
-        adapter.setFeedsList(feedsList);
-        adapter.notifyDataSetChanged();
         return view;
-    }
-
-    private void dataFromActivity() {
-
-        try {
-            feedtitle = this.getArguments().getString("FEEDS_TITLE");
-            feedDescription = this.getArguments().getString("FEEDS_DESCRIPTION");
-            feedsList.add(new Feeds(feedtitle, feedDescription));
-            adapter.setFeedsList(feedsList);
-            adapter.notifyDataSetChanged();
-
-        } catch (NullPointerException e) {
-            Log.e(TAG, "dataFromActivity: " + e);
-        }
-        Toast.makeText(getContext(), "ignore", Toast.LENGTH_SHORT).show();
-
-
-//         else {
-//            feedsList.add(new Feeds(feedtitle, feedDescription));
-//            adapter.setFeedsList(feedsList);
-//            adapter.notifyDataSetChanged();
-//        }
     }
 
 
