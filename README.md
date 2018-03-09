@@ -37,7 +37,6 @@ Read [Code of Conduct](https://github.com/Madonahs/GrowWithGoogleTeamProject/blo
 ![syombuamadona](https://user-images.githubusercontent.com/11560987/36858976-aa804258-1d42-11e8-9278-b90762987037.png)
 
 
-
 ## License
 
 See the [LICENSE.md](LICENSE.txt) file for details
@@ -55,7 +54,7 @@ Dagger - https://github.com/google/dagger
 
 Profile Picture - CircleImageview - https://github.com/hdodenhof/CircleImageView
 
-Database - Firebase - https:firebase.com
+Database - Firebase - https://firebase.com
 
 ## Ensuring your fork is up to date:
 Info: https://gist.github.com/CristinaSolana/1885435
