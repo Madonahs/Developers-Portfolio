@@ -63,9 +63,10 @@
         <activity
             android:name=".actvities.SettingsActivity"
             android:label="@string/title_activity_settings" />
+
         <activity android:name=".actvities.AddFeeds" />
         <activity android:name=".actvities.AboutActivity" />
-        <activity android:name=".actvities.HelpActivity"></activity>
+        <activity android:name=".actvities.HelpActivity"/>
     </application>
 
 </manifest>
