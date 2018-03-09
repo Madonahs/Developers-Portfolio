@@ -62,7 +62,7 @@
         <activity
             android:name=".actvities.SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".actvities.AddFeeds"></activity>
+        <activity android:name=".actvities.AddFeeds"/>
     </application>
 
 </manifest>

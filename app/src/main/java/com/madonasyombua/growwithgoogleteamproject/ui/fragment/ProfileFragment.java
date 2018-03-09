@@ -28,6 +28,8 @@ import com.madonasyombua.growwithgoogleteamproject.models.User;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 import com.madonasyombua.growwithgoogleteamproject.util.FirebaseAction;
 
+import static android.view.View.GONE;
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -126,8 +128,12 @@ public class ProfileFragment extends Fragment
         mBinding.phoneTv.setOnTouchListener(this);
         mBinding.homeTv.setOnTouchListener(this);
 
-        //FIXME:  java.lang.NullPointerException:
-//        user.setPhone(PhoneNumberUtils.formatNumber(user.getPhone()));
+        //FIXED:  java.lang.NullPointerException:
+        if(user.getPhone() != null)
+            user.setPhone(PhoneNumberUtils.formatNumber(user.getPhone()));
+        else
+            mBinding.phoneTv.setVisibility(GONE);
+
         mBinding.setUser(user);
         setStatus(false/*TODO: Replace with user.getStatus*/);
         mBinding.intro.setText(Html.fromHtml("<u>Intro</u>"));
