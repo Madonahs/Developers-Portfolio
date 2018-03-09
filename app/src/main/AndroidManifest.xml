@@ -5,10 +5,11 @@
     <!-- Internet permission -->
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
 
     <application
         android:allowBackup="true"
@@ -62,7 +63,9 @@
         <activity
             android:name=".actvities.SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".actvities.AddFeeds"></activity>
+        <activity android:name=".actvities.AddFeeds" />
+        <activity android:name=".actvities.AboutActivity" />
+        <activity android:name=".actvities.HelpActivity"></activity>
     </application>
 
 </manifest>
