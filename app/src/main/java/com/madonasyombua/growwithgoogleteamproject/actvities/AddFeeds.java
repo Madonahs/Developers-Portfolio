@@ -1,5 +1,6 @@
 package com.madonasyombua.growwithgoogleteamproject.actvities;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -34,11 +35,12 @@ public class AddFeeds extends AppCompatActivity {
     private static final int GALLERY_REQUEST_CODE = 10;
     public static final int CAMERA_REQUEST_CODE = 11;
 
-    @BindView(R.id.addName)
+    //FIXME: 3:10:2018 please check the addNAme we can remove it and add other functions i can help too just got tired.
+   // @BindView(R.id.addName)
     TextInputEditText edit_project_name;
     @BindView(R.id.addDescription)
     TextInputEditText edit_project_description;
-    @BindView(R.id.imageButton)
+    @BindView(R.id.cameraButton)
     ImageButton imageButton;
 
     String project_name;
@@ -51,6 +53,8 @@ public class AddFeeds extends AppCompatActivity {
     StorageReference storageReference;
 
 
+    private ImageButton sendButton1;
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,14 +79,16 @@ public class AddFeeds extends AppCompatActivity {
         });
 
         //Adding to FIrebase
-        FloatingActionButton addingFeed = findViewById(R.id.fab);
+
+
+        /*FloatingActionButton addingFeed = findViewById(R.id.fab);
         addingFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addFeedsToDb();
                 finish();
             }
-        });
+        });*/
 
         //Giving the options of taking a picture or gallery
         //Ayo - I can create a custom dialog later

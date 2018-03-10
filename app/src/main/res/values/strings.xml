@@ -190,5 +190,6 @@
     <string name="start">Start</string>
     <string name="month1">Month</string>
     <string name="expensesall">ExpenseAll</string>
+    <string name="write_something">What\'s Happening</string>
 
 </resources>
