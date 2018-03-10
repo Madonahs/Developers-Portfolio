@@ -55,7 +55,8 @@
             android:layout_marginTop="8dp"
             android:layout_toEndOf="@id/btn_card_main1_action1"
             android:text="Action 2"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccent"
+            android:layout_toRightOf="@id/btn_card_main1_action1" />
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>
