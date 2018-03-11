@@ -187,8 +187,6 @@ public class MainActivity
         }
         return false;
 
-
-
     }
 
     /**
