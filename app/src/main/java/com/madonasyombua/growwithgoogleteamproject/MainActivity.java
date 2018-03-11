@@ -166,6 +166,8 @@ public class MainActivity
                 return false;
             case R.id.help:
                 // Take user to help screen
+                Intent helpIntent = new Intent(this, HelpActivity.class);
+                startActivity(helpIntent);
                 return false;
             case R.id.logout:
                 // logout

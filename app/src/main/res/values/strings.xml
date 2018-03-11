@@ -183,5 +183,7 @@
     <string name="posts">Posts</string>
     <string name="dummy_likes_count_value">14K</string>
     <string name="likes">Likes</string>
+    <string name="search_help_title">Search</string>
+    <string name="search_hint">Search Here</string>
 
 </resources>
