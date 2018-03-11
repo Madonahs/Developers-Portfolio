@@ -1,5 +1,281 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
+<android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="0dp"
+    card_view:cardElevation="1dp"
+    android:layout_weight="0.45"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    android:id="@+id/cardView_feeds"
+    android:background="@drawable/card_selected"
+    android:tag="closed">
+ <!--TODO: coonect all the imageview to the db and add functions Ayo i can help with this just wanted to finish the feeds layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/post"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- this is the post profile picture-->
+                    <ImageView
+                        android:id="@+id/postProfilePicture"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/default_pic" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@+id/postProfilePicture"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_toRightOf="@+id/postProfilePicture">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:id="@+id/postInfo">
+
+                            <LinearLayout
+                                android:id="@+id/user"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="top">
+                              <!-- name -->
+                                <TextView
+                                    android:id="@+id/name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/about_developer_name1"
+                                    android:textColor="@color/blue"
+                                    android:layout_marginRight="8dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp">
+                         <!-- get time image view -->
+                                <ImageView
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:src="@drawable/time"
+                                    android:tint="@color/colorDivider"
+                                    android:layout_gravity="center_vertical" />
+
+                                <TextView
+                                    android:id="@+id/time"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="2 minutes ago"
+                                    android:textColor="@color/colorTextSecondary"
+                                    android:layout_marginLeft="4dp" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+               <!-- cancel if user wants to -->
+                    <ImageView
+                        android:id="@+id/closeButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/close"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:tint="@color/blue"
+                        android:visibility="invisible"
+                        android:padding="12dp"
+                        android:layout_marginTop="-8dp"
+                        android:layout_marginRight="-8dp"
+                        android:layout_alignParentRight="true" />
+              <!-- delete when user wants to delete -->
+                    <ImageView
+                        android:id="@+id/deletePostButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/delete"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:tint="@color/gray"
+                        android:visibility="invisible"
+                        android:layout_marginTop="-8dp"
+                        android:layout_marginRight="-8dp"
+                        android:padding="12dp"
+                        android:layout_alignParentRight="true" />
+
+                </RelativeLayout>
+
+
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:lineSpacingExtra="3dp"
+                    android:textColor="@color/colorText"
+                    android:textSize="16dp"
+                    android:text="This is a post" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/post_image_border"
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/postImageBorder">
+              <!-- post image from add feeds layout-->
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/postImage"
+                        android:src="@drawable/account"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:layout_margin="1dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_border"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:id="@+id/comments"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginRight="4dp"
+                        android:layout_alignParentLeft="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/comments"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/comments"
+                        android:layout_toRightOf="@+id/comments" />
+
+                    <RelativeLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:id="@+id/upDownVotes"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true">
+                  <!-- likes -->
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/thumb_up"
+                            android:tint="@color/gray"
+                            android:id="@+id/upvote"
+                            android:tag="img"
+                            android:padding="4dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentLeft="true" />
+                    <!-- upvotes -->
+                        <TextView
+                            android:id="@+id/upvotes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="12"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/upvote"
+                            android:gravity="center"
+                            android:layout_toRightOf="@+id/upvote" />
+                   <!-- down votes hey ayo i can implement this and you can add them to data base-->
+                        <ImageView
+                            android:id="@+id/downvote"
+                            android:layout_width="36dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/thumb_down"
+                            android:tint="@color/gray"
+                            android:layout_toEndOf="@+id/upvotes"
+                            android:layout_marginLeft="8dp"
+                            android:tag="img"
+                            android:padding="4dp"
+                            android:layout_toRightOf="@+id/upvotes" />
+
+                        <TextView
+                            android:id="@+id/downvotes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="3"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/downvote"
+                            android:gravity="center"
+                            android:layout_toRightOf="@+id/downvote" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/commentsSection"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:weightSum="1"
+                    android:background="@drawable/custom_border">
+
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/progress"
+                        android:layout_gravity="center"
+                        android:padding="16dp"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
+
+
+
+<!--<android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cardView_feeds"
     android:foreground="?attr/selectableItemBackground"
@@ -55,7 +331,8 @@
             android:layout_marginTop="8dp"
             android:layout_toEndOf="@id/btn_card_main1_action1"
             android:text="Action 2"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorAccent"
+            android:layout_toRightOf="@id/btn_card_main1_action1" />
     </RelativeLayout>
 
-</android.support.v7.widget.CardView>
+</android.support.v7.widget.CardView>-->

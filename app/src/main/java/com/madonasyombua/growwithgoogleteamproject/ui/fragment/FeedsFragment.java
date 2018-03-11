@@ -127,13 +127,13 @@ public class FeedsFragment extends Fragment{
             }
         };
     }
-
+//FIXME connect me again
     private static class FeedsViewHolder extends RecyclerView.ViewHolder{
         TextView feed_title;
 
         public FeedsViewHolder(View itemView) {
             super(itemView);
-            feed_title = itemView.findViewById(R.id.tv_feed_title);
+          //  feed_title = itemView.findViewById(R.id.tv_feed_title);
         }
 
         public void setFeed_title(String title) {

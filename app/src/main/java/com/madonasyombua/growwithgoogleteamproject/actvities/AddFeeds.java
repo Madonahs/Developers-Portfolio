@@ -36,8 +36,15 @@ public class AddFeeds extends AppCompatActivity {
     public static final int CAMERA_REQUEST_CODE = 11;
 
     //FIXME: 3:10:2018 please check the addNAme we can remove it and add other functions i can help too just got tired.
-   // @BindView(R.id.addName)
-    TextInputEditText edit_project_name;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_feeds);
+        ButterKnife.bind(this);
+
+    }
+   /*// @BindView(R.id.addName)
+   // TextInputEditText edit_project_name;
     @BindView(R.id.addDescription)
     TextInputEditText edit_project_description;
     @BindView(R.id.cameraButton)
@@ -92,7 +99,7 @@ public class AddFeeds extends AppCompatActivity {
 
         //Giving the options of taking a picture or gallery
         //Ayo - I can create a custom dialog later
-        imageButton.setOnClickListener(new View.OnClickListener() {
+        /*imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 createDialog();
@@ -160,12 +167,12 @@ public class AddFeeds extends AppCompatActivity {
     }
 
     private void addFeedsToDb() {
-        project_name = edit_project_name.getText().toString().trim();
+      //  project_name = edit_project_name.getText().toString().trim();
         project_description = edit_project_description.getText().toString().trim();
         Log.e(TAG, "addFeedsToDb: " + project_name + " " + project_description );
 
         if (TextUtils.isEmpty(project_name) && TextUtils.isEmpty(project_description)) {
-            edit_project_name.setError("Error");
+       //     edit_project_name.setError("Error");
             edit_project_description.setError("Error");
             Toast.makeText(this, "Please fill in the info", Toast.LENGTH_SHORT).show();
         } else {
@@ -182,7 +189,7 @@ public class AddFeeds extends AppCompatActivity {
             });
 
         }
-    }
+    }*/
 
 
 }

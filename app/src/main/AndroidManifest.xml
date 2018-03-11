@@ -41,7 +41,7 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <!-- I am starting the Main Activity lets start the class from there then call login Activity for now so that we can work on inside the app i will stop the login -->
+        <!-- when done we need to start the .ui.LoginActivity -->
         <activity
             android:name=".actvities.MainActivity"
             android:theme="@style/AppTheme">
@@ -50,6 +50,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+       <!-- <activity
+            android:name=".actvities.MainActivity"
+            android:theme="@style/AppTheme" />-->
         <activity
             android:name=".ui.intro.OnBoardingActivity"
             android:theme="@style/AppTheme" />

@@ -73,10 +73,10 @@
     <string name="offline">Offline</string>
     <string name="submit">Submit</string>
     <string name="intro">Intro</string>
-
+<!-- setting Related -->
     <string name="pref_login_status_key">pref_logging_status</string>
     <bool name="pref_login_status_default_key">false</bool>
-
+<!-- Aboout and Help related -->
     <string name="contactus">Contact Us</string>
     <string name="faq">FAQ</string>
     <string name="terms">Terms and Conditions</string>
@@ -191,5 +191,6 @@
     <string name="month1">Month</string>
     <string name="expensesall">ExpenseAll</string>
     <string name="write_something">What\'s Happening</string>
+    <string name="comments">Comments</string>
 
 </resources>
