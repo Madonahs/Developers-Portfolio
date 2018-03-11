@@ -1,5 +1,6 @@
 ## Please Add Description
-## Run a test check firstt to confirm no conflicts before creating a PR
+
+## Run a test check first to confirm no conflicts before creating a PR
 
 ## Screenshots (if needed):
 
