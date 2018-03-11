@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Devs-Portfolio-App.iml" filepath="$PROJECT_DIR$/Devs-Portfolio-App.iml" />
-      <module fileurl="file://$PROJECT_DIR$/GrowWithGoogleTeamProject.iml" filepath="$PROJECT_DIR$/GrowWithGoogleTeamProject.iml" />
+      <module fileurl="file://C:\Users\madon\AndroidStudioProjects\Devs-Portfolio-App\GrowWithGoogleTeamProject.iml" filepath="C:\Users\madon\AndroidStudioProjects\Devs-Portfolio-App\GrowWithGoogleTeamProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
