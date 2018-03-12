@@ -12,12 +12,14 @@ import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.SwitchPreference;
 import android.support.v7.app.ActionBar;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
 import android.text.TextUtils;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.madonasyombua.growwithgoogleteamproject.R;
 
@@ -79,9 +81,9 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                     }
                 }
 
-            } else {
                 // For all other preferences, set the summary to the value's
                 // simple string representation.
+            } else {
                 preference.setSummary(stringValue);
             }
             return true;
@@ -162,7 +164,6 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                 || DataSyncPreferenceFragment.class.getName().equals(fragmentName)
                 || NotificationPreferenceFragment.class.getName().equals(fragmentName)
                 || ThemeMangerPreferenceFragment.class.getName().equals(fragmentName);
-
     }
 
     /**
@@ -181,8 +182,8 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
             // guidelines.
-            bindPreferenceSummaryToValue(findPreference("example_text"));
-            bindPreferenceSummaryToValue(findPreference("example_list"));
+            //   bindPreferenceSummaryToValue(findPreference("example_text"));
+            // bindPreferenceSummaryToValue(findPreference("example_list"));
         }
 
         @Override

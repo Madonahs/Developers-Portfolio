@@ -21,7 +21,7 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:itemTextAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:background="@color/colorPrimary"
+        android:background="?attr/background_color_of_toolbars"
         app:itemTextColor="@android:color/white"
         app:headerLayout="@layout/drawer_header"
         app:menu="@menu/drawer_items" />

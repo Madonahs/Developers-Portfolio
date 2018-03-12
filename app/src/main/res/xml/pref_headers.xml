@@ -8,7 +8,7 @@
         android:title="@string/pref_header_general" />
 
     <header
-        android:fragment="com.madonasyombua.growwithgoogleteamproject.SettingsActivity$ThemeMangerPreferenceFragment"
+        android:fragment="com.madonasyombua.growwithgoogleteamproject.actvities.SettingsActivity$ThemeMangerPreferenceFragment"
         android:icon="@drawable/ic_change_theme"
         android:title="@string/theme_manger" />
 
