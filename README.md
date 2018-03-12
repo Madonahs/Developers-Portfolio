@@ -82,4 +82,5 @@ These files are required in order for google sign in features to work.
 3. Rebuild project.
 
 ## See Below
-<img width="364" alt="sample" src="https://user-images.githubusercontent.com/11560987/36930477-304b180c-1e67-11e8-8dab-5f2edb3acf33.png">
+![json files](https://user-images.githubusercontent.com/11560987/37287985-1eeb4dd8-25d4-11e8-8154-52d3386baef5.PNG)
+
