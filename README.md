@@ -73,7 +73,7 @@ These files are required in order for google sign in features to work.
 
 2. Copy the downloaded files above into the **app** folder of your project.
 
-    a. Open the **GrowWithGoogleTeamProject** app on Android Studio.
+    a. Open the **Devs-Portfolio-App** app on Android Studio.
     
     b. Change the file explore view to **Project** (default view is usually *Android*)
     
