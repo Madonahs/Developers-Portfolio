@@ -12,7 +12,7 @@
         <item name="backgroundcolor">#fcfcfc</item>
         <item name="background_color_of_toolbars">@color/colorPrimary</item>
         <item name="cardbackground">#ffffff</item>
-        <item name="textcolor">#808080</item>
+        <item name="textcolor">#181717</item>
         <item name="tintcolor">#000000</item>
         <item name="buttoncolor">#311B92</item>
     </style>
@@ -40,12 +40,12 @@
     <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:fontFamily">@font/raleway</item>
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#212121</item>
-        <item name="colorPrimaryDark">#000000</item>
+        <item name="colorPrimary">#161720</item>
+        <item name="colorPrimaryDark">#111322</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="background_color_of_toolbars">#303030</item>
-        <item name="backgroundcolor">#616161</item>
-        <item name="cardbackground">#424242</item>
+        <item name="background_color_of_toolbars">#111322</item>
+        <item name="backgroundcolor">#141629</item>
+        <item name="cardbackground">#111322</item>
         <item name="textcolor">#ffffff</item>
         <item name="tintcolor">#ffffff</item>
         <item name="buttoncolor">#311B92</item>

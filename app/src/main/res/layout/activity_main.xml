@@ -14,6 +14,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <!--<android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:itemTextAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:background="?attr/background_color_of_toolbars"
+        app:itemTextColor="@android:color/white"
+        app:headerLayout="@layout/drawer_header"
+        app:menu="@menu/drawer_items" />-->
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
@@ -25,5 +36,6 @@
         app:itemTextColor="@android:color/white"
         app:headerLayout="@layout/drawer_header"
         app:menu="@menu/drawer_items" />
+
 
 </android.support.v4.widget.DrawerLayout>
