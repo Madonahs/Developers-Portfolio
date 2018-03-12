@@ -1,8 +1,10 @@
 package com.madonasyombua.growwithgoogleteamproject.actvities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -19,6 +21,7 @@ import android.widget.TextView;
 
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
+import com.madonasyombua.growwithgoogleteamproject.ui.SharedPref;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.AboutFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.FeedsFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.InterestFragment;
@@ -32,7 +35,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity
         extends AppCompatActivity
-        implements OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener {
+        implements OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener,  SharedPreferences.OnSharedPreferenceChangeListener {
 
     private Fragment fragment;
     private static final String TAG = "current-frag";
@@ -47,12 +50,28 @@ public class MainActivity
     private CircleImageView profilePicView;
     private TextView userName;
     private TextView userProfession;
+    SharedPref sharedPref;
+    private boolean prev_State = false;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Theme can only be changed before setContentView is called.
+        //Therefore, I am changing the theme on here.
+        sharedPref = new SharedPref(this);
+        if (sharedPref.loadNightModeState()) {
+            setTheme(R.style.DarkTheme);
+        } else {
+            setTheme(R.style.AppTheme);
+        }
+        prev_State = sharedPref.loadNightModeState();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        //This method will save the theme and initiates the preferenceChange listener
+        setCorrectTheme();
 
         /** Get all user information views from the drawer header view*/
         View drawerHeaderView = navView.getHeaderView(0);
@@ -196,6 +215,39 @@ public class MainActivity
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        //they sharedP is going to change
+        if (key.equals("enable_dark_mode")){
+            sharedPref.setNightModeState(sharedPreferences.getBoolean(key,false));
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        PreferenceManager.getDefaultSharedPreferences(this)
+                .unregisterOnSharedPreferenceChangeListener(this);    }
+
+    private void setCorrectTheme(){
+
+        SharedPreferences sharedPreference = PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPref.setNightModeState(sharedPreference.getBoolean("enable_dark_mode", false));
+        sharedPreference.registerOnSharedPreferenceChangeListener(this);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //Activities must be started again to show the theme change,
+        if(prev_State != sharedPref.loadNightModeState())
+        {
+            startActivity(new Intent(this, this.getClass()));
+            finish();
+        }
     }
 
 }

@@ -8,6 +8,11 @@
         android:title="@string/pref_header_general" />
 
     <header
+        android:fragment="com.madonasyombua.growwithgoogleteamproject.SettingsActivity$ThemeMangerPreferenceFragment"
+        android:icon="@drawable/ic_change_theme"
+        android:title="@string/theme_manger" />
+
+    <header
         android:fragment="com.madonasyombua.growwithgoogleteamproject.actvities.SettingsActivity$NotificationPreferenceFragment"
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="@string/pref_header_notifications" />
