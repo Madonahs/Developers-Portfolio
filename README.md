@@ -69,11 +69,11 @@ Currently, we have 2 json config files, *credentials.json* and *google-services.
 These files are required in order for google sign in features to work.
 
 1. Download **credentials.json** and **google-services.json** from our *GrowWithGoogleTeam* slack team.
-(if you would like to be invited, send your email to @syombuamadona@gmail.com)
+(if you would like to be invited, send your email to syombuamadona@gmail.com)
 
 2. Copy the downloaded files above into the **app** folder of your project.
 
-    a. Open the **GrowWithGoogleTeamProject** app on Android Studio.
+    a. Open the **Devs-Portfolio-App** app on Android Studio.
     
     b. Change the file explore view to **Project** (default view is usually *Android*)
     
@@ -82,4 +82,5 @@ These files are required in order for google sign in features to work.
 3. Rebuild project.
 
 ## See Below
-<img width="364" alt="sample" src="https://user-images.githubusercontent.com/11560987/36930477-304b180c-1e67-11e8-8dab-5f2edb3acf33.png">
+![json files](https://user-images.githubusercontent.com/11560987/37287985-1eeb4dd8-25d4-11e8-8154-52d3386baef5.PNG)
+

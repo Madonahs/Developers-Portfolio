@@ -1,25 +1,25 @@
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.actvities.AddFeeds;
+import com.madonasyombua.growwithgoogleteamproject.R;
+import com.madonasyombua.growwithgoogleteamproject.adapter.FeedsAdapter;
+import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
 import com.madonasyombua.growwithgoogleteamproject.models.Feeds;
-import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +37,7 @@ public class FeedsFragment extends Fragment{
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-
+    private OnFragmentInteractionListener mListener;
     private static final String TAG = "FeedsFragment";
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -45,10 +45,7 @@ public class FeedsFragment extends Fragment{
     private View view;
     private List<Feeds> feedsList = new ArrayList<>();
     private RecyclerView recyclerView;
-
-    private FirebaseRecyclerAdapter<Feeds, FeedsViewHolder> adapter;
-    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference(Constant.FIREBASE_FEEDS);
-
+    private FeedsAdapter adapter;
 
     public FeedsFragment() {
         // Required empty public constructor
@@ -88,11 +85,12 @@ public class FeedsFragment extends Fragment{
         view = inflater.inflate(R.layout.fragment_feeds, container, false);
 
         recyclerView = view.findViewById(R.id.feeds_recyclerview);
+        adapter = new FeedsAdapter(feedsList);
+
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        setUpAdapter();
         recyclerView.setAdapter(adapter);
 
         FloatingActionButton addFeeds = view.findViewById(R.id.add_feeds);
@@ -107,37 +105,25 @@ public class FeedsFragment extends Fragment{
         return view;
     }
 
+
     //my method to open the FeedsActivity
     private void openFeedsActivity(@SuppressWarnings("unused") View view) {
         Intent intent = new Intent(this.getActivity(), AddFeeds.class);
         startActivity(intent);
         Toast.makeText(getContext(), "Adding Feed", Toast.LENGTH_SHORT).show();
+
     }
 
-    private void setUpAdapter() {
-        adapter = new FirebaseRecyclerAdapter<Feeds, FeedsViewHolder>(
-                Feeds.class,
-                R.layout.feeds_list_item,
-                FeedsViewHolder.class,
-                reference
-        ) {
-            @Override
-            protected void populateViewHolder(FeedsViewHolder viewHolder, Feeds model, int position) {
-                viewHolder.setFeed_title(model.getFeed_name());
-            }
-        };
-    }
-//FIXME connect me again
-    private static class FeedsViewHolder extends RecyclerView.ViewHolder{
-        TextView feed_title;
 
-        public FeedsViewHolder(View itemView) {
-            super(itemView);
-          //  feed_title = itemView.findViewById(R.id.tv_feed_title);
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
         }
-
-        public void setFeed_title(String title) {
-            feed_title.setText(title);
-        }
+        ((AppCompatActivity)(context)).getSupportActionBar().setTitle(getString(R.string.feeds));
     }
 }
