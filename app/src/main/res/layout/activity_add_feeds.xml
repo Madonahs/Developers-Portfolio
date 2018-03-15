@@ -34,7 +34,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="New post"
+                        android:text="@string/newpost"
                         android:id="@+id/header"
                         android:textSize="24dp"
                         android:textColor="@color/blue"
@@ -65,7 +65,7 @@
                 android:orientation="vertical"
                 android:layout_marginBottom="8dp">
 
-                <!-- hey for now i just added description -->
+                <!-- hey for now i just added description we can rename it -->
                 <EditText
                     android:id="@+id/addDescription"
                     android:layout_width="match_parent"
@@ -212,7 +212,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Posting as"
+                            android:text="@string/postingas"
                             android:id="@+id/postingAs" />
 
                         <LinearLayout
@@ -223,31 +223,10 @@
                                 android:id="@+id/name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Madonah Syombua"
+                                android:text="@string/about_developer_name1"
                                 android:textColor="@color/blue"
                                 android:layout_marginRight="8dp" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="("
-                                android:layout_marginRight="1dp"
-                                android:textColor="@color/blue" />
-
-                            <TextView
-                                android:id="@+id/username"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="MS"
-                                android:textStyle="italic"
-                                android:textColor="@color/blue" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text=")"
-                                android:textColor="@color/blue"
-                                android:layout_marginLeft="1dp" />
 
                         </LinearLayout>
 
