@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -18,8 +17,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.madonasyombua.growwithgoogleteamproject.R;
+import com.madonasyombua.growwithgoogleteamproject.SearchViewTest;
 import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.AboutFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.FeedsFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.InterestFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProfileFragment;
@@ -181,6 +180,8 @@ public class MainActivity
                 startActivity(intent2);
                 return false;
             case R.id.logout:
+                Intent helpTest = new Intent(this, SearchViewTest.class);
+                startActivity(helpTest);
                 // logout
                 return false;
 

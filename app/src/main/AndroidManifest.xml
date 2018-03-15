@@ -51,9 +51,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-       <!-- <activity
+        <!--
+            <activity
             android:name=".actvities.MainActivity"
-            android:theme="@style/AppTheme" />-->
+            android:theme="@style/AppTheme" />
+        -->
         <activity
             android:name=".ui.intro.OnBoardingActivity"
             android:theme="@style/AppTheme" />
@@ -66,17 +68,10 @@
         <activity
             android:name=".actvities.SettingsActivity"
             android:label="@string/title_activity_settings" />
-
         <activity android:name=".actvities.AddFeeds" />
         <activity android:name=".actvities.AboutActivity" />
-        <activity android:name=".actvities.HelpActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-            <meta-data android:name="android.app.searchable"
-                       android:resource="@xml/searchable"/>
-        </activity>
-
+        <activity android:name=".actvities.HelpActivity"></activity>
+        <activity android:name=".SearchViewTest"></activity>
     </application>
 
 </manifest>

@@ -73,10 +73,10 @@
     <string name="offline">Offline</string>
     <string name="submit">Submit</string>
     <string name="intro">Intro</string>
-<!-- setting Related -->
+    <!-- setting Related -->
     <string name="pref_login_status_key">pref_logging_status</string>
     <bool name="pref_login_status_default_key">false</bool>
-<!-- Aboout and Help related -->
+    <!-- Aboout and Help related -->
     <string name="contactus">Contact Us</string>
     <string name="faq">FAQ</string>
     <string name="terms">Terms and Conditions</string>
@@ -203,5 +203,14 @@
     <string name="october">October</string>
     <string name="november">November</string>
     <string name="december">December</string>
+
+
+    <!-- Search Suggestions -->
+    <string-array name="search_suggestions">
+        <item>How do I change my password?</item>
+        <item>How do I change my profile photo?</item>
+        <item>Why do birds suddenly appear?</item>
+        <item>What is life?</item>
+    </string-array>
 
 </resources>
