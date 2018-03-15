@@ -210,5 +210,8 @@
     <string name="december">December</string>
     <string name="newpost">New Post</string>
     <string name="postingas">Posting as</string>
+    <string name="time">2 minutes ago</string>
+    <string name="post">This is a post</string>
+    <string name="two">2</string>
 
 </resources>
