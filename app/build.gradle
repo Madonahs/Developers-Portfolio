@@ -84,5 +84,8 @@ dependencies {
 
     compile 'org.jetbrains:annotations-java5:15.0'
     compile 'com.google.android.gms:play-services-maps:11.8.0'
+
+    // Material SearchView
+    compile 'com.miguelcatalan:materialsearchview:1.0.0'
 }
 apply plugin: 'com.google.gms.google-services'

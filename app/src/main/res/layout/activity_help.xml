@@ -15,10 +15,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:orientation="horizontal"
-            android:layout_alignParentLeft="true">
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/backToMain"
@@ -26,12 +26,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_action_back"
-                android:contentDescription="@string/back" />
+                android:contentDescription="@string/back"
+                android:src="@drawable/ic_action_back" />
         </LinearLayout>
 
     </android.support.design.widget.AppBarLayout>
-
 
     <!-- Faq page loads faq for user -->
     <TextView
@@ -42,13 +41,12 @@
         android:layout_marginStart="@dimen/margin_8"
         android:layout_marginTop="@dimen/margin_8"
         android:fontFamily="@font/raleway"
-        android:text="@string/faq"
+        android:paddingBottom="10dp"
         android:paddingTop="4dp"
+        android:text="@string/faq"
         android:textColor="@color/grey_600"
         android:textSize="18sp"
-        android:paddingBottom="10dp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
     <!-- contact us page, loads contact us dialog -->
     <TextView
         android:id="@+id/contact"
@@ -58,13 +56,12 @@
         android:layout_marginStart="@dimen/margin_8"
         android:layout_marginTop="@dimen/margin_8"
         android:fontFamily="@font/raleway"
-        android:text="@string/contactus"
-        android:paddingTop="4dp"
         android:paddingBottom="10dp"
+        android:paddingTop="4dp"
+        android:text="@string/contactus"
         android:textColor="@color/grey_600"
         android:textSize="18sp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
 
     <!-- terms and privacy, loads terms and conditions for users -->
@@ -76,13 +73,31 @@
         android:layout_marginStart="@dimen/margin_8"
         android:layout_marginTop="@dimen/margin_8"
         android:fontFamily="@font/raleway"
-        android:text="@string/terms"
-        android:paddingTop="4dp"
         android:paddingBottom="10dp"
+        android:paddingTop="4dp"
+        android:text="@string/terms"
         android:textColor="@color/grey_600"
         android:textSize="18sp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
+
+    <!--SearchView for Help Articles-->
+    <!-- TODO figure out why SearchView doesn't appear -->
+    <RelativeLayout
+        android:id="@+id/toolbar_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary" />
+
+        <com.miguelcatalan.materialsearchview.MaterialSearchView
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
 
 </LinearLayout>
