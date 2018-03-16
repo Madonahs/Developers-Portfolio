@@ -12,6 +12,7 @@
         <item name="backgroundcolor">#fcfcfc</item>
         <item name="background_color_of_toolbars">@color/colorPrimary</item>
         <item name="cardbackground">#ffffff</item>
+        <item name="bottom_nav_color">@color/colorPrimary</item>
         <item name="textcolor">#181717</item>
         <item name="tintcolor">#000000</item>
         <item name="buttoncolor">#311B92</item>
@@ -46,6 +47,7 @@
         <item name="background_color_of_toolbars">#1A2634</item>
         <item name="backgroundcolor">#1D2834</item>
         <item name="cardbackground">#111322</item>
+        <item name="bottom_nav_color">#283851</item>
         <item name="textcolor">#ffffff</item>
         <item name="tintcolor">#ffffff</item>
         <item name="buttoncolor">#311B92</item>

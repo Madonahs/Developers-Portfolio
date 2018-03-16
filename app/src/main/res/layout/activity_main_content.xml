@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="?attr/background_color_of_toolbars"
+            android:background="?attr/bottom_nav_color"
             android:elevation="6dp"
             app:itemIconTint="@android:color/white"
             app:itemTextColor="@android:color/white"

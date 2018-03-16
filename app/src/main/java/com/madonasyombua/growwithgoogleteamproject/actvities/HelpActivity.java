@@ -45,7 +45,7 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
         ButterKnife.bind(this);
-
+        setTitle("Help");
         setCorrectTheme();
 
         backToMain.setOnClickListener(new View.OnClickListener() {

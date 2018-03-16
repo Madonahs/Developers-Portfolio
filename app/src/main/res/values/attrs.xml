@@ -7,5 +7,7 @@
         <attr name="tintcolor" format="color" />
         <attr name="buttoncolor" format="color"/>
         <attr name="background_color_of_toolbars" format="color"/>
+        <attr name="bottom_nav_color" format="color"/>
+
     </declare-styleable>
 </resources>
