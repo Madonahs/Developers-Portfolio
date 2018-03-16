@@ -82,15 +82,11 @@ These files are required in order for google sign in features to work.
 3. Rebuild project.
 
 
+## See Below
+![json files](https://user-images.githubusercontent.com/11560987/37287985-1eeb4dd8-25d4-11e8-8154-52d3386baef5.PNG)
+
 ## Tablet 
 ![syombua tab2](https://user-images.githubusercontent.com/11560987/37486952-11f7f7d4-285e-11e8-8414-b8e785f883fb.png)
 
-Part 2
 
-![syombua tab](https://user-images.githubusercontent.com/11560987/37486949-0ebbc7d0-285e-11e8-83a8-bf40d1159930.png)
-
-
-
-## See Below
-![json files](https://user-images.githubusercontent.com/11560987/37287985-1eeb4dd8-25d4-11e8-8154-52d3386baef5.PNG)
 
