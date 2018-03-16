@@ -5,27 +5,28 @@
     <!-- Can we create an AppBar for the Gravator? just a suggestion-->
 
     <data>
+
         <variable
             name="user"
-            type="com.madonasyombua.growwithgoogleteamproject.models.User"/>
+            type="com.madonasyombua.growwithgoogleteamproject.models.User" />
     </data>
 
     <android.support.design.widget.CoordinatorLayout
+        android:theme="@style/FontTheme"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.madonasyombua.growwithgoogleteamproject.ProfileActivity">
+        tools:context="com.madonasyombua.growwithgoogleteamproject.actvities.ProfileActivity">
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/profile_bg"
+            android:background="@color/colorPrimary"
             android:fitsSystemWindows="true">
 
             <android.support.design.widget.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -45,7 +46,6 @@
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/margin_8"
                         android:text="@{user.name}"
-                        android:fontFamily="@font/raleway"
                         android:textColor="@android:color/white"
                         android:textSize="20sp" />
 
@@ -54,9 +54,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom|center_horizontal">
 
-                        //TODO: Add drawable start
-
                         <TextView
+                            android:id="@+id/status"
+                            android:drawablePadding="@dimen/margin_8"
+                            android:textSize="@dimen/small_text_size"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start|bottom"
@@ -64,14 +65,13 @@
                             android:layout_marginLeft="@dimen/margin_8"
                             android:layout_marginStart="@dimen/margin_8"
                             android:layout_marginTop="@dimen/margin_8"
-                            android:fontFamily="@font/raleway"
-                            android:text="@{user.status}"
                             android:textColor="@android:color/white"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <Button
+
                             android:id="@+id/btn_edit_profile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -82,7 +82,6 @@
                             android:layout_marginTop="@dimen/margin_8"
                             android:background="@drawable/button_transparent"
                             android:paddingEnd="@dimen/button_padding"
-                            android:fontFamily="@font/raleway"
                             android:paddingStart="@dimen/button_padding"
                             android:text="@string/edit_profile"
                             android:textColor="@android:color/white"
@@ -94,8 +93,10 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="10dp"
-                        android:background="@color/colorPrimary" />
+                        android:layout_height="3dp"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:layout_marginBottom="@dimen/margin_8"
+                        android:background="@color/white" />
                 </LinearLayout>
             </android.support.design.widget.CollapsingToolbarLayout>
 
@@ -105,6 +106,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
+            android:layout_gravity="fill_vertical"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
@@ -113,23 +115,20 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/margin_16"
                 android:layout_marginRight="@dimen/margin_16">
-                //TODO: populate from model using data variable
-                //Intro and content
 
                 <TextView
                     android:id="@+id/intro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_8"
                     android:layout_marginStart="@dimen/margin_8"
                     android:layout_marginTop="@dimen/margin_8"
-                    android:fontFamily="@font/raleway"
-                    android:text="Intro"
+                    android:text="@string/intro"
                     android:textColor="#004ecb"
-                    android:textSize="24dp"
+                    android:textSize="@dimen/big_text_size"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginLeft="@dimen/margin_8" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/intro_content"
@@ -138,15 +137,13 @@
                     android:layout_marginEnd="@dimen/margin_8"
                     android:layout_marginStart="@dimen/margin_8"
                     android:layout_marginTop="@dimen/margin_8"
-                    android:fontFamily="@font/raleway"
                     android:text="@{user.intro}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/intro" />
-                //Following
-
+                <!--Following-->
                 <TextView
-                    android:id="@+id/following_count"
+                    android:id="@+id/following_count_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_16"
@@ -160,26 +157,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_16"
-                    android:fontFamily="@font/raleway"
                     android:text="Following"
-                    app:layout_constraintStart_toStartOf="@+id/following_count"
-                    app:layout_constraintTop_toBottomOf="@+id/following_count" />
-                //followers
+                    app:layout_constraintStart_toStartOf="@+id/following_count_value"
+                    app:layout_constraintTop_toBottomOf="@+id/following_count_value" />
+                <!--//followers-->
 
                 <TextView
                     android:id="@+id/follower_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin_8"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="@dimen/margin_8"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="@dimen/margin_16"
                     android:text="@{user.followers}"
                     android:textSize="@dimen/big_text_size"
                     app:layout_constraintEnd_toStartOf="@+id/project_count"
-                    app:layout_constraintStart_toEndOf="@+id/following_count"
-                    app:layout_constraintTop_toBottomOf="@+id/intro_content"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginRight="@dimen/margin_8" />
+                    app:layout_constraintStart_toEndOf="@+id/following_count_value"
+                    app:layout_constraintTop_toBottomOf="@+id/intro_content" />
 
                 <TextView
                     android:id="@+id/follower_txt"
@@ -188,19 +184,19 @@
                     android:layout_marginEnd="@dimen/margin_8"
                     android:layout_marginStart="@dimen/margin_8"
                     android:layout_marginTop="@dimen/margin_16"
-                    android:fontFamily="@font/raleway"
                     android:text="Followers"
                     app:layout_constraintEnd_toStartOf="@+id/project_txt"
                     app:layout_constraintStart_toEndOf="@+id/following_txt"
                     app:layout_constraintTop_toBottomOf="@+id/follower_count" />
 
-                //Projects
+                <!--//Projects-->
 
                 <TextView
                     android:id="@+id/project_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_16"
+                    android:fontFamily="@font/raleway"
                     android:text="@{user.projects}"
                     android:textSize="@dimen/big_text_size"
                     app:layout_constraintEnd_toEndOf="@+id/intro_content"
@@ -211,7 +207,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_16"
-                    android:fontFamily="@font/raleway"
                     android:text="Projects"
                     app:layout_constraintStart_toStartOf="@+id/project_count"
                     app:layout_constraintTop_toBottomOf="@+id/project_count" />
@@ -234,56 +229,60 @@
                     android:id="@+id/contact_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_8"
                     android:layout_marginStart="@dimen/margin_8"
                     android:layout_marginTop="@dimen/margin_16"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/intro_content"
                     app:layout_constraintStart_toStartOf="@+id/intro_content"
-                    app:layout_constraintTop_toBottomOf="@+id/line"
-                    android:layout_marginLeft="@dimen/margin_8">
+                    app:layout_constraintTop_toBottomOf="@+id/line">
 
-                    //TODO: populate from model using data variable
 
                     <TextView
+                        android:id="@+id/home_tv"
+                        android:drawablePadding="@dimen/margin_8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/margin_16"
                         android:layout_marginTop="@dimen/margin_16"
                         android:drawableLeft="@drawable/ic_home"
                         android:drawableStart="@drawable/ic_home"
-                        android:fontFamily="@font/raleway"
                         android:text="@{user.location}" />
 
                     <TextView
+                        android:id="@+id/phone_tv"
+                        android:drawablePadding="@dimen/margin_8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/margin_16"
                         android:layout_marginTop="@dimen/margin_16"
                         android:drawableLeft="@drawable/ic_phone"
                         android:drawableStart="@drawable/ic_phone"
-                        android:fontFamily="@font/raleway"
                         android:text="@{user.phone}" />
 
                     <TextView
+                        android:id="@+id/email_tv"
+                        android:drawablePadding="@dimen/margin_8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/margin_16"
                         android:layout_marginTop="@dimen/margin_16"
                         android:drawableLeft="@drawable/ic_email"
                         android:drawableStart="@drawable/ic_email"
-                        android:fontFamily="@font/raleway"
                         android:text="@{user.email}" />
 
                     <TextView
+                        android:id="@+id/web_tv"
+                        android:drawablePadding="@dimen/margin_8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/margin_16"
                         android:layout_marginTop="@dimen/margin_16"
                         android:drawableLeft="@drawable/ic_web"
                         android:drawableStart="@drawable/ic_web"
-                        android:fontFamily="@font/raleway"
-                        android:text="@{user.website}" />
+                        android:text="@{user.website}"
+                       />
 
                 </LinearLayout>
 

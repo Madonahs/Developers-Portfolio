@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--<style name="DarkMode" parent="Theme.AppCompat.Light.NoActionBar">-->
+        <!--<item name="android:background">#000000</item>-->
+        <!--<item name="android:colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!--<item name="android:colorAccent">FF3993F9</item>-->
+    <!--</style>-->
+</resources>

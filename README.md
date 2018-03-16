@@ -3,7 +3,10 @@ Grow With Google Scholarship Team Project.
 
 ## Dev's Portfolio App
 
-The project is meant to help programmers have a portfolio sharing platform, programmers are welcome to share their projects and they can interact and show employers what they have done in the app, one doesnt have to create a website to showcase his/her work. The project was done by team members participating in the Grow With Google Scholarship Program offered by Google|Udacity. 
+This is a Social App for Developers to share their portfolio and also get to interact with other users through messages and sharing projects, programmers are welcome to share their projects and they can interact and show employers what they have done in the app, one doesnt have to create a website to showcase his/her work.The project is being done by team members participating in the Grow With Google Scholarship Program offered by Google|Udacity. 
+
+## Mode
+Develop 🔧
 
 ### Prerequisites
 An open mind and an open heart.
@@ -11,14 +14,15 @@ An open mind and an open heart.
 ## Authors
 * **Madona Syombua** - *Lead Team Member* 
 * **Rado RAMBININTSOA** - *Ass. Team Member*
-* **Ayobami Emmanuel Adewale** - *Team Member*
+* **Ayobami Adewale** - *Team Member*
 * **Maher Soua** - *Team Member*
-* **Chukwubuikem Ume-Ugwa** - *Team Member*
-* **Jantz Carney** - *Team Member*
+* **CleverChuk** - *Team Member*
 * **Hemantkumar Nimje** - *Team Member*
-* **Srinath Chintapalli** - *Team Member*
+* **Srinath** - *Team Member*
 
+Also checkout the entire list of [Collaborators](https://github.com/Madonahs/GrowWithGoogleTeamProject/settings/collaboration)
 
+Thank you team.
 
 ## Contributing
 
@@ -30,12 +34,12 @@ Read [Code of Conduct](https://github.com/Madonahs/GrowWithGoogleTeamProject/blo
 
 ## Design Mock up by Madonah Syombua
 
-![madonasyombua](https://user-images.githubusercontent.com/11560987/36572114-9a8f9706-17ff-11e8-8253-4e30f53bfbcf.png)
+![syombuamadona](https://user-images.githubusercontent.com/11560987/36858976-aa804258-1d42-11e8-9278-b90762987037.png)
 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+See the [LICENSE.md](LICENSE.txt) file for details
 
 ## Acknowledgments
 
@@ -46,11 +50,36 @@ Intro - Ahoy! OnBoard - https://github.com/codemybrainsout/ahoy-onboarding
 
 Bind Views - ButterKnife - https://github.com/JakeWharton/butterknife
 
+Dagger - https://github.com/google/dagger
+
+Profile Picture - CircleImageview - https://github.com/hdodenhof/CircleImageView
+
+Database - Firebase - https://firebase.com
+
 ## Ensuring your fork is up to date:
 Info: https://gist.github.com/CristinaSolana/1885435
 
-## Incase you encounter Errors when trying to run the project
-1: Open the folder shown.
 
-2: Expand and run the show below.
-![step 2](https://user-images.githubusercontent.com/11560987/36135524-4aa70bee-1051-11e8-924c-ae70f2f22c30.PNG)
+## Handling config files:
+Since config files may contain sensitive information about our app, it's best practice to not put them
+out on the public repo for the whole world to see. Therefore, we decided to share them privately
+among team members. 
+
+Currently, we have 2 json config files, *credentials.json* and *google-services.json*, that our app requires in order to work properly. 
+These files are required in order for google sign in features to work.
+
+1. Download **credentials.json** and **google-services.json** from our *GrowWithGoogleTeam* slack team.
+(if you would like to be invited, send your email to @syombuamadona@gmail.com)
+
+2. Copy the downloaded files above into the **app** folder of your project.
+
+    a. Open the **GrowWithGoogleTeamProject** app on Android Studio.
+    
+    b. Change the file explore view to **Project** (default view is usually *Android*)
+    
+    c. Right-click the **app** folder and paste in the config files
+    
+3. Rebuild project.
+
+## See Below
+<img width="364" alt="sample" src="https://user-images.githubusercontent.com/11560987/36930477-304b180c-1e67-11e8-8dab-5f2edb3acf33.png">

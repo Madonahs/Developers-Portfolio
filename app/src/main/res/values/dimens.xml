@@ -8,10 +8,11 @@
     <dimen name="margin_8">8dp</dimen>
     <dimen name="margin_16">16dp</dimen>
 
+
     <!-- Dimensions of drawer header and margin per Android Design guidelines -->
     <dimen name="drawer_header_vertical_spacing">16dp</dimen>
     <dimen name="drawer_header_height">160dp</dimen>
-
+    <dimen name="fab_margin">16dp</dimen>
     <!-- Dimensions of profile pic per Android Design guidelines -->
     <dimen name="profile_width">75dp</dimen>
     <dimen name="profile_height">75dp</dimen>
@@ -21,4 +22,8 @@
 
     <!-- Overrides the default icon size of navigation drawer icons -->
     <dimen name="design_navigation_icon_size" tools:override="true">32dp</dimen>
+
+    <dimen name="drawable_padding">4dp</dimen>
+    <dimen name="app_bar_height">220dp</dimen>
+
 </resources>

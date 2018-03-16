@@ -11,11 +11,11 @@
             android:id="@+id/manage_profile"
             android:icon="@drawable/ic_edit"
             android:title="@string/drawer_manage_profile_title" />
-        <item
+       <!-- <item
             android:id="@+id/notifications"
             android:icon="@drawable/ic_notification"
             android:title="@string/drawer_notifications_title"
-            />
+            />-->
     </group>
 
     <!-- Title undecided for the below group, if decided add below -->

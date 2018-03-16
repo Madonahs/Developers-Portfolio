@@ -1,6 +1,5 @@
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,15 +10,11 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseUser;
-import com.madonasyombua.growwithgoogleteamproject.MainActivity;
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.database.AppLoginManager;
+import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentLoginBinding;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
-import com.madonasyombua.growwithgoogleteamproject.ui.LoginActivity;
-
-import static android.widget.Toast.LENGTH_SHORT;
+import com.madonasyombua.growwithgoogleteamproject.actvities.LoginActivity;
 
 /**
  * Created by Ayo on 2/9/2018.
@@ -42,6 +37,12 @@ public class LoginFragment extends Fragment {
             public void onClick(View view) {
                 String email_text = extractText(binding.editEmail);
                 String password_text = extractText(binding.editPassword);
+
+                if(email_text.isEmpty() || password_text.isEmpty()){
+                    // TODO add toast or change input color to show user that is required
+                    Toast.makeText(getContext(), "Username and password are required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 AppLoginManager.signinUser(getActivity(), new User(email_text, password_text));
                 ((LoginActivity) getActivity()).showHideProgressBar(true);
