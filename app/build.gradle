@@ -1,4 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+apply from: 'dependencies.gradle'
+
 
 android {
 
@@ -6,10 +9,6 @@ android {
     dataBinding {
         enabled = true
     }
-
-
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    dataBinding.enabled = true
 
     defaultConfig {
         applicationId "com.madonasyombua.growwithgoogleteamproject"
@@ -27,62 +26,3 @@ android {
         }
     }
 }
-
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    // Please change versions in the project level build.gradle file
-    // and should you want to add a new dependency, follow the below pattern
-    implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
-    implementation "com.android.support:support-v4:$rootProject.ext.supportLibraryVersion"
-    implementation 'com.android.support:support-v4:27.0.2'
-    implementation 'com.android.support:support-vector-drawable:27.0.2'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile "com.android.support:design:$rootProject.ext.supportLibraryVersion"
-    compile "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
-    implementation "com.android.support:support-annotations:$rootProject.ext.supportLibraryVersion"
-
-    // Test libraries
-    testImplementation "junit:junit:$rootProject.ext.junitVersion"
-    androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
-
-    //AhoyOnBoard library
-    compile "com.codemybrainsout.onboarding:onboarder:$rootProject.ext.onBoarderVersion"
-    compile "com.jonathanfinerty.once:once:$rootProject.ext.onceVersion"
-
-    // Butterknife
-    compile "com.jakewharton:butterknife:$rootProject.ext.butterKnifeVersion"
-    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterKnifeVersion"
-
-    // Dagger
-    compile "com.google.dagger:dagger-android:$rootProject.ext.daggerVersion"
-    compile "com.google.dagger:dagger-android-support:$rootProject.ext.daggerVersion"
-    // if you use the support libraries
-    annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.ext.daggerVersion"
-    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
-
-    // CircleImageView Lib
-    compile "de.hdodenhof:circleimageview:$rootProject.ext.circleImageViewVersion"
-
-    // Facebook SDK
-    implementation "com.facebook.android:facebook-login:$rootProject.ext.facebookLoginVersion"
-
-    // Google Play
-    implementation 'com.google.android.gms:play-services-auth:11.8.0'
-
-    // Firebase
-    implementation "com.google.firebase:firebase-database:$rootProject.ext.playServicesVersion"
-    implementation "com.google.firebase:firebase-core:$rootProject.ext.playServicesVersion"
-    implementation "com.google.firebase:firebase-storage:$rootProject.ext.playServicesVersion"
-    implementation 'com.firebaseui:firebase-ui-database:0.4.1'
-
-    //Firebase SDK
-    implementation "com.google.firebase:firebase-auth:$rootProject.ext.playServicesVersion"
-    implementation "com.google.android.gms:play-services-auth:$rootProject.ext.playServicesVersion"
-
-
-    compile 'org.jetbrains:annotations-java5:15.0'
-    compile 'com.google.android.gms:play-services-maps:11.8.0'
-}
-apply plugin: 'com.google.gms.google-services'
