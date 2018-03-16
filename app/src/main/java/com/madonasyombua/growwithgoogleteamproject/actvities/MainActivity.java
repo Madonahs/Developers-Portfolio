@@ -66,6 +66,7 @@ public class MainActivity
             setTheme(R.style.AppTheme);
         }
         prev_State = sharedPref.loadNightModeState();
+        setTitle("Feeds");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
