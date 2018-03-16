@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardView_feeds"
     android:foreground="?attr/selectableItemBackground"
     android:layout_marginBottom="8dp"
+    app:cardBackgroundColor="?attr/cardbackground"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
     android:layout_marginTop="8dp"
@@ -12,7 +13,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="?attr/cardbackground"
+        >
 
     <ImageView
         android:src="@drawable/logo"
@@ -32,7 +35,7 @@
             android:layout_marginRight="16dp"
             android:layout_marginTop="24dp"
             android:text="Android Programming"
-            android:textColor="@color/black"
+            android:textColor="?attr/textcolor"
             android:textSize="20sp" />
 
         <Button
@@ -43,7 +46,8 @@
             android:layout_below="@id/tv_feed_title"
             android:layout_margin="8dp"
             android:text="Action 1"
-            android:textColor="@color/colorAccent" />
+            android:textColor="?attr/textcolor"
+            />
 
         <Button
             android:id="@+id/btn_card_main1_action2"
@@ -55,7 +59,7 @@
             android:layout_marginTop="8dp"
             android:layout_toEndOf="@id/btn_card_main1_action1"
             android:text="Action 2"
-            android:textColor="@color/colorAccent"
+            android:textColor="?attr/textcolor"
             android:layout_toRightOf="@id/btn_card_main1_action1" />
     </RelativeLayout>
 
