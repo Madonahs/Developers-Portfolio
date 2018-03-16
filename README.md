@@ -20,7 +20,7 @@ An open mind and an open heart.
 * **Hemantkumar Nimje** - *Team Member*
 * **Srinath** - *Team Member*
 
-Also checkout the entire list of [Collaborators](https://github.com/Madonahs/GrowWithGoogleTeamProject/settings/collaboration)
+Also checkout the entire list of [Contributors](https://github.com/Madonahs/Devs-Portfolio-App/wiki)
 
 Thank you team.
 
