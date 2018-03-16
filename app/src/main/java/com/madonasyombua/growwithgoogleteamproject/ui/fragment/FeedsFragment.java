@@ -1,9 +1,11 @@
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 import com.madonasyombua.growwithgoogleteamproject.actvities.AddFeeds;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.adapter.FeedsAdapter;
+import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
 import com.madonasyombua.growwithgoogleteamproject.models.Feeds;
 
 import java.util.ArrayList;
@@ -34,7 +37,7 @@ public class FeedsFragment extends Fragment{
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-
+    private OnFragmentInteractionListener mListener;
     private static final String TAG = "FeedsFragment";
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -112,5 +115,15 @@ public class FeedsFragment extends Fragment{
     }
 
 
-
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+        ((AppCompatActivity)(context)).getSupportActionBar().setTitle(getString(R.string.feeds));
+    }
 }
