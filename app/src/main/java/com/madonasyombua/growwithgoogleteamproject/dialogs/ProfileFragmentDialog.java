@@ -57,7 +57,7 @@ public class ProfileFragmentDialog extends DialogFragment {
         mBinding.submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mListener.submit(submit());
+//                mListener.submit(submit());
                 getDialog().dismiss();
             }
         });
