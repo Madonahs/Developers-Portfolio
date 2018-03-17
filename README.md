@@ -30,7 +30,7 @@ Read  [Contributing](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
 
 ## Code of Conduct
 
-Read [Code of Conduct](https://github.com/Madonahs/GrowWithGoogleTeamProject/blob/master/CODE_OF_CONDUCT.md)
+Please Read [Code of Conduct](https://github.com/Madonahs/GrowWithGoogleTeamProject/blob/master/CODE_OF_CONDUCT.md)
 
 ## Design Mock up by Madonah Syombua
 
