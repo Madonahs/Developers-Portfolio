@@ -35,10 +35,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-
+    <!-- <item name="android:fontFamily">@font/raleway</item>-->
     <!-- Night Mode !-->
     <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:fontFamily">@font/raleway</item>
+
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#161720</item>
         <item name="colorPrimaryDark">#111322</item>
