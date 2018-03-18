@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="?attr/backgroundcolor"
     tools:context="com.madonasyombua.growwithgoogleteamproject.ui.fragment.HelpFragment">
 
     <android.support.design.widget.AppBarLayout
@@ -10,9 +11,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:elevation="6dp"
+        android:background="?attr/background_color_of_toolbars"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
@@ -43,8 +46,8 @@
         android:layout_marginTop="@dimen/margin_8"
         android:fontFamily="@font/raleway"
         android:text="@string/faq"
+        android:textColor="?attr/textcolor"
         android:paddingTop="4dp"
-        android:textColor="@color/grey_600"
         android:textSize="18sp"
         android:paddingBottom="10dp"
         android:textStyle="bold"
@@ -61,7 +64,7 @@
         android:text="@string/contactus"
         android:paddingTop="4dp"
         android:paddingBottom="10dp"
-        android:textColor="@color/grey_600"
+        android:textColor="?attr/textcolor"
         android:textSize="18sp"
         android:textStyle="bold"
         />
@@ -79,7 +82,7 @@
         android:text="@string/terms"
         android:paddingTop="4dp"
         android:paddingBottom="10dp"
-        android:textColor="@color/grey_600"
+        android:textColor="?attr/textcolor"
         android:textSize="18sp"
         android:textStyle="bold"
         />
