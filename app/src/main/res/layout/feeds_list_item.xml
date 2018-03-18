@@ -11,7 +11,7 @@
     android:id="@+id/cardView_feeds"
     android:background="@drawable/card_selected"
     android:tag="closed">
- <!--TODO: connect all the imageview to the db and add functions Ayo i can help with this just wanted to finish the feeds layout -->
+    <!--TODO: connect all the imageview to the db and add functions Ayo i can help with this just wanted to finish the feeds layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -39,7 +39,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_gravity="center_vertical"
-                        android:src="@drawable/default_pic" />
+                        android:src="@drawable/default_pic" android:contentDescription="TODO"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -62,7 +62,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="top">
-                              <!-- name -->
+                                <!-- name -->
                                 <TextView
                                     android:id="@+id/name"
                                     android:layout_width="wrap_content"
@@ -77,7 +77,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp">
-                         <!-- get time image view -->
+                                <!-- get time image view -->
                                 <ImageView
                                     android:layout_width="12dp"
                                     android:layout_height="12dp"
@@ -97,7 +97,7 @@
                         </LinearLayout>
 
                     </LinearLayout>
-               <!-- cancel if user wants to -->
+                    <!-- cancel if user wants to -->
                     <ImageView
                         android:id="@+id/closeButton"
                         android:layout_width="48dp"
@@ -111,7 +111,7 @@
                         android:layout_marginTop="-8dp"
                         android:layout_marginRight="-8dp"
                         android:layout_alignParentRight="true" />
-              <!-- delete when user wants to delete -->
+                    <!-- delete when user wants to delete -->
                     <ImageView
                         android:id="@+id/deletePostButton"
                         android:layout_width="48dp"
@@ -146,7 +146,7 @@
                     android:background="@drawable/post_image_border"
                     android:layout_marginTop="8dp"
                     android:id="@+id/postImageBorder">
-              <!-- post image from add feeds layout-->
+                    <!-- post image from add feeds layout-->
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -197,7 +197,7 @@
                         android:layout_centerVertical="true"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true">
-                  <!-- likes -->
+                        <!-- likes -->
                         <ImageView
                             android:layout_width="36dp"
                             android:layout_height="wrap_content"
@@ -208,8 +208,8 @@
                             android:padding="4dp"
                             android:layout_alignParentTop="true"
                             android:layout_alignParentStart="true"
-                            android:layout_alignParentLeft="true" />
-                    <!-- upvotes -->
+                            android:layout_alignParentLeft="true" android:contentDescription="TODO"/>
+                        <!-- upvotes -->
                         <TextView
                             android:id="@+id/upvotes"
                             android:layout_width="wrap_content"
@@ -219,7 +219,7 @@
                             android:layout_toEndOf="@+id/upvote"
                             android:gravity="center"
                             android:layout_toRightOf="@+id/upvote" />
-                   <!-- down votes hey ayo i can implement this and you can add them to data base-->
+                        <!-- down votes hey ayo i can implement this and you can add them to data base-->
                         <ImageView
                             android:id="@+id/downvote"
                             android:layout_width="36dp"
@@ -272,4 +272,3 @@
     </LinearLayout>
 
 </android.support.v7.widget.CardView>
-

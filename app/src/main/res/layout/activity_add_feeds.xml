@@ -270,6 +270,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="?attr/backgroundcolor"
     tools:context=".actvities.AddFeeds">
 
 
@@ -280,6 +281,7 @@
         android:layout_height="@dimen/app_bar_height"
         android:layout_marginBottom="16dp"
         android:elevation="6dp"
+        android:background="?attr/background_color_of_toolbars"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <LinearLayout
@@ -328,6 +330,7 @@
                         android:cursorVisible="false"
                         android:hint="@string/hint"
                         android:fontFamily="@font/raleway"
+                        android:textColor="@android:color/white"
                         android:textColorHint="@color/white"
                         android:inputType="text" />
                 </android.support.design.widget.TextInputLayout>

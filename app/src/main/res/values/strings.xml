@@ -214,4 +214,10 @@
     <string name="post">This is a post</string>
     <string name="two">2</string>
 
+
+    <string name="theme_manger">Theme Manager</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="dark_mode_info">Press here to enable dark mode</string>
+
+
 </resources>

@@ -162,7 +162,7 @@ public class ProfileFragment extends Fragment
     @Override
     public void submit(Bundle data) {
         user = User.build(user, data);
-        user.setPhone(PhoneNumberUtils.formatNumber(user.getPhone()));
+//        user.setPhone(PhoneNumberUtils.formatNumber(user.getPhone()));
         mBinding.setUser(user);
         FirebaseAction.write(user, new DatabaseReference.CompletionListener() {
             @Override
