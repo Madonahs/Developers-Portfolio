@@ -17,7 +17,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.SearchViewTest;
 import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.FeedsFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.InterestFragment;
@@ -176,18 +175,14 @@ public class MainActivity
                 return false;
             case R.id.help:
                 // Take user to help screen
-                Intent intent2 = new Intent(this, HelpActivity.class);
-                startActivity(intent2);
+                Intent helpIntent = new Intent(this, HelpSearchViewActivity.class);
+                startActivity(helpIntent);
                 return false;
             case R.id.logout:
-                Intent helpTest = new Intent(this, SearchViewTest.class);
-                startActivity(helpTest);
                 // logout
                 return false;
-
         }
         return false;
-
     }
 
     /**
@@ -198,6 +193,5 @@ public class MainActivity
     public void onFragmentInteraction(Uri uri) {
 
     }
-
 }
 

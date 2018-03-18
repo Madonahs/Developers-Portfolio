@@ -1,28 +1,43 @@
-package com.madonasyombua.growwithgoogleteamproject;
+package com.madonasyombua.growwithgoogleteamproject.actvities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.TextView;
 
+import com.madonasyombua.growwithgoogleteamproject.R;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.ArrayList;
 
-public class SearchViewTest extends AppCompatActivity {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class HelpSearchViewActivity extends AppCompatActivity {
 
     // SearchView
     private MaterialSearchView searchView;
 
+    @BindView(R.id.faq)
+    TextView faq;
+    @BindView(R.id.contact)
+    TextView contact;
+    @BindView(R.id.terms)
+    TextView terms;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_view_test);
+        setContentView(R.layout.activity_help_searchview);
+        ButterKnife.bind(this);
 
         // Toolbar with Search Icon
         Toolbar toolbar = (Toolbar) findViewById(R.id.tb_help);
@@ -54,6 +69,39 @@ public class SearchViewTest extends AppCompatActivity {
             @Override
             public void onSearchViewClosed() {
                 // Do something something
+            }
+        });
+
+        faq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("https://www.madonahsyombua.com/faqs"));
+                startActivity(intent);
+            }
+        });
+
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("https://www.madonahsyombua.com/contact"));
+                startActivity(intent);
+            }
+        });
+
+        terms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("https://www.madonahsyombua.com/privacy-policy"));
+                startActivity(intent);
             }
         });
     }

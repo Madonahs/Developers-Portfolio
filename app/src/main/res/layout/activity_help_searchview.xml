@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.madonasyombua.growwithgoogleteamproject.actvities.HelpSearchViewActivity">
+
+    <FrameLayout
+        android:id="@+id/toolbar_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/tb_help"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+        </android.support.v7.widget.Toolbar>
+
+        <com.miguelcatalan.materialsearchview.MaterialSearchView
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+        </com.miguelcatalan.materialsearchview.MaterialSearchView>
+
+    </FrameLayout>
+
+    <!-- Faq page loads faq for user -->
+    <TextView
+        android:id="@+id/faq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_8"
+        android:layout_marginStart="@dimen/margin_8"
+        android:layout_marginTop="@dimen/margin_8"
+        android:fontFamily="@font/raleway"
+        android:text="@string/faq"
+        android:paddingTop="4dp"
+        android:textColor="@color/grey_600"
+        android:textSize="18sp"
+        android:paddingBottom="10dp"
+        android:textStyle="bold" />
+
+    <!-- contact us page, loads contact us dialog -->
+    <TextView
+        android:id="@+id/contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_8"
+        android:layout_marginStart="@dimen/margin_8"
+        android:layout_marginTop="@dimen/margin_8"
+        android:fontFamily="@font/raleway"
+        android:text="@string/contactus"
+        android:paddingTop="4dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/grey_600"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- terms and privacy, loads terms and conditions for users -->
+    <TextView
+        android:id="@+id/terms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_8"
+        android:layout_marginStart="@dimen/margin_8"
+        android:layout_marginTop="@dimen/margin_8"
+        android:fontFamily="@font/raleway"
+        android:text="@string/terms"
+        android:paddingTop="4dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/grey_600"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+</LinearLayout>
