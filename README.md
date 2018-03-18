@@ -85,8 +85,8 @@ These files are required in order for google sign in features to work.
 ## See Below
 ![json files](https://user-images.githubusercontent.com/11560987/37287985-1eeb4dd8-25d4-11e8-8154-52d3386baef5.PNG)
 
-## Tablet 
-![syombua tab2](https://user-images.githubusercontent.com/11560987/37486952-11f7f7d4-285e-11e8-8414-b8e785f883fb.png)
+## Dark Theme
+![dark theme](https://user-images.githubusercontent.com/11560987/37561261-3d9c1328-2a18-11e8-8643-b9c899c4444a.PNG)
 
 
 
