@@ -7,6 +7,7 @@
     <dimen name="corner_radius">24dp</dimen>
     <dimen name="margin_8">8dp</dimen>
     <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_7">16dp</dimen>
 
 
     <!-- Dimensions of drawer header and margin per Android Design guidelines -->

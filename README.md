@@ -20,7 +20,7 @@ An open mind and an open heart.
 * **Hemantkumar Nimje** - *Team Member*
 * **Srinath** - *Team Member*
 
-Also checkout the entire list of [Collaborators](https://github.com/Madonahs/GrowWithGoogleTeamProject/settings/collaboration)
+Also checkout the entire list of [Contributors](https://github.com/Madonahs/Devs-Portfolio-App/wiki)
 
 Thank you team.
 
@@ -30,7 +30,7 @@ Read  [Contributing](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
 
 ## Code of Conduct
 
-Read [Code of Conduct](https://github.com/Madonahs/GrowWithGoogleTeamProject/blob/master/CODE_OF_CONDUCT.md)
+Please Read [Code of Conduct](https://github.com/Madonahs/GrowWithGoogleTeamProject/blob/master/CODE_OF_CONDUCT.md)
 
 ## Design Mock up by Madonah Syombua
 
@@ -81,6 +81,12 @@ These files are required in order for google sign in features to work.
     
 3. Rebuild project.
 
+
 ## See Below
 ![json files](https://user-images.githubusercontent.com/11560987/37287985-1eeb4dd8-25d4-11e8-8154-52d3386baef5.PNG)
+
+## Dark Theme
+![dark theme](https://user-images.githubusercontent.com/11560987/37561261-3d9c1328-2a18-11e8-8643-b9c899c4444a.PNG)
+
+
 

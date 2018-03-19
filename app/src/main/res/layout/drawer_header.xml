@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/drawer_header_height"
-    android:background="@color/colorPrimary"
+    android:background="?attr/background_color_of_toolbars"
     android:fitsSystemWindows="true"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     >
@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@android:color/white"
+        android:textColor="?attr/textcolor"
         android:fontFamily="@font/raleway"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="parent"
@@ -46,14 +46,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-        android:textColor="@android:color/white"
+        android:textColor="?attr/textcolor"
         android:fontFamily="@font/raleway"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/drawer_header_user_name"
-        app:layout_constraintVertical_bias="0.0"
-        android:paddingBottom="50dp"
+        app:layout_constraintVertical_bias="0.5"
+
         tools:text="Profession" />
 
 </android.support.constraint.ConstraintLayout>
