@@ -39,6 +39,7 @@
     <string name="facebook_login_cancel">Facebook login cancelled</string>
     <string name="facebook_login_error">Facebook login failed</string>
 
+    <!-- Bar names -->
     <string name="interest">Interests</string>
     <string name="projects">Projects</string>
     <string name="feeds">Feeds</string>
@@ -76,7 +77,7 @@
 <!-- setting Related -->
     <string name="pref_login_status_key">pref_logging_status</string>
     <bool name="pref_login_status_default_key">false</bool>
-<!-- Aboout and Help related -->
+<!-- About and Help related -->
     <string name="contactus">Contact Us</string>
     <string name="faq">FAQ</string>
     <string name="terms">Terms and Conditions</string>
