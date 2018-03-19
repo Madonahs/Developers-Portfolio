@@ -36,6 +36,13 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="NavTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#e53935</item>
+        <item name="colorPrimaryDark">#ab000d</item>
+        <item name="colorAccent">#ff6f60</item>
+
+    </style>
 
     <!-- <item name="android:fontFamily">@font/raleway</item>-->
     <!-- Night Mode !-->

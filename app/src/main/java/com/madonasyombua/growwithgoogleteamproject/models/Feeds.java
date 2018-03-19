@@ -20,6 +20,9 @@ public class Feeds {
         this.feed_description = feed_description;
     }
 
+    public Feeds() {
+    }
+
     public String getFeed_name() {
         return feed_name;
     }

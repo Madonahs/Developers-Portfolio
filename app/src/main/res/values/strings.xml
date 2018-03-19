@@ -189,6 +189,11 @@
     <string name="period">Period</string>
     <string name="start">Start</string>
 
+    <string name="month1">Month</string>
+    <string name="expensesall">ExpenseAll</string>
+    <string name="write_something">What\'s Happening</string>
+    <string name="comments">Comments</string>
+
 
     <!-- date strings -->
     <string name="january">January</string>
@@ -203,6 +208,11 @@
     <string name="october">October</string>
     <string name="november">November</string>
     <string name="december">December</string>
+    <string name="newpost">New Post</string>
+    <string name="postingas">Posting as</string>
+    <string name="time">2 minutes ago</string>
+    <string name="post">This is a post</string>
+    <string name="two">2</string>
 
 
 

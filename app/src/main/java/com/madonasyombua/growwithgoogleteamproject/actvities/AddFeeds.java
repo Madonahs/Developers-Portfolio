@@ -1,8 +1,8 @@
 package com.madonasyombua.growwithgoogleteamproject.actvities;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -35,13 +35,20 @@ public class AddFeeds extends AppCompatActivity {
     private static final int GALLERY_REQUEST_CODE = 10;
     public static final int CAMERA_REQUEST_CODE = 11;
 
-    @BindView(R.id.addName)
-    TextInputEditText edit_project_name;
+    //FIXME: 3:10:2018 please check the addNAme we can remove it and add other functions i can help too just got tired.
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_feeds);
+        ButterKnife.bind(this);
+
+    }
+   /*// @BindView(R.id.addName)
+   // TextInputEditText edit_project_name;
     @BindView(R.id.addDescription)
     TextInputEditText edit_project_description;
-    @BindView(R.id.imageButton)
+    @BindView(R.id.cameraButton)
     ImageButton imageButton;
-
 
     String project_name;
     String project_description;
@@ -53,14 +60,13 @@ public class AddFeeds extends AppCompatActivity {
     StorageReference storageReference;
 
 
+    private ImageButton sendButton1;
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_feeds);
-
         ButterKnife.bind(this);
-
-
 
         //init firebase
         database = FirebaseDatabase.getInstance();
@@ -80,18 +86,20 @@ public class AddFeeds extends AppCompatActivity {
         });
 
         //Adding to FIrebase
-        FloatingActionButton addingFeed = findViewById(R.id.fab);
+
+
+        /*FloatingActionButton addingFeed = findViewById(R.id.fab);
         addingFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addFeedsToDb();
                 finish();
             }
-        });
+        });*/
 
         //Giving the options of taking a picture or gallery
         //Ayo - I can create a custom dialog later
-        imageButton.setOnClickListener(new View.OnClickListener() {
+        /*imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 createDialog();
@@ -140,9 +148,8 @@ public class AddFeeds extends AppCompatActivity {
         }
     }
 
-
     // FIXME: 3/7/2018 Figure out how to connect the user to storage
-    // TODO: 3/7/2018 Not fully done 
+    // TODO: 3/7/2018 Not fully done
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -154,18 +161,18 @@ public class AddFeeds extends AppCompatActivity {
                 break;
             case CAMERA_REQUEST_CODE:
                 if (resultCode == RESULT_OK){
-                    
+
                 }
         }
     }
 
     private void addFeedsToDb() {
-        project_name = edit_project_name.getText().toString().trim();
+      //  project_name = edit_project_name.getText().toString().trim();
         project_description = edit_project_description.getText().toString().trim();
         Log.e(TAG, "addFeedsToDb: " + project_name + " " + project_description );
 
         if (TextUtils.isEmpty(project_name) && TextUtils.isEmpty(project_description)) {
-            edit_project_name.setError("Error");
+       //     edit_project_name.setError("Error");
             edit_project_description.setError("Error");
             Toast.makeText(this, "Please fill in the info", Toast.LENGTH_SHORT).show();
         } else {
@@ -174,7 +181,6 @@ public class AddFeeds extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
-                        Log.i(TAG, "onComplete: Add Successful " + task);
                         Toast.makeText(AddFeeds.this, "The upload is successful", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(AddFeeds.this, "Failure", Toast.LENGTH_SHORT).show();
@@ -183,5 +189,7 @@ public class AddFeeds extends AppCompatActivity {
             });
 
         }
-    }
+    }*/
+
+
 }

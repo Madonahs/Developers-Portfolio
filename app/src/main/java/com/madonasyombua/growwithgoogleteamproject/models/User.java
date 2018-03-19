@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import com.google.firebase.database.Exclude;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
+import java.io.Serializable;
+
 /**
  * Created by chuk on 2/15/18.
  */
