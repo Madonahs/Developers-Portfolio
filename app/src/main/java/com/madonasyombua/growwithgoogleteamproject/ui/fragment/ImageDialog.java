@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
-
 import com.madonasyombua.growwithgoogleteamproject.R;
 
 /**

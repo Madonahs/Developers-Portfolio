@@ -1,9 +1,6 @@
 package com.madonasyombua.growwithgoogleteamproject.models;
 
-import android.media.Image;
-import android.widget.ImageView;
 
-import com.madonasyombua.growwithgoogleteamproject.R;
 
 /**
  * Created by jantz on 2/18/2018.

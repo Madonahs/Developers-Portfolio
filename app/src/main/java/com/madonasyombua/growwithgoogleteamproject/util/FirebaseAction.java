@@ -16,7 +16,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.madonasyombua.growwithgoogleteamproject.interfaces.Callback;
 import com.madonasyombua.growwithgoogleteamproject.models.FirebaseObject;
 import com.madonasyombua.growwithgoogleteamproject.models.Paths;
-
 import java.util.Map;
 
 

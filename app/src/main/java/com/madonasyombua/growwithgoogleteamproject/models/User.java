@@ -2,10 +2,8 @@ package com.madonasyombua.growwithgoogleteamproject.models;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-
 import com.google.firebase.database.Exclude;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
-
 import java.io.Serializable;
 
 

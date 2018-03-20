@@ -35,7 +35,7 @@ import java.util.Arrays;
 
 import jonathanfinerty.once.Once;
 
-// I see we have a jonathanfinerty import here, I hope we can get details on it
+
 
 public class LoginActivity extends AppCompatActivity implements AppLoginManager.LoginInterface, View.OnClickListener {
 

@@ -1,7 +1,6 @@
 package com.madonasyombua.growwithgoogleteamproject.util;
 
 import com.madonasyombua.growwithgoogleteamproject.models.User;
-
 import java.io.Serializable;
 
 /**
