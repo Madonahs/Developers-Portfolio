@@ -124,6 +124,6 @@ public class FeedsFragment extends Fragment{
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
-        ((AppCompatActivity)(context)).getSupportActionBar().setTitle(getString(R.string.feeds));
+        //((AppCompatActivity)(context)).getSupportActionBar().setTitle(getString(R.string.feeds));
     }
 }
