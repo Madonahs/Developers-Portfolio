@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:elevation="6dp"
-        android:background="@drawable/button_rounded"
         android:theme="@style/AppTheme.NoActionBar">
 <!-- the back image button to take you back to main activity-->
 
