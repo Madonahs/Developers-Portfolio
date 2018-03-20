@@ -41,7 +41,7 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <!-- when done we need to start the .ui.LoginActivity -->
+        <!-- when done we need to start the .ui.LoginActivity for login -->
         <activity
             android:name=".ui.LoginActivity"
             android:theme="@style/AppTheme">
