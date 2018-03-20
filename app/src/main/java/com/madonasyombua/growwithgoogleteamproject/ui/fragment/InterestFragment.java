@@ -86,8 +86,13 @@ public class InterestFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+<<<<<<< HEAD
         ((AppCompatActivity)(context)).getSupportActionBar().setTitle(getString(R.string.interest));
     }*/
+
+        //((AppCompatActivity)(context)).getSupportActionBar().setTitle(getString(R.string.interest));
+
+
 
     @Override
     public void onDetach() {

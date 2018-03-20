@@ -128,8 +128,12 @@ public class ProjectsFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+
         ((AppCompatActivity)(context)).getSupportActionBar().setTitle(getString(R.string.projects));
     }*/
+
+       // ((AppCompatActivity)(context)).getSupportActionBar().setTitle(getString(R.string.projects));
+
 
     @Override
     public void onDetach() {
