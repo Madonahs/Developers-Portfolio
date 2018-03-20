@@ -37,7 +37,11 @@ public class MainActivity
         NavigationView.OnNavigationItemSelectedListener,
         SharedPreferences.OnSharedPreferenceChangeListener,
         PostFeedFragment.OnFragmentInteractionListener {
-
+    /**
+     * We need to Implements Interest.OnFragmentInteractionListener,
+     * Profile.OnFragmentInteractionListener,Projects.OnFragmentInteractionListener
+     * on the main so that we can link the user to them, once they log in.
+     */
     private Fragment fragment;
     private static final String TAG = "current-frag";
 

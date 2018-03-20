@@ -89,7 +89,6 @@ public class PostFeedFragment extends DialogFragment {
                 uploadImageToServer(encodedImage);
             }
         });
-        // requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
     }
 
     @Override
@@ -117,7 +116,7 @@ public class PostFeedFragment extends DialogFragment {
                     }
                 }
         );
-
+//get image from gallery
         imageButton = (ImageView) view.findViewById(R.id.imageButton);
         imageButton.setOnClickListener(
                 new View.OnClickListener() {
@@ -129,7 +128,7 @@ public class PostFeedFragment extends DialogFragment {
                     }
                 }
         );
-
+//take photo
         cameraButton = (ImageView) view.findViewById(R.id.cameraButton);
         cameraButton.setOnClickListener(
                 new View.OnClickListener() {
