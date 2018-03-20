@@ -15,7 +15,7 @@ import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteract
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link InterestFragment.OnFragmentInteractionListener} interface
+ *
  * to handle interaction events.
  * Use the {@link InterestFragment#newInstance} factory method to
  * create an instance of this fragment.
@@ -76,8 +76,8 @@ public class InterestFragment extends Fragment {
             mListener.onFragmentInteraction(uri);
         }
     }
-
-    @Override
+//implement this on Main activity to get user
+  /*  @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
@@ -87,7 +87,7 @@ public class InterestFragment extends Fragment {
                     + " must implement OnFragmentInteractionListener");
         }
         ((AppCompatActivity)(context)).getSupportActionBar().setTitle(getString(R.string.interest));
-    }
+    }*/
 
     @Override
     public void onDetach() {

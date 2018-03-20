@@ -8,6 +8,7 @@ import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
 import java.io.Serializable;
 
+
 /**
  * Created by chuk on 2/15/18.
  */
@@ -16,9 +17,10 @@ import java.io.Serializable;
  * {@link User}
  * A blueprint for user
  */
-public class User extends FirebaseObject {
+
+public class User extends FirebaseObject implements Serializable {
     private String name, password, followers, following, projects,
-            email, location, phone, website, intro;
+            email, location, phone, website, intro,image;
     private Portfolio portfolio;
     private boolean status;
 
@@ -140,5 +142,9 @@ public class User extends FirebaseObject {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public String getImage() {
+        return image;
     }
 }

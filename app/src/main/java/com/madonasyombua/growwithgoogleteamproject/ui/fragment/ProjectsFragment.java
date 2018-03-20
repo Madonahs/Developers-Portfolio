@@ -119,7 +119,7 @@ public class ProjectsFragment extends Fragment {
         mAdapter.notifyDataSetChanged();
     }
 
-    @Override
+   /* @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
@@ -129,7 +129,7 @@ public class ProjectsFragment extends Fragment {
                     + " must implement OnFragmentInteractionListener");
         }
         ((AppCompatActivity)(context)).getSupportActionBar().setTitle(getString(R.string.projects));
-    }
+    }*/
 
     @Override
     public void onDetach() {

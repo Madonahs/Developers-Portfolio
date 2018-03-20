@@ -140,8 +140,8 @@ public class ProfileFragment extends Fragment
         return mBinding.getRoot();
     }
 
-
-    @Override
+// implement this on the main activity
+   /* @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
@@ -150,7 +150,7 @@ public class ProfileFragment extends Fragment
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
-    }
+    }*/
 
     @Override
     public void onDetach() {

@@ -56,9 +56,6 @@
         <activity
             android:name=".ui.intro.OnBoardingActivity"
             android:theme="@style/AppTheme" />
-        <!--<activity
-            android:name=".actvities.MainActivity"
-            android:theme="@style/AppTheme" />-->
         <activity
             android:name=".actvities.InterestActivity"
             android:theme="@style/AppTheme" />

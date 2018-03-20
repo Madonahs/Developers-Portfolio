@@ -9,33 +9,34 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.TextView;
-
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
 import com.madonasyombua.growwithgoogleteamproject.ui.SharedPref;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.AboutFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.FeedsFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.InterestFragment;
+import com.madonasyombua.growwithgoogleteamproject.ui.fragment.PostFeedFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProfileFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProjectsFragment;
 import com.madonasyombua.growwithgoogleteamproject.util.BottomNavigationViewHelper;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity
         extends AppCompatActivity
-        implements OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener,  SharedPreferences.OnSharedPreferenceChangeListener {
+        implements FeedsFragment.OnFragmentInteractionListener,
+        NavigationView.OnNavigationItemSelectedListener,
+        SharedPreferences.OnSharedPreferenceChangeListener,
+        PostFeedFragment.OnFragmentInteractionListener {
 
     private Fragment fragment;
     private static final String TAG = "current-frag";
@@ -52,6 +53,8 @@ public class MainActivity
     private TextView userProfession;
     SharedPref sharedPref;
     private boolean prev_State = false;
+
+    private static int uid;
 
 
 
@@ -218,6 +221,21 @@ public class MainActivity
     }
 
     @Override
+    public void onDialogSubmit() {
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onDialogSubmit(PostFeedFragment dialog, String text, String fileName) {
+
+    }
+
+    @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         //they sharedP is going to change
         if (key.equals("enable_dark_mode")){
@@ -250,15 +268,22 @@ public class MainActivity
         }
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
+
 
     @Override
     protected void onStop() {
         super.onStop();
     }
 
+
+    /**
+     * Converts density pixels to pixels.
+     * @param dp Density pixels
+     * @param view The view
+     * @return Density pixels
+     */
+    public static float dpToPixels(int dp, View view) {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, view.getResources().getDisplayMetrics());
+    }
 }
 
