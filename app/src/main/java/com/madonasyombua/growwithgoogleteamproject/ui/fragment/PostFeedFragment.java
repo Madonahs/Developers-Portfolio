@@ -19,8 +19,12 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 /**
@@ -30,17 +34,38 @@ public class PostFeedFragment extends DialogFragment {
 
 
     public static int RESULT_LOAD_IMAGE = 1;
-    public static int RESULT_CAMERA     = 2;
+    public static int RESULT_CAMERA = 2;
 
     private OnFragmentInteractionListener mListener;
 
-    private EditText postText;
-    private TextView header, postingAs, username, name, attachedImageName;
-    private ImageView closeButton, sendButton, imageButton, cameraButton, attachedImage,
-            attachmentCloseButton;
-    private View view;
-    private RelativeLayout attachment;
-    private ProgressBar progressBar;
+    @BindView(R.id.post)
+    EditText postText;
+    @BindView(R.id.header)
+    TextView header;
+    @BindView(R.id.postingAs)
+    TextView postingAs;
+    @BindView(R.id.name)
+    TextView name;
+    @BindView(R.id.attachedImageName)
+    TextView attachedImageName;
+    //    username
+    @BindView(R.id.closeButton)
+    ImageView closeButton;
+    @BindView(R.id.imageButton)
+    ImageView imageButton;
+    @BindView(R.id.cameraButton)
+    ImageView cameraButton;
+    @BindView(R.id.sendButton)
+    ImageView sendButton;
+    @BindView(R.id.attachedImage)
+    ImageView attachedImage;
+    @BindView(R.id.attachmentCloseButton)
+    ImageView attachmentCloseButton;
+
+    @BindView(R.id.attachment)
+    RelativeLayout attachment;
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
 
     //private RequestQueue requestQueue;
 
@@ -58,10 +83,10 @@ public class PostFeedFragment extends DialogFragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param title Title.
+     * @param title     Title.
      * @param postingAs Label.
-     * @param username The posting user's username.
-     * @param name The posting user's name.
+     * @param username  The posting user's username.
+     * @param name      The posting user's name.
      * @return A new instance of fragment PostDialog.
      */
     public static PostFeedFragment newInstance(String title, String postingAs, String username, String name) {
@@ -93,20 +118,16 @@ public class PostFeedFragment extends DialogFragment {
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_post_feed, container, false);
+        View view = inflater.inflate(R.layout.fragment_post_feed, container, false);
 
-        header = (TextView) view.findViewById(R.id.header);
-        postText = (EditText) view.findViewById(R.id.post);
-        postingAs = (TextView) view.findViewById(R.id.postingAs);
         // username = (TextView) view.findViewById(R.id.username);
-        name = (TextView) view.findViewById(R.id.name);
+//       username.setText(getArguments().getString("username"));
 
+        ButterKnife.bind(this, view);
         header.setText(getArguments().getString("title"));
         postingAs.setText(getArguments().getString("postingAs"));
-//        username.setText(getArguments().getString("username"));
         name.setText(getArguments().getString("name"));
 
-        closeButton = (ImageView) view.findViewById(R.id.closeButton);
         closeButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -115,8 +136,8 @@ public class PostFeedFragment extends DialogFragment {
                     }
                 }
         );
-//get image from gallery
-        imageButton = (ImageView) view.findViewById(R.id.imageButton);
+
+        //get image from gallery
         imageButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -127,24 +148,21 @@ public class PostFeedFragment extends DialogFragment {
                     }
                 }
         );
-//take photo
-        cameraButton = (ImageView) view.findViewById(R.id.cameraButton);
+
+        //take photo
         cameraButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                         //fileUri = Uri.fromFile(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM) +
-                           //     File.separator + "_tmp.jpg"));
+                        //     File.separator + "_tmp.jpg"));
                         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
                         startActivityForResult(cameraIntent, RESULT_CAMERA);
                     }
                 }
         );
 
-        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
-
-        sendButton = (ImageView) view.findViewById(R.id.sendButton);
         sendButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -154,20 +172,15 @@ public class PostFeedFragment extends DialogFragment {
                         if (imageToUpload != null) {
                             setEnabled(false);
                             bitmapHandler.process(imageToUpload);
-                        }
-                        else {
+                        } else {
                             mListener.onDialogSubmit(PostFeedFragment.this, postText.getText().toString(), null);
                         }
                     }
                 }
         );
 
-        attachment = (RelativeLayout) view.findViewById(R.id.attachment);
         attachment.setVisibility(View.INVISIBLE);
-        attachedImage = (ImageView) view.findViewById(R.id.attachedImage);
-        attachedImageName = (TextView) view.findViewById(R.id.attachedImageName);
 
-        attachmentCloseButton = (ImageView) view.findViewById(R.id.attachmentCloseButton);
         attachmentCloseButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -195,7 +208,7 @@ public class PostFeedFragment extends DialogFragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-       //work on results.
+        //work on results.
     }
 
     @Override
