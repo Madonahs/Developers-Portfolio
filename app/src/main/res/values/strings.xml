@@ -225,7 +225,7 @@
     <!-- Feeds Strings -->
     <string name="comment">Comment</string>
     <string name="posting_as">Posting as</string>
-    <string name="new_post">New post</string>
+    <string name="new_post">What\'s on your mind?</string>
     <string name="s_followers">\'s followers</string>
     <string name="is_following">is following</string>
     <string name="deleted_post">Deleted post</string>
