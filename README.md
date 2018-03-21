@@ -86,19 +86,19 @@ These files are required in order for google sign in features to work.
 ## Dark Theme
 
 ### Post Feeds 
-<img src="https://user-images.githubusercontent.com/11560987/37727591-3b885236-2d06-11e8-8bfb-d03afae3d7cf.jpg" height="400" />
+<img src="https://user-images.githubusercontent.com/11560987/37727591-3b885236-2d06-11e8-8bfb-d03afae3d7cf.jpg" width="200" height="400" />
 
 ### Nav Drawer
-<img src="https://user-images.githubusercontent.com/11560987/37727607-48617906-2d06-11e8-862d-a77f159e9da8.jpg" height="400" />
+<img src="https://user-images.githubusercontent.com/11560987/37727607-48617906-2d06-11e8-862d-a77f159e9da8.jpg" width="200" height="400" />
 
 ### Interest
-<img src="https://user-images.githubusercontent.com/11560987/37727626-575d4750-2d06-11e8-9c62-ff1c834e61d8.jpg" height="400" />
+<img src="https://user-images.githubusercontent.com/11560987/37727626-575d4750-2d06-11e8-9c62-ff1c834e61d8.jpg" width="200" height="400" />
 
 ### Projects
-<img src="https://user-images.githubusercontent.com/11560987/37727634-5c2988b6-2d06-11e8-9a52-e6d8420bd665.jpg" height="400" />
+<img src="https://user-images.githubusercontent.com/11560987/37727634-5c2988b6-2d06-11e8-9a52-e6d8420bd665.jpg"  width="200" height="400" />
 
 ### Profile
-<img src="https://user-images.githubusercontent.com/11560987/37727647-66431f24-2d06-11e8-92e8-981c31e4fdc6.jpg" height="400" />
+<img src="https://user-images.githubusercontent.com/11560987/37727647-66431f24-2d06-11e8-92e8-981c31e4fdc6.jpg" width="200" height="400" />
 
 
 
