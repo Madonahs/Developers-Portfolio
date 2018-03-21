@@ -23,7 +23,7 @@
             android:background="@drawable/edit_text_custom"
             android:fontFamily="@font/raleway"
             android:hint= "@string/email"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:textSize="20sp" />
 
     </android.support.design.widget.TextInputLayout>
