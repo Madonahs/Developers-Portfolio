@@ -82,11 +82,23 @@ These files are required in order for google sign in features to work.
 3. Rebuild project.
 
 
-## See Below
-![json files](https://user-images.githubusercontent.com/11560987/37287985-1eeb4dd8-25d4-11e8-8154-52d3386baef5.PNG)
 
 ## Dark Theme
-![dark theme](https://user-images.githubusercontent.com/11560987/37561261-3d9c1328-2a18-11e8-8643-b9c899c4444a.PNG)
+
+### Post Feeds 
+![screenshot_20180321-123740_devs portfolio](https://user-images.githubusercontent.com/11560987/37727591-3b885236-2d06-11e8-8bfb-d03afae3d7cf.jpg)
+
+### Nav Drawer
+![screenshot_20180321-123746_devs portfolio](https://user-images.githubusercontent.com/11560987/37727607-48617906-2d06-11e8-862d-a77f159e9da8.jpg)
+
+### Interest
+![screenshot_20180321-124555_devs portfolio](https://user-images.githubusercontent.com/11560987/37727626-575d4750-2d06-11e8-9c62-ff1c834e61d8.jpg)
+
+### Projects
+![screenshot_20180321-124325_devs portfolio](https://user-images.githubusercontent.com/11560987/37727634-5c2988b6-2d06-11e8-9a52-e6d8420bd665.jpg)
+
+### Profile
+![screenshot_20180321-123755_devs portfolio](https://user-images.githubusercontent.com/11560987/37727647-66431f24-2d06-11e8-92e8-981c31e4fdc6.jpg)
 
 
 
