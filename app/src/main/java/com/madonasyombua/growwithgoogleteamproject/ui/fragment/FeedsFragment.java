@@ -128,7 +128,7 @@ public class FeedsFragment extends Fragment{
     public void showPostDialog() {
         FragmentManager fm = getActivity().getSupportFragmentManager();
         System.out.println("fm: " + fm);
-        SharedPreferences prefs = getActivity().getSharedPreferences("com.madonasyombua.growwithgoogleteamproject.ui.fragment", Context.MODE_PRIVATE);
+        SharedPreferences prefs = getActivity().getSharedPreferences("com.madonasyombua.growwithgoogleteamproject", Context.MODE_PRIVATE);
         PostFeedFragment postDialog = PostFeedFragment.newInstance(stringNewPost, stringPostingAs,
                 prefs.getString("username", ""), prefs.getString("name", ""));
         postDialog.show(fm, "fragment_post_dialog");

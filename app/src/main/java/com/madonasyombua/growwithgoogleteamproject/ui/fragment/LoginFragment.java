@@ -22,7 +22,7 @@ import com.madonasyombua.growwithgoogleteamproject.ui.LoginActivity;
 public class LoginFragment extends Fragment {
     private FragmentLoginBinding binding;
     private static final String TAG = "LoginFragment";
-    /*
+    /**
     * This class is used to get data from the fragment like the username and stuff.
     * It also binds the views
      */

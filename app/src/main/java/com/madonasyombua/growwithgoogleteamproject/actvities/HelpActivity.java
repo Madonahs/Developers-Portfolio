@@ -44,7 +44,6 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
         ButterKnife.bind(this);
         setCorrectTheme();
 
-
         backToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +53,7 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
             }
         });
 
+        //for now we will use this
         faq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

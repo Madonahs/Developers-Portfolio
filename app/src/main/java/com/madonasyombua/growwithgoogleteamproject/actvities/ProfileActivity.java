@@ -16,19 +16,7 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        /*FragmentManager fm = getSupportFragmentManager();
-        ProfileFragment profileFragment = (ProfileFragment) fm.findFragmentByTag(TAG);
 
-        if (profileFragment == null) {
-            profileFragment = new ProfileFragment();
-            fm.beginTransaction().add(R.id.container, profileFragment, TAG).commit();
-        }
-
-         @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
-    }*/
 
     }
 }

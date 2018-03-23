@@ -6,7 +6,9 @@ import java.io.Serializable;
 /**
  * Created by madon on 3/10/2018.
  */
-/** a user submitted comment **/
+/**
+ *a user submitted comment
+ * */
 public class UserComment implements Serializable {
     int cos;
     private User user;

@@ -37,21 +37,15 @@ public class MainActivity
         NavigationView.OnNavigationItemSelectedListener,
         SharedPreferences.OnSharedPreferenceChangeListener,
         PostFeedFragment.OnFragmentInteractionListener {
-    /**
-     * We need to Implements Interest.OnFragmentInteractionListener,
-     * Profile.OnFragmentInteractionListener,Projects.OnFragmentInteractionListener
-     * on the main so that we can link the user to them, once they log in.
-     */
+
     private Fragment fragment;
     private static final String TAG = "current-frag";
-
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.drawer_container)
     DrawerLayout drawerLayout;
     @BindView(R.id.nav_view)
     NavigationView navView;
-
     private CircleImageView profilePicView;
     private TextView userName;
     private TextView userProfession;
@@ -61,11 +55,14 @@ public class MainActivity
     private static int uid;
 
 
-
+    /**
+     * Theme can only be changed before setContentView is called.
+     * Therefore, I am changing the theme on here.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //Theme can only be changed before setContentView is called.
-        //Therefore, I am changing the theme on here.
+
         sharedPref = new SharedPref(this);
         if (sharedPref.loadNightModeState()) {
             setTheme(R.style.DarkTheme);
@@ -80,13 +77,13 @@ public class MainActivity
         //This method will save the theme and initiates the preferenceChange listener
         setCorrectTheme();
 
-        /** Get all user information views from the drawer header view*/
+        // Get all user information views from the drawer header view
         View drawerHeaderView = navView.getHeaderView(0);
         profilePicView = drawerHeaderView.findViewById(R.id.drawer_header_user_image);
         userName = drawerHeaderView.findViewById(R.id.drawer_header_user_name);
         userProfession = drawerHeaderView.findViewById(R.id.drawer_header_user_profession);
 
-        /**Set action bar, navigation drawer, navigation drawer header*/
+        //Set action bar, navigation drawer, navigation drawer header
         setSupportActionBar(toolbar);
         setupNavDrawer();
         setDrawerHeader();
@@ -95,10 +92,6 @@ public class MainActivity
             fragment = new FeedsFragment();
 
         }
-
-
-        //This is my bottom navigator for easy navigation couldn't draw this on my mockup
-        // since it was difficult to squeeze everything.
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         BottomNavigationViewHelper.disableShiftMode(navigation);
@@ -129,10 +122,12 @@ public class MainActivity
 
     /**
      * Set user information - profile pic, name, profession
+     * Logo image, sample username, sample user profession used here
+     * Can be swapped with Picasso or Glide image loader
+     * currently dummy data
      */
     private void setDrawerHeader() {
-        // Logo image, sample username, sample user profession used here
-        // Can be swapped with Picasso or Glide image loader
+
         profilePicView.setImageResource(R.drawable.madonah);
         userName.setText(getString(R.string.about_developer_name1));
         userProfession.setText(getString(R.string.dummy_position));
@@ -143,7 +138,7 @@ public class MainActivity
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            // we will start the fragments once we have worked on them.
+
             switch (item.getItemId()) {
                 case R.id.action_feeds:
                    fragment = new FeedsFragment();
@@ -168,7 +163,9 @@ public class MainActivity
 
     };
 
-    /**When back button pressed hide navigation drawer if open else move task to back*/
+    /**
+     * When back button pressed hide navigation drawer if open else move task to back
+     * */
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -178,31 +175,36 @@ public class MainActivity
         }
     }
 
-    /** Implement Navigation Drawer list item click listener*/
+    /**
+     *
+     * @param item
+     * @return
+     *  After implementation return true for the below cases
+     */
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // After implementation return true for the below cases
+
         switch (item.getItemId()) {
             case R.id.messages:
-                // Take user to messages screen
+
                 return false;
             case R.id.manage_profile:
-                // Take user to edit profile screen
+
                 return false;
 
             case R.id.settings:
-                // Take user to setting screen
+
                 Intent intent = new Intent(this, SettingsActivity.class);
                 startActivity(intent);
                 return false;
 
             case R.id.about:
-                // Take user to about screen
+
                 Intent intent1 = new Intent(this, AboutActivity.class);
                 startActivity(intent1);
                 return false;
             case R.id.help:
-                // Take user to help screen
+
                 Intent intent2 = new Intent(this, HelpActivity.class);
                 startActivity(intent2);
                 return false;
@@ -217,6 +219,7 @@ public class MainActivity
 
     /**
      * Implement Navigation Drawer list item click listener
+     * @param uri
      */
 
     @Override
@@ -239,9 +242,14 @@ public class MainActivity
 
     }
 
+    /**
+     * the sharedP is going to change
+     * @param sharedPreferences
+     * @param key
+     */
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        //they sharedP is going to change
+
         if (key.equals("enable_dark_mode")){
             sharedPref.setNightModeState(sharedPreferences.getBoolean(key,false));
         }
@@ -261,17 +269,19 @@ public class MainActivity
 
     }
 
+    /**
+     * Activities must be started again to show the theme change,
+     */
     @Override
     protected void onResume() {
         super.onResume();
-        //Activities must be started again to show the theme change,
+
         if(prev_State != sharedPref.loadNightModeState())
         {
             startActivity(new Intent(this, this.getClass()));
             finish();
         }
     }
-
 
 
     @Override
@@ -289,5 +299,11 @@ public class MainActivity
     public static float dpToPixels(int dp, View view) {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, view.getResources().getDisplayMetrics());
     }
+
+    /** FIXME: 3/23/2018
+     * We need to Implements Interest.OnFragmentInteractionListener,
+     * Profile.OnFragmentInteractionListener,Projects.OnFragmentInteractionListener
+     * on the main so that we can link the user to them, once they log in.
+     */
 }
 

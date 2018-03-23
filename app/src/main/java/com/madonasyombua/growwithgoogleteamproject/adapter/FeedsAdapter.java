@@ -21,7 +21,6 @@ import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
 import com.madonasyombua.growwithgoogleteamproject.models.Post;
 import java.util.ArrayList;
 
-
 /**
  * Created by madon on 3/20/2018.
  */
@@ -45,7 +44,13 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
 
         stringComment = activity.getResources().getString(R.string.comment);
     }
-    // Create new views (invoked by the layout manager)
+
+    /**
+     * Create new views (invoked by the layout manager)
+     * @param parent
+     * @param viewType
+     * @return
+     */
     @Override
     public FeedsAdapter.ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
         // Create a new view
@@ -57,12 +62,15 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
         return vh;
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
+    /**
+     *  Replace the contents of a view (invoked by the layout manager)
+     * @param holder
+     * @param position
+     *  Gets an object at the given position in the posts array and populates
+     *  text and image views.
+     */
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
-        // Gets an object at the given position in the posts array and populates
-        // text and image views.
 
         Post post = mPosts.get(position);
 
@@ -123,10 +131,11 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
 
     }
 
-
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // we can provide access to all the views for a data item in a view holder
+    /**
+     * Provide a reference to the views for each data item
+     * Complex data items may need more than one view per item, and
+     * we can provide access to all the views for a data item in a view holder
+     */
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public CardView mCardView;
         public TextView mUsername, mName, mPosted, mText, mNoComments, mUpvotes, mDownvotes;
@@ -139,7 +148,6 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
         private View.OnClickListener cardListener;
         private View.OnClickListener closeListener;
         private View.OnClickListener voteListener;
-       // private RequestQueue requestQueue;
 
         private ArrayList<Post> mPosts;
         private boolean mFromMainActivity;
@@ -167,7 +175,6 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
             mCommentsSection = (LinearLayout) view.findViewById(R.id.commentsSection);
 
             mPostImageBorder.setVisibility(View.GONE);
-
 
             setUpListeners();
 
@@ -213,8 +220,11 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
             void onClick(View caller);
         }
     }
-
-    // Return the size of your dataset (invoked by the layout manager)
+    /**
+     *
+     * @return
+     * the size of your dataset (invoked by the layout manager)
+     */
     @Override
     public int getItemCount() {
         return mPosts.size();

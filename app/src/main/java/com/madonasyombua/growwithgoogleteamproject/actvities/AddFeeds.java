@@ -16,6 +16,8 @@ import com.madonasyombua.growwithgoogleteamproject.ui.fragment.PostFeedFragment;
 import com.madonasyombua.growwithgoogleteamproject.models.Post;
 import java.util.ArrayList;
 
+import butterknife.BindView;
+
 public class AddFeeds extends AppCompatActivity implements PostFeedFragment.OnFragmentInteractionListener {
 
     /**
@@ -29,7 +31,7 @@ public class AddFeeds extends AppCompatActivity implements PostFeedFragment.OnFr
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private Post receivedPost;
     private ArrayList<Post> mPost;
-    //private RequestQueue requestQueue;
+
     private String stringPost, stringDeletedPost, stringComment, stringCommentingAs,
             stringDeletePost, stringYes, stringCancel, stringDeletedComment,
             stringDeleteComment, stringSentComment;
@@ -74,7 +76,6 @@ public class AddFeeds extends AppCompatActivity implements PostFeedFragment.OnFr
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
-
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
