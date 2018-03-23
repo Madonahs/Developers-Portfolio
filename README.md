@@ -12,13 +12,13 @@ Develop 🔧
 An open mind and an open heart.
 
 ## Authors
-* **Madona Syombua** - *Lead Team Member* 
-* **Rado RAMBININTSOA** - *Ass. Team Member*
-* **Ayobami Adewale** - *Team Member*
-* **Maher Soua** - *Team Member*
-* **CleverChuk** - *Team Member*
-* **Hemantkumar Nimje** - *Team Member*
-* **Srinath** - *Team Member*
+* **Madona Syombua** - *Lead/Core developer* 
+* **Rado RAMBININTSOA** - *Core developer*
+* **Ayobami Adewale** - *Core developer*
+* **Maher Soua** - *Core developer*
+* **CleverChuk** - *Core developer*
+* **Hemantkumar Nimje** - *Core developer*
+* **Srinath** - *Core developer*
 
 Also checkout the entire list of [Contributors](https://github.com/Madonahs/Devs-Portfolio-App/wiki)
 
