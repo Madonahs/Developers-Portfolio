@@ -39,6 +39,12 @@ public class GeoAddressUtil {
         }
     }
 
+    /**
+     *
+     * @param context
+     * @param name
+     * @return
+     */
     public static LatLng getLatLng(Context context, String name){
         Geocoder gc = new Geocoder(context);
         LatLng pos = null;
