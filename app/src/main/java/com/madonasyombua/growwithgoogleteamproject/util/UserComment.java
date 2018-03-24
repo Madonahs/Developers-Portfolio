@@ -7,7 +7,8 @@ import java.io.Serializable;
  * Created by madon on 3/10/2018.
  */
 /**
- *a user submitted comment
+ *A  user submitted comment
+ *
  * */
 public class UserComment implements Serializable {
     int cos;
