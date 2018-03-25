@@ -13,7 +13,7 @@ An open mind and an open heart.
 
 ## Authors
 * **Madona Syombua** - *Lead/Core developer* 
-* **Rado RAMBININTSOA** - *Core developer*
+* **Rado RAMBININTSOA** - *Ass. Core developer*
 * **Ayobami Adewale** - *Core developer*
 * **Maher Soua** - *Core developer*
 * **CleverChuk** - *Core developer*
