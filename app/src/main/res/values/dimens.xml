@@ -27,4 +27,16 @@
     <dimen name="drawable_padding">4dp</dimen>
     <dimen name="app_bar_height">220dp</dimen>
 
+    <!-- DP-->
+    <dimen name="dimen_10dp">10dp</dimen>
+    <dimen name="dimen_15dp">15dp</dimen>
+    <dimen name="dimen_20dp">20dp</dimen>
+    <dimen name="dimen_30dp">30dp</dimen>
+    <dimen name="dimen_64dp">64dp</dimen>
+    <dimen name="dimen_162dp">162dp</dimen>
+    <dimen name="dimen_200dp">200dp</dimen>
+
+    <!-- SP-->
+    <dimen name="dimen_20sp">20sp</dimen>
+
 </resources>
