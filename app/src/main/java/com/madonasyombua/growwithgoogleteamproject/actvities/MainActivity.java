@@ -19,7 +19,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
 import com.madonasyombua.growwithgoogleteamproject.R;
+import com.madonasyombua.growwithgoogleteamproject.login.LoginStatusManager;
+import com.madonasyombua.growwithgoogleteamproject.ui.LoginActivity;
 import com.madonasyombua.growwithgoogleteamproject.ui.SharedPref;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.FeedsFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.InterestFragment;
@@ -27,6 +31,7 @@ import com.madonasyombua.growwithgoogleteamproject.ui.fragment.PostFeedFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProfileFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProjectsFragment;
 import com.madonasyombua.growwithgoogleteamproject.util.BottomNavigationViewHelper;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -183,7 +188,7 @@ public class MainActivity
      */
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
+        Intent intent = null;
         switch (item.getItemId()) {
             case R.id.messages:
 
@@ -193,24 +198,25 @@ public class MainActivity
                 return false;
 
             case R.id.settings:
-
-                Intent intent = new Intent(this, SettingsActivity.class);
+                intent = new Intent(this, SettingsActivity.class);
                 startActivity(intent);
-                return false;
+                return true;
 
             case R.id.about:
-
-                Intent intent1 = new Intent(this, AboutActivity.class);
-                startActivity(intent1);
-                return false;
+                intent = new Intent(this, AboutActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.help:
-
-                Intent intent2 = new Intent(this, HelpActivity.class);
-                startActivity(intent2);
-                return false;
+                intent = new Intent(this, HelpActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.logout:
-                // logout
-                return false;
+                /* Sign the user out out the app */
+                FirebaseAuth.getInstance().signOut();
+                LoginStatusManager.storeLoginStatus(this,false);
+                intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                return true;
 
         }
         return false;
