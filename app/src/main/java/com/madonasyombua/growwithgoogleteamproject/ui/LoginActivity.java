@@ -21,6 +21,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.madonasyombua.growwithgoogleteamproject.actvities.MainActivity;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.adapter.FragmentsAdapter;
@@ -56,8 +57,9 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if(LoginStatusManager.getLoginStatus(this)){
+        /*Send user to Main activity if they're already signed in*/
+        if(LoginStatusManager.getLoginStatus(this) &&
+                FirebaseAuth.getInstance().getCurrentUser() != null){
             startActivity(new Intent(this, MainActivity.class));
             return;
         }
@@ -196,7 +198,7 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
         startActivity(new Intent(this, MainActivity.class));
         showHideProgressBar(false);
 
-        LoginStatusManager.storeLoginStatus(this);
+        LoginStatusManager.storeLoginStatus(this,true);
 
         Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
 
