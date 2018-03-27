@@ -15,6 +15,8 @@
         <item name="textcolor">#181717</item>
         <item name="tintcolor">#000000</item>
         <item name="buttoncolor">#311B92</item>
+        <item name="background_color_of_nav_bar">@color/colorPrimary</item>
+
     </style>
 
     <!-- No action bar styling. For activities that does not require an action bar please
@@ -34,22 +36,29 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="NavTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#e53935</item>
+        <item name="colorPrimaryDark">#ab000d</item>
+        <item name="colorAccent">#ff6f60</item>
 
+    </style>
 
+    <!-- <item name="android:fontFamily">@font/raleway</item>-->
     <!-- Night Mode !-->
     <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:fontFamily">@font/raleway</item>
+
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#161720</item>
         <item name="colorPrimaryDark">#111322</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="background_color_of_toolbars">#111322</item>
+        <item name="background_color_of_nav_bar">#1a2144</item>
         <item name="backgroundcolor">#141629</item>
         <item name="cardbackground">#111322</item>
         <item name="textcolor">#ffffff</item>
         <item name="tintcolor">#ffffff</item>
         <item name="buttoncolor">#311B92</item>
     </style>
-
 
 </resources>

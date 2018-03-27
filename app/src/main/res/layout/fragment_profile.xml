@@ -38,7 +38,7 @@
                         android:layout_height="100dp"
                         android:layout_gravity="top|center_horizontal"
                         android:layout_marginTop="50dp"
-                        android:src="@drawable/ic_facebook"
+                        android:src="@drawable/madonah"
                         app:layout_collapseMode="parallax" />
 
                     <TextView
@@ -115,8 +115,8 @@
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/margin_16"
-                android:layout_marginRight="@dimen/margin_16">
+                android:layout_marginLeft="@dimen/margin_7"
+                android:layout_marginRight="@dimen/margin_7">
 
                 <TextView
                     android:id="@+id/intro"
@@ -173,7 +173,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin_8"
-                    android:layout_marginLeft="24dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="@dimen/margin_8"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="@dimen/margin_16"
@@ -193,6 +193,7 @@
                     android:textColor="?attr/textcolor"
                     android:layout_marginStart="@dimen/margin_8"
                     android:layout_marginTop="@dimen/margin_16"
+                    android:layout_marginLeft="6dp"
                     android:text="Followers"
                     app:layout_constraintEnd_toStartOf="@+id/project_txt"
                     app:layout_constraintStart_toEndOf="@+id/following_txt"
@@ -206,6 +207,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_16"
                     android:fontFamily="@font/raleway"
+
+                    android:paddingRight="55dp"
                     android:text="@{user.projects}"
                     android:textSize="@dimen/big_text_size"
                     android:textColor="?attr/textcolor"

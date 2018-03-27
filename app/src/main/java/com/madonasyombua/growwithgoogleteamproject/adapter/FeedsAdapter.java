@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
  */
 
 public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> {
-
+    //FIXME connect me again sorry Ayo you will get error now but i can help tomorrow wanted to finish layouts 3/10/18
     List<Feeds> feedsList;
 
     public FeedsAdapter(List<Feeds> feedsList){
@@ -37,8 +37,8 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(FeedsAdapter.ViewHolder holder, int position) {
-        holder.feed_title.setText(feedsList.get(position).getFeed_name());
-        holder.img_feeds.setImageResource(feedsList.get(position).getFeed_images());
+      //  holder.feed_title.setText(feedsList.get(position).getFeed_name());
+//        holder.img_feeds.setImageResource(feedsList.get(position).getFeed_images());
     }
 
     @Override
@@ -47,10 +47,9 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
-
-        @BindView(R.id.img_feeds) ImageView img_feeds;
-
-        @BindView(R.id.tv_feed_title)  TextView feed_title;
+//FIXME connect me again 3/10/18
+       // @BindView(R.id.img_feeds) ImageView img_feeds;
+       // @BindView(R.id.tv_feed_title)  TextView feed_title;
 
         public ViewHolder(View itemView) {
             super(itemView);

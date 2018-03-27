@@ -126,9 +126,9 @@ public class MainActivity
     private void setDrawerHeader() {
         // Logo image, sample username, sample user profession used here
         // Can be swapped with Picasso or Glide image loader
-        profilePicView.setImageResource(R.drawable.logo);
-        userName.setText(getString(R.string.sample_user_name));
-        userProfession.setText(getString(R.string.sample_user_profession));
+        profilePicView.setImageResource(R.drawable.madonah);
+        userName.setText(getString(R.string.about_developer_name1));
+        userProfession.setText(getString(R.string.dummy_position));
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -248,6 +248,17 @@ public class MainActivity
             startActivity(new Intent(this, this.getClass()));
             finish();
         }
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 
 }
