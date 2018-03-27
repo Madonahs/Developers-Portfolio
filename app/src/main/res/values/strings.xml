@@ -69,7 +69,6 @@
     <!-- Sample or test user details -->
     <string name="sample_user_name" translatable="false">UserName</string>
     <string name="sample_user_profession" translatable="false">Profession</string>
-
     <string name="online">Online</string>
     <string name="offline">Offline</string>
     <string name="submit">Submit</string>
@@ -178,7 +177,6 @@
     <string name="dummy_followers_count_value">27K</string>
     <string name="followers">Followers</string>
     <string name="dummy_project_count_value">434</string>
-
     <string name="dummy_interest_title">Mathematics</string>
     <string name="dummy_interest_count_value">745</string>
     <string name="posts">Posts</string>
@@ -246,6 +244,7 @@
     <string name="already_a_member_sign_in"><u>Already a member? Sign in!</u></string>
     <string name="show_comments">Show comments</string>
     <string name="nothing_to_display">empty</string>
+    <string name="forgotpassword">forgot password?</string>
 
 
 </resources>
