@@ -11,10 +11,10 @@ import com.madonasyombua.growwithgoogleteamproject.R;
  */
 
 public class LoginStatusManager {
-    public static void storeLoginStatus(Context context){
+    public static void storeLoginStatus(Context context, boolean status){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean(context.getString(R.string.pref_login_status_key), true);
+        editor.putBoolean(context.getString(R.string.pref_login_status_key), status);
         editor.apply();
     }
 
