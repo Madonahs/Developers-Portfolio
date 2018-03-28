@@ -1,6 +1,5 @@
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
@@ -17,7 +16,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.madonasyombua.growwithgoogleteamproject.R;
@@ -140,8 +138,8 @@ public class ProfileFragment extends Fragment
         return mBinding.getRoot();
     }
 
-
-    @Override
+// implement this on the main activity
+   /* @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
@@ -150,7 +148,7 @@ public class ProfileFragment extends Fragment
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
-    }
+    }*/
 
     @Override
     public void onDetach() {

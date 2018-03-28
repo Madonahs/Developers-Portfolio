@@ -39,6 +39,7 @@
     <string name="facebook_login_cancel">Facebook login cancelled</string>
     <string name="facebook_login_error">Facebook login failed</string>
 
+    <!-- Bar names -->
     <string name="interest">Interests</string>
     <string name="projects">Projects</string>
     <string name="feeds">Feeds</string>
@@ -68,7 +69,6 @@
     <!-- Sample or test user details -->
     <string name="sample_user_name" translatable="false">UserName</string>
     <string name="sample_user_profession" translatable="false">Profession</string>
-
     <string name="online">Online</string>
     <string name="offline">Offline</string>
     <string name="submit">Submit</string>
@@ -76,7 +76,7 @@
     <!-- setting Related -->
     <string name="pref_login_status_key">pref_logging_status</string>
     <bool name="pref_login_status_default_key">false</bool>
-    <!-- Aboout and Help related -->
+
     <string name="contactus">Contact Us</string>
     <string name="faq">FAQ</string>
     <string name="terms">Terms and Conditions</string>
@@ -177,7 +177,6 @@
     <string name="dummy_followers_count_value">27K</string>
     <string name="followers">Followers</string>
     <string name="dummy_project_count_value">434</string>
-
     <string name="dummy_interest_title">Mathematics</string>
     <string name="dummy_interest_count_value">745</string>
     <string name="posts">Posts</string>
@@ -227,7 +226,34 @@
     <string name="theme_manger">Theme Manager</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="dark_mode_info">Press here to enable dark mode</string>
+    <string name="camera_image">camera image</string>
+    <string name="something_went_wrong">Whoops something went wrong</string>
 
+    <!-- Feeds Strings -->
+    <string name="comment">Comment</string>
+    <string name="posting_as">Posting as</string>
+    <string name="new_post">What\'s on your mind?</string>
+    <string name="s_followers">\'s followers</string>
+    <string name="is_following">is following</string>
+    <string name="deleted_post">Deleted post</string>
+    <string name="commenting_as">Commenting as</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_post">Do you really want to delete this post?</string>
+    <string name="deleted_comment">Deleted comment</string>
+    <string name="delete_comment">Do you really want to delete this comment?</string>
+    <string name="sent_comment">Sent comment</string>
+    <string name="follow">Follow</string>
+    <string name="passwords_do_not_match">Passwords do not match</string>
+    <string name="nothing_to_show">Nothing to show</string>
+    <string name="unfollow">Unfollow</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_out">Sign out</string>
+    <string name="not_a_member_register"><u>Not a member? Register!</u></string>
+    <string name="already_a_member_sign_in"><u>Already a member? Sign in!</u></string>
+    <string name="show_comments">Show comments</string>
+    <string name="nothing_to_display">empty</string>
+    <string name="forgotpassword">forgot password?</string>
 
 
 </resources>

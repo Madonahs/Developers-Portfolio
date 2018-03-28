@@ -2,9 +2,7 @@ package com.madonasyombua.growwithgoogleteamproject.util;
 
 import android.content.Context;
 import android.content.res.Resources;
-
 import com.madonasyombua.growwithgoogleteamproject.R;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

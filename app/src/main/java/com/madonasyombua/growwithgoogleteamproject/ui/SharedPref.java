@@ -19,7 +19,11 @@ public class SharedPref {
         editor.putBoolean("enable_dark_mode",state);
         editor.apply();
     }
-    // This will load the Night State
+    /**
+     *
+     * @return
+     * This will load the Night State
+     */
     public Boolean loadNightModeState (){
         Boolean state = mySharedPref.getBoolean("enable_dark_mode",false);
         return  state;
