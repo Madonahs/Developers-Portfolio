@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.madonasyombua.growwithgoogleteamproject.actvities.HelpSearchViewActivity">
+    tools:context="com.madonasyombua.growwithgoogleteamproject.actvities.HelpActivity">
 
     <FrameLayout
         android:id="@+id/toolbar_container"
@@ -16,7 +16,7 @@
             android:id="@+id/tb_help"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary">
+            android:background="?attr/background_color_of_toolbars">
         </android.support.v7.widget.Toolbar>
 
         <com.miguelcatalan.materialsearchview.MaterialSearchView
@@ -25,6 +25,16 @@
             android:layout_height="match_parent"
             android:visibility="visible">
         </com.miguelcatalan.materialsearchview.MaterialSearchView>
+
+        <ImageButton
+            android:id="@+id/backToMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:background="@color/active_indicator"
+            android:src="@drawable/ic_action_back"
+            android:contentDescription="@string/back"
+            android:visibility="gone"/>
 
     </FrameLayout>
 
