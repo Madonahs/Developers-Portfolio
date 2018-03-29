@@ -11,7 +11,8 @@
     android:background="@drawable/card_selected"
     android:tag="closed"
     card_view:cardCornerRadius="0dp"
-    card_view:cardElevation="1dp">
+    card_view:cardElevation="1dp"
+    app:ignore="NamespaceTypo">
     <!--TODO: connect all the imageview to the db and add functions Ayo i can help with this just wanted to finish the feeds layout -->
 
     <LinearLayout
