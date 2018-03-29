@@ -41,6 +41,9 @@ public class AddFeeds extends AppCompatActivity implements PostFeedFragment.OnFr
     /**
      * We need to implement  ProfileFragment.OnFragmentInteractionListener,
      AdapterView.OnItemClickListener so that we can get the instances.
+
+     #TODO: We need to add all data in the databse;
+     #TODO: we need to get users
      */
     private static final String TAG = "AddFeeds";
     private RecyclerView mRecyclerView;
