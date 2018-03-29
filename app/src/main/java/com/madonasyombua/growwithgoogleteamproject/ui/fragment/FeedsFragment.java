@@ -84,16 +84,11 @@ public class FeedsFragment extends Fragment{
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_feeds, container, false);
-
         coordinatorLayout = (CoordinatorLayout) view.findViewById(R.id.base);
-
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefresh);
        // mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(getContext(), R.color.colorAccent));
-
-
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.add_feeds);
@@ -125,9 +120,7 @@ public class FeedsFragment extends Fragment{
             }
         }, true);
         mRecyclerView.setAdapter(mAdapter);
-
         updateFeed();
-
         return view;
     }
 
@@ -184,7 +177,6 @@ public class FeedsFragment extends Fragment{
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-
 
     /**
      * Updates the user's feed and populates the cards.

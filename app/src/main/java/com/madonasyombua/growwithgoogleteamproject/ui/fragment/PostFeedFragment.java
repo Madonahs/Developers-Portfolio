@@ -107,13 +107,10 @@ public class PostFeedFragment extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         database = FirebaseDatabase.getInstance();
         reference = database.getReference(Constant.FIREBASE_FEEDS);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference().child("feeds_photos");
-
         stringCameraImage = getResources().getString(R.string.camera_image);
         stringSomethingWentWrong = getResources().getString(R.string.something_went_wrong);
 
@@ -274,9 +271,8 @@ public class PostFeedFragment extends DialogFragment {
     }
 
     public void uploadImageToServer(final String encodedImage) {
-//FIXME: Update me to Firebase:
+     //FIXME: Update me to Firebase:
       //  StringRequest uploadRequest = new StringRequest(Request.Method.POST, reference, new Response.Listener<String>() {
-
 
             /*@Override
             public void onResponse(String response) {
