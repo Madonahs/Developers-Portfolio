@@ -32,8 +32,17 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
+import com.madonasyombua.growwithgoogleteamproject.util.Constant;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 /**
@@ -47,26 +56,35 @@ public class PostFeedFragment extends DialogFragment {
 
     private OnFragmentInteractionListener mListener;
 
-    private EditText postText;
-    private TextView header, postingAs, username, name, attachedImageName;
-    private ImageView closeButton, sendButton, imageButton, cameraButton, attachedImage,
-            attachmentCloseButton;
+    @BindView(R.id.post) EditText postText;
+    @BindView(R.id.header)TextView header;
+    @BindView(R.id.postingAs)TextView postingAs;
+    @BindView(R.id.name)TextView name;
+    @BindView(R.id.attachedImageName)TextView attachedImageName;
+    @BindView(R.id.closeButton)ImageView closeButton;
+    @BindView(R.id.sendButton)ImageView sendButton;
+    @BindView(R.id.imageButton)ImageView imageButton;
+    @BindView(R.id.cameraButton)ImageView cameraButton;
+    @BindView(R.id.attachedImage)ImageView attachedImage;
+    @BindView(R.id.attachmentCloseButton)ImageView attachmentCloseButton;
+    @BindView(R.id.attachment)RelativeLayout attachment;
     private View view;
-    private RelativeLayout attachment;
+    //private RelativeLayout attachment;
     private ProgressBar progressBar;
-
-    //private RequestQueue requestQueue;
-
     private Uri fileUri;
     private Bitmap imageToUpload;
     private BitmapHandler bitmapHandler;
 
     private String stringCameraImage, stringSomethingWentWrong;
 
+    FirebaseDatabase database;
+    DatabaseReference reference;
+    FirebaseStorage storage;
+    StorageReference storageReference;
+
     public PostFeedFragment() {
         // Empty constructor required for DialogFragment
     }
-
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -92,6 +110,12 @@ public class PostFeedFragment extends DialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference(Constant.FIREBASE_FEEDS);
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference().child("feeds_photos");
+
         stringCameraImage = getResources().getString(R.string.camera_image);
         stringSomethingWentWrong = getResources().getString(R.string.something_went_wrong);
 
@@ -107,19 +131,11 @@ public class PostFeedFragment extends DialogFragment {
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_post_feed, container, false);
-
-        header = (TextView) view.findViewById(R.id.header);
-        postText = (EditText) view.findViewById(R.id.post);
-        postingAs = (TextView) view.findViewById(R.id.postingAs);
-        // username = (TextView) view.findViewById(R.id.username);
-        name = (TextView) view.findViewById(R.id.name);
-
+        ButterKnife.bind(this, view);
         header.setText(getArguments().getString("title"));
         postingAs.setText(getArguments().getString("postingAs"));
-//        username.setText(getArguments().getString("username"));
         name.setText(getArguments().getString("name"));
 
-        closeButton = (ImageView) view.findViewById(R.id.closeButton);
         closeButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -128,8 +144,7 @@ public class PostFeedFragment extends DialogFragment {
                     }
                 }
         );
-//get image from gallery
-        imageButton = (ImageView) view.findViewById(R.id.imageButton);
+
         imageButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -140,8 +155,7 @@ public class PostFeedFragment extends DialogFragment {
                     }
                 }
         );
-//take photo
-        cameraButton = (ImageView) view.findViewById(R.id.cameraButton);
+
         cameraButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -156,8 +170,6 @@ public class PostFeedFragment extends DialogFragment {
         );
 
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
-
-        sendButton = (ImageView) view.findViewById(R.id.sendButton);
         sendButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -175,17 +187,14 @@ public class PostFeedFragment extends DialogFragment {
                 }
         );
 
-        attachment = (RelativeLayout) view.findViewById(R.id.attachment);
         attachment.setVisibility(View.INVISIBLE);
-        attachedImage = (ImageView) view.findViewById(R.id.attachedImage);
-        attachedImageName = (TextView) view.findViewById(R.id.attachedImageName);
-
-        attachmentCloseButton = (ImageView) view.findViewById(R.id.attachmentCloseButton);
         attachmentCloseButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        attachedImage.setImageBitmap(null);
+                        attachedImageName.setText("");
+                        attachment.setVisibility(View.INVISIBLE);
                     }
                 }
         );
@@ -261,6 +270,9 @@ public class PostFeedFragment extends DialogFragment {
     }
 
     public void uploadImageToServer(final String encodedImage) {
-        //FIXME: upload image to server get user etc
+
+
+
+
     }
 }

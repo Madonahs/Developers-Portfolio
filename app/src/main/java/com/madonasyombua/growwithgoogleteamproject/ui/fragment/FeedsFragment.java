@@ -52,9 +52,6 @@ public class FeedsFragment extends Fragment{
     private TextView displayEmpty;
 
     private ArrayList<Post> mPosts;
-    //private RequestQueue requestQueue;
-
-    //private PrettyTime prettyTime;
 
     private String stringStart, stringNewPost, stringPostingAs;
 
@@ -77,7 +74,6 @@ public class FeedsFragment extends Fragment{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPosts = new ArrayList<>();
-
 
         stringStart = getResources().getString(R.string.start);
         stringNewPost = getResources().getString(R.string.new_post);
