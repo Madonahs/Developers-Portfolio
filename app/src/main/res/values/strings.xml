@@ -254,6 +254,8 @@
     <string name="show_comments">Show comments</string>
     <string name="nothing_to_display">empty</string>
     <string name="forgotpassword">forgot password?</string>
+    <string name="message">We will implement message here</string>
+    <string name="image">Image</string>
 
 
 </resources>

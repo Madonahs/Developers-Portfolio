@@ -191,17 +191,17 @@ public class MainActivity
         Intent intent = null;
         switch (item.getItemId()) {
             case R.id.messages:
-
-                return false;
+                intent = new Intent(this, MessageActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.manage_profile:
-
-                return false;
-
+                intent = new Intent(this, ManageProfileActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.settings:
                 intent = new Intent(this, SettingsActivity.class);
                 startActivity(intent);
                 return true;
-
             case R.id.about:
                 intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
@@ -306,7 +306,7 @@ public class MainActivity
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, view.getResources().getDisplayMetrics());
     }
 
-    /** FIXME: 3/23/2018
+    /** TODO: 3/23/2018
      * We need to Implements Interest.OnFragmentInteractionListener,
      * Profile.OnFragmentInteractionListener,Projects.OnFragmentInteractionListener
      * on the main so that we can link the user to them, once they log in.

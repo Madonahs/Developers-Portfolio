@@ -25,6 +25,7 @@ android {
     }
 }
 
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -85,4 +86,10 @@ dependencies {
     // Material SearchView
     compile 'com.miguelcatalan:materialsearchview:1.0.0'
 }
+
 apply plugin: 'com.google.gms.google-services'
+
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:+'
+}
+
