@@ -85,6 +85,7 @@ dependencies {
 
     // Material SearchView
     compile 'com.miguelcatalan:materialsearchview:1.0.0'
+
 }
 
 apply plugin: 'com.google.gms.google-services'

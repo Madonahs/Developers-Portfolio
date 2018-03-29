@@ -18,10 +18,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +35,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -40,7 +42,7 @@ import com.google.firebase.storage.StorageReference;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
-
+import java.io.File;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -69,12 +71,10 @@ public class PostFeedFragment extends DialogFragment {
     @BindView(R.id.attachmentCloseButton)ImageView attachmentCloseButton;
     @BindView(R.id.attachment)RelativeLayout attachment;
     private View view;
-    //private RelativeLayout attachment;
     private ProgressBar progressBar;
     private Uri fileUri;
     private Bitmap imageToUpload;
     private BitmapHandler bitmapHandler;
-
     private String stringCameraImage, stringSomethingWentWrong;
 
     FirebaseDatabase database;
@@ -162,7 +162,7 @@ public class PostFeedFragment extends DialogFragment {
                     public void onClick(View v) {
                         Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                         //fileUri = Uri.fromFile(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM) +
-                           //     File.separator + "_tmp.jpg"));
+                           //    File.separator + "_tmp.jpg"));
                         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
                         startActivityForResult(cameraIntent, RESULT_CAMERA);
                     }
@@ -192,6 +192,12 @@ public class PostFeedFragment extends DialogFragment {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            TransitionManager.endTransitions(attachment);
+                        }
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                            TransitionManager.beginDelayedTransition(attachment);
+                        }
                         attachedImage.setImageBitmap(null);
                         attachedImageName.setText("");
                         attachment.setVisibility(View.INVISIBLE);
@@ -260,19 +266,24 @@ public class PostFeedFragment extends DialogFragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
+
         void onFragmentInteraction(Uri uri);
 
         void onDialogSubmit();
 
         void onItemClick(AdapterView<?> parent, View view, int position, long id);
-
         void onDialogSubmit(final PostFeedFragment dialog, final String text, final String fileName);
     }
 
     public void uploadImageToServer(final String encodedImage) {
+//FIXME: Update me to Firebase:
+      //  StringRequest uploadRequest = new StringRequest(Request.Method.POST, reference, new Response.Listener<String>() {
 
 
+            /*@Override
+            public void onResponse(String response) {
 
-
-    }
+            }
+        }*/
+}
 }

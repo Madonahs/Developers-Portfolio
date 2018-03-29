@@ -390,10 +390,11 @@ public class MainActivity
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, view.getResources().getDisplayMetrics());
     }
 
-    /** TODO: 3/23/2018
-     * We need to Implements Interest.OnFragmentInteractionListener,
-     * Profile.OnFragmentInteractionListener,Projects.OnFragmentInteractionListener
-     * on the main so that we can link the user to them, once they log in.
+    /**
+     * @return The uid of the signed in user.
      */
+    public static int getUid() {
+        return uid;
+    }
 }
 

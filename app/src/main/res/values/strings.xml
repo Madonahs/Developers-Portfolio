@@ -256,6 +256,7 @@
     <string name="forgotpassword">forgot password?</string>
     <string name="message">We will implement message here</string>
     <string name="image">Image</string>
+    <string name="timeout">timeout</string>
 
 
 
