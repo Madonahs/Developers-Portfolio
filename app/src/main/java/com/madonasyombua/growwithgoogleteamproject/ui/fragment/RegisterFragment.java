@@ -26,7 +26,9 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentRegisterBinding;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
-import com.madonasyombua.growwithgoogleteamproject.ui.LoginActivity;
+import com.madonasyombua.growwithgoogleteamproject.actvities.LoginActivity;
+
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -57,6 +59,7 @@ public class RegisterFragment extends Fragment {
                 String username_txt = extractText(binding.editUsername);
                 String email_txt = extractText(binding.editEmail);
                 String password_txt = extractText(binding.editPassword);
+
                 if (username_txt.isEmpty() || email_txt.isEmpty() || password_txt.isEmpty()) {
                     // TODO add toast or change input color to show user that is required
                     Toast.makeText(getContext(), "Username and password are required", Toast.LENGTH_SHORT).show();
