@@ -1,3 +1,17 @@
+/*Copyright (c) 2018 Madona Syombua
+
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+ */
 package com.madonasyombua.growwithgoogleteamproject.actvities;
 
 import android.content.Intent;
@@ -231,6 +245,7 @@ public class MainActivity
     /**
      * When back button pressed hide navigation drawer if open else move task to back
      */
+
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -253,17 +268,17 @@ public class MainActivity
         Intent intent = null;
         switch (item.getItemId()) {
             case R.id.messages:
-
-                return false;
+                intent = new Intent(this, MessageActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.manage_profile:
-
-                return false;
-
+                intent = new Intent(this, ManageProfileActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.settings:
                 intent = new Intent(this, SettingsActivity.class);
                 startActivity(intent);
                 return true;
-
             case R.id.about:
                 intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
@@ -376,7 +391,7 @@ public class MainActivity
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, view.getResources().getDisplayMetrics());
     }
 
-    /** FIXME: 3/23/2018
+    /** TODO: 3/23/2018
      * We need to Implements Interest.OnFragmentInteractionListener,
      * Profile.OnFragmentInteractionListener,Projects.OnFragmentInteractionListener
      * on the main so that we can link the user to them, once they log in.

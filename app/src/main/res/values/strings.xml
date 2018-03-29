@@ -214,6 +214,15 @@
     <string name="two">2</string>
 
 
+
+    <!-- Search Suggestions -->
+    <string-array name="search_suggestions">
+        <item>How do I change my password?</item>
+        <item>How do I change my profile photo?</item>
+        <item>Why do birds suddenly appear?</item>
+        <item>What is life?</item>
+    </string-array>
+
     <string name="theme_manger">Theme Manager</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="dark_mode_info">Press here to enable dark mode</string>
@@ -245,6 +254,8 @@
     <string name="show_comments">Show comments</string>
     <string name="nothing_to_display">empty</string>
     <string name="forgotpassword">forgot password?</string>
+    <string name="message">We will implement message here</string>
+    <string name="image">Image</string>
 
 
 

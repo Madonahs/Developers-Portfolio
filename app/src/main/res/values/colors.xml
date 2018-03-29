@@ -21,4 +21,8 @@
     <color name="blue">#428bca</color>
     <color name="darkBlue">#3079B8</color>
     <color name="white">#ffffff</color>
+    <color name="blue_darker_darker">#094598</color>
+    <color name="off_white">#F5F5F5</color>
+    <color name="light_gray">#EDEDED</color>
+    <color name="blue_darker">#0E60D0</color>
 </resources>
