@@ -84,7 +84,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-maps:11.8.0'
 
     // Material SearchView
-    compile 'com.miguelcatalan:materialsearchview:1.0.0'
+    compile 'com.miguelcatalan:materialsearchview:1.4.0'
 
 }
 
