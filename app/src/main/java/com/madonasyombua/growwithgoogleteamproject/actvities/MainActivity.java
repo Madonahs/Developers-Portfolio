@@ -183,6 +183,8 @@ public class MainActivity
 
     /**
      * When back button pressed hide navigation drawer if open else move task to back
+     *
+     * #TODO:fix on backpress on logout 3:28:2018
      * */
     @Override
     public void onBackPressed() {
