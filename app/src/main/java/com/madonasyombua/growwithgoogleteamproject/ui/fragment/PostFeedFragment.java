@@ -20,7 +20,6 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -42,7 +41,6 @@ import com.google.firebase.storage.StorageReference;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
-import java.io.File;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
