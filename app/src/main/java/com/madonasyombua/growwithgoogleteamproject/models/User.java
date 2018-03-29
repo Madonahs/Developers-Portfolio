@@ -2,8 +2,10 @@ package com.madonasyombua.growwithgoogleteamproject.models;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+
 import com.google.firebase.database.Exclude;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
+
 import java.io.Serializable;
 
 
@@ -18,12 +20,21 @@ import java.io.Serializable;
 
 public class User extends FirebaseObject implements Serializable {
     private String name, password, followers, following, projects,
-            email, location, phone, website, intro,image;
+            email, location, phone, website, intro, image;
     private Portfolio portfolio;
-    private boolean status;
+
+
+
+    public enum Status {
+        ONLINE,
+        OFFLINE
+    }
+
+    private Status status;
 
     // Empty constructor
-    public User() {}
+    public User() {
+    }
 
 
     // Must override and exclude or it will be written to firebase!
@@ -51,7 +62,7 @@ public class User extends FirebaseObject implements Serializable {
         this.password = password;
     }
 
-    public void setPortfolio(Portfolio portfolio){
+    public void setPortfolio(Portfolio portfolio) {
         this.portfolio = portfolio;
     }
 
@@ -63,24 +74,39 @@ public class User extends FirebaseObject implements Serializable {
 
         user.setWebsite(data.getString(Constant.WEB));
         user.setIntro(data.getString(Constant.INTRO));
+        user.setStatus(data.getBoolean(Constant.STATUS));
         return user;
     }
 
 
-    public static User build(@NonNull User user,@NonNull Bundle data) {
+    public static User build(@NonNull User user, @NonNull Bundle data) {
         user.setLocation(data.getString(Constant.LOCATION));
         user.setPhone(data.getString(Constant.PHONE));
         user.setEmail(data.getString(Constant.EMAIL));
 
         user.setWebsite(data.getString(Constant.WEB));
         user.setIntro(data.getString(Constant.INTRO));
+        user.setStatus(data.getBoolean(Constant.STATUS));
         return user;
     }
-
+    public Bundle bundleUp() {
+        Bundle bundle = new Bundle(11/*Eleven fields*/);
+        bundle.putString(Constant.INTRO, intro);
+        bundle.putString(Constant.WEB, website);
+        bundle.putString(Constant.EMAIL, email);
+        bundle.putString(Constant.PHONE, phone);
+        bundle.putString(Constant.LOCATION, location);
+        bundle.putString(Constant.NAME, name);
+        bundle.putBoolean(Constant.STATUS,status == Status.ONLINE);
+        return bundle;
+    }
     public String getName() {
         return this.name;
     }
-    public String getPassword() { return this.password;}
+
+    public String getPassword() {
+        return this.password;
+    }
 
     public String getFollowers() {
         return followers;
@@ -114,32 +140,32 @@ public class User extends FirebaseObject implements Serializable {
         return intro;
     }
 
-    public boolean getStatus() {
+    public Status getStatus() {
         return status;
     }
 
     public void setLocation(String location) {
-        if (!location.isEmpty()) this.location = location;
+        if (location != null && !location.isEmpty()) this.location = location;
     }
 
     public void setEmail(String email) {
-        if (!email.isEmpty())this.email = email;
+        if (email != null && !email.isEmpty()) this.email = email;
     }
 
     public void setPhone(String phone) {
-        if (!phone.isEmpty()) this.phone = phone;
+        if (phone != null && !phone.isEmpty()) this.phone = phone;
     }
 
     public void setWebsite(String website) {
-        if (!website.isEmpty()) this.website = website;
+        if (website != null && !website.isEmpty()) this.website = website;
     }
 
     public void setIntro(String intro) {
-        if (!intro.isEmpty()) this.intro = intro;
+        if (intro != null && !intro.isEmpty()) this.intro = intro;
     }
 
     public void setStatus(boolean status) {
-        this.status = status;
+        this.status = status ? Status.ONLINE:Status.OFFLINE;
     }
 
     public String getImage() {

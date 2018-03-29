@@ -37,14 +37,15 @@ public class AppLoginManager {
         return mCurrentUser;
     }
 
-    public static FirebaseUser signinUser(final  Activity activity, User user){
+    public static FirebaseUser signinUser(final  Activity activity, final User user){
         firebaseAuth.signInWithEmailAndPassword(user.getEmail(), user.getPassword())
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             mCurrentUser = firebaseAuth.getCurrentUser();
-                            ((LoginInterface)activity).onSigninSuccess();
+                            user.setStatus(true);
+                            ((LoginInterface)activity).onSigninSuccess(user);
                         } else {
                             ((LoginInterface)activity).onSigninFailed();
                             Toast.makeText(activity, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -69,7 +70,7 @@ public class AppLoginManager {
     }
 
     public interface LoginInterface {
-        void onSigninSuccess ();
+        void onSigninSuccess (User user);
         void onRegistrationSuccess();
         void onSigninFailed();
         void onRegistrationFailed();
