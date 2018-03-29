@@ -26,7 +26,7 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentLoginBinding;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
-import com.madonasyombua.growwithgoogleteamproject.ui.LoginActivity;
+import com.madonasyombua.growwithgoogleteamproject.actvities.LoginActivity;
 
 /**
  * Created by Ayo on 2/9/2018.

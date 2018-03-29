@@ -53,6 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
+
             android:background="?attr/background_color_of_nav_bar"
             android:elevation="6dp"
             app:itemIconTint="@android:color/white"

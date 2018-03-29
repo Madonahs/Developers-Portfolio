@@ -1,6 +1,4 @@
-package com.madonasyombua.growwithgoogleteamproject.ui;
 /*Copyright (c) 2018 Madona Syombua
-
         Licensed under the Apache License, Version 2.0 (the "License");
         you may not use this file except in compliance with the License.
         You may obtain a copy of the License at
@@ -13,6 +11,9 @@ package com.madonasyombua.growwithgoogleteamproject.ui;
         See the License for the specific language governing permissions and
         limitations under the License.
  */
+package com.madonasyombua.growwithgoogleteamproject.actvities;
+
+
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -35,15 +36,16 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.madonasyombua.growwithgoogleteamproject.actvities.MainActivity;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.adapter.FragmentsAdapter;
 import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityLoginBinding;
 import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.login.LoginStatusManager;
+import com.madonasyombua.growwithgoogleteamproject.models.User;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.LoginFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.RegisterFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.intro.OnBoardingActivity;
+import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
 import java.util.Arrays;
 
@@ -207,14 +209,17 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
     }
 
     @Override
-    public void onSigninSuccess() {
-        startActivity(new Intent(this, MainActivity.class));
+    public void onSigninSuccess(User user) {
+        Intent intent = new Intent(this, MainActivity.class)
+                .putExtra(Constant.USER,user.bundleUp());
+        startActivity(intent);
+
         showHideProgressBar(false);
 
         LoginStatusManager.storeLoginStatus(this,true);
 
         Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
-
+        finish();
     }
 
     @Override
