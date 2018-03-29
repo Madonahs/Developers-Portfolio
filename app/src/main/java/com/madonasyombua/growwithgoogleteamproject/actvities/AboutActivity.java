@@ -27,8 +27,7 @@ import butterknife.ButterKnife;
 public class AboutActivity extends AppCompatActivity {
 
 
-    @BindView(R.id.backToNavDrawer)
-    ImageButton imageButton;
+    @BindView(R.id.backToNavDrawer)ImageButton imageButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -84,7 +84,6 @@ public class User extends FirebaseObject implements Serializable {
         user.setLocation(data.getString(Constant.LOCATION));
         user.setPhone(data.getString(Constant.PHONE));
         user.setEmail(data.getString(Constant.EMAIL));
-
         user.setWebsite(data.getString(Constant.WEB));
         user.setIntro(data.getString(Constant.INTRO));
         user.setStatus(data.getBoolean(Constant.STATUS));
@@ -96,7 +95,6 @@ public class User extends FirebaseObject implements Serializable {
         user.setLocation(data.getString(Constant.LOCATION));
         user.setPhone(data.getString(Constant.PHONE));
         user.setEmail(data.getString(Constant.EMAIL));
-
         user.setWebsite(data.getString(Constant.WEB));
         user.setIntro(data.getString(Constant.INTRO));
         user.setStatus(data.getBoolean(Constant.STATUS));
