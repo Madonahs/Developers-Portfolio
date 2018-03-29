@@ -1,21 +1,19 @@
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
-import android.content.Context;
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link InterestFragment.OnFragmentInteractionListener} interface
+ *
  * to handle interaction events.
  * Use the {@link InterestFragment#newInstance} factory method to
  * create an instance of this fragment.
@@ -76,8 +74,8 @@ public class InterestFragment extends Fragment {
             mListener.onFragmentInteraction(uri);
         }
     }
-
-    @Override
+//implement this on Main activity to get user
+  /*  @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
@@ -86,8 +84,13 @@ public class InterestFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+<<<<<<< HEAD
         ((AppCompatActivity)(context)).getSupportActionBar().setTitle(getString(R.string.interest));
-    }
+    }*/
+
+        //((AppCompatActivity)(context)).getSupportActionBar().setTitle(getString(R.string.interest));
+
+
 
     @Override
     public void onDetach() {

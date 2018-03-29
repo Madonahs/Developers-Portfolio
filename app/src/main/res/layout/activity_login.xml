@@ -37,7 +37,6 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_rounded"
                 android:layout_marginRight="16dp"
-                android:fontFamily="@font/raleway"
                 android:layout_weight="1"
                 android:text="@string/login"/>
 
@@ -46,7 +45,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_rounded"
-                android:fontFamily="@font/raleway"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="1"
                 android:text="@string/register" />
@@ -72,7 +70,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:fontFamily="@font/raleway"
             android:text="@string/social_network"
             android:textSize="20sp" />
 
@@ -96,7 +93,6 @@
                 android:layout_height="64dp"
                 android:background="@drawable/ic_facebook"
                 android:layout_marginRight="16dp"
-                android:fontFamily="@font/raleway"
                 android:layout_weight="1" />
 
             <Button
@@ -104,7 +100,6 @@
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:background="@drawable/ic_google"
-                android:fontFamily="@font/raleway"
                 android:layout_marginLeft="16dp"
                 android:layout_weight="1" />
 
@@ -120,5 +115,6 @@
     </LinearLayout>
 
     <!---Button for social network-->
+
 </ScrollView>
 </layout>

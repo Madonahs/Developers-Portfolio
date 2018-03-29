@@ -1,195 +1,125 @@
 package com.madonasyombua.growwithgoogleteamproject.actvities;
 
-import android.annotation.SuppressLint;
-import android.content.DialogInterface;
-import android.content.Intent;
+
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.TextInputEditText;
-import android.support.v7.app.AlertDialog;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
-import android.util.Log;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
+import android.widget.AdapterView;
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.models.Feeds;
-import com.madonasyombua.growwithgoogleteamproject.util.Constant;
+import com.madonasyombua.growwithgoogleteamproject.ui.fragment.PostFeedFragment;
+import com.madonasyombua.growwithgoogleteamproject.models.Post;
+import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
-public class AddFeeds extends AppCompatActivity {
+public class AddFeeds extends AppCompatActivity implements PostFeedFragment.OnFragmentInteractionListener {
+
+    /**
+     * We need to implement  ProfileFragment.OnFragmentInteractionListener,
+     AdapterView.OnItemClickListener so that we can get the instances.
+     */
     private static final String TAG = "AddFeeds";
-    private static final int GALLERY_REQUEST_CODE = 10;
-    public static final int CAMERA_REQUEST_CODE = 11;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
+    private Post receivedPost;
+    private ArrayList<Post> mPost;
 
-    //FIXME: 3:10:2018 please check the addNAme we can remove it and add other functions i can help too just got tired.
+    private String stringPost, stringDeletedPost, stringComment, stringCommentingAs,
+            stringDeletePost, stringYes, stringCancel, stringDeletedComment,
+            stringDeleteComment, stringSentComment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_feeds);
-        ButterKnife.bind(this);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-    }
-   /*// @BindView(R.id.addName)
-   // TextInputEditText edit_project_name;
-    @BindView(R.id.addDescription)
-    TextInputEditText edit_project_description;
-    @BindView(R.id.cameraButton)
-    ImageButton imageButton;
+        stringPost = getResources().getString(R.string.post);
+        stringDeletedPost = getResources().getString(R.string.deleted_post);
+        stringComment = getResources().getString(R.string.comment);
+        stringCommentingAs = getResources().getString(R.string.commenting_as);
+        stringDeletePost = getResources().getString(R.string.delete_post);
+        stringYes = getResources().getString(R.string.yes);
+        stringCancel = getResources().getString(R.string.cancel);
+        stringDeletedComment = getResources().getString(R.string.deleted_comment);
+        stringDeleteComment = getResources().getString(R.string.delete_comment);
+        stringSentComment = getResources().getString(R.string.sent_comment);
 
-    String project_name;
-    String project_description;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(stringPost);
 
-    //Firebase database
-    FirebaseDatabase database;
-    DatabaseReference reference;
-    FirebaseStorage storage;
-    StorageReference storageReference;
+        mPost = new ArrayList<>();
+        receivedPost = (Post) getIntent().getSerializableExtra("post");
+        mPost.add(receivedPost);
 
-
-    private ImageButton sendButton1;
-    @SuppressLint("WrongViewCast")
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_feeds);
-        ButterKnife.bind(this);
-
-        //init firebase
-        database = FirebaseDatabase.getInstance();
-        reference = database.getReference(Constant.FIREBASE_FEEDS);
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference().child("feeds_photos");
-
-        //clear Feeds Button
-        ImageButton clearFeedsButton = findViewById(R.id.feedsClear);
-        if(clearFeedsButton != null)
-        clearFeedsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-
-            }
-        });
-
-        //Adding to FIrebase
-
-
-        /*FloatingActionButton addingFeed = findViewById(R.id.fab);
-        addingFeed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addFeedsToDb();
-                finish();
-            }
-        });*/
-
-        //Giving the options of taking a picture or gallery
-        //Ayo - I can create a custom dialog later
-        /*imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                createDialog();
-            }
-        });
-    }
-
-    private void createDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(AddFeeds.this);
-        builder.setTitle("Choose Image Source");
-        builder.setCancelable(true);
-        builder.setMessage("Choose between taking a picture or picking from gallery");
-
-        //Camera option
-        builder.setPositiveButton("Camera", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                openCamera();
-                Toast.makeText(AddFeeds.this, "Camera", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        //gallery option
-        builder.setNegativeButton("Gallery", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                openGallery();
-                Toast.makeText(AddFeeds.this, "Gallery", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-
-    private void openGallery() {
-        Intent galleryIntent = new Intent(Intent.ACTION_PICK);
-        galleryIntent.setType("image/*");
-        startActivityForResult(galleryIntent, GALLERY_REQUEST_CODE);
-    }
-
-    private void openCamera() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, CAMERA_REQUEST_CODE);
-        }
-    }
-
-    // FIXME: 3/7/2018 Figure out how to connect the user to storage
-    // TODO: 3/7/2018 Not fully done
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case GALLERY_REQUEST_CODE:
-                if (resultCode == RESULT_OK){
-                    Uri uri = data.getData();
-                }
-                break;
-            case CAMERA_REQUEST_CODE:
-                if (resultCode == RESULT_OK){
-
-                }
-        }
-    }
-
-    private void addFeedsToDb() {
-      //  project_name = edit_project_name.getText().toString().trim();
-        project_description = edit_project_description.getText().toString().trim();
-        Log.e(TAG, "addFeedsToDb: " + project_name + " " + project_description );
-
-        if (TextUtils.isEmpty(project_name) && TextUtils.isEmpty(project_description)) {
-       //     edit_project_name.setError("Error");
-            edit_project_description.setError("Error");
-            Toast.makeText(this, "Please fill in the info", Toast.LENGTH_SHORT).show();
-        } else {
-            Feeds feeds = new Feeds(project_name, project_description);
-            reference.push().setValue(feeds).addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    if (task.isSuccessful()) {
-                        Toast.makeText(AddFeeds.this, "The upload is successful", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(AddFeeds.this, "Failure", Toast.LENGTH_SHORT).show();
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
+        mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(this, R.color.colorAccent));
+        mSwipeRefreshLayout.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        updatePost();
                     }
                 }
-            });
+        );
 
-        }
-    }*/
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mRecyclerView.setHasFixedSize(true);
+        // use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+    }
+
+    /**
+     * Displays the comment dialog for submitting a comment.
+     */
+    public void showCommentDialog(View v) {
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    /**
+     * Sends an update request to the server and populates the post feed.
+     */
+    public void updatePost() {
 
 
+    }
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onDialogSubmit() {
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onDialogSubmit(PostFeedFragment dialog, String text, String fileName) {
+
+    }
 }
+

@@ -41,24 +41,21 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <!-- when done we need to start the .ui.LoginActivity -->
+        <!-- when done we need to start the .ui.LoginActivity for login -->
         <activity
-            android:name=".actvities.MainActivity"
+            android:name=".ui.LoginActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-       <!-- <activity
+        <activity
             android:name=".actvities.MainActivity"
-            android:theme="@style/AppTheme" />-->
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.intro.OnBoardingActivity"
             android:theme="@style/AppTheme" />
-        <!--<activity
-            android:name=".actvities.MainActivity"
-            android:theme="@style/AppTheme" />-->
         <activity
             android:name=".actvities.InterestActivity"
             android:theme="@style/AppTheme" />
@@ -69,16 +66,12 @@
             android:name=".actvities.SettingsActivity"
             android:label="@string/title_activity_settings" />
 
-        <activity android:name=".actvities.AddFeeds" />
-
-        <activity
-            android:name=".actvities.AboutActivity"
-            android:theme="@style/AppTheme"/>
-        <activity
-            android:name=".actvities.HelpActivity"
-            android:theme="@style/NavTheme"/>
-
-
+        <activity android:name=".actvities.AddFeeds"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".actvities.AboutActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".actvities.HelpActivity"
+            android:theme="@style/AppTheme" />
 
     </application>
 

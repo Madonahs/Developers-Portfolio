@@ -4,27 +4,25 @@ import com.madonasyombua.growwithgoogleteamproject.models.User;
 import java.io.Serializable;
 
 /**
- * Created by madon on 3/10/2018.
+ * Created by madon on 3/20/2018.
  */
-/**
- *A  user submitted comment
- *
- * */
-public class UserComment implements Serializable {
-    int cos;
+
+public class Comment implements Serializable {
+
+    int cid;
     private User user;
     private String text, commented, image;
 
-    public UserComment(int cos, User user, String text, String commented, String image) {
-        this.cos = cos;
+    public Comment(int cid, User user, String text, String commented, String image) {
+        this.cid = cid;
         this.user = user;
         this.text = text;
         this.commented = commented;
         this.image = image;
     }
 
-    public void setCos(int cid) {
-        this.cos = cid;
+    public void setCid(int cid) {
+        this.cid = cid;
     }
 
     public void setUser(User user) {
@@ -43,8 +41,8 @@ public class UserComment implements Serializable {
         this.image = image;
     }
 
-    public int getcos() {
-        return cos;
+    public int getCid() {
+        return cid;
     }
 
     public User getUser() {
@@ -63,4 +61,3 @@ public class UserComment implements Serializable {
         return image;
     }
 }
-

@@ -3,17 +3,14 @@ package com.madonasyombua.growwithgoogleteamproject.actvities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
-import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.ui.SharedPref;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -47,7 +44,6 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
         ButterKnife.bind(this);
         setCorrectTheme();
 
-
         backToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +53,7 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
             }
         });
 
+        //for now we will use this
         faq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

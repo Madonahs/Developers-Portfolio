@@ -5,16 +5,17 @@ import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 import android.widget.Toast;
-
 import com.google.android.gms.maps.model.LatLng;
-
 import java.util.List;
 
 /**
  * Created by madona on 2/27/2018.
  */
 
-// we will need this for location
+/**
+ * we will need this for location
+ */
+
 public class GeoAddressUtil {
 
     public static List<Address> getAddress(double latitude, double longitude, Activity activity) {
@@ -38,6 +39,12 @@ public class GeoAddressUtil {
         }
     }
 
+    /**
+     *
+     * @param context
+     * @param name
+     * @return
+     */
     public static LatLng getLatLng(Context context, String name){
         Geocoder gc = new Geocoder(context);
         LatLng pos = null;

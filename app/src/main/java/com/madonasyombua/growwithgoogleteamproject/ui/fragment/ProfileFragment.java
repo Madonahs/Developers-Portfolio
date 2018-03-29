@@ -1,6 +1,5 @@
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
@@ -40,14 +39,7 @@ import static android.view.View.GONE;
  */
 public class ProfileFragment extends Fragment
         implements ProfileFragmentDialog.OnSubmitListener, View.OnTouchListener {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
     private FragmentProfileBinding mBinding;
     private ProfileFragmentDialog dialog;
     private OnFragmentInteractionListener mListener;
@@ -65,13 +57,7 @@ public class ProfileFragment extends Fragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-            user = User.build(getArguments().getBundle(Constant.USER));
-        }
-        //TODO: remove
-        user = new User();
+        user = User.build(getArguments().getBundle(Constant.USER));
 
         GestureDetector.SimpleOnGestureListener listener = new GestureDetector.SimpleOnGestureListener() {
 
@@ -135,13 +121,13 @@ public class ProfileFragment extends Fragment
             mBinding.phoneTv.setVisibility(GONE);
 
         mBinding.setUser(user);
-        setStatus(false/*TODO: Replace with user.getStatus*/);
+        setStatus(user.getStatus());
         mBinding.intro.setText(Html.fromHtml("<u>Intro</u>"));
         return mBinding.getRoot();
     }
 
-
-    @Override
+// implement this on the main activity
+   /* @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
@@ -150,7 +136,7 @@ public class ProfileFragment extends Fragment
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
-    }
+    }*/
 
     @Override
     public void onDetach() {
@@ -207,16 +193,16 @@ public class ProfileFragment extends Fragment
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     * @param user User object.
      * @return A new instance of fragment ProfileFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ProfileFragment newInstance(String param1, String param2) {
+    public static ProfileFragment newInstance(@NonNull User user) {
+        if(user == null)
+            throw new IllegalArgumentException("Argument cannot be null");
         ProfileFragment fragment = new ProfileFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putBundle(Constant.USER,user.bundleUp());
         fragment.setArguments(args);
         return fragment;
     }
@@ -225,17 +211,25 @@ public class ProfileFragment extends Fragment
      * Sets the user status and updates indicator
      * according to online state
      *
-     * @param online The status of the user
+     * @param status The status of the user
      */
-    private void setStatus(boolean online) {
-        if (online) {
-            mBinding.status.setCompoundDrawablesWithIntrinsicBounds(getResources()
-                    .getDrawable(R.drawable.ic_online), null, null, null);
-            mBinding.status.setText(getString(R.string.online));
-        } else {
-            mBinding.status.setCompoundDrawablesWithIntrinsicBounds(getResources()
-                    .getDrawable(R.drawable.ic_offline), null, null, null);
-            mBinding.status.setText(getString(R.string.offline));
+    private void setStatus(User.Status status) {
+        switch (status) {
+            case ONLINE:
+            {
+                mBinding.status.setCompoundDrawablesWithIntrinsicBounds(getResources()
+                        .getDrawable(R.drawable.ic_online), null, null, null);
+                mBinding.status.setText(getString(R.string.online));
+            }
+
+            break;
+            case OFFLINE:
+            {
+                mBinding.status.setCompoundDrawablesWithIntrinsicBounds(getResources()
+                        .getDrawable(R.drawable.ic_offline), null, null, null);
+                mBinding.status.setText(getString(R.string.offline));
+            }
+            break;
         }
     }
 }

@@ -9,25 +9,31 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
+import com.madonasyombua.growwithgoogleteamproject.login.LoginStatusManager;
+import com.madonasyombua.growwithgoogleteamproject.models.User;
 import com.madonasyombua.growwithgoogleteamproject.ui.SharedPref;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.AboutFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.FeedsFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.InterestFragment;
+import com.madonasyombua.growwithgoogleteamproject.ui.fragment.PostFeedFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProfileFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProjectsFragment;
 import com.madonasyombua.growwithgoogleteamproject.util.BottomNavigationViewHelper;
+import com.madonasyombua.growwithgoogleteamproject.util.Constant;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,30 +41,38 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity
         extends AppCompatActivity
-        implements OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener,  SharedPreferences.OnSharedPreferenceChangeListener {
+        implements FeedsFragment.OnFragmentInteractionListener,
+        NavigationView.OnNavigationItemSelectedListener,
+        SharedPreferences.OnSharedPreferenceChangeListener,
+        PostFeedFragment.OnFragmentInteractionListener {
 
     private Fragment fragment;
     private static final String TAG = "current-frag";
-
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.drawer_container)
     DrawerLayout drawerLayout;
     @BindView(R.id.nav_view)
     NavigationView navView;
-
     private CircleImageView profilePicView;
     private TextView userName;
     private TextView userProfession;
     SharedPref sharedPref;
     private boolean prev_State = false;
+    private User user;
+
+    private static int uid;
 
 
-
+    /**
+     * Theme can only be changed before setContentView is called.
+     * Therefore, I am changing the theme on here.
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //Theme can only be changed before setContentView is called.
-        //Therefore, I am changing the theme on here.
+
         sharedPref = new SharedPref(this);
         if (sharedPref.loadNightModeState()) {
             setTheme(R.style.DarkTheme);
@@ -73,25 +87,20 @@ public class MainActivity
         //This method will save the theme and initiates the preferenceChange listener
         setCorrectTheme();
 
-        /** Get all user information views from the drawer header view*/
+        // Get all user information views from the drawer header view
         View drawerHeaderView = navView.getHeaderView(0);
         profilePicView = drawerHeaderView.findViewById(R.id.drawer_header_user_image);
         userName = drawerHeaderView.findViewById(R.id.drawer_header_user_name);
         userProfession = drawerHeaderView.findViewById(R.id.drawer_header_user_profession);
 
-        /**Set action bar, navigation drawer, navigation drawer header*/
+        //Set action bar, navigation drawer, navigation drawer header
         setSupportActionBar(toolbar);
         setupNavDrawer();
         setDrawerHeader();
         fragment = getSupportFragmentManager().findFragmentByTag(TAG);
         if (fragment == null) {
             fragment = new FeedsFragment();
-
         }
-
-
-        //This is my bottom navigator for easy navigation couldn't draw this on my mockup
-        // since it was difficult to squeeze everything.
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         BottomNavigationViewHelper.disableShiftMode(navigation);
@@ -100,6 +109,14 @@ public class MainActivity
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.content, fragment, TAG);
         transaction.commit();
+
+        /*TODO: Get user data from intent or load from DB if intent is null*/
+        Bundle data = getIntent().getBundleExtra(Constant.USER);
+        if (data != null)
+            user = User.build(data);
+        else
+            //TODO: load from DB
+            user = new User("this guy", "thisguy@devs.com", "000000");
     }
 
     /**
@@ -122,10 +139,12 @@ public class MainActivity
 
     /**
      * Set user information - profile pic, name, profession
+     * Logo image, sample username, sample user profession used here
+     * Can be swapped with Picasso or Glide image loader
+     * currently dummy data
      */
     private void setDrawerHeader() {
-        // Logo image, sample username, sample user profession used here
-        // Can be swapped with Picasso or Glide image loader
+
         profilePicView.setImageResource(R.drawable.madonah);
         userName.setText(getString(R.string.about_developer_name1));
         userProfession.setText(getString(R.string.dummy_position));
@@ -136,72 +155,131 @@ public class MainActivity
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            // we will start the fragments once we have worked on them.
+            List<Fragment> fragments = getSupportFragmentManager().getFragments();
+            boolean isOnStack = false;
             switch (item.getItemId()) {
                 case R.id.action_feeds:
-                   fragment = new FeedsFragment();
+                    fragment = new FeedsFragment();
+                    for(Fragment frag:fragments){
+                        /* Check if fragment is on stack*/
+                        if(frag instanceof FeedsFragment){
+                            isOnStack = true;
+                            break;
+                        }
+                    }
                     break;
                 case R.id.action_interests:
                     fragment = new InterestFragment();
+                    for(Fragment frag:fragments){
+                        /* Check if fragment is on stack*/
+                        if(frag instanceof InterestFragment){
+                            isOnStack = true;
+                            break;
+                        }
+                    }
                     break;
                 case R.id.action_projects:
                     fragment = new ProjectsFragment();
+                    for(Fragment frag:fragments){
+                        /* Check if fragment is on stack*/
+                        if(frag instanceof ProjectsFragment){
+                            isOnStack = true;
+                            break;
+                        }
+                    }
                     break;
                 case R.id.action_profile:
-                    fragment = new ProfileFragment();
+                    fragment = ProfileFragment.newInstance(user);
+                    for(Fragment frag:fragments){
+                        /* Check if fragment is on stack*/
+                        if(frag instanceof ProfileFragment){
+                            isOnStack = true;
+                            break;
+                        }
+                    }
                     break;
             }
 
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.content, fragment, TAG);
-            transaction.commit();
+            /*
+                Prevent duplicate record on back stack and
+                keep consistent back navigation
+             */
+            if (!isOnStack)
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.content, fragment, TAG)
+                        .addToBackStack(null)
+                        .commit();
 
             return true;
         }
 
     };
 
-    /**When back button pressed hide navigation drawer if open else move task to back*/
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBundle(Constant.USER, user.bundleUp());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        user = User.build(savedInstanceState.getBundle(Constant.USER));
+    }
+
+    /**
+     * When back button pressed hide navigation drawer if open else move task to back
+     */
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawers();
         } else {
-            moveTaskToBack(true);
+            /* Manages back navigation. Better than quiting the activity */
+            if (getSupportFragmentManager().getBackStackEntryCount() > 0)
+                getSupportFragmentManager().popBackStackImmediate();
+            else
+                moveTaskToBack(true);
         }
     }
 
-    /** Implement Navigation Drawer list item click listener*/
+    /**
+     * @param item item
+     * @return After implementation return true for the below cases
+     */
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // After implementation return true for the below cases
+        Intent intent = null;
         switch (item.getItemId()) {
             case R.id.messages:
-                // Take user to messages screen
+
                 return false;
             case R.id.manage_profile:
-                // Take user to edit profile screen
+
                 return false;
 
             case R.id.settings:
-                // Take user to setting screen
-                Intent intent = new Intent(this, SettingsActivity.class);
+                intent = new Intent(this, SettingsActivity.class);
                 startActivity(intent);
-                return false;
+                return true;
 
             case R.id.about:
-                // Take user to about screen
-                Intent intent1 = new Intent(this, AboutActivity.class);
-                startActivity(intent1);
-                return false;
+                intent = new Intent(this, AboutActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.help:
-                // Take user to help screen
-                Intent intent2 = new Intent(this, HelpActivity.class);
-                startActivity(intent2);
-                return false;
+                intent = new Intent(this, HelpActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.logout:
-                // logout
-                return false;
+                /* Sign the user out out the app */
+                FirebaseAuth.getInstance().signOut();
+                LoginStatusManager.storeLoginStatus(this, false);
+                intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
 
         }
         return false;
@@ -210,6 +288,8 @@ public class MainActivity
 
     /**
      * Implement Navigation Drawer list item click listener
+     *
+     * @param uri
      */
 
     @Override
@@ -218,10 +298,31 @@ public class MainActivity
     }
 
     @Override
+    public void onDialogSubmit() {
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onDialogSubmit(PostFeedFragment dialog, String text, String fileName) {
+
+    }
+
+    /**
+     * the sharedP is going to change
+     *
+     * @param sharedPreferences
+     * @param key
+     */
+    @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        //they sharedP is going to change
-        if (key.equals("enable_dark_mode")){
-            sharedPref.setNightModeState(sharedPreferences.getBoolean(key,false));
+
+        if (key.equals("enable_dark_mode")) {
+            sharedPref.setNightModeState(sharedPreferences.getBoolean(key, false));
         }
     }
 
@@ -229,9 +330,10 @@ public class MainActivity
     protected void onDestroy() {
         super.onDestroy();
         PreferenceManager.getDefaultSharedPreferences(this)
-                .unregisterOnSharedPreferenceChangeListener(this);    }
+                .unregisterOnSharedPreferenceChangeListener(this);
+    }
 
-    private void setCorrectTheme(){
+    private void setCorrectTheme() {
 
         SharedPreferences sharedPreference = PreferenceManager.getDefaultSharedPreferences(this);
         sharedPref.setNightModeState(sharedPreference.getBoolean("enable_dark_mode", false));
@@ -239,17 +341,18 @@ public class MainActivity
 
     }
 
+    /**
+     * Activities must be started again to show the theme change,
+     */
     @Override
     protected void onResume() {
         super.onResume();
-        //Activities must be started again to show the theme change,
-        if(prev_State != sharedPref.loadNightModeState())
-        {
+
+        if (prev_State != sharedPref.loadNightModeState()) {
             startActivity(new Intent(this, this.getClass()));
             finish();
         }
     }
-
 
     @Override
     protected void onStart() {
@@ -261,5 +364,22 @@ public class MainActivity
         super.onStop();
     }
 
+
+    /**
+     * Converts density pixels to pixels.
+     *
+     * @param dp   Density pixels
+     * @param view The view
+     * @return Density pixels
+     */
+    public static float dpToPixels(int dp, View view) {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, view.getResources().getDisplayMetrics());
+    }
+
+    /** FIXME: 3/23/2018
+     * We need to Implements Interest.OnFragmentInteractionListener,
+     * Profile.OnFragmentInteractionListener,Projects.OnFragmentInteractionListener
+     * on the main so that we can link the user to them, once they log in.
+     */
 }
 

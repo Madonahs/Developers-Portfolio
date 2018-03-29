@@ -1,11 +1,10 @@
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
-import android.content.Context;
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -119,7 +118,7 @@ public class ProjectsFragment extends Fragment {
         mAdapter.notifyDataSetChanged();
     }
 
-    @Override
+   /* @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
@@ -128,8 +127,12 @@ public class ProjectsFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+
         ((AppCompatActivity)(context)).getSupportActionBar().setTitle(getString(R.string.projects));
-    }
+    }*/
+
+       // ((AppCompatActivity)(context)).getSupportActionBar().setTitle(getString(R.string.projects));
+
 
     @Override
     public void onDetach() {

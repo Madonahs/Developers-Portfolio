@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentLoginBinding;
@@ -23,7 +22,7 @@ import com.madonasyombua.growwithgoogleteamproject.actvities.LoginActivity;
 public class LoginFragment extends Fragment {
     private FragmentLoginBinding binding;
     private static final String TAG = "LoginFragment";
-    /*
+    /**
     * This class is used to get data from the fragment like the username and stuff.
     * It also binds the views
      */

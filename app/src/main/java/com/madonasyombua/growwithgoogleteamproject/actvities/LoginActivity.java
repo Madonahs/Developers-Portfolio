@@ -21,20 +21,24 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.madonasyombua.growwithgoogleteamproject.R;
+import com.madonasyombua.growwithgoogleteamproject.actvities.MainActivity;
 import com.madonasyombua.growwithgoogleteamproject.adapter.FragmentsAdapter;
 import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityLoginBinding;
 import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.login.LoginStatusManager;
+import com.madonasyombua.growwithgoogleteamproject.models.User;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.LoginFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.RegisterFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.intro.OnBoardingActivity;
+import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
 import java.util.Arrays;
 
 import jonathanfinerty.once.Once;
 
-// I see we have a jonathanfinerty import here, I hope we can get details on it
+
 
 public class LoginActivity extends AppCompatActivity implements AppLoginManager.LoginInterface, View.OnClickListener {
 
@@ -55,8 +59,9 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if(LoginStatusManager.getLoginStatus(this)){
+        /*Send user to Main activity if they're already signed in*/
+        if(LoginStatusManager.getLoginStatus(this) &&
+                FirebaseAuth.getInstance().getCurrentUser() != null){
             startActivity(new Intent(this, MainActivity.class));
             return;
         }
@@ -191,14 +196,17 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
     }
 
     @Override
-    public void onSigninSuccess() {
-        startActivity(new Intent(this, MainActivity.class));
+    public void onSigninSuccess(User user) {
+        Intent intent = new Intent(this, MainActivity.class)
+                .putExtra(Constant.USER,user.bundleUp());
+        startActivity(intent);
+
         showHideProgressBar(false);
 
-        LoginStatusManager.storeLoginStatus(this);
+        LoginStatusManager.storeLoginStatus(this,true);
 
         Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
-
+        finish();
     }
 
     @Override
