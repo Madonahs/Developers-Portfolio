@@ -81,7 +81,7 @@ public class MainActivity
     /**
      * Theme can only be changed before setContentView is called.
      * Therefore, I am changing the theme on here.
-     *
+     * store data
      * @param savedInstanceState
      */
     @Override
@@ -215,8 +215,7 @@ public class MainActivity
             }
 
             /*
-                Prevent duplicate record on back stack and
-                keep consistent back navigation
+                Prevent duplicate record on back stack and keep consistent back navigation
              */
             if (!isOnStack)
                 getSupportFragmentManager().beginTransaction()
