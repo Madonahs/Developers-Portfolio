@@ -191,12 +191,13 @@ public class MainActivity
         Intent intent = null;
         switch (item.getItemId()) {
             case R.id.messages:
-
-                return false;
+                intent = new Intent(this, MessageActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.manage_profile:
-
-                return false;
-
+                intent = new Intent(this, ManageProfileActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.settings:
                 intent = new Intent(this, SettingsActivity.class);
                 startActivity(intent);

@@ -47,6 +47,7 @@
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -65,14 +66,17 @@
         <activity
             android:name=".actvities.SettingsActivity"
             android:label="@string/title_activity_settings" />
-
-        <activity android:name=".actvities.AddFeeds"
+        <activity
+            android:name=".actvities.AddFeeds"
             android:theme="@style/AppTheme" />
-        <activity android:name=".actvities.AboutActivity"
+        <activity
+            android:name=".actvities.AboutActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".actvities.HelpActivity"
+        <activity
+            android:name=".actvities.HelpActivity"
             android:theme="@style/AppTheme" />
-
+        <activity android:name=".actvities.ManageProfileActivity" />
+        <activity android:name=".actvities.MessageActivity"></activity>
     </application>
 
 </manifest>
