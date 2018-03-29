@@ -23,7 +23,6 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.actvities.MainActivity;
 import com.madonasyombua.growwithgoogleteamproject.adapter.FragmentsAdapter;
 import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityLoginBinding;
 import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
