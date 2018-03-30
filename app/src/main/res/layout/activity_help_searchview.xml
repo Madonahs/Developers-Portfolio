@@ -18,6 +18,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,20 +28,21 @@
     <FrameLayout
         android:id="@+id/toolbar_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="?attr/actionBarSize">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/tb_help"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/background_color_of_toolbars">
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
         </android.support.v7.widget.Toolbar>
 
         <com.miguelcatalan.materialsearchview.MaterialSearchView
             android:id="@+id/search_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         </com.miguelcatalan.materialsearchview.MaterialSearchView>
 
         <ImageButton
@@ -49,9 +51,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:background="@color/active_indicator"
-            android:src="@drawable/ic_action_back"
             android:contentDescription="@string/back"
-            android:visibility="gone"/>
+            android:src="@drawable/ic_action_back"
+            android:visibility="gone" />
 
     </FrameLayout>
 
@@ -63,11 +65,11 @@
         android:layout_marginLeft="@dimen/margin_8"
         android:layout_marginStart="@dimen/margin_8"
         android:layout_marginTop="@dimen/margin_8"
-        android:text="@string/faq"
+        android:paddingBottom="10dp"
         android:paddingTop="4dp"
+        android:text="@string/faq"
         android:textColor="@color/grey_600"
         android:textSize="18sp"
-        android:paddingBottom="10dp"
         android:textStyle="bold" />
 
     <!-- contact us page, loads contact us dialog -->
@@ -78,9 +80,9 @@
         android:layout_marginLeft="@dimen/margin_8"
         android:layout_marginStart="@dimen/margin_8"
         android:layout_marginTop="@dimen/margin_8"
-        android:text="@string/contactus"
-        android:paddingTop="4dp"
         android:paddingBottom="10dp"
+        android:paddingTop="4dp"
+        android:text="@string/contactus"
         android:textColor="@color/grey_600"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -93,11 +95,12 @@
         android:layout_marginLeft="@dimen/margin_8"
         android:layout_marginStart="@dimen/margin_8"
         android:layout_marginTop="@dimen/margin_8"
-        android:text="@string/terms"
-        android:paddingTop="4dp"
         android:paddingBottom="10dp"
+        android:paddingTop="4dp"
+        android:text="@string/terms"
         android:textColor="@color/grey_600"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="visible" />
 
 </LinearLayout>
