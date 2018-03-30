@@ -29,7 +29,8 @@ public class Post implements Serializable {
     private String text, posted, image;
    private ArrayList<Comment> comments;
 
-    public Post(int pid, User user, String text, String posted, int numberOfComments, ArrayList<Comment> comments, int upvotes, int downvotes, int voted, String image) {
+    public Post(int pid, User user, String text, String posted, int numberOfComments,
+                ArrayList<Comment> comments, int upvotes, int downvotes, int voted, String image) {
         this.pid = pid;
         this.user = user;
         this.text = text;

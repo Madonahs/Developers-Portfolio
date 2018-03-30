@@ -21,9 +21,12 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.transition.TransitionManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,15 +37,27 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.madonasyombua.growwithgoogleteamproject.R;
+import com.madonasyombua.growwithgoogleteamproject.actvities.AddFeeds;
+import com.madonasyombua.growwithgoogleteamproject.models.Post;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
+
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+
 
 
 /**
@@ -55,7 +70,7 @@ public class PostFeedFragment extends DialogFragment {
     public static int RESULT_CAMERA     = 2;
 
     private OnFragmentInteractionListener mListener;
-
+    private static final String TAG = "AddFeeds";
     @BindView(R.id.post) EditText postText;
     @BindView(R.id.header)TextView header;
     @BindView(R.id.postingAs)TextView postingAs;
@@ -73,11 +88,15 @@ public class PostFeedFragment extends DialogFragment {
     private Uri fileUri;
     private Bitmap imageToUpload;
     private BitmapHandler bitmapHandler;
-    private String stringCameraImage, stringSomethingWentWrong;
+    private String stringCameraImage, stringSomethingWentWrong , post,username,currentUserId;
 
-    FirebaseDatabase database;
-    DatabaseReference reference;
-    FirebaseStorage storage;
+    private FirebaseDatabase database;
+    private DatabaseReference reference;
+    private FirebaseStorage storage;
+    private FirebaseAuth mAuth;
+
+
+
     StorageReference storageReference;
 
     public PostFeedFragment() {
@@ -107,10 +126,13 @@ public class PostFeedFragment extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
+        currentUserId= mAuth.getCurrentUser().getUid();
         database = FirebaseDatabase.getInstance();
         reference = database.getReference(Constant.FIREBASE_FEEDS);
         storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference().child("feeds_photos");
+        storageReference = storage.getReference().child("feeds_photos").child(currentUserId);
+
         stringCameraImage = getResources().getString(R.string.camera_image);
         stringSomethingWentWrong = getResources().getString(R.string.something_went_wrong);
 
@@ -272,12 +294,8 @@ public class PostFeedFragment extends DialogFragment {
 
     public void uploadImageToServer(final String encodedImage) {
      //FIXME: Update me to Firebase:
-      //  StringRequest uploadRequest = new StringRequest(Request.Method.POST, reference, new Response.Listener<String>() {
 
-            /*@Override
-            public void onResponse(String response) {
 
-            }
-        }*/
-}
+        }
+
 }
