@@ -21,6 +21,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -28,6 +29,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.adapter.FeedsAdapter;
 import com.madonasyombua.growwithgoogleteamproject.models.Post;
@@ -50,9 +52,7 @@ public class FeedsFragment extends Fragment{
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private CoordinatorLayout coordinatorLayout;
     private TextView displayEmpty;
-
     private ArrayList<Post> mPosts;
-
     private String stringStart, stringNewPost, stringPostingAs;
 
     public FeedsFragment() {
@@ -84,11 +84,9 @@ public class FeedsFragment extends Fragment{
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_feeds, container, false);
         coordinatorLayout = (CoordinatorLayout) view.findViewById(R.id.base);
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefresh);
-       // mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(getContext(), R.color.colorAccent));
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.add_feeds);
@@ -104,10 +102,7 @@ public class FeedsFragment extends Fragment{
 
         displayEmpty = (TextView) view.findViewById(R.id.displayEmpty);
         displayEmpty.setVisibility(View.GONE);
-
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        // mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setHasFixedSize(true);
 
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(getContext());
@@ -130,7 +125,7 @@ public class FeedsFragment extends Fragment{
     public void showPostDialog() {
         FragmentManager fm = getActivity().getSupportFragmentManager();
         System.out.println("fm: " + fm);
-        SharedPreferences prefs = getActivity().getSharedPreferences("com.madonasyombua.growwithgoogleteamproject", Context.MODE_PRIVATE);
+        SharedPreferences prefs = getActivity().getSharedPreferences("com.madonasyombua.growwithgoogleteamproject.ui.fragment", Context.MODE_PRIVATE);
         PostFeedFragment postDialog = PostFeedFragment.newInstance(stringNewPost, stringPostingAs,
                 prefs.getString("username", ""), prefs.getString("name", ""));
         postDialog.show(fm, "fragment_post_dialog");
@@ -181,9 +176,17 @@ public class FeedsFragment extends Fragment{
     /**
      * Updates the user's feed and populates the cards.
      */
+
+
     public void updateFeed() {
-      //will work on this
+      //Update feeds
+
     }
+
+    /**
+     * Displays a snackbar.
+     * @param text Text to display on the snackbar
+     */
 
 
 }
