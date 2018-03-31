@@ -30,7 +30,7 @@
         android:theme="@style/FontTheme"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.madonasyombua.growwithgoogleteamproject.actvities.ProfileActivity">
+        tools:context="com.madonasyombua.growwithgoogleteamproject.activities.ProfileActivity">
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"

@@ -12,7 +12,7 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.actvities;
+package com.madonasyombua.growwithgoogleteamproject.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="?attr/backgroundcolor"
-    tools:context="com.madonasyombua.growwithgoogleteamproject.actvities.HelpActivity">
+    tools:context="com.madonasyombua.growwithgoogleteamproject.activities.HelpActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
