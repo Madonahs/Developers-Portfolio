@@ -41,6 +41,8 @@ import butterknife.ButterKnife;
 public class HelpActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     // SearchView
+    private MaterialSearchView searchView;
+
     @BindView(R.id.backToMain)ImageButton backToMain;
     @BindView(R.id.faq)TextView faq;
     @BindView(R.id.contact)TextView contact;
@@ -58,13 +60,25 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
         }
         prev_State = sharedPref.loadNightModeState();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_help);
+        setContentView(R.layout.activity_help_searchview);
         ButterKnife.bind(this);
         setCorrectTheme();
 
         // Toolbar with Search Icon
-       /* Toolbar toolbar = (Toolbar) findViewById(R.id.tb_help);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.tb_help);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Help");
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+        });
+
+        searchView = (MaterialSearchView) findViewById(R.id.search_view);
         searchView.setVoiceSearch(true);
         searchView.setCursorDrawable(R.drawable.color_cursor_white);
         searchView.setSuggestions(getResources().getStringArray(R.array.search_suggestions));
@@ -91,7 +105,7 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
             public void onSearchViewClosed() {
                 // Do something something
             }
-        });*/
+        });
 
         backToMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,24 +175,24 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
-   /* @Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.help_menu, menu);
         MenuItem item = menu.findItem(R.id.action_search);
         searchView.setMenuItem(item);
         return true;
-    }*/
+    }
 
-    /*@Override
+    @Override
     public void onBackPressed() {
         if (searchView.isSearchOpen()) {
             searchView.closeSearch();
         } else {
             super.onBackPressed();
         }
-    }*/
+    }
 
-    /*@Override
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == MaterialSearchView.REQUEST_VOICE && resultCode == RESULT_OK) {
             ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
@@ -191,7 +205,7 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
             return;
         }
         super.onActivityResult(requestCode, resultCode, data);
-    }*/
+    }
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
