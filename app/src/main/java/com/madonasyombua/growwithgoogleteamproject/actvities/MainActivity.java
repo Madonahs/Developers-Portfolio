@@ -62,19 +62,15 @@ public class MainActivity
 
     private Fragment fragment;
     private static final String TAG = "current-frag";
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
-    @BindView(R.id.drawer_container)
-    DrawerLayout drawerLayout;
-    @BindView(R.id.nav_view)
-    NavigationView navView;
+    @BindView(R.id.toolbar)Toolbar toolbar;
+    @BindView(R.id.drawer_container)DrawerLayout drawerLayout;
+    @BindView(R.id.nav_view)NavigationView navView;
     private CircleImageView profilePicView;
     private TextView userName;
     private TextView userProfession;
     SharedPref sharedPref;
     private boolean prev_State = false;
     private User user;
-
     private static int uid;
 
 
@@ -213,7 +209,6 @@ public class MainActivity
                     }
                     break;
             }
-
             /*
                 Prevent duplicate record on back stack and keep consistent back navigation
              */

@@ -43,22 +43,15 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
     // SearchView
     private MaterialSearchView searchView;
 
-    @BindView(R.id.backToMain)
-    ImageButton backToMain;
-    @BindView(R.id.faq)
-    TextView faq;
-    @BindView(R.id.contact)
-    TextView contact;
-    @BindView(R.id.terms)
-    TextView terms;
+    @BindView(R.id.backToMain)ImageButton backToMain;
+    @BindView(R.id.faq)TextView faq;
+    @BindView(R.id.contact)TextView contact;
+    @BindView(R.id.terms)TextView terms;
     SharedPref sharedPref;
     private boolean prev_State = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        //Theme can only be changed before setContentView is called.
-        //Therefore, I am changing the theme on here.
         sharedPref = new SharedPref(this);
         if (sharedPref.loadNightModeState()) {
             setTheme(R.style.DarkTheme);
@@ -66,7 +59,6 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
             setTheme(R.style.AppTheme);
         }
         prev_State = sharedPref.loadNightModeState();
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help_searchview);
         ButterKnife.bind(this);
