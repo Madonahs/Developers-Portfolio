@@ -27,7 +27,6 @@ import android.provider.MediaStore;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.transition.TransitionManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -41,7 +40,6 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -51,9 +49,6 @@ import com.google.firebase.storage.StorageReference;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.models.Post;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
-
-import org.json.JSONObject;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -107,7 +102,7 @@ public class PostFeedFragment extends DialogFragment {
     private FirebaseStorage storage;
     private FirebaseAuth mAuth;
     private StorageReference storageReference;
-    JSONObject jsonResponse;
+
 
     public PostFeedFragment() {
         // Empty constructor required for DialogFragment
@@ -143,7 +138,6 @@ public class PostFeedFragment extends DialogFragment {
         reference = database.getReference().child("feeds");
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference().child("feeds_photos");
-        //mMessageDatabaseReference = mFireDatabase.getReference().child("messages");
 
         stringCameraImage = getResources().getString(R.string.camera_image);
         stringSomethingWentWrong = getResources().getString(R.string.something_went_wrong);
@@ -199,23 +193,12 @@ public class PostFeedFragment extends DialogFragment {
         );
 
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
-        sendButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                       Post post = new Post(postText.getText().toString(), "person", null);
-
-                        reference.push().setValue(post, new DatabaseReference.CompletionListener() {
-                            @Override
-                            public void onComplete(DatabaseError databaseError, DatabaseReference dataReference) {
-                                Log.i("FirebaseDebug", "The error is: " + databaseError.toString());
-                            }
-                        });
-                       postText.setText("");
-                       Toast.makeText(getContext(), "hello", Toast.LENGTH_SHORT).show();
-                    }
-                }
-        );
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uploadImageToServer();
+            }
+        });
 
         attachment.setVisibility(View.INVISIBLE);
         attachmentCloseButton.setOnClickListener(
@@ -252,7 +235,7 @@ public class PostFeedFragment extends DialogFragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        //work on results.
+        super.onActivityResult(requestCode, resultCode, data);
         try {
             System.out.println("resultCode: " + resultCode);
             if (resultCode == getActivity().RESULT_OK && data != null) {
@@ -267,8 +250,10 @@ public class PostFeedFragment extends DialogFragment {
                 attachment.setVisibility(View.VISIBLE);
                 if (requestCode == RESULT_LOAD_IMAGE) {
                     // Get the Image from data
+
                     Uri selectedImage = data.getData();
                     String[] filePathColumn = {MediaStore.Images.Media.DATA};
+
                     // Get the cursor
                     Cursor cursor = getActivity().getContentResolver().query(selectedImage,
                             filePathColumn, null, null, null);
@@ -346,36 +331,22 @@ public class PostFeedFragment extends DialogFragment {
     }
 
     public void uploadImageToServer() {
-        post = postText.getText().toString().trim();
         setEnabled(false);
-        Log.e(TAG, "addFeedsToDb: " + post + " " + imageToUpload);
-
-        if (TextUtils.isEmpty(post)) {
-            Toast.makeText(getContext(), "Please update whats on your mind", Toast.LENGTH_SHORT).show();
-            if (imageToUpload != null) {
-                setEnabled(false);
-                bitmapHandler.process(imageToUpload);
-                //FIXME 3/30/2018
-            } /*else {
-                Post feeds = new Post(post, imageToUpload, );
-                reference.push().setValue(feeds).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Log.i(TAG, "onComplete: Add Successful " + task);
-                            Toast.makeText(getContext(), "The upload is successful", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(getContext(), "Failure", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
-
-            }*/
-
-
+        if (imageToUpload != null) {
+            setEnabled(false);
+            bitmapHandler.process(imageToUpload);
         }
-    }
+        Post post = new Post(postText.getText().toString(), "person", null);
+            reference.push().setValue(post, new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(DatabaseError databaseError, DatabaseReference dataReference) {
+                    Log.i("Debug", "The error is: " + databaseError.toString());
+                }
+            });
+            postText.setText("");
+            Toast.makeText(getContext(), "Sending Feeds", Toast.LENGTH_SHORT).show();
+        }
+
     @Override
     public void onResume() {
         // Get existing layout params for the window

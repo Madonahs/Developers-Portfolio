@@ -80,9 +80,7 @@ public class FeedsFragment extends Fragment{
         super.onCreate(savedInstanceState);
         mPosts = new ArrayList<>();
 
-       // stringStart = getResources().getString(R.string.start);
-       // stringNewPost = getResources().getString(R.string.new_post);
-        //stringPostingAs = getResources().getString(R.string.posting_as);
+
 
     }
 
@@ -183,7 +181,7 @@ public class FeedsFragment extends Fragment{
      * Updates the user's feed and populates the cards.
      */
 
-
+    //FIXME : 4/1/2018
     public void updateFeed() {
       //Update feeds
 
