@@ -133,7 +133,7 @@ public class PostFeedFragment extends DialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
-        currentUserId = mAuth.getCurrentUser().getUid();
+//        currentUserId = mAuth.getCurrentUser().getUid();
         database = FirebaseDatabase.getInstance();
         reference = database.getReference().child("feeds");
         storage = FirebaseStorage.getInstance();
@@ -331,12 +331,17 @@ public class PostFeedFragment extends DialogFragment {
     }
 
     public void uploadImageToServer() {
+
        //TODO: Enable sending images to DataBase
         Post post = new Post(postText.getText().toString(), "person", null);
             reference.push().setValue(post, new DatabaseReference.CompletionListener() {
                 @Override
                 public void onComplete(DatabaseError databaseError, DatabaseReference dataReference) {
-                    Log.i("Firebase Debug", "The error is: " + databaseError.toString());
+                    //String error = databaseError.toString();
+                    if(databaseError != null) {
+                        String error = databaseError.toString();
+                    }
+                   // Log.i("Firebase Debug", "The error is: " + databaseError.toString());
                 }
             });
             postText.setText("");
