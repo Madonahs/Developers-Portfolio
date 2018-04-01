@@ -61,9 +61,6 @@ public class FeedsFragment extends Fragment{
     private RecyclerView.LayoutManager mLayoutManager;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private CoordinatorLayout coordinatorLayout;
-
-
-
     private ArrayList<Post> mPosts;
     @BindView(R.id.displayEmpty)TextView displayEmpty;
 

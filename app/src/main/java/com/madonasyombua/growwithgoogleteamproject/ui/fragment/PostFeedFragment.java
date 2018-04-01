@@ -331,11 +331,7 @@ public class PostFeedFragment extends DialogFragment {
     }
 
     public void uploadImageToServer() {
-        /*setEnabled(false);
-        if (imageToUpload != null) {
-            setEnabled(false);
-            bitmapHandler.process(imageToUpload);
-        }*/
+       //TODO: Enable sending images to DataBase
         Post post = new Post(postText.getText().toString(), "person", null);
             reference.push().setValue(post, new DatabaseReference.CompletionListener() {
                 @Override
