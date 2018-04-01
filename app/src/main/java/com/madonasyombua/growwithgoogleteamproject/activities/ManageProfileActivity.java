@@ -1,4 +1,4 @@
-package com.madonasyombua.growwithgoogleteamproject.actvities;
+package com.madonasyombua.growwithgoogleteamproject.activities;
 /*Copyright (c) 2018 Madona Syombua
 
         Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,35 +13,19 @@ package com.madonasyombua.growwithgoogleteamproject.actvities;
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
+
 import com.madonasyombua.growwithgoogleteamproject.R;
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
-
-public class AboutActivity extends AppCompatActivity {
-
-
-    @BindView(R.id.backToNavDrawer)ImageButton imageButton;
+public class ManageProfileActivity extends AppCompatActivity {
+    /**
+     * Start Manage Profile
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
-        ButterKnife.bind(this);
-
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AboutActivity.this, MainActivity.class);
-                startActivity(intent);
-
-            }
-        });
-
+        setContentView(R.layout.activity_manage_profile);
     }
 }

@@ -1,4 +1,4 @@
-package com.madonasyombua.growwithgoogleteamproject.actvities;
+package com.madonasyombua.growwithgoogleteamproject.activities;
 /*Copyright (c) 2018 Madona Syombua
 
         Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,16 +25,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.PostFeedFragment;
 import com.madonasyombua.growwithgoogleteamproject.models.Post;
 import java.util.ArrayList;
-
-import butterknife.BindView;
 
 public class AddFeeds extends AppCompatActivity implements PostFeedFragment.OnFragmentInteractionListener {
 

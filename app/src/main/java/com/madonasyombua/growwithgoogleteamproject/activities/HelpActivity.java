@@ -1,4 +1,4 @@
-package com.madonasyombua.growwithgoogleteamproject.actvities;
+package com.madonasyombua.growwithgoogleteamproject.activities;
 /*Copyright (c) 2018 Madona Syombua
 
         Licensed under the Apache License, Version 2.0 (the "License");
@@ -64,6 +64,7 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
         ButterKnife.bind(this);
         setCorrectTheme();
 
+
         // Toolbar with Search Icon
         Toolbar toolbar = (Toolbar) findViewById(R.id.tb_help);
         setSupportActionBar(toolbar);
@@ -106,6 +107,7 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
                 // Do something something
             }
         });
+
 
         backToMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,6 +176,7 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
             finish();
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
