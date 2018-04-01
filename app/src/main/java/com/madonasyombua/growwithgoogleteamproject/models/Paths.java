@@ -21,4 +21,5 @@ public class Paths {
 
   public static final String SL = "/";
   static final String USER = "user";
+  public static final String FEED = "feeds";
 }

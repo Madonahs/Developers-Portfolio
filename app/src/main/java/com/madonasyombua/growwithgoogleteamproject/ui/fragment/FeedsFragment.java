@@ -21,18 +21,24 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.adapter.FeedsAdapter;
+import com.madonasyombua.growwithgoogleteamproject.models.Paths;
 import com.madonasyombua.growwithgoogleteamproject.models.Post;
+import com.madonasyombua.growwithgoogleteamproject.util.FirebaseAction;
 
 import java.util.ArrayList;
 
@@ -60,6 +66,54 @@ public class FeedsFragment extends Fragment{
     @BindString(R.string.new_post)String stringNewPost;
     @BindString(R.string.postingas)String stringPostingAs;
 
+    private ChildEventListener feedsListener = new ChildEventListener() {
+        @Override
+        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+            // This is triggered when we receive a post
+            Post p = dataSnapshot.getValue(Post.class);
+
+            if(p != null) {
+                p.setKey(dataSnapshot.getKey());
+                if(!mPosts.contains(p)) {
+                    mPosts.add(p);
+                    mAdapter.notifyItemInserted(mPosts.size() - 1);
+                }
+            }
+        }
+
+        @Override
+        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+            // This will be triggered when a post on the feed changes, e.g. it gets a new up/down vote
+            Post p = dataSnapshot.getValue(Post.class);
+            if(p != null) {
+                p.setKey(dataSnapshot.getKey());
+                if (mPosts.contains(p)) {
+                    int idx = mPosts.indexOf(p);
+                    if(idx > -1) {
+                        mPosts.set(idx, p);
+                        mAdapter.notifyItemChanged(idx);
+                    }
+                }
+            }
+        }
+
+        @Override
+        public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+        }
+
+        @Override
+        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+    };
+    private boolean mListening = false;
+
     public FeedsFragment() {
         // Required empty public constructor
     }
@@ -79,9 +133,6 @@ public class FeedsFragment extends Fragment{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPosts = new ArrayList<>();
-
-
-
     }
 
     @Override
@@ -119,7 +170,7 @@ public class FeedsFragment extends Fragment{
             }
         }, true);
         mRecyclerView.setAdapter(mAdapter);
-        updateFeed();
+        startFeedListener();
         return view;
     }
 
@@ -140,6 +191,23 @@ public class FeedsFragment extends Fragment{
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(mAdapter != null && mRecyclerView != null && !mListening) {
+            startFeedListener();
+        } else {
+            Log.i("FeedsFragment", "Did not start feed listener, already listening: " + mListening);
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        FirebaseDatabase.getInstance().getReference(Paths.FEED).removeEventListener(feedsListener);
+        mListening = false;
     }
 
     @Override
@@ -182,9 +250,10 @@ public class FeedsFragment extends Fragment{
      */
 
     //FIXME : 4/1/2018
-    public void updateFeed() {
-      //Update feeds
-
+    public void startFeedListener() {
+        // Start listening for feed updates, feedsListener will look for changes.
+        FirebaseDatabase.getInstance().getReference("feeds").addChildEventListener(feedsListener);
+        mListening = true;
     }
 
     /**

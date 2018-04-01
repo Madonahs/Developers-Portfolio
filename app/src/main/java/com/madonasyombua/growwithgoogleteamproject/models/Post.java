@@ -13,7 +13,9 @@ package com.madonasyombua.growwithgoogleteamproject.models;
         See the License for the specific language governing permissions and
         limitations under the License.
  */
+import com.google.firebase.database.Exclude;
 import com.madonasyombua.growwithgoogleteamproject.util.Comment;
+import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,17 +24,17 @@ import java.util.ArrayList;
  * Created by madon on 3/20/2018.
  */
 
-public class Post implements Serializable {
+public class Post  extends FirebaseObject implements Serializable {
 
     int pid, numberOfComments, upvotes, downvotes, voted;
-    private User user;
     private String text, posted, image, username;
    private ArrayList<Comment> comments;
 
-    public Post(int pid, User user, String text, String posted, int numberOfComments,
+   public Post() {}
+
+    public Post(int pid, String text, String username, String posted, int numberOfComments,
                 ArrayList<Comment> comments, int upvotes, int downvotes, int voted, String image) {
         this.pid = pid;
-        this.user = user;
         this.text = text;
         this.posted = posted;
         this.numberOfComments = numberOfComments;
@@ -41,6 +43,7 @@ public class Post implements Serializable {
         this.downvotes = downvotes;
         this.voted = voted;
         this.image = image;
+        this.username = username;
     }
     public Post(String post, String name, String image) {
         this.text = post;
@@ -49,10 +52,6 @@ public class Post implements Serializable {
     }
     public void setPid(int pid) {
         this.pid = pid;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public void setText(String text) {
@@ -91,10 +90,6 @@ public class Post implements Serializable {
         return pid;
     }
 
-    public User getUser() {
-        return user;
-    }
-
     public String getText() {
         return text;
     }
@@ -125,6 +120,27 @@ public class Post implements Serializable {
 
     public String getImage() {
         return image;
+    }
+
+
+    @Exclude
+    @Override
+    public String getPath() {
+        return getBase() + getKey();
+    }
+
+    @Exclude
+    @Override
+    public String getBase() {
+        return Paths.FEED + Paths.SL;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
 

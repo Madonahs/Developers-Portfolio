@@ -3,6 +3,7 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/tools"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="4dp"
@@ -10,9 +11,9 @@
     android:layout_weight="0.45"
     android:background="@drawable/card_selected"
     android:tag="closed"
+    app:ignore="NamespaceTypo"
     card_view:cardCornerRadius="0dp"
-    card_view:cardElevation="1dp"
-    app:ignore="NamespaceTypo">
+    card_view:cardElevation="1dp">
     <!--TODO: connect all the imageview to the db and add functions Ayo i can help with this just wanted to finish the feeds layout -->
 
     <LinearLayout
