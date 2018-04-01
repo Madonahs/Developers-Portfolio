@@ -142,12 +142,12 @@ public class PostFeedFragment extends DialogFragment {
         stringCameraImage = getResources().getString(R.string.camera_image);
         stringSomethingWentWrong = getResources().getString(R.string.something_went_wrong);
 
-        bitmapHandler = new BitmapHandler(new BitmapHandler.OnPostExecuteListener() {
+        /*bitmapHandler = new BitmapHandler(new BitmapHandler.OnPostExecuteListener() {
             @Override
             public void onPostExecute(String encodedImage) {
                 uploadImageToServer();
             }
-        });
+        });*/
     }
 
     @Override
@@ -331,16 +331,16 @@ public class PostFeedFragment extends DialogFragment {
     }
 
     public void uploadImageToServer() {
-        setEnabled(false);
+        /*setEnabled(false);
         if (imageToUpload != null) {
             setEnabled(false);
             bitmapHandler.process(imageToUpload);
-        }
+        }*/
         Post post = new Post(postText.getText().toString(), "person", null);
             reference.push().setValue(post, new DatabaseReference.CompletionListener() {
                 @Override
                 public void onComplete(DatabaseError databaseError, DatabaseReference dataReference) {
-                    Log.i("Debug", "The error is: " + databaseError.toString());
+                    Log.i("Firebase Debug", "The error is: " + databaseError.toString());
                 }
             });
             postText.setText("");
