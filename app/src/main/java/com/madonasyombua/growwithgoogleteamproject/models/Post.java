@@ -26,7 +26,7 @@ public class Post implements Serializable {
 
     int pid, numberOfComments, upvotes, downvotes, voted;
     private User user;
-    private String text, posted, image;
+    private String text, posted, image, username;
    private ArrayList<Comment> comments;
 
     public Post(int pid, User user, String text, String posted, int numberOfComments,
@@ -42,7 +42,11 @@ public class Post implements Serializable {
         this.voted = voted;
         this.image = image;
     }
-
+    public Post(String post, String name, String image) {
+        this.text = post;
+        this.username = name;
+        this.image = image;
+    }
     public void setPid(int pid) {
         this.pid = pid;
     }

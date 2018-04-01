@@ -14,9 +14,8 @@ package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-import android.app.ProgressDialog;
+
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -24,13 +23,10 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.transition.TransitionManager;
 import android.util.Log;
@@ -46,28 +42,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 import com.madonasyombua.growwithgoogleteamproject.R;
+import com.madonasyombua.growwithgoogleteamproject.models.Post;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
-import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
-import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -155,9 +140,10 @@ public class PostFeedFragment extends DialogFragment {
         mAuth = FirebaseAuth.getInstance();
         currentUserId = mAuth.getCurrentUser().getUid();
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference(Constant.FIREBASE_FEEDS);
+        reference = database.getReference().child("feeds");
         storage = FirebaseStorage.getInstance();
-         storageReference = storage.getReference().child("feeds_photos");
+        storageReference = storage.getReference().child("feeds_photos");
+        //mMessageDatabaseReference = mFireDatabase.getReference().child("messages");
 
         stringCameraImage = getResources().getString(R.string.camera_image);
         stringSomethingWentWrong = getResources().getString(R.string.something_went_wrong);
@@ -217,7 +203,16 @@ public class PostFeedFragment extends DialogFragment {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        uploadImageToServer();
+                       Post post = new Post(postText.getText().toString(), "person", null);
+
+                        reference.push().setValue(post, new DatabaseReference.CompletionListener() {
+                            @Override
+                            public void onComplete(DatabaseError databaseError, DatabaseReference dataReference) {
+                                Log.i("FirebaseDebug", "The error is: " + databaseError.toString());
+                            }
+                        });
+                       postText.setText("");
+                       Toast.makeText(getContext(), "hello", Toast.LENGTH_SHORT).show();
                     }
                 }
         );
