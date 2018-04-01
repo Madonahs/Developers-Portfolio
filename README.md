@@ -89,7 +89,7 @@ These files are required in order for google sign in features to work.
 <img src="https://user-images.githubusercontent.com/11560987/37727591-3b885236-2d06-11e8-8bfb-d03afae3d7cf.jpg" width="200" height="400" />
 
 ### Feeds 
-<img src="https://user-images.githubusercontent.com/11560987/38175917-5d7a7ed0-35aa-11e8-9cc6-a1842e89b577.png" width="200" height="400" />
+<img src="https://user-images.githubusercontent.com/11560987/38176136-1f3ddf9a-35af-11e8-9d50-57ada63abb75.png" width="200" height="400" />
 
 ### Nav Drawer
 <img src="https://user-images.githubusercontent.com/11560987/37727607-48617906-2d06-11e8-862d-a77f159e9da8.jpg" width="200" height="400" />
