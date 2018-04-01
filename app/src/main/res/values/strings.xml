@@ -229,7 +229,7 @@
     <string name="camera_image">camera image</string>
     <string name="something_went_wrong">Whoops something went wrong</string>
 
-    <!-- Feeds Strings -->
+    <!-- Post Strings -->
     <string name="comment">Comment</string>
     <string name="posting_as">Posting as</string>
     <string name="new_post">What\'s on your mind?</string>

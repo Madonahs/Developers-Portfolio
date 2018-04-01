@@ -14,6 +14,7 @@ package com.madonasyombua.growwithgoogleteamproject.util;
         limitations under the License.
  */
 import com.madonasyombua.growwithgoogleteamproject.models.User;
+
 import java.io.Serializable;
 
 /**

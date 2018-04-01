@@ -89,17 +89,9 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
 
         Post post = mPosts.get(position);
         //holder.mUsername.setText(post.getUser().getUsername());
-        holder.mName.setText(post.getUser().getName());
-        if (post.getUser().getImage() != null) {
-            byte[] imageAsBytes = Base64.decode(post.getUser().getImage().getBytes(), Base64.DEFAULT);
-            Bitmap thumbnail = bitmapHandler.getThumbnail(
-                    BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length)
-            );
-            holder.mPostProfilePicture.setImageBitmap(thumbnail);
-        } else {
-            holder.mPostProfilePicture.setImageBitmap(null);
-            holder.mPostProfilePicture.setImageResource(R.drawable.default_pic);
-        }
+        holder.mName.setText(post.getUsername());
+        holder.mPostProfilePicture.setImageBitmap(null);
+        holder.mPostProfilePicture.setImageResource(R.drawable.default_pic);
         holder.mPosted.setText(post.getPosted());
         holder.mText.setText(post.getText());
         holder.mNoComments.setText("" + post.getNumberOfComments());
@@ -154,16 +146,16 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
             private View.OnClickListener cardListener;
             private View.OnClickListener closeListener;
             private View.OnClickListener voteListener;
-            public CardView mCardView;
             private ArrayList<Post> mPosts;
             private boolean mFromMainActivity;
 
+            @BindView(R.id.cardView) CardView mCardView;
             @BindView(R.id.commentsSection)LinearLayout mCommentsSection;
             @BindView(R.id.postInfo) LinearLayout mPostInfo;
             @BindView(R.id.name)TextView mName;
             @BindView(R.id.time)TextView mPosted;
             @BindView(R.id.text)TextView mText;
-            @BindView(R.id.comment)TextView mNoComments;
+            @BindView(R.id.comments)TextView mNoComments;
             @BindView(R.id.upvotes)TextView mUpvotes;
             @BindView(R.id.downvotes)TextView mDownvotes;
             @BindView(R.id.closeButton)ImageView mCloseButton;

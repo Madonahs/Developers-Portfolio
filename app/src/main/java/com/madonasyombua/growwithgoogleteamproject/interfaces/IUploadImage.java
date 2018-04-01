@@ -1,4 +1,4 @@
-package com.madonasyombua.growwithgoogleteamproject.models;
+package com.madonasyombua.growwithgoogleteamproject.interfaces;
 /*Copyright (c) 2018 Madona Syombua
 
         Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,12 +14,12 @@ package com.madonasyombua.growwithgoogleteamproject.models;
         limitations under the License.
  */
 /**
- * Firebase endpoint/nodes
+ * Created by madon on 3/30/18.
  */
 
-public class Paths {
+public interface IUploadImage {
 
-  public static final String SL = "/";
-  static final String USER = "user";
-  public static final String FEED = "feeds";
+    void onUploadSucess();
+    void onUploadFailed();
+
 }
