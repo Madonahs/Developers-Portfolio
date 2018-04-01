@@ -52,38 +52,6 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
         setContentView(R.layout.activity_help);
         ButterKnife.bind(this);
         setCorrectTheme();
-
-        // Toolbar with Search Icon
-       /* Toolbar toolbar = (Toolbar) findViewById(R.id.tb_help);
-        setSupportActionBar(toolbar);
-        searchView.setVoiceSearch(true);
-        searchView.setCursorDrawable(R.drawable.color_cursor_white);
-        searchView.setSuggestions(getResources().getStringArray(R.array.search_suggestions));
-        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                Snackbar.make(findViewById(R.id.container), "Query: " + query, Snackbar.LENGTH_LONG).show();
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
-
-        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
-            @Override
-            public void onSearchViewShown() {
-                // Do something something
-            }
-
-            @Override
-            public void onSearchViewClosed() {
-                // Do something something
-            }
-        });*/
-
         backToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -152,37 +120,6 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
-   /* @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.help_menu, menu);
-        MenuItem item = menu.findItem(R.id.action_search);
-        searchView.setMenuItem(item);
-        return true;
-    }*/
-
-    /*@Override
-    public void onBackPressed() {
-        if (searchView.isSearchOpen()) {
-            searchView.closeSearch();
-        } else {
-            super.onBackPressed();
-        }
-    }*/
-
-    /*@Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == MaterialSearchView.REQUEST_VOICE && resultCode == RESULT_OK) {
-            ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-            if (matches != null && matches.size() > 0) {
-                String searchWord = matches.get(0);
-                if (!TextUtils.isEmpty(searchWord)) {
-                    searchView.setQuery(searchWord, false);
-                }
-            }
-            return;
-        }
-        super.onActivityResult(requestCode, resultCode, data);
-    }*/
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {

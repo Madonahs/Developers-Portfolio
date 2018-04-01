@@ -14,7 +14,7 @@ package com.madonasyombua.growwithgoogleteamproject.adapter;
         limitations under the License.
  */
 /**
- * Created by jantz on 2/18/2018.
+ * Created by madona on 3/31/2018.
  */
 
 import android.support.v7.widget.RecyclerView;
@@ -28,20 +28,24 @@ import com.madonasyombua.growwithgoogleteamproject.models.Portfolio;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class PortfolioAdapter extends RecyclerView.Adapter<PortfolioAdapter.MyViewHolder> {
+
 
     private List<Portfolio> portfolioList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView title, longDescription, shortDescription;
-        public ImageView portfolioImage;
+        @BindView(R.id.title) TextView title;
+        @BindView(R.id.longDescription)TextView longDescription;
+        @BindView(R.id.shortDescription)TextView shortDescription;
+        @BindView(R.id.portfolio_image)ImageView portfolioImage;
+
 
         public MyViewHolder(View view) {
             super(view);
-            title = (TextView) view.findViewById(R.id.title);
-            shortDescription = (TextView) view.findViewById(R.id.shortDescription);
-            longDescription = (TextView) view.findViewById(R.id.longDescription);
-            portfolioImage = (ImageView) view.findViewById(R.id.portfolio_image);
+            ButterKnife.bind(this, view);
 
         }
     }
