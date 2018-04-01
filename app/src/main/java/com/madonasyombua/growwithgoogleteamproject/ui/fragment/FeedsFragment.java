@@ -36,6 +36,9 @@ import com.madonasyombua.growwithgoogleteamproject.models.Post;
 
 import java.util.ArrayList;
 
+import butterknife.BindString;
+import butterknife.ButterKnife;
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -53,7 +56,9 @@ public class FeedsFragment extends Fragment{
     private CoordinatorLayout coordinatorLayout;
     private TextView displayEmpty;
     private ArrayList<Post> mPosts;
-    private String stringStart, stringNewPost, stringPostingAs;
+    @BindString(R.string.start) String stringStart;
+    @BindString(R.string.new_post)String stringNewPost;
+    @BindString(R.string.postingas)String stringPostingAs;
 
     public FeedsFragment() {
         // Required empty public constructor
@@ -75,9 +80,9 @@ public class FeedsFragment extends Fragment{
         super.onCreate(savedInstanceState);
         mPosts = new ArrayList<>();
 
-        stringStart = getResources().getString(R.string.start);
-        stringNewPost = getResources().getString(R.string.new_post);
-        stringPostingAs = getResources().getString(R.string.posting_as);
+       // stringStart = getResources().getString(R.string.start);
+       // stringNewPost = getResources().getString(R.string.new_post);
+        //stringPostingAs = getResources().getString(R.string.posting_as);
 
     }
 
@@ -85,6 +90,7 @@ public class FeedsFragment extends Fragment{
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_feeds, container, false);
+        ButterKnife.bind(this, view);
         coordinatorLayout = (CoordinatorLayout) view.findViewById(R.id.base);
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefresh);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);

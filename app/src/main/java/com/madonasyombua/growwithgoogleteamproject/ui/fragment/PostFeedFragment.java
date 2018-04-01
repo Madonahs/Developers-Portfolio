@@ -58,9 +58,6 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.actvities.AddFeeds;
-import com.madonasyombua.growwithgoogleteamproject.actvities.MainActivity;
-import com.madonasyombua.growwithgoogleteamproject.models.Post;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 

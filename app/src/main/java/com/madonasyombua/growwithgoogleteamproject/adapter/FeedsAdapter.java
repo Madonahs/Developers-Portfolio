@@ -16,7 +16,6 @@ package com.madonasyombua.growwithgoogleteamproject.adapter;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -28,16 +27,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.actvities.AddFeeds;
-import com.madonasyombua.growwithgoogleteamproject.actvities.MainActivity;
+import com.madonasyombua.growwithgoogleteamproject.activities.AddFeeds;
+import com.madonasyombua.growwithgoogleteamproject.activities.MainActivity;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ImageDialog;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
 import com.madonasyombua.growwithgoogleteamproject.models.Post;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

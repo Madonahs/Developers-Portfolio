@@ -1,4 +1,4 @@
-package com.madonasyombua.growwithgoogleteamproject.actvities;
+package com.madonasyombua.growwithgoogleteamproject.activities;
 /*Copyright (c) 2018 Madona Syombua
 
         Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,11 +18,11 @@ import android.os.Bundle;
 
 import com.madonasyombua.growwithgoogleteamproject.R;
 
-public class ProjectsActivity extends AppCompatActivity {
+public class InterestActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_projects);
+        setContentView(R.layout.activity_interest);
     }
 }

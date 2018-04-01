@@ -44,7 +44,7 @@
         </activity>
         <!-- when done we need to start the .ui.LoginActivity for login -->
         <activity
-            android:name=".actvities.LoginActivity"
+            android:name=".activities.LoginActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,31 +53,31 @@
             </intent-filter>
         </activity>
        <activity
-            android:name=".actvities.MainActivity"
+            android:name=".activities.MainActivity"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.intro.OnBoardingActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".actvities.InterestActivity"
+            android:name=".activities.InterestActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".actvities.ProjectsActivity"
+            android:name=".activities.ProjectsActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".actvities.SettingsActivity"
+            android:name=".activities.SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name=".actvities.AddFeeds"
+            android:name=".activities.AddFeeds"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".actvities.AboutActivity"
+            android:name=".activities.AboutActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".actvities.HelpActivity"
+            android:name=".activities.HelpActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".actvities.ManageProfileActivity" />
-        <activity android:name=".actvities.MessageActivity"></activity>
+        <activity android:name=".activities.ManageProfileActivity" />
+        <activity android:name=".activities.MessageActivity"></activity>
     </application>
 
 </manifest>

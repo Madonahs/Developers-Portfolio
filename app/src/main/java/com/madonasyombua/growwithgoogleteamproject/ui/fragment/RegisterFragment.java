@@ -25,8 +25,10 @@ import android.widget.Toast;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentRegisterBinding;
-import com.madonasyombua.growwithgoogleteamproject.actvities.LoginActivity;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
+
+import com.madonasyombua.growwithgoogleteamproject.activities.LoginActivity;
+
 
 
 import java.util.regex.Matcher;
