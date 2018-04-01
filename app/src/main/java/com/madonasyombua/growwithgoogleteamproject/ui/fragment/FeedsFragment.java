@@ -35,6 +35,7 @@ import com.madonasyombua.growwithgoogleteamproject.models.Post;
 import java.util.ArrayList;
 
 import butterknife.BindString;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -52,10 +53,8 @@ public class FeedsFragment extends Fragment{
     private RecyclerView.LayoutManager mLayoutManager;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private CoordinatorLayout coordinatorLayout;
-    private TextView displayEmpty;
-
     private ArrayList<Post> mPosts;
-
+    @BindView(R.id.displayEmpty)TextView displayEmpty;
     @BindString(R.string.start) String stringStart;
     @BindString(R.string.new_post)String stringNewPost;
     @BindString(R.string.postingas)String stringPostingAs;
@@ -108,9 +107,7 @@ public class FeedsFragment extends Fragment{
                 }
         );
 
-        displayEmpty = (TextView) view.findViewById(R.id.displayEmpty);
         displayEmpty.setVisibility(View.GONE);
-
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         // mRecyclerView.setHasFixedSize(true);
