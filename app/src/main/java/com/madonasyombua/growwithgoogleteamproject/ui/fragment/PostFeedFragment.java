@@ -95,6 +95,7 @@ public class PostFeedFragment extends DialogFragment {
     private Uri fileUri;
     private Bitmap imageToUpload;
     private BitmapHandler bitmapHandler;
+
     private FirebaseDatabase database;
     private DatabaseReference reference;
     private FirebaseStorage storage;
