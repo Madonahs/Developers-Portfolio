@@ -1,3 +1,18 @@
+<!--
+  Copyright (c) 2018 Madona Syombua
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -29,7 +44,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:ellipsize="end"
-                android:fontFamily="@font/raleway"
                 android:text="@string/about_developer_name1"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"
@@ -49,7 +63,6 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
-                android:fontFamily="@font/raleway"
                 android:text="@string/dummy_position"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
@@ -67,7 +80,6 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
-                android:fontFamily="@font/raleway"
                 android:text="@string/dummy_following_count_value"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
@@ -80,7 +92,6 @@
                 android:id="@+id/following_count_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/raleway"
                 android:text="@string/following"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"
@@ -97,7 +108,6 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
-                android:fontFamily="@font/raleway"
                 android:text="@string/dummy_followers_count_value"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
@@ -112,7 +122,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:fontFamily="@font/raleway"
                 android:text="@string/followers"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"
@@ -131,7 +140,6 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
-                android:fontFamily="@font/raleway"
                 android:text="@string/dummy_project_count_value"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
@@ -145,7 +153,6 @@
                 android:id="@+id/project_count_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/raleway"
                 android:text="@string/projects"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"

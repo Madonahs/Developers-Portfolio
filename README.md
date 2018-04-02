@@ -9,7 +9,7 @@ This is a Social App for Developers to share their portfolio and also get to int
 Develop 🔧
 
 ### Prerequisites
-An open mind and an open heart.
+An open mind and an open heart, Strong Programmer +.
 
 ## Authors
 * **Madona Syombua** - *Lead/Core developer* 
@@ -87,6 +87,9 @@ These files are required in order for google sign in features to work.
 
 ### Post Feeds 
 <img src="https://user-images.githubusercontent.com/11560987/37727591-3b885236-2d06-11e8-8bfb-d03afae3d7cf.jpg" width="200" height="400" />
+
+### Feeds 
+<img src="https://user-images.githubusercontent.com/11560987/38176672-b4ea1fd2-35b8-11e8-9267-26f51cea19a7.jpg" width="200" height="400" />
 
 ### Nav Drawer
 <img src="https://user-images.githubusercontent.com/11560987/37727607-48617906-2d06-11e8-862d-a77f159e9da8.jpg" width="200" height="400" />

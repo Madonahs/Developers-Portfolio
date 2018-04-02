@@ -1,3 +1,17 @@
+/*Copyright (c) 2018 Madona Syombua
+
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+ */
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
 import android.databinding.DataBindingUtil;
@@ -13,7 +27,11 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentRegisterBinding;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
-import com.madonasyombua.growwithgoogleteamproject.ui.LoginActivity;
+
+import com.madonasyombua.growwithgoogleteamproject.activities.LoginActivity;
+
+
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -44,6 +62,7 @@ public class RegisterFragment extends Fragment {
                 String username_txt = extractText(binding.editUsername);
                 String email_txt = extractText(binding.editEmail);
                 String password_txt = extractText(binding.editPassword);
+
                 if (username_txt.isEmpty() || email_txt.isEmpty() || password_txt.isEmpty()) {
                     // TODO add toast or change input color to show user that is required
                     Toast.makeText(getContext(), "Username and password are required", Toast.LENGTH_SHORT).show();

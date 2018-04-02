@@ -69,7 +69,6 @@
     <!-- Sample or test user details -->
     <string name="sample_user_name" translatable="false">UserName</string>
     <string name="sample_user_profession" translatable="false">Profession</string>
-
     <string name="online">Online</string>
     <string name="offline">Offline</string>
     <string name="submit">Submit</string>
@@ -178,7 +177,6 @@
     <string name="dummy_followers_count_value">27K</string>
     <string name="followers">Followers</string>
     <string name="dummy_project_count_value">434</string>
-
     <string name="dummy_interest_title">Mathematics</string>
     <string name="dummy_interest_count_value">745</string>
     <string name="posts">Posts</string>
@@ -216,13 +214,22 @@
     <string name="two">2</string>
 
 
+
+    <!-- Search Suggestions -->
+    <string-array name="search_suggestions">
+        <item>How do I change my password?</item>
+        <item>How do I change my profile photo?</item>
+        <item>Why do birds suddenly appear?</item>
+        <item>What is life?</item>
+    </string-array>
+
     <string name="theme_manger">Theme Manager</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="dark_mode_info">Press here to enable dark mode</string>
     <string name="camera_image">camera image</string>
     <string name="something_went_wrong">Whoops something went wrong</string>
 
-    <!-- Feeds Strings -->
+    <!-- Post Strings -->
     <string name="comment">Comment</string>
     <string name="posting_as">Posting as</string>
     <string name="new_post">What\'s on your mind?</string>
@@ -246,6 +253,11 @@
     <string name="already_a_member_sign_in"><u>Already a member? Sign in!</u></string>
     <string name="show_comments">Show comments</string>
     <string name="nothing_to_display">empty</string>
+    <string name="forgotpassword">forgot password?</string>
+    <string name="message">We will implement message here</string>
+    <string name="image">Image</string>
+    <string name="timeout">timeout</string>
+
 
 
 </resources>

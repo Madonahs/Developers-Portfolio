@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (c) 2018 Madona Syombua
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
 <layout>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -19,9 +34,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
             android:background="@drawable/edit_text_custom"
-            android:fontFamily="@font/raleway"
             android:hint="@string/username"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -37,10 +51,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
             android:background="@drawable/edit_text_custom"
-            android:fontFamily="@font/raleway"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -56,12 +69,23 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
             android:background="@drawable/edit_text_custom"
-            android:fontFamily="@font/raleway"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
     </android.support.design.widget.TextInputLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="0dp">
 
+        <TextView
+            android:id="@+id/forgotpassword"
+            android:layout_width="165dp"
+            android:layout_height="42dp"
+            android:text="@string/forgotpassword"
+            android:textSize="12sp" />
+    </LinearLayout>
     <Button
         android:id="@+id/register_fragment_button"
         android:layout_width="wrap_content"
@@ -70,7 +94,7 @@
         android:paddingTop="2dp"
         android:background="@drawable/button_rounded"
         android:drawableRight="@drawable/ic_arrow_forward"
-        android:fontFamily="@font/raleway"
+
          />
 </LinearLayout>
 </layout>

@@ -1,9 +1,9 @@
 <resources>
 
-    <!-- Base application theme.
- Light/Day Mode-->
+    <!-- Base application theme. Light/Day Mode-->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+        <item name="android:fontFamily">@font/raleway</item>
         <item name="colorPrimary">#2192F3</item>
         <item name="colorPrimaryDark">#1976D2</item>
         <item name="windowActionBar">false</item>
@@ -31,11 +31,11 @@
     <!-- Base application theme. -->
     <style name="FontTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:fontFamily">@font/raleway</item>
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="NavTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#e53935</item>
@@ -44,10 +44,9 @@
 
     </style>
 
-    <!-- <item name="android:fontFamily">@font/raleway</item>-->
+
     <!-- Night Mode !-->
     <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
-
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#161720</item>
         <item name="colorPrimaryDark">#111322</item>
@@ -60,6 +59,5 @@
         <item name="tintcolor">#ffffff</item>
         <item name="buttoncolor">#311B92</item>
     </style>
-
 
 </resources>

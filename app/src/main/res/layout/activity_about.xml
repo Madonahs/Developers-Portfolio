@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (c) 2018 Madona Syombua
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,24 +22,25 @@
     android:orientation="vertical"
     android:background="@drawable/back_dev"
     tools:layout_editor_absoluteY="25dp">
-<!-- app Bar -->
+    <!-- app Bar -->
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:elevation="6dp"
         android:theme="@style/AppTheme.NoActionBar">
-<!-- the back image button to take you back to main activity-->
+        <!-- the back image button to take you back to main activity-->
 
-    <ImageButton
-        android:id="@+id/backToNavDrawer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/ic_action_back" />
+        <ImageButton
+            android:id="@+id/backToNavDrawer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_action_back" />
 
     </android.support.design.widget.AppBarLayout>
+
     <!-- all Textview used to display current text on layout.-->
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -37,7 +53,6 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:fontFamily="@font/raleway"
             android:text="@string/about"
             android:textColor="@color/white"
             android:textSize="36sp"
@@ -67,7 +82,6 @@
             android:layout_height="188dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/raleway"
             android:padding="8dp"
             android:text="@string/about_detail"
             android:textAlignment="center"
@@ -98,7 +112,6 @@
             android:layout_height="45dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/raleway"
             android:text="@string/about_developer_heading"
             android:textColor="@color/white"
             android:textSize="30sp"
@@ -127,7 +140,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/raleway"
             android:text="@string/about_developer_name1"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -142,7 +154,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/raleway"
             android:text="@string/about_developer_name2"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -157,7 +168,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/raleway"
             android:text="@string/about_developer_name3"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -172,7 +182,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/raleway"
             android:text="@string/about_developer_name4"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -187,7 +196,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/raleway"
             android:text="@string/about_developer_name5"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -202,7 +210,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/raleway"
             android:text="@string/about_developer_name6"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -217,7 +224,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/raleway"
             android:text="@string/about_developer_name7"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -246,7 +252,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/raleway"
             android:text="@string/acknowledgement"
             android:textColor="@color/white"
             android:textSize="24sp"

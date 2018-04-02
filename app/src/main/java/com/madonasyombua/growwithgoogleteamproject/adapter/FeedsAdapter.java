@@ -1,3 +1,17 @@
+/*Copyright (c) 2018 Madona Syombua
+
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+ **/
 package com.madonasyombua.growwithgoogleteamproject.adapter;
 
 import android.app.Activity;
@@ -14,12 +28,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.actvities.AddFeeds;
-import com.madonasyombua.growwithgoogleteamproject.actvities.MainActivity;
+import com.madonasyombua.growwithgoogleteamproject.activities.AddFeeds;
+import com.madonasyombua.growwithgoogleteamproject.activities.MainActivity;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ImageDialog;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
 import com.madonasyombua.growwithgoogleteamproject.models.Post;
+
 import java.util.ArrayList;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by madon on 3/20/2018.
@@ -30,7 +48,6 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
     private static Activity mActivity;
     private boolean mFromMainActivity;
     private OnItemClickListener mListener;
-
     private String stringComment;
 
     private BitmapHandler bitmapHandler;
@@ -40,8 +57,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
         mPosts = posts;
         mListener = listener;
         mFromMainActivity = fromMainActivity;
-       // bitmapHandler = new BitmapHandler();
-
+       //bitmapHandler = new BitmapHandler();
         stringComment = activity.getResources().getString(R.string.comment);
     }
 
@@ -73,19 +89,10 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         Post post = mPosts.get(position);
-
         //holder.mUsername.setText(post.getUser().getUsername());
-        holder.mName.setText(post.getUser().getName());
-        if (post.getUser().getImage() != null) {
-            byte[] imageAsBytes = Base64.decode(post.getUser().getImage().getBytes(), Base64.DEFAULT);
-            Bitmap thumbnail = bitmapHandler.getThumbnail(
-                    BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length)
-            );
-            holder.mPostProfilePicture.setImageBitmap(thumbnail);
-        } else {
-            holder.mPostProfilePicture.setImageBitmap(null);
-            holder.mPostProfilePicture.setImageResource(R.drawable.default_pic);
-        }
+        holder.mName.setText(post.getUsername());
+        holder.mPostProfilePicture.setImageBitmap(null);
+        holder.mPostProfilePicture.setImageResource(R.drawable.default_pic);
         holder.mPosted.setText(post.getPosted());
         holder.mText.setText(post.getText());
         holder.mNoComments.setText("" + post.getNumberOfComments());
@@ -130,80 +137,66 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
             holder.mCloseButton.setVisibility(View.INVISIBLE);
 
     }
-
     /**
      * Provide a reference to the views for each data item
      * Complex data items may need more than one view per item, and
      * we can provide access to all the views for a data item in a view holder
      */
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public CardView mCardView;
-        public TextView mUsername, mName, mPosted, mText, mNoComments, mUpvotes, mDownvotes;
-        public ImageView mCloseButton, mDeletePostButton, mDeleteCommentButton;
-        public ImageView mPostProfilePicture, mUpvote, mDownvote, mPostImage;
-        public LinearLayout mCommentsSection, mPostInfo, mPostImageBorder;
+            private OnItemClickListener mListener;
+            private View.OnClickListener cardListener;
+            private View.OnClickListener closeListener;
+            private View.OnClickListener voteListener;
+            private ArrayList<Post> mPosts;
+            private boolean mFromMainActivity;
 
-        private OnItemClickListener mListener;
+            @BindView(R.id.cardView) CardView mCardView;
+            @BindView(R.id.commentsSection)LinearLayout mCommentsSection;
+            @BindView(R.id.postInfo) LinearLayout mPostInfo;
+            @BindView(R.id.name)TextView mName;
+            @BindView(R.id.time)TextView mPosted;
+            @BindView(R.id.text)TextView mText;
+            @BindView(R.id.comments)TextView mNoComments;
+            @BindView(R.id.upvotes)TextView mUpvotes;
+            @BindView(R.id.downvotes)TextView mDownvotes;
+            @BindView(R.id.closeButton)ImageView mCloseButton;
+            @BindView(R.id.deleteCommentButton)ImageView mDeletePostButton;
+            @BindView(R.id.postProfilePicture)ImageView mPostProfilePicture;
+            @BindView(R.id.upvote) ImageView mUpvote;
+            @BindView(R.id.downvote)ImageView mDownvote;
+            @BindView(R.id.postImage)ImageView mPostImage;
+            @BindView(R.id.postImageBorder)LinearLayout  mPostImageBorder;
 
-        private View.OnClickListener cardListener;
-        private View.OnClickListener closeListener;
-        private View.OnClickListener voteListener;
 
-        private ArrayList<Post> mPosts;
-        private boolean mFromMainActivity;
+            public ViewHolder(View itemView, ArrayList<Post> posts, OnItemClickListener listener, boolean fromMainActivity) {
+                super(itemView);
+                ButterKnife.bind(this, itemView);
+                mPosts = posts;
+                mListener = listener;
+                mFromMainActivity = fromMainActivity;
+                mPostImageBorder.setVisibility(View.GONE);
+                setUpListeners();
 
-        public ViewHolder(View view, ArrayList<Post> posts, OnItemClickListener listener, boolean fromMainActivity) {
-            super(view);
+                mUpvote.setOnClickListener(voteListener);
+                mUpvotes.setOnClickListener(voteListener);
+                mDownvote.setOnClickListener(voteListener);
+                mDownvotes.setOnClickListener(voteListener);
+                mPostImage.setOnClickListener(this);
 
-            mPosts = posts;
-            mListener = listener;
-            mFromMainActivity = fromMainActivity;
+                if(mFromMainActivity){
+                    mCloseButton.setOnClickListener(closeListener);
+                    mCardView.setOnClickListener(cardListener);
+            }else{
+                    mDeletePostButton.setOnClickListener(this);
+                    mPostInfo.setOnClickListener(this);
+        }
 
-            mCardView = (CardView) view;
-           // mUsername = (TextView) view.findViewById(R.id.username);
-            mName = (TextView) view.findViewById(R.id.name);
-            mPostProfilePicture = (ImageView) view.findViewById(R.id.postProfilePicture);
-            mPosted = (TextView) view.findViewById(R.id.time);
-            mText = (TextView) view.findViewById(R.id.text);
-            mPostImage = (ImageView) view.findViewById(R.id.postImage);
-            mPostImageBorder = (LinearLayout) view.findViewById(R.id.postImageBorder);
-            mNoComments = (TextView) view.findViewById(R.id.comments);
-            mUpvote = (ImageView) view.findViewById(R.id.upvote);
-            mUpvotes = (TextView) view.findViewById(R.id.upvotes);
-            mDownvote = (ImageView) view.findViewById(R.id.downvote);
-            mDownvotes = (TextView) view.findViewById(R.id.downvotes);
-            mCommentsSection = (LinearLayout) view.findViewById(R.id.commentsSection);
-
-            mPostImageBorder.setVisibility(View.GONE);
-
-            setUpListeners();
-
-            mUpvote.setOnClickListener(voteListener);
-            mUpvotes.setOnClickListener(voteListener);
-            mDownvote.setOnClickListener(voteListener);
-            mDownvotes.setOnClickListener(voteListener);
-
-            mPostImage.setOnClickListener(this);
-
-            if (mFromMainActivity) {
-                mCloseButton = (ImageView) view.findViewById(R.id.closeButton);
-                mCloseButton.setOnClickListener(closeListener);
-
-                mCardView.setOnClickListener(cardListener);
-            }
-            else {
-                mDeletePostButton = (ImageView) view.findViewById(R.id.deleteCommentButton);
-                mDeletePostButton.setOnClickListener(this);
-
-                mPostInfo = (LinearLayout) view.findViewById(R.id.postInfo);
-                mPostInfo.setOnClickListener(this);
-            }
         }
 
         /**
          * Sets up listeners for the feeds_list_item, the close button and the vote buttons.
          */
-        public void setUpListeners() {
+        public static void setUpListeners() {
 
 
         }
