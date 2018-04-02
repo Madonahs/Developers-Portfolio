@@ -1,4 +1,4 @@
-# Development Workflow
+# Workflow
 
 ## Building Devs-Portfolio-App
 For new members please ask for the Config files [Here](https://github.com/Madonahs/Devs-Portfolio-App), the app can not run without them. The following are some additional information and guidelines to help you contribute easily.
