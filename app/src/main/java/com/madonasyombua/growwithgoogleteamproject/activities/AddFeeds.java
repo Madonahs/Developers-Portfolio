@@ -25,11 +25,12 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
-
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.PostFeedFragment;
 import com.madonasyombua.growwithgoogleteamproject.models.Post;
 import java.util.ArrayList;
+import butterknife.BindString;
+import butterknife.ButterKnife;
 
 public class AddFeeds extends AppCompatActivity implements PostFeedFragment.OnFragmentInteractionListener {
 
@@ -40,30 +41,24 @@ public class AddFeeds extends AppCompatActivity implements PostFeedFragment.OnFr
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private Post receivedPost;
     private ArrayList<Post> mPost;
-
-    private String stringPost, stringDeletedPost, stringComment, stringCommentingAs,
-            stringDeletePost, stringYes, stringCancel, stringDeletedComment,
-            stringDeleteComment, stringSentComment;
-
+    @BindString(R.string.post) String stringPost;
+    @BindString(R.string.deleted_post) String stringDeletedPost;
+    @BindString(R.string.comment) String stringComment;
+    @BindString(R.string.commenting_as) String  stringCommentingAs;
+    @BindString(R.string.delete_post) String stringDeletePost;
+    @BindString(R.string.yes) String stringYes;
+    @BindString(R.string.cancel)String stringCancel;
+    @BindString(R.string.deleted_comment)String stringDeletedComment;
+    @BindString(R.string.deleted_comment)String stringDeleteComment;
+    @BindString(R.string.sent_comment)String stringSentComment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_feeds);
+        ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        stringPost = getResources().getString(R.string.post);
-        stringDeletedPost = getResources().getString(R.string.deleted_post);
-        stringComment = getResources().getString(R.string.comment);
-        stringCommentingAs = getResources().getString(R.string.commenting_as);
-        stringDeletePost = getResources().getString(R.string.delete_post);
-        stringYes = getResources().getString(R.string.yes);
-        stringCancel = getResources().getString(R.string.cancel);
-        stringDeletedComment = getResources().getString(R.string.deleted_comment);
-        stringDeleteComment = getResources().getString(R.string.delete_comment);
-        stringSentComment = getResources().getString(R.string.sent_comment);
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(stringPost);
 
@@ -83,7 +78,6 @@ public class AddFeeds extends AppCompatActivity implements PostFeedFragment.OnFr
         );
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);

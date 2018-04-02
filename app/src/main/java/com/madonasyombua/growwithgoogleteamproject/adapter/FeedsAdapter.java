@@ -57,7 +57,6 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
         mPosts = posts;
         mListener = listener;
         mFromMainActivity = fromMainActivity;
-       //bitmapHandler = new BitmapHandler();
         stringComment = activity.getResources().getString(R.string.comment);
     }
 
@@ -89,7 +88,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         Post post = mPosts.get(position);
-        //holder.mUsername.setText(post.getUser().getUsername());
+       // holder.mUsername.setText(post.getUser().getUsername());
         holder.mName.setText(post.getUsername());
         holder.mPostProfilePicture.setImageBitmap(null);
         holder.mPostProfilePicture.setImageResource(R.drawable.default_pic);
