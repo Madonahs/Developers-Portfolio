@@ -17,7 +17,6 @@ package com.madonasyombua.growwithgoogleteamproject.login;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-
 import com.madonasyombua.growwithgoogleteamproject.R;
 
 /**

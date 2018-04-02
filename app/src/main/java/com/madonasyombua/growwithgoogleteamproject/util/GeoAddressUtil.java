@@ -26,9 +26,6 @@ import java.util.List;
  * Created by madona on 2/27/2018.
  */
 
-/**
- * we will need this for location
- */
 
 public class GeoAddressUtil {
 
