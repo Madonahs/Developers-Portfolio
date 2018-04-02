@@ -1,10 +1,18 @@
-## Rules
+# Development Workflow
 
-1. Please Dont Push to the Master without @madonahs , @radoalbert110  , @emmaunel Please we try to follow this rules to avoid confusion and conflicts. We must ensure we have a clean tree.
+## Building Devs-Portfolio-App
+For new members please ask for the Config files [Here](https://github.com/Madonahs/Devs-Portfolio-App), the app can not run without them. The following are some additional information and guidelines to help you contribute easily.
 
-2. Please dont do a PR and Merge it on your own without anyone else reviewing or approving You will be removed from Contributors. This will be termed malicious.
+I will encourage that you go through the app first and see what functions are availabe and what is missing and you can suggest a fix if you notice a bug or a missing function. The project is friendly and you should feel free to bring in new ideas. 
 
-3. Please when you create a Pull Request try to merge with develop not with master, to have a clean tree we only merge all from develop to master when there is no conflict neither error.
+## Have Any Questions
+If you have any questions and would love more info please feel free to email me here -- madonahsyombua@gmail.com. See what has been done on the project board,- [Board](https://github.com/Madonahs/Devs-Portfolio-App/projects/2)
 
-## Read also some Rules:
+### Warnings
+Please make sure you run the app and check for warning and errors.If the warnings can be suppressed you can use @SuppressWarnings("type-of-warning").
+
+## Additional contributing guidelines:
 https://gist.github.com/PurpleBooth/b24679402957c63ec426
+
+## Welcome
+Thank you in advance.
