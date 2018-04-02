@@ -1,8 +1,3 @@
-package com.madonasyombua.growwithgoogleteamproject.util;
-
-import com.madonasyombua.growwithgoogleteamproject.models.User;
-
-import java.io.Serializable;
 /*Copyright (c) 2018 Madona Syombua
 
         Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,6 +12,12 @@ import java.io.Serializable;
         See the License for the specific language governing permissions and
         limitations under the License.
  */
+package com.madonasyombua.growwithgoogleteamproject.util;
+
+import com.madonasyombua.growwithgoogleteamproject.models.User;
+
+import java.io.Serializable;
+
 /**
  * Created by madon on 3/10/2018.
  */

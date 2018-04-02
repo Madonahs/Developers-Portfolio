@@ -1,4 +1,3 @@
-package com.madonasyombua.growwithgoogleteamproject.util;
 /*Copyright (c) 2018 Madona Syombua
 
         Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +12,8 @@ package com.madonasyombua.growwithgoogleteamproject.util;
         See the License for the specific language governing permissions and
         limitations under the License.
  */
+package com.madonasyombua.growwithgoogleteamproject.util;
+
 import android.content.Context;
 import android.content.res.Resources;
 import com.madonasyombua.growwithgoogleteamproject.R;

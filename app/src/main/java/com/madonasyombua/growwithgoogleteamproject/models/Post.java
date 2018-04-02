@@ -1,4 +1,3 @@
-package com.madonasyombua.growwithgoogleteamproject.models;
 /*Copyright (c) 2018 Madona Syombua
 
         Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +12,8 @@ package com.madonasyombua.growwithgoogleteamproject.models;
         See the License for the specific language governing permissions and
         limitations under the License.
  */
+package com.madonasyombua.growwithgoogleteamproject.models;
+
 import com.google.firebase.database.Exclude;
 import com.madonasyombua.growwithgoogleteamproject.util.Comment;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
@@ -145,3 +146,9 @@ public class Post  extends FirebaseObject implements Serializable {
 }
 
 
+/***
+ *
+ * Post p = new post();
+ p.setUsername(name);
+ p.setSomethingElse(whatever);
+ */

@@ -1,4 +1,3 @@
-package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 /*Copyright (c) 2018 Madona Syombua
 
         Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +12,8 @@ package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
         See the License for the specific language governing permissions and
         limitations under the License.
  */
+package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -62,8 +63,8 @@ public class FeedsFragment extends Fragment{
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private CoordinatorLayout coordinatorLayout;
     private ArrayList<Post> mPosts;
-    @BindView(R.id.displayEmpty)TextView displayEmpty;
 
+    @BindView(R.id.displayEmpty)TextView displayEmpty;
     @BindString(R.string.start) String stringStart;
     @BindString(R.string.new_post)String stringNewPost;
     @BindString(R.string.postingas)String stringPostingAs;
@@ -100,19 +101,13 @@ public class FeedsFragment extends Fragment{
         }
 
         @Override
-        public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-        }
+        public void onChildRemoved(DataSnapshot dataSnapshot) { }
 
         @Override
-        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-        }
+        public void onChildMoved(DataSnapshot dataSnapshot, String s) { }
 
         @Override
-        public void onCancelled(DatabaseError databaseError) {
-
-        }
+        public void onCancelled(DatabaseError databaseError) { }
     };
     private boolean mListening = false;
 
@@ -247,21 +242,11 @@ public class FeedsFragment extends Fragment{
         void onFragmentInteraction(Uri uri);
     }
 
-    /**
-     * Updates the user's feed and populates the cards.
-     */
-
-    //FIXME : 4/1/2018
     public void startFeedListener() {
         // Start listening for feed updates, feedsListener will look for changes.
         FirebaseDatabase.getInstance().getReference("feeds").addChildEventListener(feedsListener);
         mListening = true;
     }
-
-    /**
-     * Displays a snackbar.
-     * @param text Text to display on the snackbar
-     */
 
 
 }
