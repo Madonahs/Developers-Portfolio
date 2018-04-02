@@ -1,5 +1,3 @@
-package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
-
 /*Copyright (c) 2018 Madona Syombua
 
         Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,6 +12,9 @@ package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
         See the License for the specific language governing permissions and
         limitations under the License.
  */
+package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
+
+
 
 import android.content.Context;
 import android.content.Intent;
@@ -333,7 +334,7 @@ public class PostFeedFragment extends DialogFragment {
     public void uploadImageToServer() {
 
        //TODO: Enable sending images to DataBase
-        Post post = new Post(postText.getText().toString(), "person", null);
+        Post post = new Post(postText.getText().toString(), "Madonahs", null);
             reference.push().setValue(post, new DatabaseReference.CompletionListener() {
                 @Override
                 public void onComplete(DatabaseError databaseError, DatabaseReference dataReference) {

@@ -1,5 +1,3 @@
-package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
-
 /*Copyright (c) 2018 Madona Syombua
 
         Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,6 +12,8 @@ package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
         See the License for the specific language governing permissions and
         limitations under the License.
  */
+package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
