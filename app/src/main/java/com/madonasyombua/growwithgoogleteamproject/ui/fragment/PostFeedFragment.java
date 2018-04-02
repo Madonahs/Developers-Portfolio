@@ -29,7 +29,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.transition.TransitionManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,17 +49,15 @@ import com.google.firebase.storage.StorageReference;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.models.Post;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
+
+import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-
-
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class PostFeedFragment extends DialogFragment {
-
 
     public static int RESULT_LOAD_IMAGE = 1;
     public static int RESULT_CAMERA = 2;
@@ -91,12 +88,13 @@ public class PostFeedFragment extends DialogFragment {
     ImageView attachmentCloseButton;
     @BindView(R.id.attachment)
     RelativeLayout attachment;
+    @BindString(R.string.camera_image) String stringCameraImage;
+    @BindString(R.string.something_went_wrong)String stringSomethingWentWrong;
     private View view;
     private ProgressBar progressBar;
     private Uri fileUri;
     private Bitmap imageToUpload;
     private BitmapHandler bitmapHandler;
-    private String stringCameraImage, stringSomethingWentWrong, post, username, currentUserId;
 
     private FirebaseDatabase database;
     private DatabaseReference reference;
@@ -140,8 +138,6 @@ public class PostFeedFragment extends DialogFragment {
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference().child("feeds_photos");
 
-        stringCameraImage = getResources().getString(R.string.camera_image);
-        stringSomethingWentWrong = getResources().getString(R.string.something_went_wrong);
 
         /*bitmapHandler = new BitmapHandler(new BitmapHandler.OnPostExecuteListener() {
             @Override
@@ -333,7 +329,14 @@ public class PostFeedFragment extends DialogFragment {
 
     public void uploadImageToServer() {
 
-       //TODO: Enable sending images to DataBase
+       //TODO 1: Enable sending images to DataBase
+        //TODO 2: ensure we get the following
+        /**
+         * Post post = new post();
+         * post.setUsername(name);
+         * post.setSomethingElse(whatever);
+         * Use the setters to populate the post.
+         */
         Post post = new Post(postText.getText().toString(), "Madonahs", null);
             reference.push().setValue(post, new DatabaseReference.CompletionListener() {
                 @Override

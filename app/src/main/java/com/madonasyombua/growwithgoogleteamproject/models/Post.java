@@ -16,8 +16,6 @@ package com.madonasyombua.growwithgoogleteamproject.models;
 
 import com.google.firebase.database.Exclude;
 import com.madonasyombua.growwithgoogleteamproject.util.Comment;
-import com.madonasyombua.growwithgoogleteamproject.util.Constant;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -145,10 +143,3 @@ public class Post  extends FirebaseObject implements Serializable {
     }
 }
 
-
-/***
- *
- * Post p = new post();
- p.setUsername(name);
- p.setSomethingElse(whatever);
- */
