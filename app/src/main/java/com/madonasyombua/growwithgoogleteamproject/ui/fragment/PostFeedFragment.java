@@ -95,7 +95,6 @@ public class PostFeedFragment extends DialogFragment {
     private Uri fileUri;
     private Bitmap imageToUpload;
     private BitmapHandler bitmapHandler;
-
     private FirebaseDatabase database;
     private DatabaseReference reference;
     private FirebaseStorage storage;
@@ -110,7 +109,6 @@ public class PostFeedFragment extends DialogFragment {
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
-     *
      * @param title     Title.
      * @param postingAs Label.
      * @param username  The posting user's username.
