@@ -32,9 +32,10 @@ import java.util.ArrayList;
 import butterknife.BindString;
 import butterknife.ButterKnife;
 
-public class AddFeeds extends AppCompatActivity implements PostFeedFragment.OnFragmentInteractionListener {
+public class PostActivity extends AppCompatActivity
+        implements PostFeedFragment.OnFragmentInteractionListener {
 
-    private static final String TAG = "AddFeeds";
+    private static final String TAG = "PostActivity";
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -100,9 +101,7 @@ public class AddFeeds extends AppCompatActivity implements PostFeedFragment.OnFr
         return true;
     }
 
-    /**
-     * Sends an update request to the server and populates the post feed.
-     */
+
     public void updatePost() {
 
 

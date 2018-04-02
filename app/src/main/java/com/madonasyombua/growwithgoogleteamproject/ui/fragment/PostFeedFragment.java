@@ -24,6 +24,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
@@ -50,6 +51,8 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.models.Post;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
 
+import java.io.File;
+
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -63,7 +66,7 @@ public class PostFeedFragment extends DialogFragment {
     public static int RESULT_CAMERA = 2;
 
     private OnFragmentInteractionListener mListener;
-    private static final String TAG = "AddFeeds";
+    private static final String TAG = "PostActivity";
     @BindView(R.id.post)
     EditText postText;
     @BindView(R.id.header)
@@ -181,7 +184,7 @@ public class PostFeedFragment extends DialogFragment {
                     public void onClick(View v) {
                         Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                         //fileUri = Uri.fromFile(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM) +
-                         //File.separator + "_tmp.jpg"));
+                       //  File.separator + ""));
                         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
                         startActivityForResult(cameraIntent, RESULT_CAMERA);
                     }
@@ -193,6 +196,8 @@ public class PostFeedFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 uploadImageToServer();
+
+
             }
         });
 
@@ -349,7 +354,8 @@ public class PostFeedFragment extends DialogFragment {
             });
             postText.setText("");
             Toast.makeText(getContext(), "Sending Feeds", Toast.LENGTH_SHORT).show();
-        }
+
+    }
 
     @Override
     public void onResume() {

@@ -28,7 +28,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.activities.AddFeeds;
+import com.madonasyombua.growwithgoogleteamproject.activities.PostActivity;
 import com.madonasyombua.growwithgoogleteamproject.activities.MainActivity;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ImageDialog;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
@@ -111,7 +111,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
                         new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                FragmentManager fm = ((AddFeeds) mActivity).getSupportFragmentManager();
+                                FragmentManager fm = ((PostActivity) mActivity).getSupportFragmentManager();
                                 ImageDialog imageDialog = ImageDialog.newInstance(bitmapHandler.getLarger(bitmap));
                                 imageDialog.show(fm, "fragment_image_dialog");
                             }
