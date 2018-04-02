@@ -33,7 +33,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.TextView;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.login.LoginStatusManager;
