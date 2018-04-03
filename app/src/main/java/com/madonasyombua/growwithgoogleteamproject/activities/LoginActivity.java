@@ -193,11 +193,11 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
         adapter.addFragment(new RegisterFragment());
         binding.container.setAdapter(adapter);
     }
-    private void loginFragment(){
+    /*private void loginFragment(){
         FragmentsAdapter adapter = new FragmentsAdapter(getSupportFragmentManager());
         adapter.addFragment(new LoginFragment());
         binding.container.setAdapter(adapter);
-    }
+    }*/
 
     public void showHideProgressBar(boolean show){
         if(show){
