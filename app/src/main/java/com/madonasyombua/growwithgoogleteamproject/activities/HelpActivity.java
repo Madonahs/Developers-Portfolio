@@ -36,7 +36,7 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
     private ImageButton backToMain;
     @BindView(R.id.faq)TextView faq;
     @BindView(R.id.contact)TextView contact;
-    @BindView(R.id.terms)TextView terms;
+    private TextView terms;
     SharedPref sharedPref;
     private boolean prev_State = false;
 
@@ -85,6 +85,7 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
             }
         });
 
+        terms.findViewById(R.id.terms);
         terms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
