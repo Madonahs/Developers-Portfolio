@@ -1,6 +1,5 @@
 # Grow With Google Team Project 
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e5aece369dc24f8b855769222cf6c778)](https://app.codacy.com/app/syombuamadona/Devs-Portfolio-App?utm_source=github.com&utm_medium=referral&utm_content=Madonahs/Devs-Portfolio-App&utm_campaign=badger)
 
 Grow With Google Scholarship Team Project.
 
