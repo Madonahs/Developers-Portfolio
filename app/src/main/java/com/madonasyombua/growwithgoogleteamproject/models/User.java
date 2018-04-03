@@ -33,7 +33,7 @@ import java.io.Serializable;
 public class User extends FirebaseObject implements Serializable {
     private String name, password, followers, following, projects,
             email, location, phone, website, intro, image;
-    private Portfolio portfolio;
+    Portfolio portfolio;
 
 
 

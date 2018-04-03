@@ -1,11 +1,8 @@
 /*Copyright (c) 2018 Madona Syombua
-
         Licensed under the Apache License, Version 2.0 (the "License");
         you may not use this file except in compliance with the License.
         You may obtain a copy of the License at
-
         http://www.apache.org/licenses/LICENSE-2.0
-
         Unless required by applicable law or agreed to in writing, software
         distributed under the License is distributed on an "AS IS" BASIS,
         WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -88,7 +85,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         Post post = mPosts.get(position);
-       // holder.mUsername.setText(post.getUser().getUsername());
+        // holder.mUsername.setText(post.getUser().getUsername());
         holder.mName.setText(post.getUsername());
         holder.mPostProfilePicture.setImageBitmap(null);
         holder.mPostProfilePicture.setImageResource(R.drawable.default_pic);
@@ -142,53 +139,53 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
      * we can provide access to all the views for a data item in a view holder
      */
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-            private OnItemClickListener mListener;
-            private View.OnClickListener cardListener;
-            private View.OnClickListener closeListener;
-            private View.OnClickListener voteListener;
-            private ArrayList<Post> mPosts;
-            private boolean mFromMainActivity;
+        private OnItemClickListener mListener;
+        private View.OnClickListener cardListener;
+        private View.OnClickListener closeListener;
+        private View.OnClickListener voteListener;
+        private ArrayList<Post> mPosts;
+        private boolean mFromMainActivity;
 
-            @BindView(R.id.cardView) CardView mCardView;
-            @BindView(R.id.commentsSection)LinearLayout mCommentsSection;
-            @BindView(R.id.postInfo) LinearLayout mPostInfo;
-            @BindView(R.id.name)TextView mName;
-            @BindView(R.id.time)TextView mPosted;
-            @BindView(R.id.text)TextView mText;
-            @BindView(R.id.comments)TextView mNoComments;
-            @BindView(R.id.upvotes)TextView mUpvotes;
-            @BindView(R.id.downvotes)TextView mDownvotes;
-            @BindView(R.id.closeButton)ImageView mCloseButton;
-            @BindView(R.id.deleteCommentButton)ImageView mDeletePostButton;
-            @BindView(R.id.postProfilePicture)ImageView mPostProfilePicture;
-            @BindView(R.id.upvote) ImageView mUpvote;
-            @BindView(R.id.downvote)ImageView mDownvote;
-            @BindView(R.id.postImage)ImageView mPostImage;
-            @BindView(R.id.postImageBorder)LinearLayout  mPostImageBorder;
+        @BindView(R.id.cardView) CardView mCardView;
+        @BindView(R.id.commentsSection)LinearLayout mCommentsSection;
+        @BindView(R.id.postInfo) LinearLayout mPostInfo;
+        @BindView(R.id.name)TextView mName;
+        @BindView(R.id.time)TextView mPosted;
+        @BindView(R.id.text)TextView mText;
+        @BindView(R.id.comments)TextView mNoComments;
+        @BindView(R.id.upvotes)TextView mUpvotes;
+        @BindView(R.id.downvotes)TextView mDownvotes;
+        @BindView(R.id.closeButton)ImageView mCloseButton;
+        @BindView(R.id.deleteCommentButton)ImageView mDeletePostButton;
+        @BindView(R.id.postProfilePicture)ImageView mPostProfilePicture;
+        @BindView(R.id.upvote) ImageView mUpvote;
+        @BindView(R.id.downvote)ImageView mDownvote;
+        @BindView(R.id.postImage)ImageView mPostImage;
+        @BindView(R.id.postImageBorder)LinearLayout  mPostImageBorder;
 
 
-            public ViewHolder(View itemView, ArrayList<Post> posts, OnItemClickListener listener, boolean fromMainActivity) {
-                super(itemView);
-                ButterKnife.bind(this, itemView);
-                mPosts = posts;
-                mListener = listener;
-                mFromMainActivity = fromMainActivity;
-                mPostImageBorder.setVisibility(View.GONE);
-                setUpListeners();
+        public ViewHolder(View itemView, ArrayList<Post> posts, OnItemClickListener listener, boolean fromMainActivity) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+            mPosts = posts;
+            mListener = listener;
+            mFromMainActivity = fromMainActivity;
+            mPostImageBorder.setVisibility(View.GONE);
+            setUpListeners();
 
-                mUpvote.setOnClickListener(voteListener);
-                mUpvotes.setOnClickListener(voteListener);
-                mDownvote.setOnClickListener(voteListener);
-                mDownvotes.setOnClickListener(voteListener);
-                mPostImage.setOnClickListener(this);
+            mUpvote.setOnClickListener(voteListener);
+            mUpvotes.setOnClickListener(voteListener);
+            mDownvote.setOnClickListener(voteListener);
+            mDownvotes.setOnClickListener(voteListener);
+            mPostImage.setOnClickListener(this);
 
-                if(mFromMainActivity){
-                    mCloseButton.setOnClickListener(closeListener);
-                    mCardView.setOnClickListener(cardListener);
+            if(mFromMainActivity){
+                mCloseButton.setOnClickListener(closeListener);
+                mCardView.setOnClickListener(cardListener);
             }else{
-                    mDeletePostButton.setOnClickListener(this);
-                    mPostInfo.setOnClickListener(this);
-        }
+                mDeletePostButton.setOnClickListener(this);
+                mPostInfo.setOnClickListener(this);
+            }
 
         }
 

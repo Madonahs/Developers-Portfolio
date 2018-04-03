@@ -42,7 +42,7 @@ import com.madonasyombua.growwithgoogleteamproject.util.Constant;
  */
 public class ProfileFragmentDialog extends DialogFragment {
     private FragmentProfileDialogBinding mBinding;
-    private OnSubmitListener mListener;
+    public OnSubmitListener mListener;
 
     @Override
     public void onStart() {
@@ -70,7 +70,7 @@ public class ProfileFragmentDialog extends DialogFragment {
         mBinding.submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                mListener.submit(submit());
+              mListener.submit(submit());
                 getDialog().dismiss();
             }
         });

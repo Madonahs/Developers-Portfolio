@@ -42,12 +42,12 @@ import butterknife.ButterKnife;
 public class HelpActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     // SearchView
-    private MaterialSearchView searchView;
 
-    @BindView(R.id.backToMain)ImageButton backToMain;
+    private MaterialSearchView searchView;
+    private ImageButton backToMain;
     @BindView(R.id.faq)TextView faq;
     @BindView(R.id.contact)TextView contact;
-    @BindView(R.id.terms)TextView terms;
+    private TextView terms;
     SharedPref sharedPref;
     private boolean prev_State = false;
 
@@ -64,7 +64,6 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
         setContentView(R.layout.activity_help_searchview);
         ButterKnife.bind(this);
         setCorrectTheme();
-
 
         // Toolbar with Search Icon
         Toolbar toolbar = (Toolbar) findViewById(R.id.tb_help);
@@ -110,6 +109,8 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
         });
 
 
+
+        backToMain = findViewById(R.id.backToMain);
         backToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,6 +142,7 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
             }
         });
 
+        terms.findViewById(R.id.terms);
         terms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
