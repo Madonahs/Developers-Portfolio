@@ -107,9 +107,6 @@ public class FeedsFragment extends Fragment{
     };
     private boolean mListening = false;
 
-    public FeedsFragment() {
-        // Required empty public constructor
-    }
 
     /**
      * Use this factory method to create a new instance of

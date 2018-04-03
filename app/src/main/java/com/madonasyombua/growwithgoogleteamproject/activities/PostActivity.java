@@ -35,9 +35,8 @@ import butterknife.ButterKnife;
 public class PostActivity extends AppCompatActivity
         implements PostFeedFragment.OnFragmentInteractionListener {
 
-    private static final String TAG = "PostActivity";
+    //private static final String TAG = "PostActivity";
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private Post receivedPost;
@@ -50,7 +49,7 @@ public class PostActivity extends AppCompatActivity
     @BindString(R.string.yes) String stringYes;
     @BindString(R.string.cancel)String stringCancel;
     @BindString(R.string.deleted_comment)String stringDeletedComment;
-    @BindString(R.string.deleted_comment)String stringDeleteComment;
+    @BindString(R.string.delete_comment)String stringDeleteComment;
     @BindString(R.string.sent_comment)String stringSentComment;
 
     @Override
@@ -101,15 +100,20 @@ public class PostActivity extends AppCompatActivity
         return true;
     }
 
-
+    /**
+     * update post
+     */
     public void updatePost() {
 
 
     }
-    @Override
-    public void onFragmentInteraction(Uri uri) {
 
-    }
+    /**
+     *
+     * @param uri
+     */
+    @Override
+    public void onFragmentInteraction(Uri uri) { }
 
     @Override
     public void onDialogSubmit() {

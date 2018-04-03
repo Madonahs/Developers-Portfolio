@@ -63,9 +63,6 @@ public class ProfileFragment extends Fragment
 
     private static final String TAG = "update-profile-fragment";
 
-    public ProfileFragment() {
-        // Required empty public constructor
-    }
 
 
     @Override

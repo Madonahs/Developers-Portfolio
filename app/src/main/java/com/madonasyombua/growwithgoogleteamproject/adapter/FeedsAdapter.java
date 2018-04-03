@@ -143,11 +143,12 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
      */
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
             private OnItemClickListener mListener;
-            private View.OnClickListener cardListener;
-            private View.OnClickListener closeListener;
-            private View.OnClickListener voteListener;
-            private ArrayList<Post> mPosts;
+            View.OnClickListener cardListener;
+            View.OnClickListener closeListener;
+            View.OnClickListener voteListener;
+            ArrayList<Post> mPosts;
             private boolean mFromMainActivity;
+            LinearLayout mPostImageBorder;
 
             @BindView(R.id.cardView) CardView mCardView;
             @BindView(R.id.commentsSection)LinearLayout mCommentsSection;
@@ -164,7 +165,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
             @BindView(R.id.upvote) ImageView mUpvote;
             @BindView(R.id.downvote)ImageView mDownvote;
             @BindView(R.id.postImage)ImageView mPostImage;
-            @BindView(R.id.postImageBorder)LinearLayout  mPostImageBorder;
+
 
 
             public ViewHolder(View itemView, ArrayList<Post> posts, OnItemClickListener listener, boolean fromMainActivity) {

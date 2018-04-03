@@ -33,7 +33,7 @@ import butterknife.ButterKnife;
 public class HelpActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     // SearchView
-    @BindView(R.id.backToMain)ImageButton backToMain;
+    private ImageButton backToMain;
     @BindView(R.id.faq)TextView faq;
     @BindView(R.id.contact)TextView contact;
     @BindView(R.id.terms)TextView terms;
@@ -53,6 +53,7 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
         setContentView(R.layout.activity_help);
         ButterKnife.bind(this);
         setCorrectTheme();
+        backToMain = findViewById(R.id.backToMain);
         backToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
