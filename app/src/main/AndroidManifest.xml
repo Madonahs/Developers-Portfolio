@@ -68,7 +68,7 @@
             android:name=".activities.SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name=".activities.AddFeeds"
+            android:name=".activities.PostActivity"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activities.AboutActivity"
