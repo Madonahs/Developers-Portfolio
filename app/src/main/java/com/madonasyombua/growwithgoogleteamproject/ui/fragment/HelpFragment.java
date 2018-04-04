@@ -26,7 +26,7 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 
 public class HelpFragment extends Fragment {
 
-     OnFragmentInteractionListener mListener;
+     /*OnFragmentInteractionListener mListener;
 
     public HelpFragment() {
         // Required empty public constructor

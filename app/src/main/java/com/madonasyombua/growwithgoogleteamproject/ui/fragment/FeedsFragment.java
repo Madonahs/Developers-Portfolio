@@ -57,7 +57,7 @@ public class FeedsFragment extends Fragment{
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private SwipeRefreshLayout mSwipeRefreshLayout;
-    private CoordinatorLayout coordinatorLayout;
+    //private CoordinatorLayout coordinatorLayout;
     private ArrayList<Post> mPosts;
 
     @BindView(R.id.displayEmpty)TextView displayEmpty;
@@ -130,7 +130,7 @@ public class FeedsFragment extends Fragment{
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_feeds, container, false);
         ButterKnife.bind(this, view);
-        coordinatorLayout = (CoordinatorLayout) view.findViewById(R.id.base);
+       CoordinatorLayout coordinatorLayout = (CoordinatorLayout) view.findViewById(R.id.base);
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefresh);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 

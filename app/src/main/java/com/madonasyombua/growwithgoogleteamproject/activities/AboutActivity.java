@@ -20,7 +20,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import com.madonasyombua.growwithgoogleteamproject.R;
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
