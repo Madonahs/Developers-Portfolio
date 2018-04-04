@@ -1,6 +1,6 @@
 <h1 align="center">Machine Learning </h1>
 
-<a [![Codacy Badge](https://api.codacy.com/project/badge/Grade/85a8524c181b4d53948bfc3ae0438149)](https://app.codacy.com/app/syombuamadona/Machine-Learning?utm_source=github.com&utm_medium=referral&utm_content=Madonahs/Machine-Learning&utm_campaign=badger) </a>
+ [![Codacy Badge](https://api.codacy.com/project/badge/Grade/85a8524c181b4d53948bfc3ae0438149)](https://app.codacy.com/app/syombuamadona/Machine-Learning?utm_source=github.com&utm_medium=referral&utm_content=Madonahs/Machine-Learning&utm_campaign=badger) </a>
  <a target="_blank" href="LICENSE"><img src="http://img.shields.io/:license-apache-blue.svg" alt="License" /></a>
  
 </p>
