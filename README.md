@@ -1,5 +1,8 @@
-# Grow With Google Team Project 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d9894982e1c9417baca62ffe04434bf5)](https://www.codacy.com/app/syombuamadona/Devs-Portfolio-App?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Madonahs/Devs-Portfolio-App&amp;utm_campaign=Badge_Grade)
+<h1 align="center">Dev's Portfolio </h1>
+
+ <a target="_blank" href="LICENSE"><img src="http://img.shields.io/:license-apache-blue.svg" alt="License" /></a>
+  [![Codacy Badge](https://api.codacy.com/project/badge/Grade/85a8524c181b4d53948bfc3ae0438149)](https://app.codacy.com/app/syombuamadona/Machine-Learning?utm_source=github.com&utm_medium=referral&utm_content=Madonahs/Machine-Learning&utm_campaign=badger) </a>
+</p>
 
 Grow With Google Scholarship Team Project.
 
