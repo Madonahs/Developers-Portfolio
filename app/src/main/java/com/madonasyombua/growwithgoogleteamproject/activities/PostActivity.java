@@ -105,6 +105,7 @@ public class PostActivity extends AppCompatActivity
      */
     public void updatePost() {
 
+        //update post
 
     }
 
@@ -113,7 +114,9 @@ public class PostActivity extends AppCompatActivity
      * @param uri
      */
     @Override
-    public void onFragmentInteraction(Uri uri) { }
+    public void onFragmentInteraction(Uri uri) {
+        //uri
+        }
 
     @Override
     public void onDialogSubmit() {
