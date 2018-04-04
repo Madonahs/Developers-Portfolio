@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
 
     private ActivityLoginBinding binding;
     private static final String TAG = "LoginActivity";
-    static final int SHOW_INTRO = 1;
+    private static final int SHOW_INTRO = 1;
 
     GoogleSignInClient mGoogleSignInClient;
     private static final int GOOGLE_SIGN_IN_REQUEST_CODE = 500;

@@ -23,7 +23,10 @@ import javax.net.ssl.X509TrustManager;
  */
 public class HttpsTrustManager implements X509TrustManager {
 
-    private static final X509Certificate[] AcceptedIssuers = new X509Certificate[]{};
+    private static final X509Certificate[] AcceptedIssuers = new X509Certificate[]{
+            // to be added
+
+    };
 
     @Override
     public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {

@@ -56,8 +56,8 @@ public class FeedsFragment extends Fragment{
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private SwipeRefreshLayout mSwipeRefreshLayout;
-    //private CoordinatorLayout coordinatorLayout;
+    SwipeRefreshLayout mSwipeRefreshLayout;
+    CoordinatorLayout coordinatorLayout;
     private ArrayList<Post> mPosts;
 
     @BindView(R.id.displayEmpty)TextView displayEmpty;
@@ -130,11 +130,11 @@ public class FeedsFragment extends Fragment{
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_feeds, container, false);
         ButterKnife.bind(this, view);
-       CoordinatorLayout coordinatorLayout = (CoordinatorLayout) view.findViewById(R.id.base);
-        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefresh);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        coordinatorLayout = view.findViewById(R.id.base);
+        mSwipeRefreshLayout = view.findViewById(R.id.swipeRefresh);
+        mRecyclerView =  view.findViewById(R.id.recyclerView);
 
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.add_feeds);
+        FloatingActionButton fab =  view.findViewById(R.id.add_feeds);
         fab.setOnClickListener(
                 new View.OnClickListener() {
 
