@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
     private static final String EMAIL_PERMISSION = "email";
 
     private ActivityLoginBinding binding;
-    private static final String TAG = "LoginActivity";
+    private static final String TAG = LoginActivity.class.getName();
     private static final int SHOW_INTRO = 1;
 
     GoogleSignInClient mGoogleSignInClient;

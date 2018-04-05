@@ -30,7 +30,7 @@ import com.madonasyombua.growwithgoogleteamproject.models.User;
 
 public class AppLoginManager {
 
-    //private static final String TAG = "DataManager";
+    private static final String TAG = AppLoginManager.class.getName();
     private static FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private static FirebaseUser mCurrentUser;
 

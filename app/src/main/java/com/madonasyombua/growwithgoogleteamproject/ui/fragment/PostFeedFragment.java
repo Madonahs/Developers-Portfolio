@@ -64,7 +64,7 @@ public class PostFeedFragment extends DialogFragment {
     public static int RESULT_CAMERA = 2;
 
     private OnFragmentInteractionListener mListener;
-    private static final String TAG = "PostActivity";
+    private static final String TAG = PostFeedFragment.class.getName();
     @BindView(R.id.post)
     EditText postText;
     @BindView(R.id.header)

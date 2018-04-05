@@ -47,7 +47,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
     private OnItemClickListener mListener;
     private String stringComment;
 
-    private BitmapHandler bitmapHandler;
+    BitmapHandler bitmapHandler;
 
     public FeedsAdapter(Activity activity, ArrayList<Post> posts, OnItemClickListener listener, boolean fromMainActivity) {
         mActivity = activity;

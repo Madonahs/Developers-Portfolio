@@ -60,7 +60,7 @@ public class MainActivity
         PostFeedFragment.OnFragmentInteractionListener {
 
     private Fragment fragment;
-    private static final String TAG = "current-frag";
+    private static final String TAG = MainActivity.class.getName();
     @BindView(R.id.toolbar)Toolbar toolbar;
     @BindView(R.id.drawer_container)DrawerLayout drawerLayout;
     @BindView(R.id.nav_view)NavigationView navView;

@@ -40,7 +40,7 @@ import java.util.regex.Pattern;
  */
 
 public class RegisterFragment extends Fragment {
-    private static final String TAG = "RegisterFragment";
+    private static final String TAG =RegisterFragment.class.getName();
 
     private FragmentRegisterBinding binding;
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";

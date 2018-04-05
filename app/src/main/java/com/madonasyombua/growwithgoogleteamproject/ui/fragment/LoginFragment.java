@@ -36,7 +36,7 @@ import com.madonasyombua.growwithgoogleteamproject.activities.LoginActivity;
 
 public class LoginFragment extends Fragment {
     private FragmentLoginBinding binding;
-    private static final String TAG = "LoginFragment";
+    private static final String TAG = LoginFragment.class.getName();
     /**
     * This class is used to get data from the fragment like the username and stuff.
     * It also binds the views

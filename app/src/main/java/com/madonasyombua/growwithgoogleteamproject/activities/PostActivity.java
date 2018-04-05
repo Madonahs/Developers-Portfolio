@@ -35,7 +35,7 @@ import butterknife.ButterKnife;
 public class PostActivity extends AppCompatActivity
         implements PostFeedFragment.OnFragmentInteractionListener {
 
-    //private static final String TAG = "PostActivity";
+    private static final String TAG = PostActivity.class.getName();
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
     private SwipeRefreshLayout mSwipeRefreshLayout;

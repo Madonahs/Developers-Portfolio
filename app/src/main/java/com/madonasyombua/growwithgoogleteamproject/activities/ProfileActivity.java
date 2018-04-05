@@ -21,7 +21,7 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 
 
 public class ProfileActivity extends AppCompatActivity {
-    private static final String TAG = "profile-fragment";
+    //private static final String TAG = ProfileActivity.class.getName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
