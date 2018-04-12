@@ -108,6 +108,3 @@ These files are required in order for google sign in features to work.
 ### Profile
 <img src="https://user-images.githubusercontent.com/11560987/37727647-66431f24-2d06-11e8-92e8-981c31e4fdc6.jpg" width="200" height="400" />
 
-## Login Landscape
-
-![img-20180402-wa0002](https://user-images.githubusercontent.com/11560987/38225455-9b815ec2-36ba-11e8-87e3-70f61527de46.jpg)
