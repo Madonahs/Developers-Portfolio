@@ -333,12 +333,7 @@ public class PostFeedFragment extends DialogFragment {
 
        //TODO 1: Enable sending images to DataBase
         //TODO 2: ensure we get the following
-        /**
-         * Post post = new post();
-         * post.setUsername(name);
-         * post.setSomethingElse(whatever);
-         * Use the setters to populate the post.
-         */
+
         Post post = new Post(postText.getText().toString(), "Madonahs", null);
             reference.push().setValue(post, new DatabaseReference.CompletionListener() {
                 @Override
