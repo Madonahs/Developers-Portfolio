@@ -14,7 +14,7 @@ This is a Social App for Developers to share their portfolio and also get to int
 Develop 🔧
 
 ### Prerequisites
-An open mind and an open heart, Strong Programmer +.
+An open mind and an open heart, Strong Programmer +
 
 ## Authors
 * **Madona Syombua** - *Lead/Core developer* 
