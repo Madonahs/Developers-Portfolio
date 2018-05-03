@@ -26,14 +26,15 @@ import butterknife.ButterKnife;
 public class AboutActivity extends AppCompatActivity {
 
 
-    private ImageButton imageButton;
+    //private ImageButton imageButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         ButterKnife.bind(this);
 
-        imageButton = findViewById(R.id.backToNavDrawer);
+
+        /*imageButton = findViewById(R.id.backToNavDrawer);
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,7 +42,7 @@ public class AboutActivity extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        });
+        });*/
 
     }
 }
