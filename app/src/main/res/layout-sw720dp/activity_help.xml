@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--    /*Copyright (c) 2018 Madona Syombua
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    */-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/backgroundcolor"
+    tools:context="com.madonasyombua.growwithgoogleteamproject.activities.HelpActivity">
+
+    <!--<android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:elevation="6dp"
+        android:background="?attr/background_color_of_toolbars"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal"
+            android:layout_alignParentLeft="true">
+
+            <ImageButton
+                android:id="@+id/backToMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_action_back"
+                android:contentDescription="@string/back" />
+        </LinearLayout>
+
+    </android.support.design.widget.AppBarLayout>-->
+
+
+    <!-- Faq page loads faq for user -->
+    <TextView
+        android:id="@+id/faq"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_8"
+        android:layout_marginStart="@dimen/margin_8"
+        android:layout_marginTop="@dimen/margin_8"
+        android:fontFamily="@font/raleway"
+        android:paddingBottom="10dp"
+        android:paddingTop="4dp"
+        android:text="@string/faq"
+        android:textColor="?attr/textcolor"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+    <!-- contact us page, loads contact us dialog -->
+    <TextView
+        android:id="@+id/contact"
+        android:layout_width="188dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_8"
+        android:layout_marginStart="@dimen/margin_8"
+        android:layout_marginTop="@dimen/margin_8"
+        android:fontFamily="@font/raleway"
+        android:paddingBottom="10dp"
+        android:paddingTop="4dp"
+        android:text="@string/contactus"
+        android:textColor="?attr/textcolor"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+
+    <!-- terms and privacy, loads terms and conditions for users -->
+    <TextView
+        android:id="@+id/terms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_8"
+        android:layout_marginStart="@dimen/margin_8"
+        android:layout_marginTop="@dimen/margin_8"
+        android:fontFamily="@font/raleway"
+        android:paddingBottom="10dp"
+        android:paddingTop="4dp"
+        android:text="@string/terms"
+        android:textColor="?attr/textcolor"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+
+</LinearLayout>
