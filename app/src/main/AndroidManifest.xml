@@ -42,7 +42,7 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
+   <!--Start Login after test -->
         <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/AppTheme">
@@ -52,7 +52,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
+       <activity
             android:name=".activities.MainActivity"
             android:theme="@style/AppTheme" />
         <activity
