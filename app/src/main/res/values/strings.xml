@@ -82,7 +82,12 @@
     <string name="terms">Terms and Conditions</string>
     <string name="back">Back</string>
     <string name="about">About</string>
-    <string name="about_detail">The project is meant to help programmers have a portfolio sharing platform, programmers are welcome to share their projects and they can interact and show employers what they have done in the app, one doesnt have to create a website to showcase his/her work. The project was done by team members participating in the Grow With Google Scholarship Program offered by Google|Udacity.</string>
+    <string name="about_detail">The project is meant to help programmers have a portfolio sharing platform,
+        programmers are welcome to share their projects and they can interact and show employers what
+        they have done in the app, one does not have to create a website to showcase his/her work.
+        The project was done by team members participating in the Grow With Google Scholarship Program offered by Google|Udacity.The team
+        was happy to get into phase two of the Grow With Google Scholarship.
+    </string>
     <string name="about_developer_heading">Developers</string>
     <string name="about_developer_name1">Madonah Syombua</string>
     <string name="about_developer_name2">Rado RAMBININTSOA</string>
@@ -257,7 +262,7 @@
     <string name="message">We will implement message here</string>
     <string name="image">Image</string>
     <string name="timeout">timeout</string>
-
+    <string name="help">Help</string>
 
 
 </resources>

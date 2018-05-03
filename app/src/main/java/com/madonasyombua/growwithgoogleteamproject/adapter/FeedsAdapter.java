@@ -85,7 +85,6 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         Post post = mPosts.get(position);
-        // holder.mUsername.setText(post.getUser().getUsername());
         holder.mName.setText(post.getUsername());
         holder.mPostProfilePicture.setImageBitmap(null);
         holder.mPostProfilePicture.setImageResource(R.drawable.default_pic);

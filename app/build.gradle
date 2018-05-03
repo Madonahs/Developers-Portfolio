@@ -36,8 +36,8 @@ dependencies {
     implementation 'com.android.support:support-v4:27.0.2'
     implementation 'com.android.support:support-vector-drawable:27.0.2'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile "com.android.support:design:$rootProject.ext.supportLibraryVersion"
-    compile "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
+    implementation "com.android.support:design:$rootProject.ext.supportLibraryVersion"
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
     implementation "com.android.support:support-annotations:$rootProject.ext.supportLibraryVersion"
 
     // Test libraries
@@ -46,22 +46,22 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
 
     //AhoyOnBoard library
-    compile "com.codemybrainsout.onboarding:onboarder:$rootProject.ext.onBoarderVersion"
-    compile "com.jonathanfinerty.once:once:$rootProject.ext.onceVersion"
+    implementation "com.codemybrainsout.onboarding:onboarder:$rootProject.ext.onBoarderVersion"
+    implementation "com.jonathanfinerty.once:once:$rootProject.ext.onceVersion"
 
     // Butterknife
-    compile "com.jakewharton:butterknife:$rootProject.ext.butterKnifeVersion"
+    implementation "com.jakewharton:butterknife:$rootProject.ext.butterKnifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterKnifeVersion"
 
     // Dagger
-    compile "com.google.dagger:dagger-android:$rootProject.ext.daggerVersion"
-    compile "com.google.dagger:dagger-android-support:$rootProject.ext.daggerVersion"
+    implementation "com.google.dagger:dagger-android:$rootProject.ext.daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.ext.daggerVersion"
     // if you use the support libraries
     annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.ext.daggerVersion"
     annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
 
     // CircleImageView Lib
-    compile "de.hdodenhof:circleimageview:$rootProject.ext.circleImageViewVersion"
+    implementation "de.hdodenhof:circleimageview:$rootProject.ext.circleImageViewVersion"
 
     // Facebook SDK
     implementation "com.facebook.android:facebook-login:$rootProject.ext.facebookLoginVersion"
@@ -80,11 +80,11 @@ dependencies {
     implementation "com.google.android.gms:play-services-auth:$rootProject.ext.playServicesVersion"
 
 
-    compile 'org.jetbrains:annotations-java5:15.0'
-    compile 'com.google.android.gms:play-services-maps:11.8.0'
+    implementation 'org.jetbrains:annotations-java5:15.0'
+    implementation 'com.google.android.gms:play-services-maps:11.8.0'
 
     // Material SearchView
-    compile 'com.miguelcatalan:materialsearchview:1.4.0'
+   implementation 'com.miguelcatalan:materialsearchview:1.4.0'
 
 
 
