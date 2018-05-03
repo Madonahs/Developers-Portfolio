@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="fontFamily">@font/raleway</item>
         <item name="colorPrimary">#2192F3</item>
-        <item name="colorPrimaryDark">#1976D2</item>
+        <item name="colorPrimaryDark">#0065c0</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorAccent">@color/colorAccent</item>
