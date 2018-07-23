@@ -19,7 +19,7 @@
     android:layout_height="match_parent"
     android:id="@+id/fragment_2"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.madonasyombua.growwithgoogleteamproject.ui.fragment.FeedsFragment">
+    tools:context=".fragment.FeedsFragment">
 
           <!---Content Main -->
   <android.support.v7.widget.RecyclerView
