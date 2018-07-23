@@ -22,7 +22,7 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 public class MessageActivity extends AppCompatActivity {
     /**
      * Implement Messages
-     * @param savedInstanceState
+     * @param savedInstanceState SI
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {

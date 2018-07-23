@@ -77,7 +77,7 @@ public class MainActivity
      * Theme can only be changed before setContentView is called.
      * Therefore, I am changing the theme on here.
      * store data
-     * @param savedInstanceState
+     * @param savedInstanceState saved instance
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -297,7 +297,7 @@ public class MainActivity
     /**
      * Implement Navigation Drawer list item click listener
      *
-     * @param uri
+     * @param uri uri
      */
 
     @Override
@@ -312,10 +312,10 @@ public class MainActivity
 
     /**
      *
-     * @param parent
-     * @param view
-     * @param position
-     * @param id
+     * @param parent parent
+     * @param view view
+     * @param position the position
+     * @param id the id
      */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -331,8 +331,8 @@ public class MainActivity
     /**
      * the sharedP is going to change
      *
-     * @param sharedPreferences
-     * @param key
+     * @param sharedPreferences sp
+     * @param key key
      */
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {

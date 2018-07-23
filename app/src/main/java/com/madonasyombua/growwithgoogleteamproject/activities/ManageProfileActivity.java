@@ -22,7 +22,7 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 public class ManageProfileActivity extends AppCompatActivity {
     /**
      * Start Manage Profile
-     * @param savedInstanceState
+     * @param savedInstanceState sI
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
