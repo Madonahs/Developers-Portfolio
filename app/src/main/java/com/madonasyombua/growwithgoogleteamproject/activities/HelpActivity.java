@@ -17,6 +17,7 @@ package com.madonasyombua.growwithgoogleteamproject.activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.speech.RecognizerIntent;
@@ -35,6 +36,7 @@ import com.madonasyombua.growwithgoogleteamproject.ui.SharedPref;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -64,9 +66,11 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
         setCorrectTheme();
 
         // Toolbar with Search Icon
-        Toolbar toolbar = (Toolbar) findViewById(R.id.tb_help);
+        Toolbar toolbar = findViewById(R.id.tb_help);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        }
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Help");
 
@@ -77,7 +81,7 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
             }
         });
 
-        searchView = (MaterialSearchView) findViewById(R.id.search_view);
+        searchView = findViewById(R.id.search_view);
         searchView.setVoiceSearch(true);
         searchView.setCursorDrawable(R.drawable.color_cursor_white);
         searchView.setSuggestions(getResources().getStringArray(R.array.search_suggestions));

@@ -16,6 +16,7 @@
 package com.madonasyombua.growwithgoogleteamproject.activities;
 
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -29,6 +30,8 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.PostFeedFragment;
 import com.madonasyombua.growwithgoogleteamproject.models.Post;
 import java.util.ArrayList;
+import java.util.Objects;
+
 import butterknife.BindString;
 import butterknife.ButterKnife;
 
@@ -40,7 +43,6 @@ public class PostActivity extends AppCompatActivity
     private RecyclerView.LayoutManager mLayoutManager;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private Post receivedPost;
-    private ArrayList<Post> mPost;
     @BindString(R.string.post) String stringPost;
     @BindString(R.string.deleted_post) String stringDeletedPost;
     @BindString(R.string.comment) String stringComment;
@@ -57,16 +59,18 @@ public class PostActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_feeds);
         ButterKnife.bind(this);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        }
         getSupportActionBar().setTitle(stringPost);
 
-        mPost = new ArrayList<>();
+        ArrayList<Post> mPost = new ArrayList<>();
         receivedPost = (Post) getIntent().getSerializableExtra("post");
         mPost.add(receivedPost);
 
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
+        mSwipeRefreshLayout = findViewById(R.id.swipeRefresh);
         mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(this, R.color.colorAccent));
         mSwipeRefreshLayout.setOnRefreshListener(
                 new SwipeRefreshLayout.OnRefreshListener() {
@@ -77,7 +81,7 @@ public class PostActivity extends AppCompatActivity
                 }
         );
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        mRecyclerView = findViewById(R.id.recyclerView);
         /* use this setting to improve performance if you know that changes
         in content do not change the layout size of the RecyclerView*/
         mRecyclerView.setHasFixedSize(true);

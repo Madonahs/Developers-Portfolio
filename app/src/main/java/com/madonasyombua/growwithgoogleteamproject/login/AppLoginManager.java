@@ -15,6 +15,7 @@
 package com.madonasyombua.growwithgoogleteamproject.login;
 
 import android.app.Activity;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,6 +24,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
+
+import java.util.Objects;
 
 /**
  * Created by mahersoua on 23/02/2018.
@@ -44,7 +47,9 @@ public class AppLoginManager {
                             ((LoginInterface)activity).onRegistrationSuccess();
                         } else {
                             ((LoginInterface)activity).onRegistrationFailed();
-                            Toast.makeText(activity, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                                Toast.makeText(activity, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
                 });
@@ -62,7 +67,9 @@ public class AppLoginManager {
                             ((LoginInterface)activity).onSigninSuccess(user);
                         } else {
                             ((LoginInterface)activity).onSigninFailed();
-                            Toast.makeText(activity, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                                Toast.makeText(activity, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
                 });

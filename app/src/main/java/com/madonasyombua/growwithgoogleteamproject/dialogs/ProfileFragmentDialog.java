@@ -16,6 +16,7 @@ package com.madonasyombua.growwithgoogleteamproject.dialogs;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -29,6 +30,8 @@ import android.widget.TextView;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentProfileDialogBinding;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
+
+import java.util.Objects;
 
 /**
  * Created by chuk on 2/23/18.
@@ -47,8 +50,10 @@ public class ProfileFragmentDialog extends DialogFragment {
     @Override
     public void onStart() {
         super.onStart();
-        getDialog().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Objects.requireNonNull(getDialog().getWindow()).setLayout(ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
+        }
     }
 
     @Override
@@ -56,7 +61,9 @@ public class ProfileFragmentDialog extends DialogFragment {
         super.onAttach(context);
         Fragment fragment = getParentFragment();
         if(!(fragment instanceof OnSubmitListener))
-            throw new RuntimeException(fragment.toString() + "must implement OnSubmitListener");
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                throw new RuntimeException(Objects.requireNonNull(fragment).toString() + "must implement OnSubmitListener");
+            }
 
         mListener = (OnSubmitListener) fragment;
     }
