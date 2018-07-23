@@ -25,6 +25,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -50,6 +52,8 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.models.Post;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
 
+
+import java.util.Objects;
 
 import butterknife.BindString;
 import butterknife.BindView;
@@ -147,11 +151,13 @@ public class PostFeedFragment extends DialogFragment {
         });*/
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
-    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_post_feed, container, false);
         ButterKnife.bind(this, view);
+        assert getArguments() != null;
         header.setText(getArguments().getString("title"));
         postingAs.setText(getArguments().getString("postingAs"));
         name.setText(getArguments().getString("name"));
@@ -218,7 +224,7 @@ public class PostFeedFragment extends DialogFragment {
         );
 
         postText.requestFocus();
-        getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        Objects.requireNonNull(getDialog().getWindow()).setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 
         setEnabled(true);
 
@@ -232,12 +238,13 @@ public class PostFeedFragment extends DialogFragment {
         cameraButton.setEnabled(enabled);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         try {
             System.out.println("resultCode: " + resultCode);
-            if (resultCode == getActivity().RESULT_OK && data != null) {
+            if (resultCode == Objects.requireNonNull(getActivity()).RESULT_OK && data != null) {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     TransitionManager.endTransitions(attachment);
@@ -254,9 +261,11 @@ public class PostFeedFragment extends DialogFragment {
                     String[] filePathColumn = {MediaStore.Images.Media.DATA};
 
                     // Get the cursor
+                    assert selectedImage != null;
                     Cursor cursor = getActivity().getContentResolver().query(selectedImage,
                             filePathColumn, null, null, null);
                     // Move to first row
+                    assert cursor != null;
                     cursor.moveToFirst();
 
                     int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
@@ -350,10 +359,11 @@ public class PostFeedFragment extends DialogFragment {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onResume() {
         // Get existing layout params for the window
-        ViewGroup.LayoutParams params = getDialog().getWindow().getAttributes();
+        ViewGroup.LayoutParams params = Objects.requireNonNull(getDialog().getWindow()).getAttributes();
         // Assign window properties to fill the parent
         params.width = WindowManager.LayoutParams.MATCH_PARENT;
         params.height = WindowManager.LayoutParams.MATCH_PARENT;

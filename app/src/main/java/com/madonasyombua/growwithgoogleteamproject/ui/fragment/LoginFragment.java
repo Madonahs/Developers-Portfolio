@@ -15,8 +15,11 @@
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
 import android.databinding.DataBindingUtil;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +31,8 @@ import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentLoginBinding;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
 import com.madonasyombua.growwithgoogleteamproject.activities.LoginActivity;
+
+import java.util.Objects;
 
 
 /**
@@ -43,10 +48,11 @@ public class LoginFragment extends Fragment {
      */
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login, container, false);
 
         binding.loginFragmentButton.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View view) {
                 String email_text = extractText(binding.editEmail);
@@ -59,7 +65,7 @@ public class LoginFragment extends Fragment {
                 }
 
                 AppLoginManager.signinUser(getActivity(), new User(email_text, password_text));
-                ((LoginActivity) getActivity()).showHideProgressBar(true);
+                ((LoginActivity) Objects.requireNonNull(getActivity())).showHideProgressBar(true);
             }
         });
 

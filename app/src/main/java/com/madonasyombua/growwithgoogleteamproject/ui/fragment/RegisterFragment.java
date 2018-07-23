@@ -15,8 +15,11 @@
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
 import android.databinding.DataBindingUtil;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,7 +34,7 @@ import com.madonasyombua.growwithgoogleteamproject.models.User;
 import com.madonasyombua.growwithgoogleteamproject.activities.LoginActivity;
 
 
-
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -43,7 +46,7 @@ public class RegisterFragment extends Fragment {
     private static final String TAG =RegisterFragment.class.getName();
 
     private FragmentRegisterBinding binding;
-    private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
+    private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
     private Matcher matcher;
 
@@ -53,10 +56,11 @@ public class RegisterFragment extends Fragment {
      */
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register, container, false);
         binding.registerFragmentButton.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View view) {
                 String username_txt = extractText(binding.editUsername);
@@ -69,7 +73,7 @@ public class RegisterFragment extends Fragment {
                     return;
                 }
                 AppLoginManager.registerUser(getActivity(), new User(username_txt, email_txt, password_txt));
-                ((LoginActivity) getActivity()).showHideProgressBar(true);
+                ((LoginActivity) Objects.requireNonNull(getActivity())).showHideProgressBar(true);
                 Toast.makeText(getActivity(), "Registering", Toast.LENGTH_SHORT).show();
             }
         });

@@ -17,7 +17,10 @@ package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -39,6 +42,8 @@ import com.madonasyombua.growwithgoogleteamproject.adapter.FeedsAdapter;
 import com.madonasyombua.growwithgoogleteamproject.models.Paths;
 import com.madonasyombua.growwithgoogleteamproject.models.Post;
 import java.util.ArrayList;
+import java.util.Objects;
+
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -125,8 +130,9 @@ public class FeedsFragment extends Fragment{
         mPosts = new ArrayList<>();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
-    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_feeds, container, false);
         ButterKnife.bind(this, view);
@@ -153,7 +159,7 @@ public class FeedsFragment extends Fragment{
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new FeedsAdapter(getActivity(), mPosts, new FeedsAdapter.OnItemClickListener() {
+        mAdapter = new FeedsAdapter(Objects.requireNonNull(getActivity()), mPosts, new FeedsAdapter.OnItemClickListener() {
             @Override
             public void onClick(View caller) {
 
@@ -167,8 +173,9 @@ public class FeedsFragment extends Fragment{
     /**
      * Shows a dialog for writing a new post.
      */
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void showPostDialog() {
-        FragmentManager fm = getActivity().getSupportFragmentManager();
+        FragmentManager fm = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
         System.out.println("fm: " + fm);
         SharedPreferences prefs = getActivity().getSharedPreferences("com.madonasyombua.growwithgoogleteamproject.ui.fragment", Context.MODE_PRIVATE);
         PostFeedFragment postDialog = PostFeedFragment.newInstance(stringNewPost, stringPostingAs,

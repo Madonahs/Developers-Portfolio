@@ -14,6 +14,7 @@ package com.madonasyombua.growwithgoogleteamproject.adapter;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -63,8 +64,9 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
      * @param viewType
      * @return
      */
+    @NonNull
     @Override
-    public FeedsAdapter.ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
+    public FeedsAdapter.ViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, int viewType) {
         // Create a new view
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.feeds_list_item, parent, false);
         ViewHolder vh = new ViewHolder(view, mPosts, new FeedsAdapter.ViewHolder.OnItemClickListener() {
@@ -82,7 +84,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
      *  text and image views.
      */
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         Post post = mPosts.get(position);
         holder.mName.setText(post.getUsername());
