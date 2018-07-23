@@ -70,13 +70,13 @@
         <!---This fragment will have both login and register on the same activity-->
         <!-- COMPLETE: Change this ViewPager's height to wrap content instead of being hardcoded. -->
         <!-- Add Class that will manage ViewPager -->
-        <com.madonasyombua.growwithgoogleteamproject.fragment.ViewPagerManagement
+        <com.madonasyombua.growwithgoogleteamproject.ui.fragment.ViewPagerManagement
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_marginTop="16dp">
 
-        </com.madonasyombua.growwithgoogleteamproject.fragment.ViewPagerManagement>
+        </com.madonasyombua.growwithgoogleteamproject.ui.fragment.ViewPagerManagement>
 
         <!-- Social login -->
         <TextView

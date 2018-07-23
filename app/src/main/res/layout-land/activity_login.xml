@@ -78,7 +78,7 @@
             app:layout_constraintTop_toTopOf="@+id/btn_login"
             app:layout_constraintBottom_toBottomOf="@+id/btn_login"/>
 
-        <com.madonasyombua.growwithgoogleteamproject.fragment.ViewPagerManagement
+        <com.madonasyombua.growwithgoogleteamproject.ui.fragment.ViewPagerManagement
             android:id="@+id/container"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

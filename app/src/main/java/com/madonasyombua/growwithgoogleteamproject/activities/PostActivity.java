@@ -26,7 +26,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.fragment.PostFeedFragment;
+import com.madonasyombua.growwithgoogleteamproject.ui.fragment.PostFeedFragment;
 import com.madonasyombua.growwithgoogleteamproject.models.Post;
 import java.util.ArrayList;
 import butterknife.BindString;
