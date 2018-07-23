@@ -27,7 +27,7 @@ import android.widget.TextView;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.activities.PostActivity;
 import com.madonasyombua.growwithgoogleteamproject.activities.MainActivity;
-import com.madonasyombua.growwithgoogleteamproject.fragment.ImageDialog;
+import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ImageDialog;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
 import com.madonasyombua.growwithgoogleteamproject.models.Post;
 

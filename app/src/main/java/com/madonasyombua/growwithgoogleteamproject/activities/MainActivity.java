@@ -38,11 +38,11 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.login.LoginStatusManager;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
 import com.madonasyombua.growwithgoogleteamproject.ui.SharedPref;
-import com.madonasyombua.growwithgoogleteamproject.fragment.FeedsFragment;
-import com.madonasyombua.growwithgoogleteamproject.fragment.InterestFragment;
-import com.madonasyombua.growwithgoogleteamproject.fragment.PostFeedFragment;
-import com.madonasyombua.growwithgoogleteamproject.fragment.ProfileFragment;
-import com.madonasyombua.growwithgoogleteamproject.fragment.ProjectsFragment;
+import com.madonasyombua.growwithgoogleteamproject.ui.fragment.FeedsFragment;
+import com.madonasyombua.growwithgoogleteamproject.ui.fragment.InterestFragment;
+import com.madonasyombua.growwithgoogleteamproject.ui.fragment.PostFeedFragment;
+import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProfileFragment;
+import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProjectsFragment;
 import com.madonasyombua.growwithgoogleteamproject.util.BottomNavigationViewHelper;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
