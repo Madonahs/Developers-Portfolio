@@ -14,8 +14,8 @@
  */
 package com.madonasyombua.growwithgoogleteamproject.adapter;
 
-/**
- * Created by madona on 3/31/2018.
+/*
+  Created by madona on 3/31/2018.
  */
 
 import android.support.v7.widget.RecyclerView;
@@ -44,7 +44,7 @@ public class PortfolioAdapter extends RecyclerView.Adapter<PortfolioAdapter.MyVi
         @BindView(R.id.portfolio_image)ImageView portfolioImage;
 
 
-        public MyViewHolder(View view) {
+        MyViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
 

@@ -12,12 +12,14 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
+package com.madonasyombua.growwithgoogleteamproject.fragment;
 
 
 import android.app.DialogFragment;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
@@ -27,15 +29,14 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import com.madonasyombua.growwithgoogleteamproject.R;
 
+import java.util.Objects;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ImageDialog extends DialogFragment {
 
-        private ImageView image, closeButton;
-        private View view;
-
-        public ImageDialog() {
+    public ImageDialog() {
             // Empty constructor required for DialogFragment
         }
 
@@ -60,16 +61,17 @@ public class ImageDialog extends DialogFragment {
 
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
         @Override
         public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            view = inflater.inflate(R.layout.fragment_image_dialog, container, false);
+            View view = inflater.inflate(R.layout.fragment_image_dialog, container, false);
 
-            image = (ImageView) view.findViewById(R.id.image);
+            ImageView image = view.findViewById(R.id.image);
             Bitmap bitmap = getArguments().getParcelable("bitmap");
             image.setImageBitmap(bitmap);
 
-            closeButton = (ImageView) view.findViewById(R.id.closeButton);
+            ImageView closeButton = view.findViewById(R.id.closeButton);
             closeButton.setOnClickListener(
                     new View.OnClickListener() {
                         @Override
@@ -79,15 +81,16 @@ public class ImageDialog extends DialogFragment {
                     }
             );
 
-            getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+            Objects.requireNonNull(getDialog().getWindow()).setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 
             return view;
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
         @Override
         public void onResume() {
             // Get existing layout params for the window
-            ViewGroup.LayoutParams params = getDialog().getWindow().getAttributes();
+            ViewGroup.LayoutParams params = Objects.requireNonNull(getDialog().getWindow()).getAttributes();
             // Assign window properties to fill the parent
             params.width = WindowManager.LayoutParams.WRAP_CONTENT;
             params.height = WindowManager.LayoutParams.WRAP_CONTENT;

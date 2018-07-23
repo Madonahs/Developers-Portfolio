@@ -18,13 +18,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="?android:actionBarSize"
-    tools:context="com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProjectsFragment">
+    tools:context=".fragment.ProjectsFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/portfolio_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"></android.support.v7.widget.RecyclerView>
+        android:scrollbars="vertical" />
 
 </FrameLayout>

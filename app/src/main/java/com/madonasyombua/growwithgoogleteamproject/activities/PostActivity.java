@@ -16,7 +16,9 @@
 package com.madonasyombua.growwithgoogleteamproject.activities;
 
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -26,9 +28,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.PostFeedFragment;
+import com.madonasyombua.growwithgoogleteamproject.fragment.PostFeedFragment;
 import com.madonasyombua.growwithgoogleteamproject.models.Post;
 import java.util.ArrayList;
+import java.util.Objects;
+
 import butterknife.BindString;
 import butterknife.ButterKnife;
 
@@ -36,11 +40,6 @@ public class PostActivity extends AppCompatActivity
         implements PostFeedFragment.OnFragmentInteractionListener {
 
     private static final String TAG = PostActivity.class.getName();
-    private RecyclerView mRecyclerView;
-    private RecyclerView.LayoutManager mLayoutManager;
-    private SwipeRefreshLayout mSwipeRefreshLayout;
-    private Post receivedPost;
-    private ArrayList<Post> mPost;
     @BindString(R.string.post) String stringPost;
     @BindString(R.string.deleted_post) String stringDeletedPost;
     @BindString(R.string.comment) String stringComment;
@@ -52,21 +51,22 @@ public class PostActivity extends AppCompatActivity
     @BindString(R.string.delete_comment)String stringDeleteComment;
     @BindString(R.string.sent_comment)String stringSentComment;
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_feeds);
         ButterKnife.bind(this);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(stringPost);
 
-        mPost = new ArrayList<>();
-        receivedPost = (Post) getIntent().getSerializableExtra("post");
+        ArrayList<Post> mPost = new ArrayList<>();
+        Post receivedPost = (Post) getIntent().getSerializableExtra("post");
         mPost.add(receivedPost);
 
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
+        SwipeRefreshLayout mSwipeRefreshLayout = findViewById(R.id.swipeRefresh);
         mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(this, R.color.colorAccent));
         mSwipeRefreshLayout.setOnRefreshListener(
                 new SwipeRefreshLayout.OnRefreshListener() {
@@ -77,12 +77,12 @@ public class PostActivity extends AppCompatActivity
                 }
         );
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView mRecyclerView = findViewById(R.id.recyclerView);
         /* use this setting to improve performance if you know that changes
         in content do not change the layout size of the RecyclerView*/
         mRecyclerView.setHasFixedSize(true);
         // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
     }

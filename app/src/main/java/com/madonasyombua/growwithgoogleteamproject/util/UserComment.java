@@ -18,15 +18,15 @@ import com.madonasyombua.growwithgoogleteamproject.models.User;
 
 import java.io.Serializable;
 
-/**
- * Created by madon on 3/10/2018.
+/*
+  Created by madon on 3/10/2018.
  */
 /**
  *A  user submitted comment
  *
  * */
-public class UserComment implements Serializable {
-    int cos;
+class UserComment implements Serializable {
+    private int cos;
     private User user;
     private String text, commented, image;
 

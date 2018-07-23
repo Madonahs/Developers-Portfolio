@@ -17,9 +17,11 @@ package com.madonasyombua.growwithgoogleteamproject.activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -38,15 +40,16 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.login.LoginStatusManager;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
 import com.madonasyombua.growwithgoogleteamproject.ui.SharedPref;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.FeedsFragment;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.InterestFragment;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.PostFeedFragment;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProfileFragment;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ProjectsFragment;
+import com.madonasyombua.growwithgoogleteamproject.fragment.FeedsFragment;
+import com.madonasyombua.growwithgoogleteamproject.fragment.InterestFragment;
+import com.madonasyombua.growwithgoogleteamproject.fragment.PostFeedFragment;
+import com.madonasyombua.growwithgoogleteamproject.fragment.ProfileFragment;
+import com.madonasyombua.growwithgoogleteamproject.fragment.ProjectsFragment;
 import com.madonasyombua.growwithgoogleteamproject.util.BottomNavigationViewHelper;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
 import java.util.List;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -229,10 +232,11 @@ public class MainActivity
         outState.putBundle(Constant.USER, user.bundleUp());
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        user = User.build(savedInstanceState.getBundle(Constant.USER));
+        user = User.build(Objects.requireNonNull(savedInstanceState.getBundle(Constant.USER)));
     }
 
     /**
@@ -258,7 +262,7 @@ public class MainActivity
      */
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        Intent intent = null;
+        Intent intent;
         switch (item.getItemId()) {
             case R.id.messages:
                 intent = new Intent(this, MessageActivity.class);

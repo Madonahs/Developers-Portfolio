@@ -12,7 +12,7 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
+package com.madonasyombua.growwithgoogleteamproject.fragment;
 
 
 
@@ -25,6 +25,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -51,6 +53,8 @@ import com.madonasyombua.growwithgoogleteamproject.models.Post;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
 
 
+import java.util.Objects;
+
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -58,6 +62,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
+@SuppressWarnings("ALL")
 public class PostFeedFragment extends DialogFragment {
 
     public static int RESULT_LOAD_IMAGE = 1;
@@ -94,14 +99,9 @@ public class PostFeedFragment extends DialogFragment {
     private View view;
     private ProgressBar progressBar;
     private Uri fileUri;
-    private Bitmap imageToUpload;
     private BitmapHandler bitmapHandler;
 
-    private FirebaseDatabase database;
     private DatabaseReference reference;
-    private FirebaseStorage storage;
-    private FirebaseAuth mAuth;
-    private StorageReference storageReference;
 
 
     public PostFeedFragment() {
@@ -131,12 +131,12 @@ public class PostFeedFragment extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAuth = FirebaseAuth.getInstance();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
 //        currentUserId = mAuth.getCurrentUser().getUid();
-        database = FirebaseDatabase.getInstance();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
         reference = database.getReference().child("feeds");
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference().child("feeds_photos");
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageReference = storage.getReference().child("feeds_photos");
 
 
         /*bitmapHandler = new BitmapHandler(new BitmapHandler.OnPostExecuteListener() {
@@ -147,12 +147,13 @@ public class PostFeedFragment extends DialogFragment {
         });*/
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
-    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_post_feed, container, false);
         ButterKnife.bind(this, view);
-        header.setText(getArguments().getString("title"));
+        header.setText(Objects.requireNonNull(getArguments()).getString("title"));
         postingAs.setText(getArguments().getString("postingAs"));
         name.setText(getArguments().getString("name"));
 
@@ -189,7 +190,7 @@ public class PostFeedFragment extends DialogFragment {
                 }
         );
 
-        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        progressBar = view.findViewById(R.id.progressBar);
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -218,7 +219,7 @@ public class PostFeedFragment extends DialogFragment {
         );
 
         postText.requestFocus();
-        getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        Objects.requireNonNull(getDialog().getWindow()).setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 
         setEnabled(true);
 
@@ -232,12 +233,13 @@ public class PostFeedFragment extends DialogFragment {
         cameraButton.setEnabled(enabled);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         try {
             System.out.println("resultCode: " + resultCode);
-            if (resultCode == getActivity().RESULT_OK && data != null) {
+            if (resultCode == Objects.requireNonNull(getActivity()).RESULT_OK && data != null) {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     TransitionManager.endTransitions(attachment);
@@ -247,6 +249,7 @@ public class PostFeedFragment extends DialogFragment {
                 }
 
                 attachment.setVisibility(View.VISIBLE);
+                Bitmap imageToUpload;
                 if (requestCode == RESULT_LOAD_IMAGE) {
                     // Get the Image from data
 
@@ -254,10 +257,10 @@ public class PostFeedFragment extends DialogFragment {
                     String[] filePathColumn = {MediaStore.Images.Media.DATA};
 
                     // Get the cursor
-                    Cursor cursor = getActivity().getContentResolver().query(selectedImage,
+                    Cursor cursor = getActivity().getContentResolver().query(Objects.requireNonNull(selectedImage),
                             filePathColumn, null, null, null);
                     // Move to first row
-                    cursor.moveToFirst();
+                    Objects.requireNonNull(cursor).moveToFirst();
 
                     int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                     String imgDecodableString = cursor.getString(columnIndex);
@@ -350,10 +353,11 @@ public class PostFeedFragment extends DialogFragment {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onResume() {
         // Get existing layout params for the window
-        ViewGroup.LayoutParams params = getDialog().getWindow().getAttributes();
+        ViewGroup.LayoutParams params = Objects.requireNonNull(getDialog().getWindow()).getAttributes();
         // Assign window properties to fill the parent
         params.width = WindowManager.LayoutParams.MATCH_PARENT;
         params.height = WindowManager.LayoutParams.MATCH_PARENT;

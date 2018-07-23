@@ -17,6 +17,7 @@ package com.madonasyombua.growwithgoogleteamproject.activities;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -41,9 +42,9 @@ import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityLoginBind
 import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.login.LoginStatusManager;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.LoginFragment;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.RegisterFragment;
-import com.madonasyombua.growwithgoogleteamproject.ui.intro.OnBoardingActivity;
+import com.madonasyombua.growwithgoogleteamproject.fragment.LoginFragment;
+import com.madonasyombua.growwithgoogleteamproject.fragment.RegisterFragment;
+import com.madonasyombua.growwithgoogleteamproject.intro.OnBoardingActivity;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
 import java.util.Arrays;
@@ -54,7 +55,7 @@ import jonathanfinerty.once.Once;
 
 public class LoginActivity extends AppCompatActivity implements AppLoginManager.LoginInterface, View.OnClickListener {
 
-    CallbackManager mCallbackManager;
+    private CallbackManager mCallbackManager;
 
     // Facebook permissions - public profile, email
     // TODO: Add more permissions as needed and make sure to add it to the permission array list below
@@ -65,7 +66,7 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
     private static final String TAG = LoginActivity.class.getName();
     private static final int SHOW_INTRO = 1;
 
-    GoogleSignInClient mGoogleSignInClient;
+    private GoogleSignInClient mGoogleSignInClient;
     private static final int GOOGLE_SIGN_IN_REQUEST_CODE = 500;
 
     @Override
@@ -92,7 +93,7 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
         binding.btnRegister.setBackgroundResource(R.drawable.button_rounded_normal);
 
         //this will set login fragment as the first thing you see
-        setViewPager(binding.container);
+        setViewPager( binding.container);
 
         // Google login set up
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -263,8 +264,8 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
     /**
      * Handle registration process when the register button is clicked
      *
-     * @param
-     * @return
+     *
+     *
      */
     private void handleRegistrationProcess() {
         // Toggle buttons

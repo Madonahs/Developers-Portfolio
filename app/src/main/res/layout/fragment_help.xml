@@ -18,14 +18,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.madonasyombua.growwithgoogleteamproject.ui.fragment.HelpFragment">
+    tools:context=".fragment.HelpFragment">
 <!-- to be decided on if to delete or keep -->
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:elevation="6dp"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme.AppBarOverlay"
+        tools:targetApi="lollipop">
 
         <LinearLayout
             android:layout_width="match_parent"
