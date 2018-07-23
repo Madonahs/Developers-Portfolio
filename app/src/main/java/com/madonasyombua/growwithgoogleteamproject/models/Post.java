@@ -25,7 +25,11 @@ import java.util.ArrayList;
 
 public class Post  extends FirebaseObject implements Serializable {
 
-    int pid, numberOfComments, upvotes, downvotes, voted;
+    private int pid;
+    private int numberOfComments;
+    private int upvotes;
+    private int downvotes;
+    private int voted;
     private String text, posted, image, username;
    private ArrayList<Comment> comments;
 

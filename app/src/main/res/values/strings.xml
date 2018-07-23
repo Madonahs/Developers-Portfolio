@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Devs Portfolio</string>
     <string name="welcome">Welcome!</string>
     <string name="username">Username</string>
@@ -59,7 +59,7 @@
 
     <!-- Drawer related -->
     <string name="drawer_messages_title">Messages</string>
-    <string name="drawer_manage_profile_title">Manage Profile</string>
+    <string name="drawer_manage_profile_title" tools:ignore="MissingTranslation">Manage Profile</string>
     <string name="drawer_about_title">About</string>
     <string name="drawer_help_title">Help</string>
     <string name="drawer_notifications_title">Notifications</string>

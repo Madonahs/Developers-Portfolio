@@ -24,7 +24,7 @@ import java.io.Serializable;
 
 public class Comment implements Serializable {
 
-    int cid;
+    private int cid;
     private User user;
     private String text, commented, image;
 

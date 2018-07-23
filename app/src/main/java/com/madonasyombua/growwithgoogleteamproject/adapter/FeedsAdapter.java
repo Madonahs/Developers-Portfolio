@@ -45,16 +45,15 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
     private static Activity mActivity;
     private boolean mFromMainActivity;
     private OnItemClickListener mListener;
-    private String stringComment;
 
-    BitmapHandler bitmapHandler;
+    private BitmapHandler bitmapHandler;
 
     public FeedsAdapter(Activity activity, ArrayList<Post> posts, OnItemClickListener listener, boolean fromMainActivity) {
         mActivity = activity;
         mPosts = posts;
         mListener = listener;
         mFromMainActivity = fromMainActivity;
-        stringComment = activity.getResources().getString(R.string.comment);
+        String stringComment = activity.getResources().getString(R.string.comment);
     }
 
     /**
@@ -67,11 +66,10 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
     public FeedsAdapter.ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
         // Create a new view
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.feeds_list_item, parent, false);
-        ViewHolder vh = new ViewHolder(view, mPosts, new FeedsAdapter.ViewHolder.OnItemClickListener() {
+
+        return new ViewHolder(view, mPosts, new ViewHolder.OnItemClickListener() {
             public void onClick(View caller) { mListener.onClick(caller); }
         }, mFromMainActivity);
-
-        return vh;
     }
 
     /**
@@ -163,7 +161,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
         @BindView(R.id.postImageBorder)LinearLayout  mPostImageBorder;
 
 
-        public ViewHolder(View itemView, ArrayList<Post> posts, OnItemClickListener listener, boolean fromMainActivity) {
+        ViewHolder(View itemView, ArrayList<Post> posts, OnItemClickListener listener, boolean fromMainActivity) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             mPosts = posts;
@@ -191,7 +189,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
         /**
          * Sets up listeners for the feeds_list_item, the close button and the vote buttons.
          */
-        public static void setUpListeners() {
+        static void setUpListeners() {
 
 
         }
@@ -204,7 +202,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
         /**
          * Onclick interface for custom behavior.
          */
-        public interface OnItemClickListener {
+        interface OnItemClickListener {
             void onClick(View caller);
         }
     }
