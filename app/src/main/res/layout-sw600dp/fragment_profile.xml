@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (c) 2018 Madona Syombua
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- Can we create an AppBar for the Gravator? just a suggestion-->
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.madonasyombua.growwithgoogleteamproject.models.User" />
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:theme="@style/FontTheme"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.madonasyombua.growwithgoogleteamproject.activities.ProfileActivity">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/background_color_of_toolbars"
+            android:textColor="?attr/textcolor"
+            android:fitsSystemWindows="true">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="top|center_horizontal"
+                        android:layout_marginTop="50dp"
+                        android:src="@drawable/madonah"
+                        app:layout_collapseMode="parallax" />
+
+                    <TextView
+                        android:textColor="?attr/textcolor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/margin_8"
+                        android:text="@{user.name}"
+                        android:textSize="20sp" />
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal">
+
+                        <TextView
+                            android:id="@+id/status"
+                            android:drawablePadding="@dimen/margin_8"
+                            android:textSize="@dimen/small_text_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|bottom"
+                            android:layout_marginBottom="@dimen/margin_8"
+                            android:layout_marginLeft="@dimen/margin_8"
+                            android:layout_marginStart="@dimen/margin_8"
+                            android:layout_marginTop="@dimen/margin_8"
+                            android:textColor="?attr/textcolor"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <Button
+
+                            android:id="@+id/btn_edit_profile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end|bottom"
+                            android:layout_marginBottom="@dimen/margin_8"
+                            android:layout_marginEnd="@dimen/margin_8"
+                            android:layout_marginRight="@dimen/margin_8"
+                            android:layout_marginTop="@dimen/margin_8"
+                            android:background="@drawable/button_transparent"
+                            android:paddingEnd="@dimen/button_padding"
+                            android:paddingStart="@dimen/button_padding"
+                            android:text="@string/edit_profile"
+                            android:textColor="?attr/textcolor"
+                            android:textSize="@dimen/small_text_size"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:layout_marginBottom="@dimen/margin_8"
+                        android:background="?attr/backgroundcolor"
+                        />
+                </LinearLayout>
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:layout_gravity="fill_vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_7"
+                android:layout_marginRight="@dimen/margin_7">
+
+                <TextView
+                    android:id="@+id/intro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_8"
+                    android:layout_marginStart="@dimen/margin_8"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:text="@string/intro"
+                    android:textColor="?attr/textcolor"
+                    android:textSize="@dimen/big_text_size"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/intro_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_8"
+                    android:layout_marginStart="@dimen/margin_8"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:text="@{user.intro}"
+                    android:textColor="?attr/textcolor"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/intro" />
+                <!--Following-->
+                <TextView
+                    android:id="@+id/following_count_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:text="@{user.following}"
+                    android:textSize="@dimen/big_text_size"
+                    app:layout_constraintStart_toStartOf="@+id/intro_content"
+                    app:layout_constraintTop_toBottomOf="@+id/intro_content" />
+
+                <TextView
+                    android:id="@+id/following_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:text="Following"
+                    android:textColor="?attr/textcolor"
+
+                    app:layout_constraintStart_toStartOf="@+id/following_count_value"
+                    app:layout_constraintTop_toBottomOf="@+id/following_count_value" />
+                <!--//followers-->
+
+                <TextView
+                    android:id="@+id/follower_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_8"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="@dimen/margin_8"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:text="@{user.followers}"
+                    android:textSize="@dimen/big_text_size"
+                    android:textColor="?attr/textcolor"
+
+                    app:layout_constraintEnd_toStartOf="@+id/project_count"
+                    app:layout_constraintStart_toEndOf="@+id/following_count_value"
+                    app:layout_constraintTop_toBottomOf="@+id/intro_content" />
+
+                <TextView
+                    android:id="@+id/follower_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_8"
+                    android:textColor="?attr/textcolor"
+                    android:layout_marginStart="@dimen/margin_8"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:layout_marginLeft="6dp"
+                    android:text="Followers"
+                    app:layout_constraintEnd_toStartOf="@+id/project_txt"
+                    app:layout_constraintStart_toEndOf="@+id/following_txt"
+                    app:layout_constraintTop_toBottomOf="@+id/follower_count" />
+
+                <!--//Projects-->
+
+                <TextView
+                    android:id="@+id/project_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:fontFamily="@font/raleway"
+
+                    android:paddingRight="55dp"
+                    android:text="@{user.projects}"
+                    android:textSize="@dimen/big_text_size"
+                    android:textColor="?attr/textcolor"
+
+                    app:layout_constraintEnd_toEndOf="@+id/intro_content"
+                    app:layout_constraintTop_toBottomOf="@+id/intro_content" />
+
+                <TextView
+                    android:id="@+id/project_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:text="Projects"
+                    android:textColor="?attr/textcolor"
+                    app:layout_constraintStart_toStartOf="@+id/project_count"
+                    app:layout_constraintTop_toBottomOf="@+id/project_count" />
+
+                <View
+                    android:id="@+id/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginEnd="@dimen/margin_8"
+                    android:layout_marginStart="@dimen/margin_8"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:background="?attr/backgroundcolor"
+                    app:layout_constraintEnd_toEndOf="@+id/project_txt"
+                    app:layout_constraintHorizontal_bias="0.41"
+                    app:layout_constraintStart_toStartOf="@+id/following_txt"
+                    app:layout_constraintTop_toBottomOf="@+id/follower_txt" />
+
+
+                <LinearLayout
+                    android:id="@+id/contact_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_8"
+                    android:layout_marginStart="@dimen/margin_8"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:orientation="vertical"
+                    android:background="?attr/backgroundcolor"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/intro_content"
+                    app:layout_constraintStart_toStartOf="@+id/intro_content"
+                    app:layout_constraintTop_toBottomOf="@+id/line">
+
+
+                    <TextView
+                        android:id="@+id/home_tv"
+                        android:drawablePadding="@dimen/margin_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_16"
+                        android:layout_marginTop="@dimen/margin_16"
+                        android:textColor="?attr/textcolor"
+                        android:background="?attr/backgroundcolor"
+                        android:drawableLeft="@drawable/ic_home"
+                        android:drawableStart="@drawable/ic_home"
+                        android:text="@{user.location}" />
+
+                    <TextView
+                        android:id="@+id/phone_tv"
+                        android:drawablePadding="@dimen/margin_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_16"
+                        android:textColor="?attr/textcolor"
+                        android:layout_marginTop="@dimen/margin_16"
+                        android:background="?attr/backgroundcolor"
+                        android:drawableLeft="@drawable/ic_phone"
+                        android:drawableStart="@drawable/ic_phone"
+                        android:text="@{user.phone}" />
+
+                    <TextView
+                        android:id="@+id/email_tv"
+                        android:drawablePadding="@dimen/margin_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_16"
+                        android:layout_marginTop="@dimen/margin_16"
+                        android:background="?attr/backgroundcolor"
+                        android:textColor="?attr/textcolor"
+                        android:drawableLeft="@drawable/ic_email"
+                        android:drawableStart="@drawable/ic_email"
+                        android:text="@{user.email}" />
+
+                    <TextView
+                        android:id="@+id/web_tv"
+                        android:drawablePadding="@dimen/margin_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_16"
+                        android:layout_marginTop="@dimen/margin_16"
+                        android:background="?attr/backgroundcolor"
+                        android:textColor="?attr/textcolor"
+                        android:drawableLeft="@drawable/ic_web"
+                        android:drawableStart="@drawable/ic_web"
+                        android:text="@{user.website}"
+                       />
+
+                </LinearLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

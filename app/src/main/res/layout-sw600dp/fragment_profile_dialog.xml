@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (c) 2018 Madona Syombua
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/intro_edit"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:drawablePadding="@dimen/margin_8"
+                android:gravity="top"
+                android:hint="intro"
+                android:imeOptions="actionNext"
+                android:inputType="textLongMessage|textMultiLine|textCapSentences"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_weight="20" />
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/home_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@drawable/ic_home"
+                android:drawablePadding="@dimen/margin_8"
+                android:drawableStart="@drawable/ic_home"
+                android:hint="home town"
+                android:imeOptions="actionNext"
+                android:inputType="textPostalAddress|textCapSentences"
+                app:layout_constraintEnd_toStartOf="@+id/submit_btn"
+                app:layout_constraintStart_toStartOf="@+id/intro_edit"
+                app:layout_constraintTop_toBottomOf="@+id/intro_edit" />
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/phone_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@drawable/ic_phone"
+                android:drawablePadding="@dimen/margin_8"
+                android:drawableStart="@drawable/ic_phone"
+                android:hint="000-000-0000"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                app:layout_constraintEnd_toStartOf="@+id/submit_btn"
+                app:layout_constraintStart_toStartOf="@+id/home_edit"
+                app:layout_constraintTop_toBottomOf="@+id/home_edit" />
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/email_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@drawable/ic_email"
+                android:drawablePadding="@dimen/margin_8"
+                android:drawableStart="@drawable/ic_email"
+                android:hint="name@domain.com"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                app:layout_constraintEnd_toStartOf="@+id/submit_btn"
+                app:layout_constraintStart_toStartOf="@+id/phone_edit"
+                app:layout_constraintTop_toBottomOf="@+id/phone_edit" />
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/web_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@drawable/ic_web"
+                android:drawablePadding="@dimen/margin_8"
+                android:drawableStart="@drawable/ic_web"
+                android:hint="www"
+                android:imeOptions="actionDone"
+                android:inputType="textUri"
+                app:layout_constraintEnd_toStartOf="@+id/submit_btn"
+                app:layout_constraintStart_toStartOf="@+id/email_edit"
+                app:layout_constraintTop_toBottomOf="@+id/email_edit" />
+
+            <Button
+                android:id="@+id/submit_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_rounded"
+                android:paddingLeft="@dimen/button_padding"
+                android:paddingRight="@dimen/button_padding"
+                android:text="@string/submit"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/web_edit"
+                app:layout_constraintVertical_bias="0.73" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -1,0 +1,52 @@
+<!--
+  Copyright (c) 2018 Madona Syombua
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_2"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.madonasyombua.growwithgoogleteamproject.ui.fragment.FeedsFragment">
+
+          <!---Content Main -->
+  <android.support.v7.widget.RecyclerView
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      android:id="@+id/recyclerView"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:scrollbars="vertical" />
+  <TextView
+      android:id="@+id/displayEmpty"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="48dp"
+      android:textSize="18sp"
+      android:gravity="center"
+      android:layout_gravity="center"/>
+
+<!-- Post Float button-->
+  <android.support.design.widget.FloatingActionButton
+      android:id="@+id/add_feeds"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="bottom|end"
+      android:layout_marginBottom="65dp"
+      android:layout_marginLeft="16dp"
+      android:layout_marginRight="16dp"
+      android:layout_marginTop="16dp"
+      android:src="@drawable/ic_action_add" />
+
+</FrameLayout>
