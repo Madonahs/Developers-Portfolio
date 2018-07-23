@@ -56,7 +56,7 @@
             android:name=".activities.MainActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.intro.OnBoardingActivity"
+            android:name=".intro.OnBoardingActivity"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activities.InterestActivity"

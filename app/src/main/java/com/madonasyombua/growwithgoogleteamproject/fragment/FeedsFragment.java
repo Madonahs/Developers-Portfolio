@@ -12,7 +12,7 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
+package com.madonasyombua.growwithgoogleteamproject.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -170,7 +170,7 @@ public class FeedsFragment extends Fragment{
     public void showPostDialog() {
         FragmentManager fm = getActivity().getSupportFragmentManager();
         System.out.println("fm: " + fm);
-        SharedPreferences prefs = getActivity().getSharedPreferences("com.madonasyombua.growwithgoogleteamproject.ui.fragment", Context.MODE_PRIVATE);
+        SharedPreferences prefs = getActivity().getSharedPreferences("com.madonasyombua.growwithgoogleteamproject.fragment", Context.MODE_PRIVATE);
         PostFeedFragment postDialog = PostFeedFragment.newInstance(stringNewPost, stringPostingAs,
                 prefs.getString("username", ""), prefs.getString("name", ""));
         postDialog.show(fm, "fragment_post_dialog");

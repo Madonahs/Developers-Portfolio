@@ -41,9 +41,9 @@ import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityLoginBind
 import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
 import com.madonasyombua.growwithgoogleteamproject.login.LoginStatusManager;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.LoginFragment;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.RegisterFragment;
-import com.madonasyombua.growwithgoogleteamproject.ui.intro.OnBoardingActivity;
+import com.madonasyombua.growwithgoogleteamproject.fragment.LoginFragment;
+import com.madonasyombua.growwithgoogleteamproject.fragment.RegisterFragment;
+import com.madonasyombua.growwithgoogleteamproject.intro.OnBoardingActivity;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
 import java.util.Arrays;
