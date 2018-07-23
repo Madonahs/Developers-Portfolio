@@ -19,6 +19,7 @@ import android.app.DialogFragment;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
@@ -89,6 +90,7 @@ public class ImageDialog extends DialogFragment {
             return view;
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
         @Override
         public void onResume() {
             // Get existing layout params for the window
@@ -97,9 +99,9 @@ public class ImageDialog extends DialogFragment {
                 params = Objects.requireNonNull(getDialog().getWindow()).getAttributes();
             }
             // Assign window properties to fill the parent
-            params.width = WindowManager.LayoutParams.WRAP_CONTENT;
+            Objects.requireNonNull(params).width = WindowManager.LayoutParams.WRAP_CONTENT;
             params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-            getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
+            Objects.requireNonNull(getDialog().getWindow()).setAttributes((android.view.WindowManager.LayoutParams) params);
             // Call super onResume after sizing
             super.onResume();
         }

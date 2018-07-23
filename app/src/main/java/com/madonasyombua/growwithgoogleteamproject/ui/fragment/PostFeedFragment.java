@@ -26,6 +26,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -150,6 +151,7 @@ public class PostFeedFragment extends DialogFragment {
         });*/
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public View onCreateView(@NonNull final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -158,7 +160,7 @@ public class PostFeedFragment extends DialogFragment {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             header.setText(Objects.requireNonNull(getArguments()).getString("title"));
         }
-        postingAs.setText(getArguments().getString("postingAs"));
+        postingAs.setText(Objects.requireNonNull(getArguments()).getString("postingAs"));
         name.setText(getArguments().getString("name"));
 
         closeButton.setOnClickListener(
@@ -239,6 +241,7 @@ public class PostFeedFragment extends DialogFragment {
         cameraButton.setEnabled(enabled);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -271,7 +274,7 @@ public class PostFeedFragment extends DialogFragment {
                         Objects.requireNonNull(cursor).moveToFirst();
                     }
 
-                    int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                    int columnIndex = Objects.requireNonNull(cursor).getColumnIndex(filePathColumn[0]);
                     String imgDecodableString = cursor.getString(columnIndex);
                     cursor.close();
 
@@ -362,6 +365,7 @@ public class PostFeedFragment extends DialogFragment {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onResume() {
         // Get existing layout params for the window
@@ -370,9 +374,9 @@ public class PostFeedFragment extends DialogFragment {
             params = Objects.requireNonNull(getDialog().getWindow()).getAttributes();
         }
         // Assign window properties to fill the parent
-        params.width = WindowManager.LayoutParams.MATCH_PARENT;
+        Objects.requireNonNull(params).width = WindowManager.LayoutParams.MATCH_PARENT;
         params.height = WindowManager.LayoutParams.MATCH_PARENT;
-        getDialog().getWindow().setAttributes((WindowManager.LayoutParams) params);
+        Objects.requireNonNull(getDialog().getWindow()).setAttributes((WindowManager.LayoutParams) params);
         // Call super onResume after sizing
         super.onResume();
     }

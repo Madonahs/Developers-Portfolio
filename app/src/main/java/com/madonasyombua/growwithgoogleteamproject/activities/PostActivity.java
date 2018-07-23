@@ -18,6 +18,7 @@ package com.madonasyombua.growwithgoogleteamproject.activities;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -54,6 +55,7 @@ public class PostActivity extends AppCompatActivity
     @BindString(R.string.delete_comment)String stringDeleteComment;
     @BindString(R.string.sent_comment)String stringSentComment;
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +66,7 @@ public class PostActivity extends AppCompatActivity
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         }
-        getSupportActionBar().setTitle(stringPost);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(stringPost);
 
         ArrayList<Post> mPost = new ArrayList<>();
         receivedPost = (Post) getIntent().getSerializableExtra("post");

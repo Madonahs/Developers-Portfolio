@@ -20,6 +20,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -173,16 +174,17 @@ public class FeedsFragment extends Fragment{
     /**
      * Shows a dialog for writing a new post.
      */
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void showPostDialog() {
         FragmentManager fm = null;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
             fm = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
         }
         System.out.println("fm: " + fm);
-        SharedPreferences prefs = getActivity().getSharedPreferences("com.madonasyombua.growwithgoogleteamproject.ui.fragment", Context.MODE_PRIVATE);
+        SharedPreferences prefs = Objects.requireNonNull(getActivity()).getSharedPreferences("com.madonasyombua.growwithgoogleteamproject.ui.fragment", Context.MODE_PRIVATE);
         PostFeedFragment postDialog = PostFeedFragment.newInstance(stringNewPost, stringPostingAs,
                 prefs.getString("username", ""), prefs.getString("name", ""));
-        postDialog.show(fm, "fragment_post_dialog");
+        postDialog.show(Objects.requireNonNull(fm), "fragment_post_dialog");
     }
 
     // TODO: Rename method, update argument and hook method into UI event

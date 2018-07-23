@@ -20,6 +20,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -56,14 +57,15 @@ public class ProfileFragmentDialog extends DialogFragment {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         Fragment fragment = getParentFragment();
         if(!(fragment instanceof OnSubmitListener))
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+
                 throw new RuntimeException(Objects.requireNonNull(fragment).toString() + "must implement OnSubmitListener");
-            }
+
 
         mListener = (OnSubmitListener) fragment;
     }

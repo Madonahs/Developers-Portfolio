@@ -35,7 +35,7 @@ ext {
     compileSdkVersion = 27
 
     // App dependencies
-    supportLibraryVersion = '27.0.2'
+    supportLibraryVersion = '27.1.1'
     junitVersion = '4.12'
     butterKnifeVersion = '8.8.1'
     daggerVersion = '2.11'

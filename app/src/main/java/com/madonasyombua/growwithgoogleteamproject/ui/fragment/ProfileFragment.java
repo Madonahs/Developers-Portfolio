@@ -14,12 +14,14 @@
  */
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -68,11 +70,12 @@ public class ProfileFragment extends Fragment
 
 
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         assert getArguments() != null;
-        user = User.build(getArguments().getBundle(Constant.USER));
+        user = User.build(Objects.requireNonNull(getArguments().getBundle(Constant.USER)));
 
         GestureDetector.SimpleOnGestureListener listener = new GestureDetector.SimpleOnGestureListener() {
 
@@ -95,10 +98,10 @@ public class ProfileFragment extends Fragment
                         break;
                 }
                 assert intent != null;
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+
                     if (intent.resolveActivity(Objects.requireNonNull(getActivity()).getPackageManager()) != null)
                         startActivity(intent);
-                }
+
                 return true;
             }
 
@@ -110,6 +113,7 @@ public class ProfileFragment extends Fragment
         gd = new GestureDetectorCompat(getActivity(), listener);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -185,7 +189,7 @@ public class ProfileFragment extends Fragment
     public void onPause() {
         super.onPause();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            ((AppCompatActivity) Objects.requireNonNull(getActivity())).getSupportActionBar().show();
+            Objects.requireNonNull(((AppCompatActivity) Objects.requireNonNull(getActivity())).getSupportActionBar()).show();
         }
     }
 
@@ -193,7 +197,7 @@ public class ProfileFragment extends Fragment
     public void onResume() {
         super.onResume();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            ((AppCompatActivity) Objects.requireNonNull(getActivity())).getSupportActionBar().hide();
+            Objects.requireNonNull(((AppCompatActivity) Objects.requireNonNull(getActivity())).getSupportActionBar()).hide();
         }
     }
 
