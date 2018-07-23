@@ -189,7 +189,7 @@ public class PostFeedFragment extends DialogFragment {
                 }
         );
 
-        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        progressBar = view.findViewById(R.id.progressBar);
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -334,7 +334,7 @@ public class PostFeedFragment extends DialogFragment {
        //TODO 1: Enable sending images to DataBase
         //TODO 2: ensure we get the following
 
-        Post post = new Post(postText.getText().toString(), "Madonahs", null);
+        Post post = new Post(postText.getText().toString(), "Person", null);
             reference.push().setValue(post, new DatabaseReference.CompletionListener() {
                 @Override
                 public void onComplete(DatabaseError databaseError, DatabaseReference dataReference) {

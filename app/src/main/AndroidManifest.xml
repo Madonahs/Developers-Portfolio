@@ -78,7 +78,7 @@
             android:parentActivityName=".activities.MainActivity"
             android:label="@string/help"/>
         <activity android:name=".activities.ManageProfileActivity" />
-        <activity android:name=".activities.MessageActivity"></activity>
+        <activity android:name=".activities.MessageActivity" />
     </application>
 
 </manifest>
