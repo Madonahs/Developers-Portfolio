@@ -17,6 +17,7 @@ package com.madonasyombua.growwithgoogleteamproject.activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
@@ -47,6 +48,7 @@ import com.madonasyombua.growwithgoogleteamproject.util.BottomNavigationViewHelp
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
 import java.util.List;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -232,7 +234,9 @@ public class MainActivity
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        user = User.build(savedInstanceState.getBundle(Constant.USER));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            user = User.build(Objects.requireNonNull(savedInstanceState.getBundle(Constant.USER)));
+        }
     }
 
     /**
@@ -258,7 +262,7 @@ public class MainActivity
      */
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        Intent intent = null;
+        Intent intent;
         switch (item.getItemId()) {
             case R.id.messages:
                 intent = new Intent(this, MessageActivity.class);

@@ -18,6 +18,7 @@ package com.madonasyombua.growwithgoogleteamproject.adapter;
  * Created by madona on 3/31/2018.
  */
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,8 +57,9 @@ public class PortfolioAdapter extends RecyclerView.Adapter<PortfolioAdapter.MyVi
         this.portfolioList = portfolioList;
     }
 
+    @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.portfolio_list_row, parent, false);
 
@@ -65,7 +67,7 @@ public class PortfolioAdapter extends RecyclerView.Adapter<PortfolioAdapter.MyVi
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Portfolio portfolio = portfolioList.get(position);
         holder.title.setText(portfolio.getTitle());
         holder.shortDescription.setText(portfolio.getShortDescription());

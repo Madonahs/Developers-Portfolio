@@ -17,7 +17,9 @@ package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
 import android.app.DialogFragment;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
@@ -26,6 +28,8 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import com.madonasyombua.growwithgoogleteamproject.R;
+
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,11 +69,11 @@ public class ImageDialog extends DialogFragment {
                                  Bundle savedInstanceState) {
             view = inflater.inflate(R.layout.fragment_image_dialog, container, false);
 
-            image = (ImageView) view.findViewById(R.id.image);
+            image = view.findViewById(R.id.image);
             Bitmap bitmap = getArguments().getParcelable("bitmap");
             image.setImageBitmap(bitmap);
 
-            closeButton = (ImageView) view.findViewById(R.id.closeButton);
+            closeButton = view.findViewById(R.id.closeButton);
             closeButton.setOnClickListener(
                     new View.OnClickListener() {
                         @Override
@@ -79,19 +83,25 @@ public class ImageDialog extends DialogFragment {
                     }
             );
 
-            getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                Objects.requireNonNull(getDialog().getWindow()).setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+            }
 
             return view;
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
         @Override
         public void onResume() {
             // Get existing layout params for the window
-            ViewGroup.LayoutParams params = getDialog().getWindow().getAttributes();
+            ViewGroup.LayoutParams params = null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+                params = Objects.requireNonNull(getDialog().getWindow()).getAttributes();
+            }
             // Assign window properties to fill the parent
-            params.width = WindowManager.LayoutParams.WRAP_CONTENT;
+            Objects.requireNonNull(params).width = WindowManager.LayoutParams.WRAP_CONTENT;
             params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-            getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
+            Objects.requireNonNull(getDialog().getWindow()).setAttributes((android.view.WindowManager.LayoutParams) params);
             // Call super onResume after sizing
             super.onResume();
         }

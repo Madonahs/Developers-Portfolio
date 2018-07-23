@@ -14,11 +14,14 @@
  */
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -40,6 +43,8 @@ import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteract
 import com.madonasyombua.growwithgoogleteamproject.models.User;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 import com.madonasyombua.growwithgoogleteamproject.util.FirebaseAction;
+
+import java.util.Objects;
 
 import static android.view.View.GONE;
 
@@ -65,10 +70,12 @@ public class ProfileFragment extends Fragment
 
 
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        user = User.build(getArguments().getBundle(Constant.USER));
+        assert getArguments() != null;
+        user = User.build(Objects.requireNonNull(getArguments().getBundle(Constant.USER)));
 
         GestureDetector.SimpleOnGestureListener listener = new GestureDetector.SimpleOnGestureListener() {
 
@@ -90,8 +97,11 @@ public class ProfileFragment extends Fragment
                                 adds https:// to their web link*/));
                         break;
                 }
-                if (intent.resolveActivity(getActivity().getPackageManager()) != null)
-                    startActivity(intent);
+                assert intent != null;
+
+                    if (intent.resolveActivity(Objects.requireNonNull(getActivity()).getPackageManager()) != null)
+                        startActivity(intent);
+
                 return true;
             }
 
@@ -103,6 +113,7 @@ public class ProfileFragment extends Fragment
         gd = new GestureDetectorCompat(getActivity(), listener);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -177,13 +188,17 @@ public class ProfileFragment extends Fragment
     @Override
     public void onPause() {
         super.onPause();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Objects.requireNonNull(((AppCompatActivity) Objects.requireNonNull(getActivity())).getSupportActionBar()).show();
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Objects.requireNonNull(((AppCompatActivity) Objects.requireNonNull(getActivity())).getSupportActionBar()).hide();
+        }
     }
 
     @Override
@@ -209,8 +224,6 @@ public class ProfileFragment extends Fragment
      */
     // TODO: Rename and change types and number of parameters
     public static ProfileFragment newInstance(@NonNull User user) {
-        if(user == null)
-            throw new IllegalArgumentException("Argument cannot be null");
         ProfileFragment fragment = new ProfileFragment();
         Bundle args = new Bundle();
         args.putBundle(Constant.USER,user.bundleUp());
