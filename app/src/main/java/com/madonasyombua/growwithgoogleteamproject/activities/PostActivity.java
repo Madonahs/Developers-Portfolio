@@ -111,7 +111,7 @@ public class PostActivity extends AppCompatActivity
 
     /**
      *
-     * @param uri
+     * @param uri uri
      */
     @Override
     public void onFragmentInteraction(Uri uri) {
