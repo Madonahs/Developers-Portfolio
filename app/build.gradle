@@ -31,6 +31,7 @@ dependencies {
 
     // Please change versions in the project level build.gradle file
     // and should you want to add a new dependency, follow the below pattern
+    //noinspection GradleCompatible
     implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
     implementation "com.android.support:support-v4:$rootProject.ext.supportLibraryVersion"
     implementation 'com.android.support:support-v4:27.0.2'
@@ -92,7 +93,4 @@ dependencies {
 
 apply plugin: 'com.google.gms.google-services'
 
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
-}
 
