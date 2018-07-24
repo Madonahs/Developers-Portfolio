@@ -21,27 +21,6 @@ import javax.net.ssl.X509TrustManager;
 /**
  * will have this class as an option in case we need it.
  */
-class HttpsTrustManager implements X509TrustManager {
+class HttpsTrustManager{
 
-    private static final X509Certificate[] AcceptedIssuers = new X509Certificate[]{
-            // to be added
-
-    };
-
-    @Override
-    public void checkClientTrusted(X509Certificate[] chain, String authType) {
-
-    }
-
-    @Override
-    public void checkServerTrusted(X509Certificate[] chain, String authType) {
-
-
-}
-
-    @Override
-    public X509Certificate[] getAcceptedIssuers() {
-        return  AcceptedIssuers;
-
-    }
 }
