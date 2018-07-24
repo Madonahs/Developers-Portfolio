@@ -21,7 +21,7 @@ import javax.net.ssl.X509TrustManager;
 /**
  * will have this class as an option in case we need it.
  */
-public class HttpsTrustManager implements X509TrustManager {
+class HttpsTrustManager implements X509TrustManager {
 
     private static final X509Certificate[] AcceptedIssuers = new X509Certificate[]{
             // to be added
@@ -29,12 +29,12 @@ public class HttpsTrustManager implements X509TrustManager {
     };
 
     @Override
-    public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+    public void checkClientTrusted(X509Certificate[] chain, String authType) {
 
     }
 
     @Override
-    public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+    public void checkServerTrusted(X509Certificate[] chain, String authType) {
 
 
 }

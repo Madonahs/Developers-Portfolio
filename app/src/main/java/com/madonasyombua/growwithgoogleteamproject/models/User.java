@@ -21,8 +21,8 @@ import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 import java.io.Serializable;
 
 
-/**
- * Created by chuk on 2/15/18.
+/*
+  Created by chuk on 2/15/18.
  */
 
 /**
@@ -33,8 +33,6 @@ import java.io.Serializable;
 public class User extends FirebaseObject implements Serializable {
     private String name, password, followers, following, projects,
             email, location, phone, website, intro, image;
-    private Portfolio portfolio;
-
 
 
     public enum Status {
@@ -45,7 +43,7 @@ public class User extends FirebaseObject implements Serializable {
     private Status status;
 
     // Empty constructor
-    public User() {
+    private User() {
     }
 
 
@@ -75,7 +73,7 @@ public class User extends FirebaseObject implements Serializable {
     }
 
     public void setPortfolio(Portfolio portfolio) {
-        this.portfolio = portfolio;
+        Portfolio portfolio1 = portfolio;
     }
 
     public static User build(@NonNull Bundle data) {
@@ -154,11 +152,11 @@ public class User extends FirebaseObject implements Serializable {
         return status;
     }
 
-    public void setLocation(String location) {
+    private void setLocation(String location) {
         if (location != null && !location.isEmpty()) this.location = location;
     }
 
-    public void setEmail(String email) {
+    private void setEmail(String email) {
         if (email != null && !email.isEmpty()) this.email = email;
     }
 
@@ -166,11 +164,11 @@ public class User extends FirebaseObject implements Serializable {
         if (phone != null && !phone.isEmpty()) this.phone = phone;
     }
 
-    public void setWebsite(String website) {
+    private void setWebsite(String website) {
         if (website != null && !website.isEmpty()) this.website = website;
     }
 
-    public void setIntro(String intro) {
+    private void setIntro(String intro) {
         if (intro != null && !intro.isEmpty()) this.intro = intro;
     }
 

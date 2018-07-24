@@ -162,7 +162,7 @@ public class MainActivity
         userProfession.setText(getString(R.string.dummy_position));
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override

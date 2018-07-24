@@ -260,11 +260,8 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
 
     }
 
-    /**
+    /*
      * Handle registration process when the register button is clicked
-     *
-     * @param
-     * @return
      */
     private void handleRegistrationProcess() {
         // Toggle buttons
@@ -276,11 +273,8 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
     }
 
 
-    /***
+    /*
      * Handle facebook log in
-     *
-     * @param
-     * @return
      */
     private void signInWithFacebook() {
         LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this, Arrays.asList(PUBLIC_PROFILE_PERMISSION, EMAIL_PERMISSION));

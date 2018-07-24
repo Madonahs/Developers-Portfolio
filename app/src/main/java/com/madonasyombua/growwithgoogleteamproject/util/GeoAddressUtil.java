@@ -27,7 +27,7 @@ import java.util.List;
  */
 
 
-public class GeoAddressUtil {
+class GeoAddressUtil {
 
     public static List<Address> getAddress(double latitude, double longitude, Activity activity) {
         try {
@@ -52,9 +52,9 @@ public class GeoAddressUtil {
 
     /**
      *
-     * @param context
-     * @param name
-     * @return
+     * @param context context
+     * @param name name
+     * @return pos
      */
     public static LatLng getLatLng(Context context, String name){
         Geocoder gc = new Geocoder(context);

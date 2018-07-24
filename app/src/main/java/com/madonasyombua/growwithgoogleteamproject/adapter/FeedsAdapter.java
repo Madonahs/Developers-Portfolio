@@ -42,44 +42,42 @@ import butterknife.ButterKnife;
  */
 
 public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> {
-    private ArrayList<Post> mPosts;
+    private final ArrayList<Post> mPosts;
     private static Activity mActivity;
-    private boolean mFromMainActivity;
-    private OnItemClickListener mListener;
-    private String stringComment;
+    private final boolean mFromMainActivity;
+    private final OnItemClickListener mListener;
 
-    BitmapHandler bitmapHandler;
+    private BitmapHandler bitmapHandler;
 
     public FeedsAdapter(Activity activity, ArrayList<Post> posts, OnItemClickListener listener, boolean fromMainActivity) {
         mActivity = activity;
         mPosts = posts;
         mListener = listener;
         mFromMainActivity = fromMainActivity;
-        stringComment = activity.getResources().getString(R.string.comment);
+        String stringComment = activity.getResources().getString(R.string.comment);
     }
 
     /**
      * Create new views (invoked by the layout manager)
-     * @param parent
-     * @param viewType
-     * @return
+     * @param parent parent
+     * @param viewType view type
+     * @return adapter
      */
     @NonNull
     @Override
     public FeedsAdapter.ViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, int viewType) {
         // Create a new view
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.feeds_list_item, parent, false);
-        ViewHolder vh = new ViewHolder(view, mPosts, new FeedsAdapter.ViewHolder.OnItemClickListener() {
+
+        return new ViewHolder(view, mPosts, new ViewHolder.OnItemClickListener() {
             public void onClick(View caller) { mListener.onClick(caller); }
         }, mFromMainActivity);
-
-        return vh;
     }
 
     /**
      *  Replace the contents of a view (invoked by the layout manager)
-     * @param holder
-     * @param position
+     * @param holder holder
+     * @param position position
      *  Gets an object at the given position in the posts array and populates
      *  text and image views.
      */
@@ -140,12 +138,12 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
      * we can provide access to all the views for a data item in a view holder
      */
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private OnItemClickListener mListener;
+        private final OnItemClickListener mListener;
         private View.OnClickListener cardListener;
         private View.OnClickListener closeListener;
         private View.OnClickListener voteListener;
-        private ArrayList<Post> mPosts;
-        private boolean mFromMainActivity;
+        private final ArrayList<Post> mPosts;
+        private final boolean mFromMainActivity;
 
         @BindView(R.id.cardView) CardView mCardView;
         @BindView(R.id.commentsSection)LinearLayout mCommentsSection;
@@ -165,7 +163,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
         @BindView(R.id.postImageBorder)LinearLayout  mPostImageBorder;
 
 
-        public ViewHolder(View itemView, ArrayList<Post> posts, OnItemClickListener listener, boolean fromMainActivity) {
+        ViewHolder(View itemView, ArrayList<Post> posts, OnItemClickListener listener, boolean fromMainActivity) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             mPosts = posts;
@@ -193,7 +191,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
         /**
          * Sets up listeners for the feeds_list_item, the close button and the vote buttons.
          */
-        public static void setUpListeners() {
+        static void setUpListeners() {
 
 
         }
@@ -206,7 +204,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
         /**
          * Onclick interface for custom behavior.
          */
-        public interface OnItemClickListener {
+        interface OnItemClickListener {
             void onClick(View caller);
         }
     }

@@ -47,7 +47,7 @@ public class RegisterFragment extends Fragment {
 
     private FragmentRegisterBinding binding;
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
-    private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+    private final Pattern pattern = Pattern.compile(EMAIL_PATTERN);
     private Matcher matcher;
 
     /**
@@ -82,8 +82,7 @@ public class RegisterFragment extends Fragment {
     }
 
     private String extractText(EditText text) {
-        String newText = text.getText().toString().trim();
-        return newText;
+        return text.getText().toString().trim();
     }
 
     public boolean validateEmail(String email) {
