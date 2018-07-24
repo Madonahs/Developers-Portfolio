@@ -17,8 +17,8 @@ package com.madonasyombua.growwithgoogleteamproject.util;
 import android.annotation.SuppressLint;
 import android.support.design.widget.BottomNavigationView;
 
-/**
- * Created by madona on 2/17/2018.
+/*
+  Created by madona on 2/17/2018.
  */
 
 import android.support.design.internal.BottomNavigationItemView;

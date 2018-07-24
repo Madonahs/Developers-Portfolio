@@ -73,7 +73,7 @@ public class ProfileFragment extends Fragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         assert getArguments() != null;
-        user = User.build(getArguments().getBundle(Constant.USER));
+        user = User.build(Objects.requireNonNull(getArguments().getBundle(Constant.USER)));
 
         GestureDetector.SimpleOnGestureListener listener = new GestureDetector.SimpleOnGestureListener() {
 

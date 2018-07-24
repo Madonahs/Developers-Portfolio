@@ -14,8 +14,8 @@
  */
 package com.madonasyombua.growwithgoogleteamproject.interfaces;
 
-/**
- * Created by chuk on 2/20/18.
+/*
+  Created by chuk on 2/20/18.
  */
 
 import android.net.Uri;

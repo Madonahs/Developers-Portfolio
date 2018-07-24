@@ -35,7 +35,7 @@ import java.util.Objects;
 public class AppLoginManager {
 
     private static final String TAG = AppLoginManager.class.getName();
-    private static FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    private static final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private static FirebaseUser mCurrentUser;
 
     public static FirebaseUser registerUser(final Activity activity, User user){

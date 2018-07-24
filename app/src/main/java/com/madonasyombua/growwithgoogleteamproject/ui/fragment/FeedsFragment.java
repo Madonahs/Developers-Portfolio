@@ -61,8 +61,8 @@ public class FeedsFragment extends Fragment{
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    SwipeRefreshLayout mSwipeRefreshLayout;
-    CoordinatorLayout coordinatorLayout;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
+    private CoordinatorLayout coordinatorLayout;
     private ArrayList<Post> mPosts;
 
     @BindView(R.id.displayEmpty)TextView displayEmpty;
@@ -70,7 +70,7 @@ public class FeedsFragment extends Fragment{
     @BindString(R.string.new_post)String stringNewPost;
     @BindString(R.string.postingas)String stringPostingAs;
 
-    private ChildEventListener feedsListener = new ChildEventListener() {
+    private final ChildEventListener feedsListener = new ChildEventListener() {
         @Override
         public void onChildAdded(DataSnapshot dataSnapshot, String s) {
             // This is triggered when we receive a post
@@ -120,8 +120,7 @@ public class FeedsFragment extends Fragment{
      * @return A new instance of fragment FeedFragment.
      */
     public static FeedsFragment newInstance() {
-        FeedsFragment fragment = new FeedsFragment();
-        return fragment;
+        return new FeedsFragment();
     }
 
     @Override

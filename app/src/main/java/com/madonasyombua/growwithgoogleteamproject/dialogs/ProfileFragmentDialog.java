@@ -34,8 +34,8 @@ import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
 import java.util.Objects;
 
-/**
- * Created by chuk on 2/23/18.
+/*
+  Created by chuk on 2/23/18.
  */
 
 /**
@@ -46,7 +46,7 @@ import java.util.Objects;
  */
 public class ProfileFragmentDialog extends DialogFragment {
     private FragmentProfileDialogBinding mBinding;
-    public OnSubmitListener mListener;
+    private OnSubmitListener mListener;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -103,7 +103,7 @@ public class ProfileFragmentDialog extends DialogFragment {
         return data;
     }
 
-    public static String getString(@NonNull View view){
+    private static String getString(@NonNull View view){
         if(view instanceof EditText){
             return ((EditText)view).getText().toString();
         }else if(view instanceof TextView)

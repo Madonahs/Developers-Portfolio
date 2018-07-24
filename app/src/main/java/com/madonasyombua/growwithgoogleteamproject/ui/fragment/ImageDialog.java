@@ -36,10 +36,7 @@ import java.util.Objects;
  */
 public class ImageDialog extends DialogFragment {
 
-        private ImageView image, closeButton;
-        private View view;
-
-        public ImageDialog() {
+    public ImageDialog() {
             // Empty constructor required for DialogFragment
         }
 
@@ -68,13 +65,13 @@ public class ImageDialog extends DialogFragment {
         @Override
         public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            view = inflater.inflate(R.layout.fragment_image_dialog, container, false);
+            View view = inflater.inflate(R.layout.fragment_image_dialog, container, false);
 
-            image = view.findViewById(R.id.image);
+            ImageView image = view.findViewById(R.id.image);
             Bitmap bitmap = getArguments().getParcelable("bitmap");
             image.setImageBitmap(bitmap);
 
-            closeButton = view.findViewById(R.id.closeButton);
+            ImageView closeButton = view.findViewById(R.id.closeButton);
             closeButton.setOnClickListener(
                     new View.OnClickListener() {
                         @Override

@@ -14,8 +14,8 @@
  */
 package com.madonasyombua.growwithgoogleteamproject.adapter;
 
-/**
- * Created by madona on 3/31/2018.
+/*
+  Created by madona on 3/31/2018.
  */
 
 import android.support.annotation.NonNull;
@@ -36,7 +36,7 @@ import butterknife.ButterKnife;
 public class PortfolioAdapter extends RecyclerView.Adapter<PortfolioAdapter.MyViewHolder> {
 
 
-    private List<Portfolio> portfolioList;
+    private final List<Portfolio> portfolioList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.title) TextView title;
@@ -45,7 +45,7 @@ public class PortfolioAdapter extends RecyclerView.Adapter<PortfolioAdapter.MyVi
         @BindView(R.id.portfolio_image)ImageView portfolioImage;
 
 
-        public MyViewHolder(View view) {
+        MyViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
 

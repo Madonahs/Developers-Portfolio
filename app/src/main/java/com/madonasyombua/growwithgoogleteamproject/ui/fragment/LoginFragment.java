@@ -73,8 +73,7 @@ public class LoginFragment extends Fragment {
     }
 
     private String extractText(EditText text) {
-        String newText = text.getText().toString().trim();
-        return newText;
+        return text.getText().toString().trim();
     }
 }
 

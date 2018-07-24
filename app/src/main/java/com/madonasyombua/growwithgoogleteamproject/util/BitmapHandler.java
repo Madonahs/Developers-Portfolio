@@ -28,12 +28,12 @@ import java.io.ByteArrayOutputStream;
 //This will help us Compresses, encode and scale bitmaps.
 public class BitmapHandler extends AsyncTask<Void, Void, Void> {
 
-    public static int THUMB_SIZE        = 128;
-    public static int IMAGE_QUALITY     = 75;  // 0 - 100
-    public static int MAX_WIDTH         = 960;
-    public static int MAX_HEIGHT        = 540;
+    private static final int THUMB_SIZE        = 128;
+    private static final int IMAGE_QUALITY     = 75;  // 0 - 100
+    private static final int MAX_WIDTH         = 960;
+    private static final int MAX_HEIGHT        = 540;
 
-    private OnPostExecuteListener mListener;
+    private final OnPostExecuteListener mListener;
 
     private Bitmap bitmap;
     private String encodedImage;
@@ -78,7 +78,7 @@ public class BitmapHandler extends AsyncTask<Void, Void, Void> {
      * @param bitmap The bitmap to compress
      * @return The compressed bitmap
      */
-    public Bitmap getCompressedBitmap(Bitmap bitmap) {
+    private Bitmap getCompressedBitmap(Bitmap bitmap) {
         if (bitmap.getWidth() > MAX_WIDTH || bitmap.getHeight() > MAX_HEIGHT) {
             float scale = Math.min(((float) MAX_WIDTH / bitmap.getWidth()),
                     ((float) MAX_HEIGHT / bitmap.getHeight()));
@@ -109,7 +109,7 @@ public class BitmapHandler extends AsyncTask<Void, Void, Void> {
         mListener.onPostExecute(encodedImage);
     }
 
-    public interface OnPostExecuteListener {
+    interface OnPostExecuteListener {
         void onPostExecute(String encodedImage);
     }
 
