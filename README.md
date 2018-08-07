@@ -62,7 +62,7 @@ See the [LICENSE.md](LICENSE.txt) file for details
 [Database - Firebase](https://firebase.com)
 
 ## Ensuring your fork is up to date:
-[Info:](https://gist.github.com/CristinaSolana/1885435)
+[Read Here](https://gist.github.com/CristinaSolana/1885435)
 
 
 ## Handling config files:
