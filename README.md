@@ -51,18 +51,18 @@ See the [LICENSE.md](LICENSE.txt) file for details
 * I personally wanted to thank everyone who accepted my ideas and helped make this project the best, I appreciate you. Also thank you to Google|Udacity for bringing this community together.
 
 ## External Libraries
-Intro - Ahoy! OnBoard - https://github.com/codemybrainsout/ahoy-onboarding
+[Intro - Ahoy! OnBoard](https://github.com/codemybrainsout/ahoy-onboarding)
 
-Bind Views - ButterKnife - https://github.com/JakeWharton/butterknife
+[Bind Views - ButterKnife](https://github.com/JakeWharton/butterknife)
 
-Dagger - https://github.com/google/dagger
+[Dagger](https://github.com/google/dagger)
 
-Profile Picture - CircleImageview - https://github.com/hdodenhof/CircleImageView
+[Profile Picture - CircleImageview](https://github.com/hdodenhof/CircleImageView)
 
-Database - Firebase - https://firebase.com
+[Database - Firebase](https://firebase.com)
 
 ## Ensuring your fork is up to date:
-Info: https://gist.github.com/CristinaSolana/1885435
+[Info:](https://gist.github.com/CristinaSolana/1885435)
 
 
 ## Handling config files:
