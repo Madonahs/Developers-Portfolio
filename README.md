@@ -4,7 +4,6 @@
  <a target="_blank" href="LICENSE"><img src="http://img.shields.io/:license-apache-blue.svg" alt="License" /></a>
  
 </p>
-Grow With Google Scholarship Team Project.
 
 ## Dev's Portfolio App
 
