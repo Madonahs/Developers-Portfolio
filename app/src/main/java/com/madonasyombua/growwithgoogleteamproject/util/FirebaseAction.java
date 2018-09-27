@@ -204,7 +204,7 @@ public class FirebaseAction {
      * Interface for implementing completion callbacks
      * @param <T> object implementing FirebaseObject
      */
-    public interface FirebaseCallback<T extends FirebaseObject> extends Callback<T> {
+    interface FirebaseCallback<T extends FirebaseObject> extends Callback<T> {
 
     }
 

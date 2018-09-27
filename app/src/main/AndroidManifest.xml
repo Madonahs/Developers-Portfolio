@@ -14,12 +14,12 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:fullBackupContent="@xml/backup_descriptor">
+        android:theme="@style/AppTheme">
 
         <!-- Facebook meta data -->
         <meta-data
@@ -43,7 +43,7 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-   <!--Start Login after test -->
+        <!-- Start Login after test -->
         <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/AppTheme">
@@ -53,7 +53,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-       <activity
+        <activity
             android:name=".activities.MainActivity"
             android:theme="@style/AppTheme" />
         <activity
@@ -71,15 +71,23 @@
         <activity
             android:name=".activities.PostActivity"
             android:theme="@style/AppTheme" />
-        <activity
-            android:name=".activities.AboutActivity"
-            />
+        <activity android:name=".activities.AboutActivity" />
         <activity
             android:name=".activities.HelpActivity"
-            android:parentActivityName=".activities.MainActivity"
-            android:label="@string/help"/>
+            android:label="@string/help"
+            android:parentActivityName=".activities.MainActivity" />
         <activity android:name=".activities.ManageProfileActivity" />
         <activity android:name=".activities.MessageActivity" />
+
+        <receiver android:name=".util.DevsFolioWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/devs_folio_widget_info" />
+        </receiver>
     </application>
 
 </manifest>

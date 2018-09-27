@@ -221,7 +221,6 @@
     <string name="two">2</string>
 
 
-
     <!-- Search Suggestions -->
     <string-array name="search_suggestions">
         <item>How do I change my password?</item>
@@ -265,6 +264,8 @@
     <string name="image">Image</string>
     <string name="timeout">timeout</string>
     <string name="help">Help</string>
+    <string name="appwidget_text">Devs Folio</string>
+    <string name="add_widget">Add widget</string>
 
 
 </resources>
