@@ -4,13 +4,18 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/messages"
-            android:icon="@drawable/ic_chat"
-            android:title="@string/drawer_messages_title" />
-        <item
             android:id="@+id/manage_profile"
             android:icon="@drawable/ic_edit"
             android:title="@string/drawer_manage_profile_title" />
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/drawer_settings_title" />
+       <!-- <item
+            android:id="@+id/messages"
+            android:icon="@drawable/ic_chat"
+            android:title="@string/drawer_messages_title" />-->
+
        <!-- <item
             android:id="@+id/notifications"
             android:icon="@drawable/ic_notification"
@@ -21,10 +26,7 @@
     <!-- Title undecided for the below group, if decided add below -->
     <item android:title="">
         <menu>
-            <item
-                android:id="@+id/settings"
-                android:icon="@drawable/ic_settings"
-                android:title="@string/drawer_settings_title" />
+
             <item
                 android:id="@+id/about"
                 android:icon="@drawable/ic_info"

@@ -264,10 +264,10 @@ public class MainActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Intent intent;
         switch (item.getItemId()) {
-            case R.id.messages:
+            /*case R.id.messages:
                 intent = new Intent(this, MessageActivity.class);
                 startActivity(intent);
-                return true;
+                return true;*/
             case R.id.manage_profile:
                 intent = new Intent(this, ManageProfileActivity.class);
                 startActivity(intent);
