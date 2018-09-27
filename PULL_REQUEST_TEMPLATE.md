@@ -6,7 +6,6 @@
 
 ## Detailed commit.
 
-## Collaborators Merge Master into your branch first always before creating that PR 
 
 # Checklist:
 - My code follows the code style of this project.
