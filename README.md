@@ -12,9 +12,6 @@ This is a Social App for Developers to share their portfolio and also get to int
 ## Project status
 Develop 🔧
 
-### Prerequisites
-An open mind and an open heart
-
 ## Authors
 * **Madona Syombua** - *Lead/Core developer* 
 * **Rado RAMBININTSOA** - *Ass. Core developer*
