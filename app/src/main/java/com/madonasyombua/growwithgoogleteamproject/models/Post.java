@@ -14,6 +14,9 @@
  */
 package com.madonasyombua.growwithgoogleteamproject.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.firebase.database.Exclude;
 import com.madonasyombua.growwithgoogleteamproject.util.Comment;
 import java.io.Serializable;
@@ -23,7 +26,7 @@ import java.util.ArrayList;
  * Created by madon on 3/20/2018.
  */
 
-public class Post  extends FirebaseObject implements Serializable {
+public class Post  extends FirebaseObject implements Parcelable {
 
     private int pid;
     private int numberOfComments;
@@ -53,6 +56,32 @@ public class Post  extends FirebaseObject implements Serializable {
         this.username = name;
         this.image = image;
     }
+
+    protected Post(Parcel in) {
+        pid = in.readInt();
+        numberOfComments = in.readInt();
+        upvotes = in.readInt();
+        downvotes = in.readInt();
+        voted = in.readInt();
+        text = in.readString();
+        posted = in.readString();
+        image = in.readString();
+        username = in.readString();
+        comments = in.createTypedArrayList(Comment.CREATOR);
+    }
+
+    public static final Creator<Post> CREATOR = new Creator<Post>() {
+        @Override
+        public Post createFromParcel(Parcel in) {
+            return new Post(in);
+        }
+
+        @Override
+        public Post[] newArray(int size) {
+            return new Post[size];
+        }
+    };
+
     public void setPid(int pid) {
         this.pid = pid;
     }
@@ -144,6 +173,25 @@ public class Post  extends FirebaseObject implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(pid);
+        dest.writeInt(numberOfComments);
+        dest.writeInt(upvotes);
+        dest.writeInt(downvotes);
+        dest.writeInt(voted);
+        dest.writeString(text);
+        dest.writeString(posted);
+        dest.writeString(image);
+        dest.writeString(username);
+        dest.writeTypedList(comments);
     }
 }
 

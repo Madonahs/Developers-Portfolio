@@ -38,7 +38,7 @@ public class PortfolioAdapter extends RecyclerView.Adapter<PortfolioAdapter.MyVi
 
     private final List<Portfolio> portfolioList;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    class MyViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.title) TextView title;
         @BindView(R.id.longDescription)TextView longDescription;
         @BindView(R.id.shortDescription)TextView shortDescription;

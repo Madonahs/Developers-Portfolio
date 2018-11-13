@@ -22,9 +22,6 @@ import android.widget.Toast;
 import com.google.android.gms.maps.model.LatLng;
 import java.util.List;
 
-/**
- * Created by madona on 2/27/2018.
- */
 
 
 class GeoAddressUtil {
