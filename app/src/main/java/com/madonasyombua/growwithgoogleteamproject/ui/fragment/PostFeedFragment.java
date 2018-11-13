@@ -98,14 +98,9 @@ public class PostFeedFragment extends DialogFragment {
     private View view;
     private ProgressBar progressBar;
     private Uri fileUri;
-    private Bitmap imageToUpload;
     private BitmapHandler bitmapHandler;
 
-    private FirebaseDatabase database;
     private DatabaseReference reference;
-    private FirebaseStorage storage;
-    private FirebaseAuth mAuth;
-    private StorageReference storageReference;
 
 
     public PostFeedFragment() {
@@ -135,12 +130,12 @@ public class PostFeedFragment extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAuth = FirebaseAuth.getInstance();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
 //        currentUserId = mAuth.getCurrentUser().getUid();
-        database = FirebaseDatabase.getInstance();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
         reference = database.getReference().child("feeds");
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference().child("feeds_photos");
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageReference = storage.getReference().child("feeds_photos");
 
 
         /*bitmapHandler = new BitmapHandler(new BitmapHandler.OnPostExecuteListener() {
@@ -254,6 +249,7 @@ public class PostFeedFragment extends DialogFragment {
                 }
 
                 attachment.setVisibility(View.VISIBLE);
+                Bitmap imageToUpload;
                 if (requestCode == RESULT_LOAD_IMAGE) {
                     // Get the Image from data
 

@@ -4,25 +4,13 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="black">#000000</color>
-    <color name="shade">#f2f2f2</color>
-    <color name="colorTitle">#eee</color>
     <color name="colorText">#212121</color>
     <color name="colorTextSecondary">#727272</color>
     <color name="colorDivider">#B6B6B6</color>
-    <color name="background">#ddd</color>
     <color name="light">#F5F5F5</color>
     <color name="gray">#9E9E9E</color>
     <color name="lightGray">#E0E0E0</color>
-    <color name="darkGray">#424242</color>
-    <color name="red">#d9534f</color>
-    <color name="darkRed">#C03A36</color>
-    <color name="green">#5cb85c</color>
-    <color name="darkGreen">#439F43</color>
     <color name="blue">#428bca</color>
-    <color name="darkBlue">#3079B8</color>
     <color name="white">#ffffff</color>
-    <color name="blue_darker_darker">#094598</color>
     <color name="off_white">#F5F5F5</color>
-    <color name="light_gray">#EDEDED</color>
-    <color name="blue_darker">#0E60D0</color>
 </resources>
