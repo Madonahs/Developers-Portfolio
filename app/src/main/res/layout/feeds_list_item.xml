@@ -79,7 +79,6 @@
                             android:orientation="vertical">
 
                             <LinearLayout
-                                android:id="@+id/user"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="top">
@@ -211,7 +210,6 @@
                         android:text="@string/comments" />
 
                     <RelativeLayout
-                        android:id="@+id/upDownVotes"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:layout_alignParentEnd="true"
@@ -277,7 +275,6 @@
                     android:weightSum="1">
 
                     <ProgressBar
-                        android:id="@+id/progress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

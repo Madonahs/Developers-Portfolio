@@ -24,7 +24,6 @@
     android:orientation="vertical">
 
     <FrameLayout
-        android:id="@+id/toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
 
@@ -44,7 +43,6 @@
         </com.miguelcatalan.materialsearchview.MaterialSearchView>
 
         <ImageButton
-            android:id="@+id/backToMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"

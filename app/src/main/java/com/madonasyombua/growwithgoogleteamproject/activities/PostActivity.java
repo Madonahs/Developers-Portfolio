@@ -40,10 +40,6 @@ public class PostActivity extends AppCompatActivity
         implements PostFeedFragment.OnFragmentInteractionListener {
 
     private static final String TAG = PostActivity.class.getName();
-    private RecyclerView mRecyclerView;
-    private RecyclerView.LayoutManager mLayoutManager;
-    private SwipeRefreshLayout mSwipeRefreshLayout;
-    private Post receivedPost;
     @BindString(R.string.post) String stringPost;
     @BindString(R.string.deleted_post) String stringDeletedPost;
     @BindString(R.string.comment) String stringComment;
@@ -67,10 +63,10 @@ public class PostActivity extends AppCompatActivity
         getSupportActionBar().setTitle(stringPost);
 
         ArrayList<Post> mPost = new ArrayList<>();
-        receivedPost = (Post) getIntent().getSerializableExtra("post");
+        Post receivedPost = (Post) getIntent().getSerializableExtra("post");
         mPost.add(receivedPost);
 
-        mSwipeRefreshLayout = findViewById(R.id.swipeRefresh);
+        SwipeRefreshLayout mSwipeRefreshLayout = findViewById(R.id.swipeRefresh);
         mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(this, R.color.colorAccent));
         mSwipeRefreshLayout.setOnRefreshListener(
                 new SwipeRefreshLayout.OnRefreshListener() {
@@ -81,12 +77,12 @@ public class PostActivity extends AppCompatActivity
                 }
         );
 
-        mRecyclerView = findViewById(R.id.recyclerView);
+        RecyclerView mRecyclerView = findViewById(R.id.recyclerView);
         /* use this setting to improve performance if you know that changes
         in content do not change the layout size of the RecyclerView*/
         mRecyclerView.setHasFixedSize(true);
         // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
     }

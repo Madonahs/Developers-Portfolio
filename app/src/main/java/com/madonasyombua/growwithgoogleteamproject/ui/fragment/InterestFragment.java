@@ -84,23 +84,6 @@ public class InterestFragment extends Fragment {
             mListener.onFragmentInteraction(uri);
         }
     }
-//implement this on Main activity to get user
-  /*  @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-<<<<<<< HEAD
-        ((AppCompatActivity)(context)).getSupportActionBar().setTitle(getString(R.string.interest));
-    }*/
-
-        //((AppCompatActivity)(context)).getSupportActionBar().setTitle(getString(R.string.interest));
-
-
 
     @Override
     public void onDetach() {

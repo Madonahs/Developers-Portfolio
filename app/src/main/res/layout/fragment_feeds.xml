@@ -17,7 +17,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragment_2"
     tools:context="com.madonasyombua.growwithgoogleteamproject.ui.fragment.FeedsFragment">
 
           <!---Content Main -->

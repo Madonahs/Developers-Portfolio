@@ -48,7 +48,6 @@ public class RegisterFragment extends Fragment {
     private FragmentRegisterBinding binding;
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
     private final Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-    private Matcher matcher;
 
     /**
      * This class is used to get data from the fragment like the username and stuff.
@@ -86,7 +85,7 @@ public class RegisterFragment extends Fragment {
     }
 
     public boolean validateEmail(String email) {
-        matcher = pattern.matcher(email);
+        Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
 }
