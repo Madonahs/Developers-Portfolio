@@ -14,15 +14,16 @@
  */
 package com.madonasyombua.growwithgoogleteamproject.util;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.madonasyombua.growwithgoogleteamproject.models.User;
 
 import java.io.Serializable;
 
-/**
- * Created by madon on 3/20/2018.
- */
 
-public class Comment implements Serializable {
+
+public class Comment implements Parcelable {
 
     private int cid;
     private User user;
@@ -35,6 +36,25 @@ public class Comment implements Serializable {
         this.commented = commented;
         this.image = image;
     }
+
+    protected Comment(Parcel in) {
+        cid = in.readInt();
+        text = in.readString();
+        commented = in.readString();
+        image = in.readString();
+    }
+
+    public static final Creator<Comment> CREATOR = new Creator<Comment>() {
+        @Override
+        public Comment createFromParcel(Parcel in) {
+            return new Comment(in);
+        }
+
+        @Override
+        public Comment[] newArray(int size) {
+            return new Comment[size];
+        }
+    };
 
     public void setCid(int cid) {
         this.cid = cid;
@@ -74,5 +94,18 @@ public class Comment implements Serializable {
 
     public String getImage() {
         return image;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(cid);
+        dest.writeString(text);
+        dest.writeString(commented);
+        dest.writeString(image);
     }
 }

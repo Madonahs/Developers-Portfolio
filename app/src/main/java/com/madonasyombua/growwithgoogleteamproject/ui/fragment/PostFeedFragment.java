@@ -60,6 +60,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
+ * Created by madona on 5/8/18.
  * A simple {@link Fragment} subclass.
  */
 public class PostFeedFragment extends DialogFragment {

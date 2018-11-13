@@ -14,18 +14,19 @@
  */
 package com.madonasyombua.growwithgoogleteamproject.util;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.madonasyombua.growwithgoogleteamproject.models.User;
 
 import java.io.Serializable;
 
-/*
-  Created by madon on 3/10/2018.
- */
+
 /**
  *A  user submitted comment
  *
  * */
-class UserComment implements Serializable {
+class UserComment implements Parcelable {
     private int cos;
     private User user;
     private String text, commented, image;
@@ -37,6 +38,25 @@ class UserComment implements Serializable {
         this.commented = commented;
         this.image = image;
     }
+
+    protected UserComment(Parcel in) {
+        cos = in.readInt();
+        text = in.readString();
+        commented = in.readString();
+        image = in.readString();
+    }
+
+    public static final Creator<UserComment> CREATOR = new Creator<UserComment>() {
+        @Override
+        public UserComment createFromParcel(Parcel in) {
+            return new UserComment(in);
+        }
+
+        @Override
+        public UserComment[] newArray(int size) {
+            return new UserComment[size];
+        }
+    };
 
     public void setCos(int cid) {
         this.cos = cid;
@@ -76,6 +96,19 @@ class UserComment implements Serializable {
 
     public String getImage() {
         return image;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(cos);
+        dest.writeString(text);
+        dest.writeString(commented);
+        dest.writeString(image);
     }
 }
 

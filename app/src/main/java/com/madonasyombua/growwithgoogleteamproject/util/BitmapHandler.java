@@ -22,9 +22,7 @@ import android.util.Base64;
 
 import java.io.ByteArrayOutputStream;
 
-/**
- * Created by madon on 3/10/2018.
- */
+
 //This will help us Compresses, encode and scale bitmaps.
 public class BitmapHandler extends AsyncTask<Void, Void, Void> {
 
