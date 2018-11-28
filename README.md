@@ -18,6 +18,7 @@ Develop 🔧
 * **Ayobami Adewale** - *Core developer*
 * **Maher Soua** - *Core developer*
 * **CleverChuk** - *Core developer*
+* **Kidus Elias** - *Core developer*
 * **Hemantkumar Nimje** - *Core developer*
 * **Srinath** - *Core developer*
 
