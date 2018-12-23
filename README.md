@@ -1,11 +1,11 @@
-<h1 align="center">Dev's Portfolio </h1>
+<h1 align="center">Developers Portfolio</h1>
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d9894982e1c9417baca62ffe04434bf5)](https://www.codacy.com/app/syombuamadona/Devs-Portfolio-App?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Madonahs/Devs-Portfolio-App&amp;utm_campaign=Badge_Grade) </a>
  <a target="_blank" href="LICENSE"><img src="http://img.shields.io/:license-apache-blue.svg" alt="License" /></a>
  
 </p>
 
-## Dev's Portfolio App
+## Developers-Portfolio App
 
 This is a Social App for Developers to share their portfolio and also get to interact with other users through messages and sharing projects, programmers are welcome to share their projects and they can interact and show employers what they have done in the app, one doesnt have to create a website to showcase his/her work. 
 
