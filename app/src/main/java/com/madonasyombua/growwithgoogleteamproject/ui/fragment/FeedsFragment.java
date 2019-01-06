@@ -36,6 +36,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -44,6 +47,7 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.adapter.FeedsAdapter;
 import com.madonasyombua.growwithgoogleteamproject.models.Paths;
 import com.madonasyombua.growwithgoogleteamproject.models.Post;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -60,10 +64,12 @@ import butterknife.ButterKnife;
  */
 public class FeedsFragment extends Fragment{
     private OnFragmentInteractionListener mListener;
+    private static final String TAG = "FeedsFragment";
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private ArrayList<Post> mPosts;
+    private FirebaseUser currentUSer;
 
     @BindView(R.id.displayEmpty)TextView displayEmpty;
     @BindString(R.string.start) String stringStart;
@@ -135,6 +141,7 @@ public class FeedsFragment extends Fragment{
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_feeds, container, false);
         ButterKnife.bind(this, view);
+        currentUSer = FirebaseAuth.getInstance().getCurrentUser();
         CoordinatorLayout coordinatorLayout = view.findViewById(R.id.base);
         SwipeRefreshLayout mSwipeRefreshLayout = view.findViewById(R.id.swipeRefresh);
         mRecyclerView =  view.findViewById(R.id.recyclerView);
@@ -178,7 +185,7 @@ public class FeedsFragment extends Fragment{
         System.out.println("fm: " + fm);
         SharedPreferences prefs = getActivity().getSharedPreferences("com.madonasyombua.growwithgoogleteamproject.ui.fragment", Context.MODE_PRIVATE);
         PostFeedFragment postDialog = PostFeedFragment.newInstance(stringNewPost, stringPostingAs,
-                prefs.getString("username", ""), prefs.getString("name", ""));
+                currentUSer.getDisplayName(), prefs.getString("name", ""));
         postDialog.show(fm, "fragment_post_dialog");
     }
 

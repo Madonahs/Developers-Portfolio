@@ -18,12 +18,15 @@ import android.app.Activity;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.util.Log;
 import android.widget.Toast;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
 
 import java.util.Objects;
@@ -38,7 +41,7 @@ public class AppLoginManager {
     private static final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private static FirebaseUser mCurrentUser;
 
-    public static FirebaseUser registerUser(final Activity activity, User user){
+    public static FirebaseUser registerUser(final Activity activity, User user, final String username){
         firebaseAuth.createUserWithEmailAndPassword(user.getEmail(), user.getPassword())
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
                     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -46,6 +49,22 @@ public class AppLoginManager {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             mCurrentUser = firebaseAuth.getCurrentUser();
+                            // This sets the username for the user
+                            // and since Firebase User doesn't have setDisplay, we use UserProfileChangeRequest
+                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(username)
+                                    .build();
+
+                            mCurrentUser.updateProfile(profileUpdates)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Log.d(TAG, "User profile updated.");
+                                            }
+                                        }
+                                    });
+
                             ((LoginInterface)activity).onRegistrationSuccess();
                         } else {
                             ((LoginInterface)activity).onRegistrationFailed();

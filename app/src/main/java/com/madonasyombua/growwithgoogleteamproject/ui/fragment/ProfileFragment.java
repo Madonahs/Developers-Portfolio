@@ -69,6 +69,7 @@ public class ProfileFragment extends Fragment
 
 
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,6 +114,7 @@ public class ProfileFragment extends Fragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        
 
         // Inflate the layout for this fragment
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false);

@@ -71,7 +71,9 @@ public class RegisterFragment extends Fragment {
                     Toast.makeText(getContext(), "Username and password are required", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                AppLoginManager.registerUser(getActivity(), new User(username_txt, email_txt, password_txt));
+
+                // I added another parameter so that the username the user enter can be saved
+                AppLoginManager.registerUser(getActivity(), new User(username_txt, email_txt, password_txt), username_txt);
                 ((LoginActivity) Objects.requireNonNull(getActivity())).showHideProgressBar(true);
                 Toast.makeText(getActivity(), "Registering", Toast.LENGTH_SHORT).show();
             }
