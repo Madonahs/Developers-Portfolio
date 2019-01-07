@@ -24,7 +24,6 @@ Develop 🔧
 
 Also checkout the entire list of [Contributors](https://github.com/Madonahs/Devs-Portfolio-App/wiki)
 
-Thank you team.
 
 ## Contributing
 
