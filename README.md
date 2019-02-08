@@ -25,6 +25,11 @@ Develop 🔧
 Also checkout the entire list of [Contributors](https://github.com/Madonahs/Devs-Portfolio-App/wiki)
 
 
+### Maintainers
+* **[Madona Syombua](https://github.com/Madonahs)** 
+* **[Ayobami Adewale](https://github.com/emmaunel)** 
+* **[Srinath](https://github.com/SrChip15)** 
+
 ## Contributing
 
 Read  [Contributing](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
