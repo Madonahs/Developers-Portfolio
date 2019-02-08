@@ -13,18 +13,22 @@ This is a Social App for Developers to share their portfolio and also get to int
 Develop 🔧
 
 ## Authors
-* **Madona Syombua** - *Lead/Core developer* 
-* **Rado RAMBININTSOA** - *Ass. Core developer*
-* **Ayobami Adewale** - *Core developer*
-* **Maher Soua** - *Core developer*
-* **CleverChuk** - *Core developer*
-* **Kidus Elias** - *Core developer*
-* **Hemantkumar Nimje** - *Core developer*
-* **Srinath** - *Core developer*
+* **[Madona Syombua](https://github.com/Madonahs)** - *Lead/Core developer* 
+* **[Ayobami Adewale](https://github.com/emmaunel)** - *Ass. Core developer*
+* **[Rado RAMBININTSOA](https://github.com/radoalbert110)** - *Ass. Core developer*
+* **[Maher Soua](https://github.com/MaherSoua)** - *Core developer*
+* **[CleverChuk](https://github.com/CleverChuk)** - *Core developer*
+* **[Kidus Elias](https://github.com/kiduel)** - *Core developer*
+* **[Hemantkumar Nimje](https://github.com/HemantNimje)** - *Core developer*
+* **[Srinath](https://github.com/SrChip15)** - *Core developer*
 
 Also checkout the entire list of [Contributors](https://github.com/Madonahs/Devs-Portfolio-App/wiki)
 
-Thank you team.
+
+### Maintainers
+* **[Madona Syombua](https://github.com/Madonahs)** 
+* **[Ayobami Adewale](https://github.com/emmaunel)** 
+* **[Srinath](https://github.com/SrChip15)** 
 
 ## Contributing
 
