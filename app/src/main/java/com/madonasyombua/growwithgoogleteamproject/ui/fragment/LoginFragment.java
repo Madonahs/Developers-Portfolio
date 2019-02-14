@@ -27,8 +27,9 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.madonasyombua.growwithgoogleteamproject.R;
+import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentSigninBinding;
 import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
-import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentLoginBinding;
+
 import com.madonasyombua.growwithgoogleteamproject.models.User;
 import com.madonasyombua.growwithgoogleteamproject.activities.LoginActivity;
 
@@ -40,7 +41,7 @@ import java.util.Objects;
  */
 
 public class LoginFragment extends Fragment {
-    private FragmentLoginBinding binding;
+    private FragmentSigninBinding binding;
     private static final String TAG = LoginFragment.class.getName();
     /**
     * This class is used to get data from the fragment like the username and stuff.
@@ -49,7 +50,7 @@ public class LoginFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login, container, false);
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_signin, container, false);
 
         binding.loginFragmentButton.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)

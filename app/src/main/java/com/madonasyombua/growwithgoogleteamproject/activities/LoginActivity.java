@@ -57,7 +57,6 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
     CallbackManager mCallbackManager;
 
     // Facebook permissions - public profile, email
-    // TODO: Add more permissions as needed and make sure to add it to the permission array list below
     private static final String PUBLIC_PROFILE_PERMISSION = "public_profile";
     private static final String EMAIL_PERMISSION = "email";
 
@@ -99,62 +98,6 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
                                         .requestEmail()
                                         .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        //Switch between login fragment and register fragment
-        binding.btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Toggle buttons
-                binding.btnLogin.setBackgroundResource(R.drawable.button_rounded_normal);
-                binding.btnRegister.setBackgroundResource(R.drawable.button_rounded_focused);
-              // Toast.makeText(LoginActivity.this, "Going to register fragment", Toast.LENGTH_SHORT).show();
-               registerFragment();
-            }
-        });
-
-
-        binding.btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Toggle buttons
-                binding.btnLogin.setBackgroundResource(R.drawable.button_rounded_focused);
-                binding.btnRegister.setBackgroundResource(R.drawable.button_rounded_normal);
-               // Toast.makeText(LoginActivity.this, "Going to login fragment", Toast.LENGTH_SHORT).show();
-               setViewPager(binding.container);
-
-            }
-        });
-
-        // Custom facebook login button
-        binding.btnFacebookLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this, Arrays.asList(PUBLIC_PROFILE_PERMISSION, EMAIL_PERMISSION));
-            }
-        });
-
-        LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                Toast.makeText(getBaseContext(), R.string.facebook_login_success, Toast.LENGTH_LONG).show();
-                Log.d(TAG, "Facebook user id: " + loginResult.getAccessToken().getUserId());
-                Log.d(TAG, "Facebook access token: " + loginResult.getAccessToken().getToken());
-
-                // TODO: Use the returned token from loginResult to make a graph API request for user info (name, email, ....)
-                // Redirect user to the MainActivity
-                Intent mainActivityIntent = new Intent(getBaseContext(), MainActivity.class);
-                startActivity(mainActivityIntent);
-            }
-
-            @Override
-            public void onCancel() {
-                Toast.makeText(getBaseContext(), R.string.facebook_login_cancel, Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-                Toast.makeText(getBaseContext(), R.string.facebook_login_error, Toast.LENGTH_LONG).show();
-            }
-        });
 
         //setup the onboarding activity
         Once.initialise(this);
@@ -272,7 +215,6 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
 
     }
 
-
     /*
      * Handle facebook log in
      */
@@ -280,7 +222,7 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
         LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this, Arrays.asList(PUBLIC_PROFILE_PERMISSION, EMAIL_PERMISSION));
     }
 
-    /***
+    /*
      * Handle google sign in process
      */
     private void signInWithGoogle() {
@@ -290,7 +232,7 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
         startActivityForResult(googleSignInIntent, GOOGLE_SIGN_IN_REQUEST_CODE);
     }
 
-    /***
+    /*
      * Handles google sign in result
      *
      * @param completedTask - completed GoogleSignInAccount task
