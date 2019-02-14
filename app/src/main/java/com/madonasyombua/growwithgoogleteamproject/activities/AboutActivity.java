@@ -18,29 +18,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.madonasyombua.growwithgoogleteamproject.R;
-import butterknife.ButterKnife;
 
 
 public class AboutActivity extends AppCompatActivity {
 
-
-    //private ImageButton imageButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-        ButterKnife.bind(this);
 
 
-        /*imageButton = findViewById(R.id.backToNavDrawer);
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AboutActivity.this, MainActivity.class);
-                startActivity(intent);
-
-            }
-        });*/
 
     }
 }

@@ -62,14 +62,11 @@ public class FirebaseAction {
     public static void getToken(final Callback<String> cb) {
         FirebaseUser u = FirebaseAuth.getInstance().getCurrentUser();
         if (u != null) {
-            u.getIdToken(true).addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
-                @Override
-                public void onComplete(@NonNull Task<GetTokenResult> task) {
-                    if (task.getResult().getToken() != null) {
-                        cb.onComplete(task.getResult().getToken());
-                    } else {
-                        cb.onError(ERROR_CODE_TOKEN_NULL, ERROR_TOKEN_NULL);
-                    }
+            u.getIdToken(true).addOnCompleteListener(task -> {
+                if (task.getResult().getToken() != null) {
+                    cb.onComplete(task.getResult().getToken());
+                } else {
+                    cb.onError(ERROR_CODE_TOKEN_NULL, ERROR_TOKEN_NULL);
                 }
             });
         } else {
@@ -188,14 +185,11 @@ public class FirebaseAction {
             ref = ref.child(path);
         }
 
-        ref.updateChildren(map, new CompletionListener() {
-            @Override
-            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                if (databaseError == null) {
-                    gc.onComplete(true);
-                } else {
-                    gc.onError(databaseError.getCode(), databaseError.getMessage());
-                }
+        ref.updateChildren(map, (databaseError, databaseReference) -> {
+            if (databaseError == null) {
+                gc.onComplete(true);
+            } else {
+                gc.onError(databaseError.getCode(), databaseError.getMessage());
             }
         });
     }

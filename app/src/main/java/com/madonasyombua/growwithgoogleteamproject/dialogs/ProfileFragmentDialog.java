@@ -73,12 +73,9 @@ public class ProfileFragmentDialog extends DialogFragment {
         mBinding = DataBindingUtil.inflate(getLayoutInflater(),
                 R.layout.fragment_profile_dialog,container,false);
 
-        mBinding.submitBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              mListener.submit(submit());
-                getDialog().dismiss();
-            }
+        mBinding.submitBtn.setOnClickListener(view -> {
+          mListener.submit(submit());
+            getDialog().dismiss();
         });
 
         return mBinding.getRoot();

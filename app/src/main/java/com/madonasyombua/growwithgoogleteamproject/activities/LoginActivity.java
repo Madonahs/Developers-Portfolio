@@ -23,11 +23,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
 import com.facebook.internal.CallbackManagerImpl;
 import com.facebook.login.LoginManager;
-import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -197,8 +194,6 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
         // Toggle buttons
         binding.btnLogin.setBackgroundResource(R.drawable.button_rounded_focused);
         binding.btnRegister.setBackgroundResource(R.drawable.button_rounded_normal);
-
-        Toast.makeText(LoginActivity.this, "Going to login fragment", Toast.LENGTH_SHORT).show();
         setViewPager(binding.container);
 
     }
@@ -210,7 +205,6 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
         // Toggle buttons
         binding.btnLogin.setBackgroundResource(R.drawable.button_rounded_normal);
         binding.btnRegister.setBackgroundResource(R.drawable.button_rounded_focused);
-        Toast.makeText(LoginActivity.this, "Going to register fragment", Toast.LENGTH_SHORT).show();
         registerFragment();
 
     }

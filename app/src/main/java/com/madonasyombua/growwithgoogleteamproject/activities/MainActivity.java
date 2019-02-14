@@ -144,12 +144,7 @@ public class MainActivity
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             toolbar.setNavigationIcon(R.drawable.ic_menu);
-            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    drawerLayout.openDrawer(GravityCompat.START);
-                }
-            });
+            toolbar.setNavigationOnClickListener(view -> drawerLayout.openDrawer(GravityCompat.START));
             navView.setNavigationItemSelectedListener(this);
             navView.setItemIconTintList(null);
         }

@@ -19,9 +19,6 @@ import android.os.Parcelable;
 
 import com.madonasyombua.growwithgoogleteamproject.models.User;
 
-import java.io.Serializable;
-
-
 
 public class Comment implements Parcelable {
 

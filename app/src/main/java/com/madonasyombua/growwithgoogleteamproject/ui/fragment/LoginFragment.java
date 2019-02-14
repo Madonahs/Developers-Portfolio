@@ -52,22 +52,18 @@ public class LoginFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_signin, container, false);
 
-        binding.loginFragmentButton.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onClick(View view) {
-                String email_text = extractText(binding.editEmail);
-                String password_text = extractText(binding.editPassword);
+        binding.loginFragmentButton.setOnClickListener(view -> {
+            String email_text = extractText(binding.editEmail);
+            String password_text = extractText(binding.editPassword);
 
-                if(email_text.isEmpty() || password_text.isEmpty()){
-                    // TODO add toast or change input color to show user that is required
-                    Toast.makeText(getContext(), "Username and password are required", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                AppLoginManager.signinUser(getActivity(), new User(email_text, password_text));
-                ((LoginActivity) Objects.requireNonNull(getActivity())).showHideProgressBar(true);
+            if(email_text.isEmpty() || password_text.isEmpty()){
+                // TODO add toast or change input color to show user that is required
+                Toast.makeText(getContext(), "Username and password are required", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            AppLoginManager.signinUser(getActivity(), new User(email_text, password_text));
+            ((LoginActivity) Objects.requireNonNull(getActivity())).showHideProgressBar(true);
         });
 
         return binding.getRoot();

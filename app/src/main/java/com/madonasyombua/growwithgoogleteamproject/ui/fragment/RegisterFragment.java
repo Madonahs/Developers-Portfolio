@@ -27,7 +27,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentSigninBinding;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentSignupBinding;
 import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
 
@@ -60,25 +59,21 @@ public class RegisterFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_signup, container, false);
-        binding.registerFragmentButton.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onClick(View view) {
-                String username_txt = extractText(binding.editUsername);
-                String email_txt = extractText(binding.editEmail);
-                String password_txt = extractText(binding.editPassword);
+        binding.registerFragmentButton.setOnClickListener(view -> {
+            String username_txt = extractText(binding.editUsername);
+            String email_txt = extractText(binding.editEmail);
+            String password_txt = extractText(binding.editPassword);
 
-                if (username_txt.isEmpty() || email_txt.isEmpty() || password_txt.isEmpty()) {
-                    // TODO add toast or change input color to show user that is required
-                    Toast.makeText(getContext(), "Username and password are required", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                // I added another parameter so that the username the user enter can be saved
-                AppLoginManager.registerUser(getActivity(), new User(username_txt, email_txt, password_txt), username_txt);
-                ((LoginActivity) Objects.requireNonNull(getActivity())).showHideProgressBar(true);
-                Toast.makeText(getActivity(), "Registering", Toast.LENGTH_SHORT).show();
+            if (username_txt.isEmpty() || email_txt.isEmpty() || password_txt.isEmpty()) {
+                // TODO add toast or change input color to show user that is required
+                Toast.makeText(getContext(), "Username and password are required", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            // I added another parameter so that the username the user enter can be saved
+            AppLoginManager.registerUser(getActivity(), new User(username_txt, email_txt, password_txt), username_txt);
+            ((LoginActivity) Objects.requireNonNull(getActivity())).showHideProgressBar(true);
+            Toast.makeText(getActivity(), "Registering", Toast.LENGTH_SHORT).show();
         });
 
         return binding.getRoot();

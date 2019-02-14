@@ -73,12 +73,7 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Help");
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            }
-        });
+        toolbar.setNavigationOnClickListener(view -> startActivity(new Intent(getApplicationContext(), MainActivity.class)));
 
         searchView = findViewById(R.id.search_view);
         searchView.setVoiceSearch(true);
@@ -110,51 +105,36 @@ public class HelpActivity extends AppCompatActivity implements SharedPreferences
         });
 
 
+        faq.setOnClickListener(v -> openFaq());
 
-      /*  backToMain = findViewById(R.id.backToMain);
-        backToMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HelpActivity.this, MainActivity.class);
-                startActivity(intent);
+        contact.setOnClickListener(v -> openContact());
 
-            }
-        });*/
-
-        faq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_VIEW);
-                intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse("https://www.madonahsyombua.com/faqs"));
-                startActivity(intent);
-            }
-        });
-
-        contact.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_VIEW);
-                intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse("https://www.madonahsyombua.com/contact"));
-                startActivity(intent);
-            }
-        });
-
-        terms.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_VIEW);
-                intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse("https://www.madonahsyombua.com/privacy-policy"));
-                startActivity(intent);
-            }
-        });
+        terms.setOnClickListener(v -> openTerms());
     }
 
+    private void openContact(){
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+        intent.setData(Uri.parse("https://www.madonahsyombua.com/contact"));
+        startActivity(intent);
+    }
+
+    private void openTerms(){
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+        intent.setData(Uri.parse("https://www.madonahsyombua.com/privacy-policy"));
+        startActivity(intent);
+    }
+
+    private void openFaq(){
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+        intent.setData(Uri.parse("https://www.madonahsyombua.com/faqs"));
+        startActivity(intent);
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();

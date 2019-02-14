@@ -73,12 +73,7 @@ public class ImageDialog extends DialogFragment {
 
             ImageView closeButton = view.findViewById(R.id.closeButton);
             closeButton.setOnClickListener(
-                    new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dismiss();
-                        }
-                    }
+                    v -> dismiss()
             );
 
             Objects.requireNonNull(getDialog().getWindow()).setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);

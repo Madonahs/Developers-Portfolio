@@ -70,9 +70,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
         // Create a new view
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.feeds_list_item, parent, false);
 
-        return new ViewHolder(view, mPosts, new ViewHolder.OnItemClickListener() {
-            public void onClick(View caller) { mListener.onClick(caller); }
-        }, mFromMainActivity);
+        return new ViewHolder(view, mPosts, caller -> mListener.onClick(caller), mFromMainActivity);
     }
 
     /**
@@ -106,24 +104,16 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
             holder.mPostImageBorder.setVisibility(View.VISIBLE);
             if (!mFromMainActivity) {
                 holder.mPostImage.setOnClickListener(
-                        new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                FragmentManager fm = ((PostActivity) mActivity).getSupportFragmentManager();
-                                ImageDialog imageDialog = ImageDialog.newInstance(bitmapHandler.getLarger(bitmap));
-                                imageDialog.show(fm, "fragment_image_dialog");
-                            }
+                        v -> {
+                            FragmentManager fm = ((PostActivity) mActivity).getSupportFragmentManager();
+                            ImageDialog imageDialog = ImageDialog.newInstance(bitmapHandler.getLarger(bitmap));
+                            imageDialog.show(fm, "fragment_image_dialog");
                         }
                 );
             } else {
                 final CardView cardView = holder.mCardView;
                 holder.mPostImage.setOnClickListener(
-                        new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                cardView.performClick();
-                            }
-                        }
+                        v -> cardView.performClick()
                 );
             }
         } else {

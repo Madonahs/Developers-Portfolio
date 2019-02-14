@@ -69,12 +69,7 @@ public class PostActivity extends AppCompatActivity
         SwipeRefreshLayout mSwipeRefreshLayout = findViewById(R.id.swipeRefresh);
         mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(this, R.color.colorAccent));
         mSwipeRefreshLayout.setOnRefreshListener(
-                new SwipeRefreshLayout.OnRefreshListener() {
-                    @Override
-                    public void onRefresh() {
-                        updatePost();
-                    }
-                }
+                () -> updatePost()
         );
 
         RecyclerView mRecyclerView = findViewById(R.id.recyclerView);

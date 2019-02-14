@@ -19,8 +19,6 @@ import android.os.Parcelable;
 
 import com.madonasyombua.growwithgoogleteamproject.models.User;
 
-import java.io.Serializable;
-
 
 /**
  *A  user submitted comment

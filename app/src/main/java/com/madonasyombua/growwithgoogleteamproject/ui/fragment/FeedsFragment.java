@@ -148,13 +148,7 @@ public class FeedsFragment extends Fragment{
 
         FloatingActionButton fab =  view.findViewById(R.id.add_feeds);
         fab.setOnClickListener(
-                new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        showPostDialog();
-                    }
-                }
+                v -> showPostDialog()
         );
 
         displayEmpty.setVisibility(View.GONE);
@@ -165,11 +159,8 @@ public class FeedsFragment extends Fragment{
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new FeedsAdapter(Objects.requireNonNull(getActivity()), mPosts, new FeedsAdapter.OnItemClickListener() {
-            @Override
-            public void onClick(View caller) {
+        mAdapter = new FeedsAdapter(Objects.requireNonNull(getActivity()), mPosts, caller -> {
 
-            }
         }, true);
         mRecyclerView.setAdapter(mAdapter);
         startFeedListener();

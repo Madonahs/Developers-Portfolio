@@ -43,33 +43,26 @@ public class AppLoginManager {
 
     public static FirebaseUser registerUser(final Activity activity, User user, final String username){
         firebaseAuth.createUserWithEmailAndPassword(user.getEmail(), user.getPassword())
-                .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
-                    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            mCurrentUser = firebaseAuth.getCurrentUser();
-                            // This sets the username for the user
-                            // and since Firebase User doesn't have setDisplay, we use UserProfileChangeRequest
-                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                    .setDisplayName(username)
-                                    .build();
+                .addOnCompleteListener(activity, task -> {
+                    if (task.isSuccessful()) {
+                        mCurrentUser = firebaseAuth.getCurrentUser();
+                        // This sets the username for the user
+                        // and since Firebase User doesn't have setDisplay, we use UserProfileChangeRequest
+                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                .setDisplayName(username)
+                                .build();
 
-                            mCurrentUser.updateProfile(profileUpdates)
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()) {
-                                                Log.d(TAG, "User profile updated.");
-                                            }
-                                        }
-                                    });
+                        mCurrentUser.updateProfile(profileUpdates)
+                                .addOnCompleteListener(task1 -> {
+                                    if (task1.isSuccessful()) {
+                                        Log.d(TAG, "User profile updated.");
+                                    }
+                                });
 
-                            ((LoginInterface)activity).onRegistrationSuccess();
-                        } else {
-                            ((LoginInterface)activity).onRegistrationFailed();
-                            Toast.makeText(activity, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
-                        }
+                        ((LoginInterface)activity).onRegistrationSuccess();
+                    } else {
+                        ((LoginInterface)activity).onRegistrationFailed();
+                        Toast.makeText(activity, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
         return mCurrentUser;
@@ -77,18 +70,14 @@ public class AppLoginManager {
 
     public static FirebaseUser signinUser(final  Activity activity, final User user){
         firebaseAuth.signInWithEmailAndPassword(user.getEmail(), user.getPassword())
-                .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
-                    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            mCurrentUser = firebaseAuth.getCurrentUser();
-                            user.setStatus(true);
-                            ((LoginInterface)activity).onSigninSuccess(user);
-                        } else {
-                            ((LoginInterface)activity).onSigninFailed();
-                            Toast.makeText(activity, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
-                        }
+                .addOnCompleteListener(activity, task -> {
+                    if (task.isSuccessful()) {
+                        mCurrentUser = firebaseAuth.getCurrentUser();
+                        user.setStatus(true);
+                        ((LoginInterface)activity).onSigninSuccess(user);
+                    } else {
+                        ((LoginInterface)activity).onSigninFailed();
+                        Toast.makeText(activity, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
         return mCurrentUser;
@@ -96,14 +85,11 @@ public class AppLoginManager {
 
     public static void resetPassword(final Activity activity, String email){
         firebaseAuth.sendPasswordResetEmail(email)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            ((LoginInterface)activity).onResetPasswordSuccess();
-                        } else {
-                            ((LoginInterface)activity).onResetPasswordFailed();
-                        }
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        ((LoginInterface)activity).onResetPasswordSuccess();
+                    } else {
+                        ((LoginInterface)activity).onResetPasswordFailed();
                     }
                 });
     }

@@ -19,7 +19,7 @@ import android.os.Parcelable;
 
 import com.google.firebase.database.Exclude;
 import com.madonasyombua.growwithgoogleteamproject.util.Comment;
-import java.io.Serializable;
+
 import java.util.ArrayList;
 
 /**

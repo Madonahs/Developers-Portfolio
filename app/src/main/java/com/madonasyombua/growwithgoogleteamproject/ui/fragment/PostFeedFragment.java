@@ -160,63 +160,42 @@ public class PostFeedFragment extends DialogFragment {
         name.setText(getArguments().getString("username"));
 
         closeButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dismiss();
-                    }
-                }
+                v -> dismiss()
         );
 
         imageButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
-                                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                        startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
-                    }
+                v -> {
+                    Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
                 }
         );
 
         cameraButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                        //fileUri = Uri.fromFile(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM) +
-                       //  File.separator + ""));
-                        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-                        startActivityForResult(cameraIntent, RESULT_CAMERA);
-                    }
+                v -> {
+                    Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    //fileUri = Uri.fromFile(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM) +
+                   //  File.separator + ""));
+                    cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+                    startActivityForResult(cameraIntent, RESULT_CAMERA);
                 }
         );
 
         progressBar = view.findViewById(R.id.progressBar);
-        sendButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                uploadImageToServer();
-
-
-            }
-        });
+        sendButton.setOnClickListener(v -> uploadImageToServer());
 
         attachment.setVisibility(View.INVISIBLE);
         attachmentCloseButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                            TransitionManager.endTransitions(attachment);
-                        }
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                            TransitionManager.beginDelayedTransition(attachment);
-                        }
-                        attachedImage.setImageBitmap(null);
-                        attachedImageName.setText("");
-                        attachment.setVisibility(View.INVISIBLE);
+                v -> {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        TransitionManager.endTransitions(attachment);
                     }
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                        TransitionManager.beginDelayedTransition(attachment);
+                    }
+                    attachedImage.setImageBitmap(null);
+                    attachedImageName.setText("");
+                    attachment.setVisibility(View.INVISIBLE);
                 }
         );
 
@@ -260,7 +239,7 @@ public class PostFeedFragment extends DialogFragment {
 
                     // Get the cursor
                     assert selectedImage != null;
-                    Cursor cursor = getActivity().getContentResolver().query(selectedImage,
+                    Cursor cursor = Objects.requireNonNull(getActivity()).getContentResolver().query(selectedImage,
                             filePathColumn, null, null, null);
                     // Move to first row
                     assert cursor != null;
@@ -342,15 +321,12 @@ public class PostFeedFragment extends DialogFragment {
         //TODO 2: ensure we get the following
 
         Post post = new Post(postText.getText().toString(), currentUser.getDisplayName(), null);
-            reference.push().setValue(post, new DatabaseReference.CompletionListener() {
-                @Override
-                public void onComplete(DatabaseError databaseError, DatabaseReference dataReference) {
-                    //String error = databaseError.toString();
-                    if(databaseError != null) {
-                        String error = databaseError.toString();
-                    }
-                   // Log.i("Firebase Debug", "The error is: " + databaseError.toString());
+            reference.push().setValue(post, (databaseError, dataReference) -> {
+                //String error = databaseError.toString();
+                if(databaseError != null) {
+                    String error = databaseError.toString();
                 }
+               // Log.i("Firebase Debug", "The error is: " + databaseError.toString());
             });
             postText.setText("");
             Toast.makeText(getContext(), "Sending Feeds", Toast.LENGTH_SHORT).show();
