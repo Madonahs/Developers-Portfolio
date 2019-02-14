@@ -89,7 +89,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
         Post post = mPosts.get(position);
         holder.mName.setText(post.getUsername());
         holder.mPostProfilePicture.setImageBitmap(null);
-        holder.mPostProfilePicture.setImageResource(R.drawable.default_pic);
+        holder.mPostProfilePicture.setImageResource(R.drawable.avater);
         holder.mPosted.setText(post.getPosted());
         holder.mText.setText(post.getText());
         holder.mNoComments.setText("" + post.getNumberOfComments());

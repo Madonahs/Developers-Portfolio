@@ -37,7 +37,7 @@
             android:layout_marginBottom="1dp"
             android:background="@drawable/edit_text_custom"
             android:hint= "@string/email"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:textSize="16sp" />
 
     </android.support.design.widget.TextInputLayout>

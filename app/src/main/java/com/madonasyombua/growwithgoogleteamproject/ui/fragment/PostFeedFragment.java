@@ -42,7 +42,9 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -51,7 +53,6 @@ import com.google.firebase.storage.StorageReference;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.models.Post;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
-
 
 import java.util.Objects;
 
@@ -102,6 +103,7 @@ public class PostFeedFragment extends DialogFragment {
     private BitmapHandler bitmapHandler;
 
     private DatabaseReference reference;
+    private FirebaseUser currentUser;
 
 
     public PostFeedFragment() {
@@ -131,8 +133,7 @@ public class PostFeedFragment extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-//        currentUserId = mAuth.getCurrentUser().getUid();
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         reference = database.getReference().child("feeds");
         FirebaseStorage storage = FirebaseStorage.getInstance();
@@ -156,7 +157,7 @@ public class PostFeedFragment extends DialogFragment {
         assert getArguments() != null;
         header.setText(getArguments().getString("title"));
         postingAs.setText(getArguments().getString("postingAs"));
-        name.setText(getArguments().getString("name"));
+        name.setText(getArguments().getString("username"));
 
         closeButton.setOnClickListener(
                 new View.OnClickListener() {
@@ -340,7 +341,7 @@ public class PostFeedFragment extends DialogFragment {
        //TODO 1: Enable sending images to DataBase
         //TODO 2: ensure we get the following
 
-        Post post = new Post(postText.getText().toString(), "Person", null);
+        Post post = new Post(postText.getText().toString(), currentUser.getDisplayName(), null);
             reference.push().setValue(post, new DatabaseReference.CompletionListener() {
                 @Override
                 public void onComplete(DatabaseError databaseError, DatabaseReference dataReference) {

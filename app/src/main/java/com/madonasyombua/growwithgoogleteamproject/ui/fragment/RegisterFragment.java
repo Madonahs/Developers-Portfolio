@@ -27,8 +27,10 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.madonasyombua.growwithgoogleteamproject.R;
+import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentSigninBinding;
+import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentSignupBinding;
 import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
-import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentRegisterBinding;
+
 import com.madonasyombua.growwithgoogleteamproject.models.User;
 
 import com.madonasyombua.growwithgoogleteamproject.activities.LoginActivity;
@@ -45,7 +47,7 @@ import java.util.regex.Pattern;
 public class RegisterFragment extends Fragment {
     private static final String TAG =RegisterFragment.class.getName();
 
-    private FragmentRegisterBinding binding;
+    private FragmentSignupBinding binding;
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
     private final Pattern pattern = Pattern.compile(EMAIL_PATTERN);
 
@@ -57,7 +59,7 @@ public class RegisterFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_signup, container, false);
         binding.registerFragmentButton.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
@@ -71,7 +73,9 @@ public class RegisterFragment extends Fragment {
                     Toast.makeText(getContext(), "Username and password are required", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                AppLoginManager.registerUser(getActivity(), new User(username_txt, email_txt, password_txt));
+
+                // I added another parameter so that the username the user enter can be saved
+                AppLoginManager.registerUser(getActivity(), new User(username_txt, email_txt, password_txt), username_txt);
                 ((LoginActivity) Objects.requireNonNull(getActivity())).showHideProgressBar(true);
                 Toast.makeText(getActivity(), "Registering", Toast.LENGTH_SHORT).show();
             }

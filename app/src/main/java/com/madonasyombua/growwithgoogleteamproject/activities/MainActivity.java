@@ -35,7 +35,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.TextView;
+
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.login.LoginStatusManager;
 import com.madonasyombua.growwithgoogleteamproject.models.User;
@@ -74,6 +76,8 @@ public class MainActivity
     private boolean prev_State = false;
     private User user;
     private static int uid;
+    private FirebaseUser currentUser;
+
 
 
     /**
@@ -92,6 +96,7 @@ public class MainActivity
             setTheme(R.style.AppTheme);
         }
         prev_State = sharedPref.loadNightModeState();
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -104,6 +109,7 @@ public class MainActivity
         profilePicView = drawerHeaderView.findViewById(R.id.drawer_header_user_image);
         userName = drawerHeaderView.findViewById(R.id.drawer_header_user_name);
         userProfession = drawerHeaderView.findViewById(R.id.drawer_header_user_profession);
+
 
         //Set action bar, navigation drawer, navigation drawer header
         setSupportActionBar(toolbar);
@@ -157,8 +163,9 @@ public class MainActivity
      */
     private void setDrawerHeader() {
 
-        profilePicView.setImageResource(R.drawable.madonah);
-        userName.setText(getString(R.string.about_developer_name1));
+
+        profilePicView.setImageResource(R.drawable.avater);
+        userName.setText(currentUser.getDisplayName());
         userProfession.setText(getString(R.string.dummy_position));
     }
 
