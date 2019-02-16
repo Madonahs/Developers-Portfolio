@@ -26,7 +26,7 @@ Also checkout the entire list of [Contributors](https://github.com/Madonahs/Devs
 
 
 ### Maintainers
-* **[Madona Syombua](https://github.com/Madonahs)** 
+* **[Rado RAMBININTSOA](https://github.com/radoalbert110)** 
 * **[Ayobami Adewale](https://github.com/emmaunel)** 
 * **[Srinath](https://github.com/SrChip15)** 
 
