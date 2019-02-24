@@ -6,11 +6,10 @@
 </p>
 
 ## Developers Portfolio App
-
 This is a Social App for Developers to share their portfolio and also get to interact with other users through messages and sharing projects, programmers are welcome to share their projects and they can interact and show employers what they have done in the app, one doesnt have to create a website to showcase his/her work. 
 
-## Project status
-Develop 🔧
+## Note 
+ I created this repository for educational purposes as part of the Grow With Google Scholarship.
 
 ## Authors
 * **[Madona Syombua](https://github.com/Madonahs)** - *Lead/Core developer* 
