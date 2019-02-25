@@ -10,6 +10,8 @@ This is a Social App for Developers to share their portfolio and also get to int
 
 ## Note 
  I created this repository for educational purposes as part of the Grow With Google Scholarship.
+## Mode
+Develop 
 
 ## Authors
 * **[Madona Syombua](https://github.com/Madonahs)** - *Lead/Core developer* 
