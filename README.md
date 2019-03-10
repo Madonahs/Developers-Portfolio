@@ -33,7 +33,7 @@ Also checkout the entire list of [Contributors](https://github.com/Madonahs/Devs
 
 ## Contributing
 
-Read  [Contributing](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
+Read  [Contributing](https://github.com/Madonahs/Developers-Portfolio/blob/master/CONTRIBUTING.md)
 
 ## Code of Conduct
 
