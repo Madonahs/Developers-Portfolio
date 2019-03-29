@@ -96,6 +96,7 @@ public class MainActivity
             setTheme(R.style.AppTheme);
         }
         prev_State = sharedPref.loadNightModeState();
+
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         super.onCreate(savedInstanceState);

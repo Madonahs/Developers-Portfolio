@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="change_color_attrs">
-        <attr name="backgroundcolor" format="color"/>
-        <attr name="cardbackground" format="color"/>
-        <attr name="textcolor" format="color" />
-        <attr name="tintcolor" format="color" />
-        <attr name="buttoncolor" format="color"/>
+<declare-styleable name="change_color_attrs">
+    <attr name="backgroundcolor" format="color"/>
+    <attr name="cardbackground" format="color"/>
+    <attr name="textcolor" format="color" />
+    <attr name="tintcolor" format="color" />
+    <attr name="buttoncolor" format="color"/>
 
-        <attr name="background_color_of_nav_bar" format="color"/>
-        <attr name="background_color_of_toolbars" format="color"/>
-    </declare-styleable>
+    <attr name="background_color_of_nav_bar" format="color"/>
+    <attr name="background_color_of_toolbars" format="color"/>
+</declare-styleable>
 </resources>

@@ -25,6 +25,7 @@ dependencies {
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterKnifeVersion"
 
     // Dagger
+    //noinspection OutdatedLibrary
     implementation "com.google.dagger:dagger-android:$rootProject.ext.daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$rootProject.ext.daggerVersion"
     // if you use the support libraries
