@@ -12,7 +12,7 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.login;
+package com.madonasyombua.growwithgoogleteamproject.ui.login;
 
 import android.app.Activity;
 import android.util.Log;
@@ -21,7 +21,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
-import com.madonasyombua.growwithgoogleteamproject.models.User;
+import com.madonasyombua.growwithgoogleteamproject.data.models.User;
 
 import java.util.Objects;
 

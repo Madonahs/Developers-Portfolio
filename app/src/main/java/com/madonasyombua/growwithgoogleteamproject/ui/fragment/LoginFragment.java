@@ -15,11 +15,9 @@
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
 import android.databinding.DataBindingUtil;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,10 +26,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentSigninBinding;
-import com.madonasyombua.growwithgoogleteamproject.login.AppLoginManager;
+import com.madonasyombua.growwithgoogleteamproject.ui.login.AppLoginManager;
 
-import com.madonasyombua.growwithgoogleteamproject.models.User;
-import com.madonasyombua.growwithgoogleteamproject.activities.LoginActivity;
+import com.madonasyombua.growwithgoogleteamproject.data.models.User;
+import com.madonasyombua.growwithgoogleteamproject.ui.activities.LoginActivity;
 
 import java.util.Objects;
 

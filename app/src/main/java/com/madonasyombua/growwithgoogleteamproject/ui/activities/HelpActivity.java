@@ -12,7 +12,7 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.activities;
+package com.madonasyombua.growwithgoogleteamproject.ui.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -28,7 +28,6 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
 import com.madonasyombua.growwithgoogleteamproject.R;

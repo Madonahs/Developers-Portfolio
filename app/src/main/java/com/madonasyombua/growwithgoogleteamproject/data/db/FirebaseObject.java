@@ -12,7 +12,7 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.models;
+package com.madonasyombua.growwithgoogleteamproject.data.db;
 
 import com.google.firebase.database.Exclude;
 
@@ -22,7 +22,7 @@ public abstract class FirebaseObject {
   @Exclude
   String key;
 
-  FirebaseObject(){}
+  public FirebaseObject(){}
 
   FirebaseObject(String key) {
     this.key = key;

@@ -12,21 +12,15 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.activities;
+package com.madonasyombua.growwithgoogleteamproject.data.models;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+/**
+ * Firebase endpoint/nodes
+ */
 
-import com.madonasyombua.growwithgoogleteamproject.R;
+public class Paths {
 
-public class MessageActivity extends AppCompatActivity {
-    /**
-     * Implement Messages
-     * @param savedInstanceState SI
-     */
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message);
-    }
+  public static final String SL = "/";
+  static final String USER = "user";
+  public static final String FEED = "feeds";
 }

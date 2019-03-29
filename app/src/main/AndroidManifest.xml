@@ -45,7 +45,7 @@
         </activity>
         <!-- Start Login after test -->
         <activity
-            android:name=".activities.LoginActivity"
+            android:name=".ui.activities.LoginActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,30 +54,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".ui.activities.MainActivity"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.intro.OnBoardingActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".activities.InterestActivity"
+            android:name=".ui.activities.InterestActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".activities.ProjectsActivity"
+            android:name=".ui.activities.ProjectsActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".activities.SettingsActivity"
+            android:name=".ui.activities.SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name=".activities.PostActivity"
+            android:name=".ui.activities.PostActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".activities.AboutActivity" />
+        <activity android:name=".ui.activities.AboutActivity" />
         <activity
-            android:name=".activities.HelpActivity"
+            android:name=".ui.activities.HelpActivity"
             android:label="@string/help"
-            android:parentActivityName=".activities.MainActivity" />
-        <activity android:name=".activities.ManageProfileActivity" />
-        <activity android:name=".activities.MessageActivity" />
+            android:parentActivityName=".ui.activities.MainActivity" />
+        <activity android:name=".ui.activities.ManageProfileActivity" />
+        <activity android:name=".ui.activities.MessageActivity" />
 
         <receiver android:name=".util.DevsFolioWidget">
             <intent-filter>

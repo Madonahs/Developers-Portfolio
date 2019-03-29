@@ -12,15 +12,10 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.util;
+package com.madonasyombua.growwithgoogleteamproject.data.actions;
 
-import android.support.annotation.NonNull;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,8 +23,8 @@ import com.google.firebase.database.DatabaseReference.CompletionListener;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.madonasyombua.growwithgoogleteamproject.interfaces.Callback;
-import com.madonasyombua.growwithgoogleteamproject.models.FirebaseObject;
-import com.madonasyombua.growwithgoogleteamproject.models.Paths;
+import com.madonasyombua.growwithgoogleteamproject.data.db.FirebaseObject;
+import com.madonasyombua.growwithgoogleteamproject.data.models.Paths;
 import java.util.Map;
 
 
@@ -120,6 +115,7 @@ public class FirebaseAction {
                     .newInstance(key)
                     .getPath())
                     .addListenerForSingleValueEvent(new ValueEventListener() {
+                        @SuppressWarnings("unchecked")
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             if (dataSnapshot != null) {

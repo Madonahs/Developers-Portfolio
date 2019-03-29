@@ -12,13 +12,13 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.models;
+package com.madonasyombua.growwithgoogleteamproject.data.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.firebase.database.Exclude;
-import com.madonasyombua.growwithgoogleteamproject.util.Comment;
+import com.madonasyombua.growwithgoogleteamproject.data.db.FirebaseObject;
 
 import java.util.ArrayList;
 

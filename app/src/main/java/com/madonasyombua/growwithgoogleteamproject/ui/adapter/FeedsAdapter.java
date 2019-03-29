@@ -9,7 +9,7 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  **/
-package com.madonasyombua.growwithgoogleteamproject.adapter;
+package com.madonasyombua.growwithgoogleteamproject.ui.adapter;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -27,11 +27,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.activities.PostActivity;
-import com.madonasyombua.growwithgoogleteamproject.activities.MainActivity;
+import com.madonasyombua.growwithgoogleteamproject.ui.activities.PostActivity;
+import com.madonasyombua.growwithgoogleteamproject.ui.activities.MainActivity;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ImageDialog;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
-import com.madonasyombua.growwithgoogleteamproject.models.Post;
+import com.madonasyombua.growwithgoogleteamproject.data.models.Post;
 
 import java.util.ArrayList;
 
@@ -70,7 +70,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
         // Create a new view
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.feeds_list_item, parent, false);
 
-        return new ViewHolder(view, mPosts, caller -> mListener.onClick(caller), mFromMainActivity);
+        return new ViewHolder(view, mPosts, mListener::onClick, mFromMainActivity);
     }
 
     /**

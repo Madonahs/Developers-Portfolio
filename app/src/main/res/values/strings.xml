@@ -197,6 +197,9 @@
     <string name="forgotpassword">forgot password?</string>
     <string name="help">Help</string>
     <string name="appwidget_text">Devs Folio</string>
+    <string name="todo">TODO</string>
+    <string name="twelve">12</string>
+    <string name="three">3</string>
 
 
 </resources>

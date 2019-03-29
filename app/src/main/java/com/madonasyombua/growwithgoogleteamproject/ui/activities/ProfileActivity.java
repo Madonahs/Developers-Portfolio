@@ -12,15 +12,21 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.models;
+package com.madonasyombua.growwithgoogleteamproject.ui.activities;
 
-/**
- * Firebase endpoint/nodes
- */
 
-public class Paths {
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import com.madonasyombua.growwithgoogleteamproject.R;
 
-  public static final String SL = "/";
-  static final String USER = "user";
-  public static final String FEED = "feeds";
+
+public class ProfileActivity extends AppCompatActivity {
+    //private static final String TAG = ProfileActivity.class.getName();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_profile);
+
+    }
 }

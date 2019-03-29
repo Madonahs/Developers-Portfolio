@@ -12,11 +12,12 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.models;
+package com.madonasyombua.growwithgoogleteamproject.data.models;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import com.google.firebase.database.Exclude;
+import com.madonasyombua.growwithgoogleteamproject.data.db.FirebaseObject;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 import java.io.Serializable;
 
@@ -73,7 +74,6 @@ public class User extends FirebaseObject implements Serializable {
     }
 
     public void setPortfolio(Portfolio portfolio) {
-        Portfolio portfolio1 = portfolio;
     }
 
     public static User build(@NonNull Bundle data) {

@@ -12,7 +12,7 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.activities;
+package com.madonasyombua.growwithgoogleteamproject.ui.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -39,8 +39,8 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.login.LoginStatusManager;
-import com.madonasyombua.growwithgoogleteamproject.models.User;
+import com.madonasyombua.growwithgoogleteamproject.ui.login.LoginStatusManager;
+import com.madonasyombua.growwithgoogleteamproject.data.models.User;
 import com.madonasyombua.growwithgoogleteamproject.ui.SharedPref;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.FeedsFragment;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.InterestFragment;

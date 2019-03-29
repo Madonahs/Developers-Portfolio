@@ -12,12 +12,10 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.util;
+package com.madonasyombua.growwithgoogleteamproject.data.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import com.madonasyombua.growwithgoogleteamproject.models.User;
 
 
 public class Comment implements Parcelable {
@@ -34,7 +32,7 @@ public class Comment implements Parcelable {
         this.image = image;
     }
 
-    protected Comment(Parcel in) {
+    private Comment(Parcel in) {
         cid = in.readInt();
         text = in.readString();
         commented = in.readString();
@@ -65,9 +63,6 @@ public class Comment implements Parcelable {
         this.text = text;
     }
 
-    public void setCommented(String posted) {
-        this.commented = commented;
-    }
 
     public void setImage(String image) {
         this.image = image;

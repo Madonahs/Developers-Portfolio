@@ -58,7 +58,7 @@
                         android:layout_height="48dp"
                         android:layout_gravity="center_vertical"
 
-                        android:contentDescription="TODO"
+                        android:contentDescription="@string/todo"
                         android:src="@drawable/default_pic" />
 
 
@@ -224,7 +224,7 @@
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentTop="true"
-                            android:contentDescription="TODO"
+                            android:contentDescription="@string/todo"
                             android:padding="4dp"
                             android:src="@drawable/thumb_up"
                             android:tag="img"
@@ -238,7 +238,7 @@
                             android:layout_toEndOf="@+id/upvote"
                             android:layout_toRightOf="@+id/upvote"
                             android:gravity="center"
-                            android:text="12" />
+                            android:text="@string/twelve" />
                         <!-- down votes hey ayo i can implement this and you can add them to data base-->
                         <ImageView
                             android:id="@+id/downvote"
@@ -260,7 +260,7 @@
                             android:layout_toEndOf="@+id/downvote"
                             android:layout_toRightOf="@+id/downvote"
                             android:gravity="center"
-                            android:text="3" />
+                            android:text="@string/three" />
 
                     </RelativeLayout>
 

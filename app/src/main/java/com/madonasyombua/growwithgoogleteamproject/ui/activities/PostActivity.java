@@ -13,7 +13,7 @@
         limitations under the License.
  */
 
-package com.madonasyombua.growwithgoogleteamproject.activities;
+package com.madonasyombua.growwithgoogleteamproject.ui.activities;
 
 import android.net.Uri;
 import android.os.Build;
@@ -29,7 +29,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.PostFeedFragment;
-import com.madonasyombua.growwithgoogleteamproject.models.Post;
+import com.madonasyombua.growwithgoogleteamproject.data.models.Post;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -69,7 +69,7 @@ public class PostActivity extends AppCompatActivity
         SwipeRefreshLayout mSwipeRefreshLayout = findViewById(R.id.swipeRefresh);
         mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(this, R.color.colorAccent));
         mSwipeRefreshLayout.setOnRefreshListener(
-                () -> updatePost()
+                this::updatePost
         );
 
         RecyclerView mRecyclerView = findViewById(R.id.recyclerView);

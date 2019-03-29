@@ -12,21 +12,21 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.activities;
+package com.madonasyombua.growwithgoogleteamproject.ui.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.madonasyombua.growwithgoogleteamproject.R;
 
-public class ManageProfileActivity extends AppCompatActivity {
+public class MessageActivity extends AppCompatActivity {
     /**
-     * Start Manage Profile
-     * @param savedInstanceState sI
+     * Implement Messages
+     * @param savedInstanceState SI
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manage_profile);
+        setContentView(R.layout.activity_message);
     }
 }

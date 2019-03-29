@@ -85,11 +85,11 @@ public class ImageDialog extends DialogFragment {
         @Override
         public void onResume() {
             // Get existing layout params for the window
-            ViewGroup.LayoutParams params = Objects.requireNonNull(getDialog().getWindow()).getAttributes();
+            WindowManager.LayoutParams params = Objects.requireNonNull(getDialog().getWindow()).getAttributes();
             // Assign window properties to fill the parent
             params.width = WindowManager.LayoutParams.WRAP_CONTENT;
             params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-            getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
+            getDialog().getWindow().setAttributes(params);
             // Call super onResume after sizing
             super.onResume();
         }

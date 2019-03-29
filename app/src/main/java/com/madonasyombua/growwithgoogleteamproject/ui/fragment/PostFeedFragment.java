@@ -16,6 +16,7 @@ package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
 
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -45,13 +46,12 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.models.Post;
+import com.madonasyombua.growwithgoogleteamproject.data.models.Post;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
 
 import java.util.Objects;
@@ -220,7 +220,7 @@ public class PostFeedFragment extends DialogFragment {
         super.onActivityResult(requestCode, resultCode, data);
         try {
             System.out.println("resultCode: " + resultCode);
-            if (resultCode == Objects.requireNonNull(getActivity()).RESULT_OK && data != null) {
+            if (resultCode == Activity.RESULT_OK && data != null) {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     TransitionManager.endTransitions(attachment);
@@ -337,11 +337,11 @@ public class PostFeedFragment extends DialogFragment {
     @Override
     public void onResume() {
         // Get existing layout params for the window
-        ViewGroup.LayoutParams params = Objects.requireNonNull(getDialog().getWindow()).getAttributes();
+        WindowManager.LayoutParams params = Objects.requireNonNull(getDialog().getWindow()).getAttributes();
         // Assign window properties to fill the parent
         params.width = WindowManager.LayoutParams.MATCH_PARENT;
         params.height = WindowManager.LayoutParams.MATCH_PARENT;
-        getDialog().getWindow().setAttributes((WindowManager.LayoutParams) params);
+        getDialog().getWindow().setAttributes(params);
         // Call super onResume after sizing
         super.onResume();
     }

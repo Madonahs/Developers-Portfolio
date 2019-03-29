@@ -28,9 +28,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.madonasyombua.growwithgoogleteamproject.R;
-import com.madonasyombua.growwithgoogleteamproject.adapter.PortfolioAdapter;
+import com.madonasyombua.growwithgoogleteamproject.ui.adapter.PortfolioAdapter;
 import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener;
-import com.madonasyombua.growwithgoogleteamproject.models.Portfolio;
+import com.madonasyombua.growwithgoogleteamproject.data.models.Portfolio;
 
 import java.util.ArrayList;
 import java.util.List;
