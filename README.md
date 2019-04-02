@@ -58,6 +58,8 @@ See the [LICENSE.md](LICENSE.txt) file for details
 
 [Bind Views - ButterKnife](https://github.com/JakeWharton/butterknife)
 
+[Dagger](https://github.com/google/dagger)
+
 [Profile Picture - CircleImageview](https://github.com/hdodenhof/CircleImageView)
 
 [Database - Firebase](https://firebase.com)
