@@ -15,7 +15,7 @@
 package com.madonasyombua.growwithgoogleteamproject.data.models;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.google.firebase.database.Exclude;
 import com.madonasyombua.growwithgoogleteamproject.data.db.FirebaseObject;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;

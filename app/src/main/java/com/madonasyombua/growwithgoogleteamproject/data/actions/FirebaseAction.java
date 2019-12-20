@@ -35,18 +35,18 @@ import java.util.Map;
 @SuppressWarnings("unused")
 public class FirebaseAction {
 
-    public static final int ERROR_CODE_DATA_NULL = 0;
+    private static final int ERROR_CODE_DATA_NULL = 0;
     private static final int ERROR_CODE_TOKEN_NULL = 1;
-    public static final int ERROR_CODE_USER_NULL = 2;
+    private static final int ERROR_CODE_USER_NULL = 2;
     private static final String ERROR_DATA_NULL = "Error: DataSnapshot null.";
     private static final String ERROR_TOKEN_NULL = "Error: Firebase token null.";
-    public static final String ERROR_USER_NULL = "Error: FirebaseAuth user null.";
+    private static final String ERROR_USER_NULL = "Error: FirebaseAuth user null.";
 
     /**
      * Getter for root reference.
      * @return reference to database root
      */
-    public static DatabaseReference getBase() {
+    private static DatabaseReference getBase() {
         return FirebaseDatabase.getInstance().getReference();
     }
 
