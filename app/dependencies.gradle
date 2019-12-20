@@ -14,7 +14,7 @@ dependencies {
     // Test libraries
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
     androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.1.0"
 
     //AhoyOnBoard library
     implementation "com.codemybrainsout.onboarding:onboarder:$rootProject.ext.onBoarderVersion"

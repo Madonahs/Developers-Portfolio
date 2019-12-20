@@ -7,7 +7,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
+        classpath 'com.android.tools.build:gradle:3.5.3'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -30,14 +30,14 @@ task clean(type: Delete) {
 // Please make all version changes here
 ext {
     // SDK and tools
-    minSdkVersion = 16
-    targetSdkVersion = 27
-    compileSdkVersion = 27
+    minSdkVersion = 18
+    targetSdkVersion = 29
+    compileSdkVersion = 29
 
     // App dependencies
     supportLibraryVersion = '27.1.1'
     junitVersion = '4.12'
-    butterKnifeVersion = '8.8.1'
+    butterKnifeVersion = '10.0.0'
     daggerVersion = '2.11'
     runnerVersion = '1.0.1'
     espressoVersion = '3.0.1'

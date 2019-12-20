@@ -26,11 +26,11 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
 import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -119,7 +119,7 @@ public class PostFeedFragment extends DialogFragment {
      * @param name      The posting user's name.
      * @return A new instance of fragment PostDialog.
      */
-    public static PostFeedFragment newInstance(String title, String postingAs, String username, String name) {
+    static PostFeedFragment newInstance(String title, String postingAs, String username, String name) {
         PostFeedFragment fragment = new PostFeedFragment();
         Bundle args = new Bundle();
         args.putString("title", title);
@@ -207,7 +207,7 @@ public class PostFeedFragment extends DialogFragment {
         return view;
     }
 
-    public void setEnabled(boolean enabled) {
+    private void setEnabled(boolean enabled) {
         progressBar.setVisibility(enabled ? View.GONE : View.VISIBLE);
         sendButton.setVisibility(enabled ? View.VISIBLE : View.GONE);
         imageButton.setEnabled(enabled);
