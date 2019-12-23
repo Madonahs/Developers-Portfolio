@@ -12,18 +12,12 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.ui.activities;
+package com.madonasyombua.growwithgoogleteamproject.interfaces
 
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-
-import com.madonasyombua.growwithgoogleteamproject.R;
-
-public class InterestActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interest);
-    }
+/**
+ * Created by madon on 3/30/18.
+ */
+interface IUploadImage {
+    fun onUploadSucess()
+    fun onUploadFailed()
 }

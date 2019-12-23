@@ -12,25 +12,22 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.interfaces;
+package com.madonasyombua.growwithgoogleteamproject.interfaces
+
+import android.net.Uri
 
 /*
   Created by chuk on 2/20/18.
- */
-
-import android.net.Uri;
-
-/**
+ */ /**
  * This interface must be implemented by activities that contain this
  * fragment to allow an interaction in this fragment to be communicated
  * to the activity and potentially other fragments contained in that
  * activity.
- * <p>
- * See the Android Training lesson <a href=
- * "http://developer.android.com/training/basics/fragments/communicating.html"
- * >Communicating with Other Fragments</a> for more information.
+ *
+ *
+ * See the Android Training lesson [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html) for more information.
  */
-public interface OnFragmentInteractionListener {
+interface OnFragmentInteractionListener {
     // TODO: Update argument type and name
-    void onFragmentInteraction(Uri uri);
+    fun onFragmentInteraction(uri: Uri?)
 }

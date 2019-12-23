@@ -12,14 +12,15 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.interfaces;
+package com.madonasyombua.growwithgoogleteamproject.ui.activities
 
-/**
- * Created by xSor.cr on 1/12/2018.
- */
-public interface Callback<T> {
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.madonasyombua.growwithgoogleteamproject.R
 
-    void onComplete(T data);
-
-    void onError(int code, String error);
+class InterestActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_interest)
+    }
 }
