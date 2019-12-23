@@ -46,6 +46,8 @@ import com.madonasyombua.growwithgoogleteamproject.ui.adapter.FeedsAdapter;
 import com.madonasyombua.growwithgoogleteamproject.data.models.Paths;
 import com.madonasyombua.growwithgoogleteamproject.data.models.Post;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -205,7 +207,7 @@ public class FeedsFragment extends Fragment{
     }
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NotNull Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;

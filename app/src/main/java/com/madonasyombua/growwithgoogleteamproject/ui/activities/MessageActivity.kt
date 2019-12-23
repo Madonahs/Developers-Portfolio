@@ -12,22 +12,19 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.ui.activities;
+package com.madonasyombua.growwithgoogleteamproject.ui.activities
 
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.madonasyombua.growwithgoogleteamproject.R
 
-import com.madonasyombua.growwithgoogleteamproject.R;
-
-
-public class AboutActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
-
-
-
+class MessageActivity : AppCompatActivity() {
+    /**
+     * Implement Messages
+     * @param savedInstanceState SI
+     */
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_message)
     }
 }

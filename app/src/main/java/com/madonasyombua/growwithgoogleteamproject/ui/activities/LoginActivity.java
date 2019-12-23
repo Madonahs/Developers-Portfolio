@@ -106,11 +106,12 @@ public class LoginActivity extends AppCompatActivity implements AppLoginManager.
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == SHOW_INTRO) {
             if (resultCode == RESULT_OK) {
                 Once.markDone("showTutorial");
             }
-        } else if (requestCode == CallbackManagerImpl.RequestCodeOffset.Login.toRequestCode()){
+        } else if (requestCode == CallbackManagerImpl.RequestCodeOffset.Login.toRequestCode()) {
 
             mCallbackManager.onActivityResult(requestCode, resultCode, data);
 

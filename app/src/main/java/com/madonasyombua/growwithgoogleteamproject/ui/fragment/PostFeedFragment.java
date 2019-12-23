@@ -54,6 +54,8 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.data.models.Post;
 import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Objects;
 
 import butterknife.BindString;
@@ -200,7 +202,7 @@ public class PostFeedFragment extends DialogFragment {
         );
 
         postText.requestFocus();
-        Objects.requireNonNull(getDialog().getWindow()).setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        Objects.requireNonNull(Objects.requireNonNull(getDialog()).getWindow()).setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 
         setEnabled(true);
 
@@ -278,7 +280,7 @@ public class PostFeedFragment extends DialogFragment {
 
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NotNull Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
@@ -337,7 +339,7 @@ public class PostFeedFragment extends DialogFragment {
     @Override
     public void onResume() {
         // Get existing layout params for the window
-        WindowManager.LayoutParams params = Objects.requireNonNull(getDialog().getWindow()).getAttributes();
+        WindowManager.LayoutParams params = Objects.requireNonNull(Objects.requireNonNull(getDialog()).getWindow()).getAttributes();
         // Assign window properties to fill the parent
         params.width = WindowManager.LayoutParams.MATCH_PARENT;
         params.height = WindowManager.LayoutParams.MATCH_PARENT;

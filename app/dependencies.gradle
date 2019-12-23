@@ -52,6 +52,5 @@ dependencies {
     implementation "com.google.android.gms:play-services-auth:$rootProject.ext.playServicesVersion"
 
 
-    implementation 'org.jetbrains:annotations-java5:15.0'
     implementation 'com.google.android.gms:play-services-maps:11.8.0'
 }

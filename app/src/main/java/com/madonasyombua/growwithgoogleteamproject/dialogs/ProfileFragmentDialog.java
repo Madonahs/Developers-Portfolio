@@ -32,6 +32,8 @@ import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentProfileDialogBinding;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Objects;
 
 /*
@@ -52,13 +54,13 @@ public class ProfileFragmentDialog extends DialogFragment {
     @Override
     public void onStart() {
         super.onStart();
-        Objects.requireNonNull(getDialog().getWindow()).setLayout(ViewGroup.LayoutParams.MATCH_PARENT,
+        Objects.requireNonNull(Objects.requireNonNull(getDialog()).getWindow()).setLayout(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NotNull Context context) {
         super.onAttach(context);
         Fragment fragment = getParentFragment();
         if(!(fragment instanceof OnSubmitListener))
@@ -75,7 +77,7 @@ public class ProfileFragmentDialog extends DialogFragment {
 
         mBinding.submitBtn.setOnClickListener(view -> {
           mListener.submit(submit());
-            getDialog().dismiss();
+            Objects.requireNonNull(getDialog()).dismiss();
         });
 
         return mBinding.getRoot();
