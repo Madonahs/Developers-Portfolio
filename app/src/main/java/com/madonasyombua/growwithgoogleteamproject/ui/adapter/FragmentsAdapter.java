@@ -17,6 +17,9 @@ package com.madonasyombua.growwithgoogleteamproject.ui.adapter;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +38,7 @@ public class FragmentsAdapter extends FragmentStatePagerAdapter {
     }
 
     //Gets the position of the fragments
+    @NotNull
     @Override
     public Fragment getItem(int position) {
         return fragmentList.get(position);

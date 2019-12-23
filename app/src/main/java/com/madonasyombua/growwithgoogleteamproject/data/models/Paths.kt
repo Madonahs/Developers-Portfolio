@@ -12,18 +12,13 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.ui.activities;
+package com.madonasyombua.growwithgoogleteamproject.data.models
 
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-
-import com.madonasyombua.growwithgoogleteamproject.R;
-
-public class ProjectsActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_projects);
-    }
+/**
+ * Firebase endpoint/nodes
+ */
+object Paths {
+    const val SL = "/"
+    const val USER = "user"
+    const val FEED = "feeds"
 }

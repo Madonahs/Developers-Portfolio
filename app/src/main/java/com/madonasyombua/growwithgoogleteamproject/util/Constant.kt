@@ -12,18 +12,19 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.ui.fragment;
+package com.madonasyombua.growwithgoogleteamproject.util
 
-
-import android.net.Uri;
-import androidx.fragment.app.Fragment;
-
-
-
-public class HelpFragment extends Fragment {
-
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
+/**
+ * Created by chuk on 2/23/18.
+ */
+object Constant {
+    const val WEB = "web"
+    const val LOCATION = "location"
+    const val INTRO = "intro"
+    const val PHONE = "phone"
+    const val EMAIL = "email"
+    const val USER = "user"
+    const val FIREBASE_FEEDS = "feeds"
+    const val NAME = "name"
+    const val STATUS = "status"
 }
