@@ -104,7 +104,7 @@ These files are required in order for google sign in features to work.
 
 ## Licence
 ```
- Copyright [2018] [Madona Syombua]
+ Copyright [2019] [Madona Syombua]
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
