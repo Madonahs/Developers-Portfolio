@@ -110,6 +110,9 @@ These files are required in order for google sign in features to work.
 ![image5](https://user-images.githubusercontent.com/11560987/71649797-85a91000-2cdf-11ea-85b6-991aaccc572e.png)
 
 
+## Tablet Mode
+![Login UI](https://user-images.githubusercontent.com/11560987/71649818-b5581800-2cdf-11ea-8410-7cc3238d0a31.png)
+
 ## Licence
 ```
  Copyright [2019] [Madona Syombua]
