@@ -1,8 +1,12 @@
 <h1 align="center">Developers Portfolio</h1>
 
 
- <a target="_blank" href="LICENSE"><img src="http://img.shields.io/:license-apache-blue.svg" alt="License" /></a>
- 
+
+ <p align="left">
+       <img src="http://img.shields.io/:license-apache-blue.svg" alt="License" />
+        <img src="https://img.shields.io/badge/status-incomplete-orange.svg" />
+        <img src="https://img.shields.io/badge/code%20quality-10-green.svg" />
+</p>
 </p>
 
 ## Developers Portfolio App
