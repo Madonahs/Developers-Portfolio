@@ -45,6 +45,7 @@ Read  [Contributing](https://github.com/Madonahs/Developers-Portfolio/blob/maste
 Please Read [Code of Conduct](https://github.com/Madonahs/GrowWithGoogleTeamProject/blob/master/CODE_OF_CONDUCT.md)
 
 ## Design Mock Up by Madona
+![Login UI](https://user-images.githubusercontent.com/11560987/74591658-b7540d00-4fe7-11ea-90ef-ed34d1459346.png)
 
 
 
