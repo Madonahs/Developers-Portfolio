@@ -66,10 +66,10 @@ public class PortfolioAdapter extends RecyclerView.Adapter<PortfolioAdapter.MyVi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Portfolio portfolio = portfolioList.get(position);
-        holder.title.setText(portfolio.getTitle());
-        holder.shortDescription.setText(portfolio.getShortDescription());
-        holder.longDescription.setText(portfolio.getLongDescription());
-        holder.portfolioImage.setImageResource(portfolio.getPortfolioImage());
+        holder.title.setText(portfolio.title);
+        holder.shortDescription.setText(portfolio.shortDescription);
+        holder.longDescription.setText(portfolio.longDescription);
+        holder.portfolioImage.setImageResource(portfolio.portfolioImage);
     }
 
     @Override
