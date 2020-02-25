@@ -12,45 +12,31 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.ui.adapter;
+package com.madonasyombua.growwithgoogleteamproject.ui.adapter
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-
-import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
-import java.util.List;
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
+import java.util.*
 
 /**
  * Created by Ayo on 2/9/2018.
  */
-
-public class FragmentsAdapter extends FragmentStatePagerAdapter {
-
+class FragmentsAdapter(fm: FragmentManager?) : FragmentStatePagerAdapter(fm!!) {
     //Contains the two fragments
-    private final List<Fragment> fragmentList = new ArrayList<>();
-
-
-    public FragmentsAdapter(FragmentManager fm) {
-        super(fm);
-    }
+    private val fragmentList: MutableList<Fragment> = ArrayList()
 
     //Gets the position of the fragments
-    @NotNull
-    @Override
-    public Fragment getItem(int position) {
-        return fragmentList.get(position);
+    override fun getItem(position: Int): Fragment {
+        return fragmentList[position]
     }
 
-    @Override
-    public int getCount() {
-        return fragmentList.size();
+    override fun getCount(): Int {
+        return fragmentList.size
     }
 
     //Adds Fragments to the list. In out case, there is only two. Register and Login
-    public void addFragment(Fragment fragment){
-        fragmentList.add(fragment);
+    fun addFragment(fragment: Fragment) {
+        fragmentList.add(fragment)
     }
 }

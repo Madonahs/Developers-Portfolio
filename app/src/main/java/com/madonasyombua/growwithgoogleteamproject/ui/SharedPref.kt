@@ -12,34 +12,33 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.ui;
+package com.madonasyombua.growwithgoogleteamproject.ui
 
-
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.Context
+import android.content.SharedPreferences
 
 /**
  * Created by kidus11 on 3/8/18.
  */
-
-public class SharedPref {
-    private final SharedPreferences mySharedPref ;
-    public SharedPref(Context context) {
-        mySharedPref = context.getSharedPreferences("filename",Context.MODE_PRIVATE);
-    }
+class SharedPref(context: Context) {
+    private val mySharedPref: SharedPreferences
     // This will save the night state - True or False
-    public void setNightModeState(Boolean state) {
-        SharedPreferences.Editor editor = mySharedPref.edit();
-        editor.putBoolean("enable_dark_mode",state);
-        editor.apply();
+    fun setNightModeState(state: Boolean?) {
+        val editor = mySharedPref.edit()
+        editor.putBoolean("enable_dark_mode", state!!)
+        editor.apply()
     }
+
     /**
      *
      * @return
      * This will load the Night State
      */
-    public Boolean loadNightModeState (){
-        return mySharedPref.getBoolean("enable_dark_mode",false);
+    fun loadNightModeState(): Boolean {
+        return mySharedPref.getBoolean("enable_dark_mode", false)
+    }
+
+    init {
+        mySharedPref = context.getSharedPreferences("filename", Context.MODE_PRIVATE)
     }
 }
-
