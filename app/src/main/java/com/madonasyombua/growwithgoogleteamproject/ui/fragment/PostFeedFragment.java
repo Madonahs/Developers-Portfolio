@@ -68,8 +68,8 @@ import butterknife.ButterKnife;
  */
 public class PostFeedFragment extends DialogFragment {
 
-    public static final int RESULT_LOAD_IMAGE = 1;
-    public static final int RESULT_CAMERA = 2;
+    private static final int RESULT_LOAD_IMAGE = 1;
+    private static final int RESULT_CAMERA = 2;
 
     private OnFragmentInteractionListener mListener;
     private static final String TAG = PostFeedFragment.class.getName();
