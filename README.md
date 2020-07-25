@@ -10,7 +10,7 @@
 </p>
 
 ## Developers Portfolio App
-This is a Social App for Developers to share their portfolio and also get to interact with other users through messages and sharing projects, programmers are welcome to share their projects and they can interact and show employers what they have done in the app, one doesnt have to create a website to showcase his/her work. 
+Update Project to Kotlin
 
 ## Note 
  **This repository is meant for educational purposes**
