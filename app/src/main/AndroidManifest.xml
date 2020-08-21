@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.madonasyombua.growwithgoogleteamproject">
-
     <!-- Internet permission -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -20,7 +19,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name=".ui.activities.SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
         <!-- Facebook meta data -->
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -42,8 +43,7 @@
 
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
-        </activity>
-        <!-- Start Login after test -->
+        </activity> <!-- Start Login after test -->
         <activity
             android:name=".ui.activities.LoginActivity"
             android:theme="@style/AppTheme">
@@ -65,9 +65,6 @@
         <activity
             android:name=".ui.activities.ProjectsActivity"
             android:theme="@style/AppTheme" />
-        <activity
-            android:name=".ui.activities.SettingsActivity"
-            android:label="@string/title_activity_settings" />
         <activity
             android:name=".ui.activities.PostActivity"
             android:theme="@style/AppTheme" />

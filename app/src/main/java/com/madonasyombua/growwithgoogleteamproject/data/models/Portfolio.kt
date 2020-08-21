@@ -14,22 +14,6 @@
  */
 package com.madonasyombua.growwithgoogleteamproject.data.models
 
-class Portfolio {
-    @JvmField
-    var title: String? = null
-    @JvmField
-    var shortDescription: String? = null
-    @JvmField
-    var longDescription: String? = null
-    @JvmField
-    var portfolioImage = 0
-
-    constructor() {}
-    constructor(title: String?, shortDescription: String?, longDescription: String?, portfolioImage: Int) {
-        this.title = title
-        this.shortDescription = shortDescription
-        this.longDescription = longDescription
-        this.portfolioImage = portfolioImage
-    }
+class Portfolio(@JvmField var title: String?, @JvmField var shortDescription: String?, @JvmField var longDescription: String?, @JvmField var portfolioImage: Int) {
 
 }

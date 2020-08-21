@@ -20,7 +20,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.madonasyombua.growwithgoogleteamproject.data.models.User
-import java.util.*
 
 /**
  * Created by mahersoua on 23/02/2018.
@@ -35,13 +34,11 @@ object AppLoginManager {
                 .addOnCompleteListener(activity) { task: Task<AuthResult?> ->
                     if (task.isSuccessful) {
                         mCurrentUser = firebaseAuth.currentUser
-                        // This sets the username for the user
-// and since Firebase User doesn't have setDisplay, we use UserProfileChangeRequest
                         val profileUpdates = UserProfileChangeRequest.Builder()
                                 .setDisplayName(username)
                                 .build()
-                        mCurrentUser!!.updateProfile(profileUpdates)
-                                .addOnCompleteListener { task1: Task<Void?> ->
+                        mCurrentUser?.updateProfile(profileUpdates)
+                                ?.addOnCompleteListener { task1: Task<Void?> ->
                                     if (task1.isSuccessful) {
                                         Log.d(TAG, "User profile updated.")
                                     }
@@ -49,7 +46,7 @@ object AppLoginManager {
                         (activity as LoginInterface).onRegistrationSuccess()
                     } else {
                         (activity as LoginInterface).onRegistrationFailed()
-                        Toast.makeText(activity, Objects.requireNonNull(task.exception)!!.message, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, task.exception?.message, Toast.LENGTH_SHORT).show()
                     }
                 }
         return mCurrentUser
@@ -65,18 +62,7 @@ object AppLoginManager {
                         (activity as LoginInterface).onSigninSuccess(user)
                     } else {
                         (activity as LoginInterface).onSigninFailed()
-                        Toast.makeText(activity, Objects.requireNonNull(task.exception)!!.message, Toast.LENGTH_SHORT).show()
-                    }
-                }
-    }
-
-    fun resetPassword(activity: Activity, email: String?) {
-        firebaseAuth.sendPasswordResetEmail(email!!)
-                .addOnCompleteListener { task: Task<Void?> ->
-                    if (task.isSuccessful) {
-                        (activity as LoginInterface).onResetPasswordSuccess()
-                    } else {
-                        (activity as LoginInterface).onResetPasswordFailed()
+                        Toast.makeText(activity, task.exception?.message, Toast.LENGTH_SHORT).show()
                     }
                 }
     }

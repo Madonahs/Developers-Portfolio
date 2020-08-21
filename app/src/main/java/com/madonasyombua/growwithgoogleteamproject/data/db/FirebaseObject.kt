@@ -12,22 +12,32 @@
         See the License for the specific language governing permissions and
         limitations under the License.
  */
-package com.madonasyombua.growwithgoogleteamproject.ui
+package com.madonasyombua.growwithgoogleteamproject.data.db
 
-import android.content.Context
-import android.content.SharedPreferences
+import com.google.firebase.database.Exclude
 
-class SharedPref(context: Context) {
-    private val mySharedPref: SharedPreferences = context.getSharedPreferences("filename", Context.MODE_PRIVATE)
+abstract class FirebaseObject() {
+    @get:Exclude
+    @set:Exclude
+    @Exclude
+    var key: String? = null
 
-    fun setNightModeState(state: Boolean) {
-        val editor = mySharedPref.edit()
-        editor.putBoolean("enable_dark_mode", state)
-        editor.apply()
+    @Exclude
+    fun hasKey(): Boolean? {
+        return key.let { key?.isNotEmpty() }
     }
 
-    fun loadNightModeState(): Boolean {
-        return mySharedPref.getBoolean("enable_dark_mode", false)
+    @get:Exclude
+    abstract val path: String?
+
+    @get:Exclude
+    abstract val base: String?
+    override fun equals(o: Any?): Boolean {
+        return this === o || !(o == null || javaClass != o.javaClass) && (key
+                == (o as FirebaseObject).key)
     }
 
+    override fun hashCode(): Int {
+        return key.hashCode()
+    }
 }

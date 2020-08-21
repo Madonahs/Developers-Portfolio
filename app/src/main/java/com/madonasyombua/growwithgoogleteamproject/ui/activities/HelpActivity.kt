@@ -19,51 +19,45 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.speech.RecognizerIntent
 import android.text.TextUtils
 import android.view.Menu
-import android.view.View
-import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import androidx.preference.PreferenceManager
 import com.google.android.material.snackbar.Snackbar
 import com.madonasyombua.growwithgoogleteamproject.R
+import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityHelpSearchviewBinding
 import com.madonasyombua.growwithgoogleteamproject.ui.SharedPref
 import com.miguelcatalan.materialsearchview.MaterialSearchView
 import com.miguelcatalan.materialsearchview.MaterialSearchView.SearchViewListener
-import java.util.*
 
 class HelpActivity : AppCompatActivity(), OnSharedPreferenceChangeListener {
-    var searchView: MaterialSearchView? = null
-    //private ImageButton backToMain;
-    var sharedPref: SharedPref? = null
-    private var prev_State = false
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    private var searchView: MaterialSearchView? = null
+
+    private lateinit var sharedPref: SharedPref
+    private var prevState = false
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val binding = ActivityHelpSearchviewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         sharedPref = SharedPref(this)
-        if (sharedPref!!.loadNightModeState()) {
+
+        if (sharedPref.loadNightModeState()) {
             setTheme(R.style.DarkTheme)
         } else {
             setTheme(R.style.AppTheme)
         }
-        prev_State = sharedPref!!.loadNightModeState()
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_help_searchview)
+        prevState = sharedPref.loadNightModeState()
+
+
         setCorrectTheme()
-        val faq = findViewById<TextView>(R.id.faq)
-        val contact = findViewById<TextView>(R.id.contact)
-        val terms = findViewById<TextView>(R.id.terms)
-        // Toolbar with Search Icon
-        val toolbar = findViewById<Toolbar>(R.id.tb_help)
-        setSupportActionBar(toolbar)
-        Objects.requireNonNull(supportActionBar)!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.setDisplayShowHomeEnabled(true)
-        supportActionBar!!.setTitle("Help")
-        toolbar.setNavigationOnClickListener { startActivity(Intent(applicationContext, MainActivity::class.java)) }
+        setSupportActionBar(binding.tbHelp)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.title = "Help"
+
+        binding.tbHelp.setNavigationOnClickListener { startActivity(Intent(applicationContext, MainActivity::class.java)) }
         val searchView = findViewById<MaterialSearchView>(R.id.search_view)
         searchView.setVoiceSearch(true)
         searchView.setCursorDrawable(R.drawable.color_cursor_white)
@@ -85,9 +79,9 @@ class HelpActivity : AppCompatActivity(), OnSharedPreferenceChangeListener {
             override fun onSearchViewClosed() { // Do something something
             }
         })
-        faq.setOnClickListener { v: View? -> openFaq() }
-        contact.setOnClickListener { v: View? -> openContact() }
-        terms.setOnClickListener { v: View? -> openTerms() }
+        binding.faq.setOnClickListener { openFaq() }
+        binding.contact.setOnClickListener { openContact() }
+        binding.terms.setOnClickListener { openTerms() }
     }
 
     private fun openContact() {
@@ -122,14 +116,14 @@ class HelpActivity : AppCompatActivity(), OnSharedPreferenceChangeListener {
 
     private fun setCorrectTheme() {
         val sharedPreference = PreferenceManager.getDefaultSharedPreferences(this)
-        sharedPref!!.setNightModeState(sharedPreference.getBoolean("enable_dark_mode", false))
+        sharedPref.setNightModeState(sharedPreference.getBoolean("enable_dark_mode", false))
         sharedPreference.registerOnSharedPreferenceChangeListener(this)
     }
 
     override fun onResume() {
         super.onResume()
         //Activities must be started again to show the theme change,
-        if (prev_State != sharedPref!!.loadNightModeState()) {
+        if (prevState != sharedPref.loadNightModeState()) {
             startActivity(Intent(this, this.javaClass))
             finish()
         }
@@ -152,7 +146,7 @@ class HelpActivity : AppCompatActivity(), OnSharedPreferenceChangeListener {
             if (matches != null && matches.size > 0) {
                 val searchWord = matches[0]
                 if (!TextUtils.isEmpty(searchWord)) {
-                    searchView!!.setQuery(searchWord, false)
+                    searchView?.setQuery(searchWord, false)
                 }
             }
             return
@@ -162,7 +156,7 @@ class HelpActivity : AppCompatActivity(), OnSharedPreferenceChangeListener {
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
         if (key == "enable_dark_mode") {
-            sharedPref!!.setNightModeState(sharedPreferences.getBoolean(key, false))
+            sharedPref.setNightModeState(sharedPreferences.getBoolean(key, false))
         }
     }
 }

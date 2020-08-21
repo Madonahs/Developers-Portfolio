@@ -16,12 +16,14 @@ package com.madonasyombua.growwithgoogleteamproject.ui.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.madonasyombua.growwithgoogleteamproject.R
+import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityProfileBinding
 
 class ProfileActivity : AppCompatActivity() {
     //private static final String TAG = ProfileActivity.class.getName();
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile)
+        val binding = ActivityProfileBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
     }
 }

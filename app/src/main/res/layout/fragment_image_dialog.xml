@@ -35,7 +35,8 @@
             android:src="@drawable/account"
             android:id="@+id/image"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:contentDescription="TODO" />
 
         <ImageView
             android:layout_width="48dp"
@@ -43,10 +44,11 @@
             android:src="@drawable/close"
             android:id="@+id/closeButton"
             android:padding="12dp"
-            android:tint="@color/blue"
             android:layout_alignParentTop="true"
             android:layout_alignEnd="@+id/image"
-            android:layout_alignRight="@+id/image" />
+            android:layout_alignRight="@+id/image"
+            card_view:tint="@color/blue"
+            android:contentDescription="TODO" />
 
     </RelativeLayout>
 

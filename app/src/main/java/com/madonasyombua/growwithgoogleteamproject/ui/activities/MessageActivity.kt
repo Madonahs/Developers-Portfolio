@@ -16,15 +16,13 @@ package com.madonasyombua.growwithgoogleteamproject.ui.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.madonasyombua.growwithgoogleteamproject.R
+import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityMessageBinding
 
 class MessageActivity : AppCompatActivity() {
-    /**
-     * Implement Messages
-     * @param savedInstanceState SI
-     */
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_message)
+        val binding = ActivityMessageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 }
