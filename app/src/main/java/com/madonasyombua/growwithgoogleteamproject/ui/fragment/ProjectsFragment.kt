@@ -14,11 +14,8 @@
  */
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment
 
-import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,49 +23,36 @@ import androidx.recyclerview.widget.RecyclerView
 import com.facebook.FacebookSdk
 import com.madonasyombua.growwithgoogleteamproject.R
 import com.madonasyombua.growwithgoogleteamproject.data.models.Portfolio
+import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentProjectsBinding
 import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteractionListener
 import com.madonasyombua.growwithgoogleteamproject.ui.adapter.PortfolioAdapter
 import java.util.*
 
-/**
- * @author madona 12/23/19
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- *
- * to handle interaction events.
- * Use the [ProjectsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ProjectsFragment : Fragment() {
+class ProjectsFragment : Fragment(R.layout.fragment_projects) {
     private val portfolioList: MutableList<Portfolio> = ArrayList()
     private var mAdapter: PortfolioAdapter? = null
     private var mListener: OnFragmentInteractionListener? = null
+    private var fragmentProjectsBinding : FragmentProjectsBinding ? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (arguments != null) { // TODO: Rename and change types of parameters
-            val mParam1 = arguments!!.getString(ARG_PARAM1)
-            val mParam2 = arguments!!.getString(ARG_PARAM2)
+        if (arguments != null) {
+            val mParam1 = arguments?.getString(ARG_PARAM1)
+            val mParam2 = arguments?.getString(ARG_PARAM2)
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? { // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_projects, container, false)
-        val recyclerView: RecyclerView = view.findViewById(R.id.portfolio_recycler_view)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val binding = FragmentProjectsBinding.bind(view)
+        fragmentProjectsBinding = binding
+
         mAdapter = PortfolioAdapter(portfolioList)
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(FacebookSdk.getApplicationContext())
-        recyclerView.layoutManager = mLayoutManager
-        recyclerView.itemAnimator = DefaultItemAnimator()
-        recyclerView.adapter = mAdapter
+        binding.portfolioRecyclerView.layoutManager = mLayoutManager
+        binding.portfolioRecyclerView.itemAnimator = DefaultItemAnimator()
+        binding.portfolioRecyclerView.adapter = mAdapter
         testPortfolioData()
-        return view
-    }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    fun onButtonPressed(uri: Uri?) {
-        if (mListener != null) {
-            mListener!!.onFragmentInteraction(uri)
-        }
     }
 
     private fun testPortfolioData() {
@@ -81,9 +65,8 @@ class ProjectsFragment : Fragment() {
         portfolio = Portfolio("Budgeting Buddy", "Android Development", "This is a budgeting planner" +
                 " and expense tracking mobile device for Android devices.", R.drawable.ic_google)
         portfolioList.add(portfolio)
-        mAdapter!!.notifyDataSetChanged()
+        mAdapter?.notifyDataSetChanged()
     }
-
 
     override fun onDetach() {
         super.onDetach()
@@ -91,26 +74,15 @@ class ProjectsFragment : Fragment() {
     }
 
     companion object {
-        // TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
         private const val ARG_PARAM1 = "param1"
         private const val ARG_PARAM2 = "param2"
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProjectsFragment.
-         */
-// TODO: Rename and change types and number of parameters
-        fun newInstance(param1: String?, param2: String?): ProjectsFragment {
-            val fragment = ProjectsFragment()
-            val args = Bundle()
-            args.putString(ARG_PARAM1, param1)
-            args.putString(ARG_PARAM2, param2)
-            fragment.arguments = args
-            return fragment
-        }
+
     }
+
+    override fun onDestroyView() {
+        fragmentProjectsBinding = null
+        super.onDestroyView()
+    }
+
 }

@@ -17,23 +17,14 @@ package com.madonasyombua.growwithgoogleteamproject.data.models
 import android.os.Parcel
 import android.os.Parcelable
 
-class Comment : Parcelable {
+class Comment private constructor(`in`: Parcel) : Parcelable {
     private var cid: Int
     var user: User? = null
     var text: String?
     private var commented: String?
-        private set
-    var image: String?
+    private var image: String?
 
-    constructor(cid: Int, user: User?, text: String?, commented: String?, image: String?) {
-        this.cid = cid
-        this.user = user
-        this.text = text
-        this.commented = commented
-        this.image = image
-    }
-
-    private constructor(`in`: Parcel) {
+    init {
         cid = `in`.readInt()
         text = `in`.readString()
         commented = `in`.readString()

@@ -1,11 +1,8 @@
 /*Copyright (c) 2018 Madona Syombua
-
         Licensed under the Apache License, Version 2.0 (the "License");
         you may not use this file except in compliance with the License.
         You may obtain a copy of the License at
-
         http://www.apache.org/licenses/LICENSE-2.0
-
         Unless required by applicable law or agreed to in writing, software
         distributed under the License is distributed on an "AS IS" BASIS,
         WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -23,7 +20,7 @@ import java.io.ByteArrayOutputStream
 import kotlin.math.min
 
 //This will help us Compresses, encode and scale bitmaps.
-class BitmapHandler(private val mListener: OnPostExecuteListener) : AsyncTask<Void?, Void?, Void?>() {
+class BitmapHandler(private val mListener: OnPostExecuteListener) : AsyncTask<Any?, Void?, Void?>() {
     private var bitmap: Bitmap? = null
     private var encodedImage: String? = null
     /**
@@ -92,15 +89,16 @@ class BitmapHandler(private val mListener: OnPostExecuteListener) : AsyncTask<Vo
         private const val MAX_HEIGHT = 540
     }
 
-    override fun doInBackground(vararg p0: Void?): Void? {
+    override fun doInBackground(vararg p0: Any?): Void? {
 
-            val stream = ByteArrayOutputStream()
-            bitmap!!.compress(Bitmap.CompressFormat.JPEG, IMAGE_QUALITY, stream)
-            val array = stream.toByteArray()
-            encodedImage = Base64.encodeToString(array, 0)
-            return null
+        val stream = ByteArrayOutputStream()
+        bitmap!!.compress(Bitmap.CompressFormat.JPEG, IMAGE_QUALITY, stream)
+        val array = stream.toByteArray()
+        encodedImage = Base64.encodeToString(array, 0)
+        return null
 
     }
+
 
 
 }

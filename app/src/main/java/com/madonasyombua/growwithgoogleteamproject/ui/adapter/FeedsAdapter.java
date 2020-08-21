@@ -29,8 +29,7 @@ import android.widget.TextView;
 import com.madonasyombua.growwithgoogleteamproject.R;
 import com.madonasyombua.growwithgoogleteamproject.ui.activities.PostActivity;
 import com.madonasyombua.growwithgoogleteamproject.ui.activities.MainActivity;
-import com.madonasyombua.growwithgoogleteamproject.ui.fragment.ImageDialog;
-import com.madonasyombua.growwithgoogleteamproject.util.BitmapHandler;
+
 import com.madonasyombua.growwithgoogleteamproject.data.models.Post;
 
 import java.util.ArrayList;
@@ -38,17 +37,12 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * Created by madon on 3/20/2018.
- */
 
 public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> {
     private final ArrayList<Post> mPosts;
     private static Activity mActivity;
     private final boolean mFromMainActivity;
     private final OnItemClickListener mListener;
-
-    private BitmapHandler bitmapHandler;
 
     public FeedsAdapter(Activity activity, ArrayList<Post> posts, OnItemClickListener listener, boolean fromMainActivity) {
         mActivity = activity;
@@ -106,8 +100,8 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
                 holder.mPostImage.setOnClickListener(
                         v -> {
                             FragmentManager fm = ((PostActivity) mActivity).getSupportFragmentManager();
-                            ImageDialog imageDialog = ImageDialog.newInstance(bitmapHandler.getLarger(bitmap));
-                            imageDialog.show(fm, "fragment_image_dialog");
+                          //  ImageDialog imageDialog = ImageDialog.newInstance(bitmapHandler.getLarger(bitmap));
+                            //imageDialog.show(fm, "fragment_image_dialog");
                         }
                 );
             } else {
@@ -134,8 +128,6 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
         private View.OnClickListener cardListener;
         private View.OnClickListener closeListener;
         private View.OnClickListener voteListener;
-        private final ArrayList<Post> mPosts;
-        private final boolean mFromMainActivity;
 
         @BindView(R.id.cardView) CardView mCardView;
         @BindView(R.id.commentsSection)LinearLayout mCommentsSection;
@@ -158,9 +150,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
         ViewHolder(View itemView, ArrayList<Post> posts, OnItemClickListener listener, boolean fromMainActivity) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            mPosts = posts;
             mListener = listener;
-            mFromMainActivity = fromMainActivity;
             mPostImageBorder.setVisibility(View.GONE);
             setUpListeners();
 
@@ -170,7 +160,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
             mDownvotes.setOnClickListener(voteListener);
             mPostImage.setOnClickListener(this);
 
-            if(mFromMainActivity){
+            if(fromMainActivity){
                 mCloseButton.setOnClickListener(closeListener);
                 mCardView.setOnClickListener(cardListener);
             }else{

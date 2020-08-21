@@ -103,7 +103,8 @@
                                     android:layout_height="12dp"
                                     android:layout_gravity="center_vertical"
                                     android:src="@drawable/time"
-                                    android:tint="@color/colorDivider" />
+                                    card_view:tint="@color/colorDivider"
+                                    android:contentDescription="TODO" />
 
                                 <TextView
                                     android:id="@+id/time"
@@ -129,8 +130,9 @@
                         android:layout_marginTop="-8dp"
                         android:padding="12dp"
                         android:src="@drawable/close"
-                        android:tint="@color/blue"
-                        android:visibility="invisible" />
+                        android:visibility="invisible"
+                        card_view:tint="@color/blue"
+                        android:contentDescription="TODO" />
                     <!-- delete when user wants to delete -->
                     <ImageView
                         android:id="@+id/deleteCommentButton"
@@ -143,8 +145,9 @@
                         android:layout_marginTop="-8dp"
                         android:padding="12dp"
                         android:src="@drawable/delete"
-                        android:tint="@color/gray"
-                        android:visibility="invisible" />
+                        android:visibility="invisible"
+                        card_view:tint="@color/gray"
+                        android:contentDescription="TODO" />
 
                 </RelativeLayout>
 
@@ -157,7 +160,7 @@
                     android:lineSpacingExtra="3dp"
                     android:text="@string/post"
                     android:textColor="@color/colorText"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
 
                 <LinearLayout
                     android:id="@+id/postImageBorder"
@@ -174,7 +177,8 @@
                         android:layout_margin="1dp"
                         android:adjustViewBounds="true"
                         android:scaleType="fitXY"
-                        android:src="@drawable/account" />
+                        android:src="@drawable/account"
+                        android:contentDescription="TODO" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -228,7 +232,7 @@
                             android:padding="4dp"
                             android:src="@drawable/thumb_up"
                             android:tag="img"
-                            android:tint="@color/gray" />
+                            card_view:tint="@color/gray" />
                         <!-- upvotes -->
                         <TextView
                             android:id="@+id/upvotes"
@@ -250,7 +254,8 @@
                             android:padding="4dp"
                             android:src="@drawable/thumb_down"
                             android:tag="img"
-                            android:tint="@color/gray" />
+                            card_view:tint="@color/gray"
+                            android:contentDescription="TODO" />
 
                         <TextView
                             android:id="@+id/downvotes"

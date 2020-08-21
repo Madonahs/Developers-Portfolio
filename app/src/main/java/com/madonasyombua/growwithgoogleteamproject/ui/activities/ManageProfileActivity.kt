@@ -16,15 +16,13 @@ package com.madonasyombua.growwithgoogleteamproject.ui.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.madonasyombua.growwithgoogleteamproject.R
+import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityManageProfileBinding
 
 class ManageProfileActivity : AppCompatActivity() {
-    /**
-     * Start Manage Profile
-     * @param savedInstanceState sI
-     */
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_manage_profile)
+        val binding = ActivityManageProfileBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 }

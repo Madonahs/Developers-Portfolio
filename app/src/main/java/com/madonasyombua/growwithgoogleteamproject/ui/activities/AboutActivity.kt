@@ -16,11 +16,12 @@ package com.madonasyombua.growwithgoogleteamproject.ui.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.madonasyombua.growwithgoogleteamproject.R
+import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityAboutBinding
 
 class AboutActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_about)
+        val binding = ActivityAboutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 }

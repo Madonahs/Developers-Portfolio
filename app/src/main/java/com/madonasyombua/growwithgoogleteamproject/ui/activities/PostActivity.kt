@@ -15,107 +15,57 @@
 package com.madonasyombua.growwithgoogleteamproject.ui.activities
 
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import butterknife.BindString
-import butterknife.ButterKnife
 import com.madonasyombua.growwithgoogleteamproject.R
 import com.madonasyombua.growwithgoogleteamproject.data.models.Post
+import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityAddFeedsBinding
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.PostFeedFragment
 import java.util.*
 
 class PostActivity : AppCompatActivity(), PostFeedFragment.OnFragmentInteractionListener {
-    @JvmField
-    @BindString(R.string.post)
-    var stringPost: String? = null
-    @JvmField
-    @BindString(R.string.deleted_post)
-    var stringDeletedPost: String? = null
-    @JvmField
-    @BindString(R.string.comment)
-    var stringComment: String? = null
-    @JvmField
-    @BindString(R.string.commenting_as)
-    var stringCommentingAs: String? = null
-    @JvmField
-    @BindString(R.string.delete_post)
-    var stringDeletePost: String? = null
-    @JvmField
-    @BindString(R.string.yes)
-    var stringYes: String? = null
-    @JvmField
-    @BindString(R.string.cancel)
-    var stringCancel: String? = null
-    @JvmField
-    @BindString(R.string.deleted_comment)
-    var stringDeletedComment: String? = null
-    @JvmField
-    @BindString(R.string.delete_comment)
-    var stringDeleteComment: String? = null
-    @JvmField
-    @BindString(R.string.sent_comment)
-    var stringSentComment: String? = null
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_feeds)
-        ButterKnife.bind(this)
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
-        Objects.requireNonNull(supportActionBar)!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = stringPost
+        val binding = ActivityAddFeedsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = R.string.post.toString()
         val mPost = ArrayList<Post>()
         val receivedPost = intent.getSerializableExtra("post") as Post
         mPost.add(receivedPost)
-        val mSwipeRefreshLayout = findViewById<SwipeRefreshLayout>(R.id.swipeRefresh)
-        mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(this, R.color.colorAccent))
-        mSwipeRefreshLayout.setOnRefreshListener { updatePost() }
-        val mRecyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        /* use this setting to improve performance if you know that changes
-        in content do not change the layout size of the RecyclerView*/mRecyclerView.setHasFixedSize(true)
-        // use a linear layout manager
-        val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
-        mRecyclerView.layoutManager = mLayoutManager
-    }
+        binding.swipeRefresh.setColorSchemeColors(ContextCompat.getColor(this, R.color.colorAccent))
+        binding.swipeRefresh.setOnRefreshListener { updatePost() }
 
-    /**
-     * Displays the comment dialog for submitting a comment.
-     */
-    fun showCommentDialog(v: View?) {}
+        val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
+        binding.recyclerView.layoutManager = mLayoutManager
+    }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
     }
 
-    /**
-     * update post
-     */
-    fun updatePost() { //update post
+    private fun updatePost() {
+        //update post
     }
 
-    /**
-     *
-     * @param uri uri
-     */
-    override fun onFragmentInteraction(uri: Uri) { //uri
+    override fun onFragmentInteraction(uri: Uri?) { //uri
     }
 
     override fun onDialogSubmit() {}
-    override fun onItemClick(parent: AdapterView<*>?, view: View, position: Int, id: Long) {}
-    override fun onDialogSubmit(dialog: PostFeedFragment, text: String, fileName: String) {}
+    override fun onDialogSubmit(dialog: PostFeedFragment?, text: String?, fileName: String?) {
 
-    companion object {
-        private val TAG = PostActivity::class.java.name
     }
+
+    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {}
+
+    companion object
 }

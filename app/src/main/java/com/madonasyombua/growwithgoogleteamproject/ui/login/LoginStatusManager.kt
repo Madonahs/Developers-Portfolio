@@ -15,7 +15,7 @@
 package com.madonasyombua.growwithgoogleteamproject.ui.login
 
 import android.content.Context
-import android.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import com.madonasyombua.growwithgoogleteamproject.R
 
 /**

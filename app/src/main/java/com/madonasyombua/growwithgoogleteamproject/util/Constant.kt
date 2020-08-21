@@ -24,7 +24,6 @@ object Constant {
     const val PHONE = "phone"
     const val EMAIL = "email"
     const val USER = "user"
-    const val FIREBASE_FEEDS = "feeds"
     const val NAME = "name"
     const val STATUS = "status"
 }
