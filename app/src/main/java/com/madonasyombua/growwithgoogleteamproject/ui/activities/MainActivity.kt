@@ -69,22 +69,12 @@ class MainActivity : AppCompatActivity(), FeedsFragment.OnFragmentInteractionLis
         currentUser = FirebaseAuth.getInstance().currentUser
         setCorrectTheme()
 
-       // val drawerHeaderView = binding.navView.getHeaderView(1)
-        //drawerHeaderView.drawer_header_user_name
-        //drawerHeaderView.drawer_header_user_image
-        //drawerHeaderView.drawer_header_user_profession
-
-
         setSupportActionBar(toolbar)
-       // setupNavDrawer()
-//        setDrawerHeader()
+        setupNavDrawer()
         fragment = supportFragmentManager.findFragmentByTag(TAG)
         if (fragment == null) {
             fragment = FeedsFragment()
         }
-        //val navigation = findViewById<BottomNavigationView>(R.id.navigation)
-        //disableShiftMode(navigation)
-
         binding.navigation.setOnNavigationItemSelectedListener(this)
         val transaction = supportFragmentManager.beginTransaction()
         fragment?.let { transaction.replace(R.id.content, it)}
@@ -112,6 +102,7 @@ class MainActivity : AppCompatActivity(), FeedsFragment.OnFragmentInteractionLis
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
+
         val fragments = supportFragmentManager.fragments
         var isOnStack = false
         when (item.itemId) {
@@ -209,7 +200,7 @@ class MainActivity : AppCompatActivity(), FeedsFragment.OnFragmentInteractionLis
                 return true
             }
             R.id.logout -> {
-                *//* Sign the user out out the app *//*FirebaseAuth.getInstance().signOut()
+
                 LoginStatusManager.storeLoginStatus(this, false)
                 intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
