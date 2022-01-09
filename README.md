@@ -106,10 +106,6 @@ These files are required in order for google sign in features to work.
 
 
 
-## Landscape 
-![Image1](https://user-images.githubusercontent.com/11560987/71649784-71fda980-2cdf-11ea-8154-c783352aec83.png)
-
-
 ## Tablet Mode
 ![Login UI](https://user-images.githubusercontent.com/11560987/71649818-b5581800-2cdf-11ea-8410-7cc3238d0a31.png)
 
