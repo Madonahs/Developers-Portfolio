@@ -20,9 +20,11 @@ import java.io.ByteArrayOutputStream
 import kotlin.math.min
 
 //This will help us Compresses, encode and scale bitmaps.
-class BitmapHandler(private val mListener: OnPostExecuteListener) : AsyncTask<Any?, Void?, Void?>() {
+class BitmapHandler(private val mListener: OnPostExecuteListener) :
+    AsyncTask<Any?, Void?, Void?>() {
     private var bitmap: Bitmap? = null
     private var encodedImage: String? = null
+
     /**
      * Compresses the bitmap and base64 encodes
      *
@@ -60,18 +62,21 @@ class BitmapHandler(private val mListener: OnPostExecuteListener) : AsyncTask<An
      */
     private fun getCompressedBitmap(bitmap: Bitmap): Bitmap {
         if (bitmap.width > MAX_WIDTH || bitmap.height > MAX_HEIGHT) {
-            val scale = min(MAX_WIDTH.toFloat() / bitmap.width,
-                    MAX_HEIGHT.toFloat() / bitmap.height)
+            val scale = min(
+                MAX_WIDTH.toFloat() / bitmap.width,
+                MAX_HEIGHT.toFloat() / bitmap.height
+            )
             val matrix = Matrix()
             matrix.postScale(scale, scale)
-            val resizedImage = Bitmap.createBitmap(bitmap, 0, 0,
-                    bitmap.width, bitmap.height, matrix, true)
+            val resizedImage = Bitmap.createBitmap(
+                bitmap, 0, 0,
+                bitmap.width, bitmap.height, matrix, true
+            )
             bitmap.recycle()
             return resizedImage
         }
         return bitmap
     }
-
 
 
     override fun onPostExecute(aVoid: Void?) {
@@ -98,7 +103,4 @@ class BitmapHandler(private val mListener: OnPostExecuteListener) : AsyncTask<An
         return null
 
     }
-
-
-
 }

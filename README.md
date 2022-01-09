@@ -7,7 +7,6 @@
         <img src="https://img.shields.io/badge/status-incomplete-orange.svg" />
         <img src="https://img.shields.io/badge/code%20quality-10-green.svg" />
 </p>
-</p>
 
 ## Developers Portfolio App
 Update Project to Kotlin

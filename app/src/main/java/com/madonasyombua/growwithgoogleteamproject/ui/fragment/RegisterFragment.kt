@@ -41,10 +41,17 @@ class RegisterFragment : Fragment(R.layout.fragment_signup) {
             val passwordTxt = extractText(binding.editPassword)
             if (usernameTxt.isEmpty() || emailTxt.isEmpty() || passwordTxt.isEmpty()) {
 
-                Toast.makeText(context, "Username and password are required", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Username and password are required", Toast.LENGTH_SHORT)
+                    .show()
                 return@setOnClickListener
             }
-            activity?.let { it1 -> registerUser(it1, User(usernameTxt, emailTxt, passwordTxt), usernameTxt) }
+            activity?.let { it1 ->
+                registerUser(
+                    it1,
+                    User(usernameTxt, emailTxt, passwordTxt),
+                    usernameTxt
+                )
+            }
             (activity as LoginActivity).showHideProgressBar(true)
             Toast.makeText(activity, "Registering", Toast.LENGTH_SHORT).show()
         }
@@ -56,7 +63,8 @@ class RegisterFragment : Fragment(R.layout.fragment_signup) {
     }
 
     companion object {
-        private const val EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$"
+        private const val EMAIL_PATTERN =
+            "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$"
     }
 
     override fun onDestroyView() {

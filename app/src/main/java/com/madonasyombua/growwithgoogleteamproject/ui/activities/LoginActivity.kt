@@ -55,7 +55,8 @@ class LoginActivity : AppCompatActivity(), LoginInterface, View.OnClickListener 
         setContentView(binding.root)
 
         if (getLoginStatus(this) &&
-                FirebaseAuth.getInstance().currentUser != null) {
+            FirebaseAuth.getInstance().currentUser != null
+        ) {
             startActivity(Intent(this, MainActivity::class.java))
             return
         }
@@ -73,8 +74,8 @@ class LoginActivity : AppCompatActivity(), LoginInterface, View.OnClickListener 
         setViewPager(binding.container)
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build()
+            .requestEmail()
+            .build()
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
         Once.initialise(this)
         if (!Once.beenDone(Once.THIS_APP_INSTALL, "showTutorial")) {
@@ -112,7 +113,7 @@ class LoginActivity : AppCompatActivity(), LoginInterface, View.OnClickListener 
 
     fun showHideProgressBar(show: Boolean) {
         if (show) {
-           login_loader.visibility = View.VISIBLE
+            login_loader.visibility = View.VISIBLE
         } else {
             login_loader.visibility = View.INVISIBLE
         }
@@ -120,7 +121,7 @@ class LoginActivity : AppCompatActivity(), LoginInterface, View.OnClickListener 
 
     override fun onSigninSuccess(user: User?) {
         val intent = Intent(this, MainActivity::class.java)
-                .putExtra(Constant.USER, user!!.bundleUp())
+            .putExtra(Constant.USER, user!!.bundleUp())
         startActivity(intent)
         showHideProgressBar(false)
         storeLoginStatus(this, true)
@@ -170,7 +171,10 @@ class LoginActivity : AppCompatActivity(), LoginInterface, View.OnClickListener 
     }
 
     private fun signInWithFacebook() {
-        LoginManager.getInstance().logInWithReadPermissions(this@LoginActivity, listOf(PUBLIC_PROFILE_PERMISSION, EMAIL_PERMISSION))
+        LoginManager.getInstance().logInWithReadPermissions(
+            this@LoginActivity,
+            listOf(PUBLIC_PROFILE_PERMISSION, EMAIL_PERMISSION)
+        )
     }
 
     private fun signInWithGoogle() {

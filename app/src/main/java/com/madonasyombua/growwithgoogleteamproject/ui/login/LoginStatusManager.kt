@@ -34,7 +34,9 @@ object LoginStatusManager {
     fun getLoginStatus(context: Context): Boolean {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
         val editor = sharedPreferences.edit()
-        return sharedPreferences.getBoolean(context.getString(R.string.pref_login_status_key),
-                context.resources.getBoolean(R.bool.pref_login_status_default_key))
+        return sharedPreferences.getBoolean(
+            context.getString(R.string.pref_login_status_key),
+            context.resources.getBoolean(R.bool.pref_login_status_default_key)
+        )
     }
 }

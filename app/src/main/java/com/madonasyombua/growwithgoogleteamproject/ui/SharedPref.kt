@@ -18,7 +18,8 @@ import android.content.Context
 import android.content.SharedPreferences
 
 class SharedPref(context: Context) {
-    private val mySharedPref: SharedPreferences = context.getSharedPreferences("filename", Context.MODE_PRIVATE)
+    private val mySharedPref: SharedPreferences =
+        context.getSharedPreferences("filename", Context.MODE_PRIVATE)
 
     fun setNightModeState(state: Boolean) {
         val editor = mySharedPref.edit()

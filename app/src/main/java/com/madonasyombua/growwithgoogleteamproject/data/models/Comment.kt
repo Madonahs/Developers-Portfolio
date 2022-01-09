@@ -18,18 +18,11 @@ import android.os.Parcel
 import android.os.Parcelable
 
 class Comment private constructor(`in`: Parcel) : Parcelable {
-    private var cid: Int
+    private var cid: Int = `in`.readInt()
     var user: User? = null
-    var text: String?
-    private var commented: String?
-    private var image: String?
-
-    init {
-        cid = `in`.readInt()
-        text = `in`.readString()
-        commented = `in`.readString()
-        image = `in`.readString()
-    }
+    var text: String? = `in`.readString()
+    private var commented: String? = `in`.readString()
+    private var image: String? = `in`.readString()
 
     override fun describeContents(): Int {
         return 0

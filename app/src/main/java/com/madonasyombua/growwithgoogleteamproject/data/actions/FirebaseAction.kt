@@ -43,7 +43,11 @@ object FirebaseAction {
         }
     }
 
-    operator fun <T : FirebaseObject?> get(path: String?, cls: Class<T>?, gc: FirebaseCallback<T?>) {
+    operator fun <T : FirebaseObject?> get(
+        path: String?,
+        cls: Class<T>?,
+        gc: FirebaseCallback<T?>
+    ) {
         base.child(path).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot != null) {

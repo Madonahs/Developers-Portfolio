@@ -32,7 +32,7 @@ class ProjectsFragment : Fragment(R.layout.fragment_projects) {
     private val portfolioList: MutableList<Portfolio> = ArrayList()
     private var mAdapter: PortfolioAdapter? = null
     private var mListener: OnFragmentInteractionListener? = null
-    private var fragmentProjectsBinding : FragmentProjectsBinding ? = null
+    private var fragmentProjectsBinding: FragmentProjectsBinding? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (arguments != null) {
@@ -47,7 +47,8 @@ class ProjectsFragment : Fragment(R.layout.fragment_projects) {
         fragmentProjectsBinding = binding
 
         mAdapter = PortfolioAdapter(portfolioList)
-        val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(FacebookSdk.getApplicationContext())
+        val mLayoutManager: RecyclerView.LayoutManager =
+            LinearLayoutManager(FacebookSdk.getApplicationContext())
         binding.portfolioRecyclerView.layoutManager = mLayoutManager
         binding.portfolioRecyclerView.itemAnimator = DefaultItemAnimator()
         binding.portfolioRecyclerView.adapter = mAdapter
@@ -56,14 +57,23 @@ class ProjectsFragment : Fragment(R.layout.fragment_projects) {
     }
 
     private fun testPortfolioData() {
-        var portfolio = Portfolio("Simple Maths", "Android Application", "Simple Maths is a" +
-                "mobile app project that I did for kids. It's a learning app for Arithmetic", R.drawable.ic_facebook)
+        var portfolio = Portfolio(
+            "Simple Maths",
+            "Android Application",
+            "Simple Maths is a" +
+                    "mobile app project that I did for kids. It's a learning app for Arithmetic",
+            R.drawable.ic_facebook
+        )
         portfolioList.add(portfolio)
-        portfolio = Portfolio("Essay Tutors", "Web Development", "This is an online tutoring network" +
-                "for teachers and students.", R.drawable.logo)
+        portfolio = Portfolio(
+            "Essay Tutors", "Web Development", "This is an online tutoring network" +
+                    "for teachers and students.", R.drawable.logo
+        )
         portfolioList.add(portfolio)
-        portfolio = Portfolio("Budgeting Buddy", "Android Development", "This is a budgeting planner" +
-                " and expense tracking mobile device for Android devices.", R.drawable.ic_google)
+        portfolio = Portfolio(
+            "Budgeting Buddy", "Android Development", "This is a budgeting planner" +
+                    " and expense tracking mobile device for Android devices.", R.drawable.ic_google
+        )
         portfolioList.add(portfolio)
         mAdapter?.notifyDataSetChanged()
     }

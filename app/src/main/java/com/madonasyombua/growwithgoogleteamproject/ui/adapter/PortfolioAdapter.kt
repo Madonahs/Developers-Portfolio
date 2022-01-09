@@ -20,7 +20,8 @@ import com.madonasyombua.growwithgoogleteamproject.data.models.Portfolio
 import com.madonasyombua.growwithgoogleteamproject.databinding.PortfolioListRowBinding
 import com.madonasyombua.growwithgoogleteamproject.ui.adapter.PortfolioAdapter.MyViewHolder
 
-class PortfolioAdapter(private val portfolioList: List<Portfolio>) : RecyclerView.Adapter<MyViewHolder>() {
+class PortfolioAdapter(private val portfolioList: List<Portfolio>) :
+    RecyclerView.Adapter<MyViewHolder>() {
 
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = PortfolioListRowBinding.bind(view)
@@ -31,9 +32,10 @@ class PortfolioAdapter(private val portfolioList: List<Portfolio>) : RecyclerVie
             binding.portfolioImage.setImageResource(portfolio.portfolioImage)
         }
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-                .inflate(R.layout.portfolio_list_row, parent, false)
+            .inflate(R.layout.portfolio_list_row, parent, false)
         return MyViewHolder(itemView)
     }
 

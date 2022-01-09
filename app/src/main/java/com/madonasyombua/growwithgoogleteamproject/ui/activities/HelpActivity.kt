@@ -57,14 +57,22 @@ class HelpActivity : AppCompatActivity(), OnSharedPreferenceChangeListener {
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.title = "Help"
 
-        binding.tbHelp.setNavigationOnClickListener { startActivity(Intent(applicationContext, MainActivity::class.java)) }
+        binding.tbHelp.setNavigationOnClickListener {
+            startActivity(
+                Intent(
+                    applicationContext,
+                    MainActivity::class.java
+                )
+            )
+        }
         val searchView = findViewById<MaterialSearchView>(R.id.search_view)
         searchView.setVoiceSearch(true)
         searchView.setCursorDrawable(R.drawable.color_cursor_white)
         searchView.setSuggestions(resources.getStringArray(R.array.search_suggestions))
         searchView.setOnQueryTextListener(object : MaterialSearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
-                Snackbar.make(findViewById(R.id.container), "Query: $query", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(findViewById(R.id.container), "Query: $query", Snackbar.LENGTH_LONG)
+                    .show()
                 return false
             }
 
@@ -111,7 +119,7 @@ class HelpActivity : AppCompatActivity(), OnSharedPreferenceChangeListener {
     override fun onDestroy() {
         super.onDestroy()
         PreferenceManager.getDefaultSharedPreferences(this)
-                .unregisterOnSharedPreferenceChangeListener(this)
+            .unregisterOnSharedPreferenceChangeListener(this)
     }
 
     private fun setCorrectTheme() {
@@ -132,7 +140,7 @@ class HelpActivity : AppCompatActivity(), OnSharedPreferenceChangeListener {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.help_menu, menu)
         val item = menu.findItem(R.id.action_search)
-       // searchView!!.setMenuItem(item)
+        // searchView!!.setMenuItem(item)
         return true
     }
 

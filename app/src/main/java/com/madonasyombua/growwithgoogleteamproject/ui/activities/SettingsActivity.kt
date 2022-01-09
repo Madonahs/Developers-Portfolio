@@ -13,9 +13,9 @@ class SettingsActivity : AppCompatActivity() {
         val binding = SettingsActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.settings, SettingsFragment())
-                .commit()
+            .beginTransaction()
+            .replace(R.id.settings, SettingsFragment())
+            .commit()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 

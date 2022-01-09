@@ -23,7 +23,7 @@ import com.madonasyombua.growwithgoogleteamproject.interfaces.OnFragmentInteract
 
 class InterestFragment : Fragment(R.layout.fragment_interest) {
     private var mListener: OnFragmentInteractionListener? = null
-    private var fragmentInterestBinding : FragmentInterestBinding ? = null
+    private var fragmentInterestBinding: FragmentInterestBinding? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentInterestBinding.bind(view)

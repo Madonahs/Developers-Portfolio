@@ -39,7 +39,6 @@ import com.madonasyombua.growwithgoogleteamproject.data.models.User
 import com.madonasyombua.growwithgoogleteamproject.databinding.ActivityMainBinding
 import com.madonasyombua.growwithgoogleteamproject.ui.SharedPref
 import com.madonasyombua.growwithgoogleteamproject.ui.fragment.*
-import com.madonasyombua.growwithgoogleteamproject.ui.login.LoginStatusManager
 import com.madonasyombua.growwithgoogleteamproject.util.Constant
 import kotlinx.android.synthetic.main.activity_add_feeds.toolbar
 import kotlinx.android.synthetic.main.activity_main.*
@@ -47,8 +46,9 @@ import kotlinx.android.synthetic.main.drawer_header.*
 
 
 class MainActivity : AppCompatActivity(), FeedsFragment.OnFragmentInteractionListener,
-        NavigationView.OnNavigationItemSelectedListener, OnSharedPreferenceChangeListener, PostFeedFragment.OnFragmentInteractionListener,
-        BottomNavigationView.OnNavigationItemSelectedListener  {
+    NavigationView.OnNavigationItemSelectedListener, OnSharedPreferenceChangeListener,
+    PostFeedFragment.OnFragmentInteractionListener,
+    BottomNavigationView.OnNavigationItemSelectedListener {
     private var fragment: Fragment? = null
     private lateinit var sharedPref: SharedPref
     private var prevState = false
@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity(), FeedsFragment.OnFragmentInteractionLis
         }
         binding.navigation.setOnNavigationItemSelectedListener(this)
         val transaction = supportFragmentManager.beginTransaction()
-        fragment?.let { transaction.replace(R.id.content, it)}
+        fragment?.let { transaction.replace(R.id.content, it) }
         transaction.commit()
 
         val data = intent.getBundleExtra(Constant.USER)
@@ -88,10 +88,10 @@ class MainActivity : AppCompatActivity(), FeedsFragment.OnFragmentInteractionLis
     private fun setupNavDrawer() {
         if (supportActionBar != null) {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
-             toolbar.setNavigationIcon(R.drawable.ic_menu)
-             toolbar.setNavigationOnClickListener { drawer_container.openDrawer(GravityCompat.START) }
-             nav_view.setNavigationItemSelectedListener(this)
-             nav_view.itemIconTintList = null
+            toolbar.setNavigationIcon(R.drawable.ic_menu)
+            toolbar.setNavigationOnClickListener { drawer_container.openDrawer(GravityCompat.START) }
+            nav_view.setNavigationItemSelectedListener(this)
+            nav_view.itemIconTintList = null
         }
     }
 
@@ -147,12 +147,12 @@ class MainActivity : AppCompatActivity(), FeedsFragment.OnFragmentInteractionLis
                 }
             }
         }
-     if (!isOnStack) fragment?.let {
-        supportFragmentManager.beginTransaction()
+        if (!isOnStack) fragment?.let {
+            supportFragmentManager.beginTransaction()
                 .replace(R.id.content, it, TAG)
                 .addToBackStack(null)
                 .commit()
-    }
+        }
         return true
     }
 
@@ -172,44 +172,46 @@ class MainActivity : AppCompatActivity(), FeedsFragment.OnFragmentInteractionLis
             drawer_container.closeDrawers()
         } else {
 
-            if (supportFragmentManager.backStackEntryCount > 0) supportFragmentManager.popBackStackImmediate() else moveTaskToBack(true)
+            if (supportFragmentManager.backStackEntryCount > 0) supportFragmentManager.popBackStackImmediate() else moveTaskToBack(
+                true
+            )
         }
     }
 
-   /* override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        val intent: Intent
-        when (item.itemId) {
-            R.id.manage_profile -> {
-                intent = Intent(this, ManageProfileActivity::class.java)
-                startActivity(intent)
-                return true
-            }
-            R.id.settings -> {
-                intent = Intent(this, SettingsActivity::class.java)
-                startActivity(intent)
-                return true
-            }
-            R.id.about -> {
-                intent = Intent(this, AboutActivity::class.java)
-                startActivity(intent)
-                return true
-            }
-            R.id.help -> {
-                intent = Intent(this, HelpActivity::class.java)
-                startActivity(intent)
-                return true
-            }
-            R.id.logout -> {
+    /* override fun onNavigationItemSelected(item: MenuItem): Boolean {
+         val intent: Intent
+         when (item.itemId) {
+             R.id.manage_profile -> {
+                 intent = Intent(this, ManageProfileActivity::class.java)
+                 startActivity(intent)
+                 return true
+             }
+             R.id.settings -> {
+                 intent = Intent(this, SettingsActivity::class.java)
+                 startActivity(intent)
+                 return true
+             }
+             R.id.about -> {
+                 intent = Intent(this, AboutActivity::class.java)
+                 startActivity(intent)
+                 return true
+             }
+             R.id.help -> {
+                 intent = Intent(this, HelpActivity::class.java)
+                 startActivity(intent)
+                 return true
+             }
+             R.id.logout -> {
 
-                LoginStatusManager.storeLoginStatus(this, false)
-                intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-                finish()
-                return true
-            }
-        }
-        return false
-    }*/
+                 LoginStatusManager.storeLoginStatus(this, false)
+                 intent = Intent(this, LoginActivity::class.java)
+                 startActivity(intent)
+                 finish()
+                 return true
+             }
+         }
+         return false
+     }*/
 
 
     override fun onFragmentInteraction(uri: Uri?) {
@@ -232,7 +234,7 @@ class MainActivity : AppCompatActivity(), FeedsFragment.OnFragmentInteractionLis
     override fun onDestroy() {
         super.onDestroy()
         PreferenceManager.getDefaultSharedPreferences(this)
-                .unregisterOnSharedPreferenceChangeListener(this)
+            .unregisterOnSharedPreferenceChangeListener(this)
     }
 
     private fun setCorrectTheme() {
@@ -255,7 +257,11 @@ class MainActivity : AppCompatActivity(), FeedsFragment.OnFragmentInteractionLis
 
         @JvmStatic
         fun dpToPixels(dp: Int, view: View): Float {
-            return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp.toFloat(), view.resources.displayMetrics)
+            return TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                dp.toFloat(),
+                view.resources.displayMetrics
+            )
         }
     }
 }

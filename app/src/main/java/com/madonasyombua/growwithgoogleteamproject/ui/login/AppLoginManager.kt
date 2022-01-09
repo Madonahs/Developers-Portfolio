@@ -28,43 +28,44 @@ object AppLoginManager {
     private val TAG = AppLoginManager::class.java.name
     private val firebaseAuth = FirebaseAuth.getInstance()
     private var mCurrentUser: FirebaseUser? = null
+
     @JvmStatic
     fun registerUser(activity: Activity, user: User, username: String?): FirebaseUser? {
         firebaseAuth.createUserWithEmailAndPassword(user.email, user.password)
-                .addOnCompleteListener(activity) { task: Task<AuthResult?> ->
-                    if (task.isSuccessful) {
-                        mCurrentUser = firebaseAuth.currentUser
-                        val profileUpdates = UserProfileChangeRequest.Builder()
-                                .setDisplayName(username)
-                                .build()
-                        mCurrentUser?.updateProfile(profileUpdates)
-                                ?.addOnCompleteListener { task1: Task<Void?> ->
-                                    if (task1.isSuccessful) {
-                                        Log.d(TAG, "User profile updated.")
-                                    }
-                                }
-                        (activity as LoginInterface).onRegistrationSuccess()
-                    } else {
-                        (activity as LoginInterface).onRegistrationFailed()
-                        Toast.makeText(activity, task.exception?.message, Toast.LENGTH_SHORT).show()
-                    }
+            .addOnCompleteListener(activity) { task: Task<AuthResult?> ->
+                if (task.isSuccessful) {
+                    mCurrentUser = firebaseAuth.currentUser
+                    val profileUpdates = UserProfileChangeRequest.Builder()
+                        .setDisplayName(username)
+                        .build()
+                    mCurrentUser?.updateProfile(profileUpdates)
+                        ?.addOnCompleteListener { task1: Task<Void?> ->
+                            if (task1.isSuccessful) {
+                                Log.d(TAG, "User profile updated.")
+                            }
+                        }
+                    (activity as LoginInterface).onRegistrationSuccess()
+                } else {
+                    (activity as LoginInterface).onRegistrationFailed()
+                    Toast.makeText(activity, task.exception?.message, Toast.LENGTH_SHORT).show()
                 }
+            }
         return mCurrentUser
     }
 
     @JvmStatic
     fun signinUser(activity: Activity, user: User) {
         firebaseAuth.signInWithEmailAndPassword(user.email, user.password)
-                .addOnCompleteListener(activity) { task: Task<AuthResult?> ->
-                    if (task.isSuccessful) {
-                        mCurrentUser = firebaseAuth.currentUser
-                        user.setStatus(true)
-                        (activity as LoginInterface).onSigninSuccess(user)
-                    } else {
-                        (activity as LoginInterface).onSigninFailed()
-                        Toast.makeText(activity, task.exception?.message, Toast.LENGTH_SHORT).show()
-                    }
+            .addOnCompleteListener(activity) { task: Task<AuthResult?> ->
+                if (task.isSuccessful) {
+                    mCurrentUser = firebaseAuth.currentUser
+                    user.setStatus(true)
+                    (activity as LoginInterface).onSigninSuccess(user)
+                } else {
+                    (activity as LoginInterface).onSigninFailed()
+                    Toast.makeText(activity, task.exception?.message, Toast.LENGTH_SHORT).show()
                 }
+            }
     }
 
     interface LoginInterface {

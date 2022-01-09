@@ -53,13 +53,13 @@ dependencies {
     // Please change versions in the project level build.gradle file
     // and should you want to add a new dependency, follow the below pattern
     //noinspection GradleCompatible
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'com.google.android.material:material:1.2.0'
-    implementation 'androidx.annotation:annotation:1.1.0'
-    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.annotation:annotation:1.3.0'
+    implementation 'androidx.preference:preference-ktx:1.1.1'
     // Test libraries
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
@@ -67,7 +67,7 @@ dependencies {
 
     //AhoyOnBoard library
     implementation "com.codemybrainsout.onboarding:onboarder:$rootProject.ext.onBoarderVersion"
-    implementation "com.jonathanfinerty.once:once:$rootProject.ext.onceVersion"
+    implementation "com.jonathanfinerty.once:once:1.3.1"
 
     // Butterknife
     annotationProcessor "com.jakewharton:butterknife:$rootProject.ext.butterKnifeVersion"
@@ -93,13 +93,12 @@ dependencies {
     implementation "com.facebook.android:facebook-login:$rootProject.ext.facebookLoginVersion"
 
     // Google Play
-    implementation 'com.google.android.gms:play-services-auth:11.8.0'
+    implementation 'com.google.android.gms:play-services-auth:20.0.1'
 
     // Firebase
     implementation "com.google.firebase:firebase-database:$rootProject.ext.playServicesVersion"
     implementation "com.google.firebase:firebase-core:$rootProject.ext.playServicesVersion"
     implementation "com.google.firebase:firebase-storage:$rootProject.ext.playServicesVersion"
-    implementation 'com.firebaseui:firebase-ui-database:0.4.1'
 
     //Firebase SDK
     implementation "com.google.firebase:firebase-auth:$rootProject.ext.playServicesVersion"

@@ -30,11 +30,14 @@ import kotlinx.android.synthetic.main.fragment_profile_dialog.*
 class ProfileFragmentDialog : DialogFragment() {
     private var mBinding: FragmentProfileDialogBinding? = null
     private var mListener: OnSubmitListener? = null
+
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     override fun onStart() {
         super.onStart()
-        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT)
+        dialog?.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
     }
 
     override fun onAttach(context: Context) {
@@ -50,7 +53,7 @@ class ProfileFragmentDialog : DialogFragment() {
         mBinding = FragmentProfileDialogBinding.bind(view)
         mBinding?.submitBtn?.setOnClickListener {
             mListener?.submit(submit())
-          dialog?.dismiss()
+            dialog?.dismiss()
         }
     }
 

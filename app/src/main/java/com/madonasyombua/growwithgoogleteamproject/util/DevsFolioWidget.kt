@@ -10,7 +10,11 @@ import com.madonasyombua.growwithgoogleteamproject.R
  * Implementation of App Widget functionality.
  */
 class DevsFolioWidget : AppWidgetProvider() {
-    override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) { // There may be multiple widgets active, so update all of them
+    override fun onUpdate(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetIds: IntArray
+    ) { // There may be multiple widgets active, so update all of them
         for (appWidgetId in appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId)
         }
@@ -23,8 +27,10 @@ class DevsFolioWidget : AppWidgetProvider() {
     }
 
     companion object {
-        fun updateAppWidget(context: Context, appWidgetManager: AppWidgetManager,
-                            appWidgetId: Int) {
+        fun updateAppWidget(
+            context: Context, appWidgetManager: AppWidgetManager,
+            appWidgetId: Int
+        ) {
             val widgetText: CharSequence = context.getString(R.string.appwidget_text)
             // Construct the RemoteViews object
             val views = RemoteViews(context.packageName, R.layout.devs_folio_widget)

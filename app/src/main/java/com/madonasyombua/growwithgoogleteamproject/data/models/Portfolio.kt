@@ -14,6 +14,11 @@
  */
 package com.madonasyombua.growwithgoogleteamproject.data.models
 
-class Portfolio(@JvmField var title: String?, @JvmField var shortDescription: String?, @JvmField var longDescription: String?, @JvmField var portfolioImage: Int) {
+class Portfolio(
+    @JvmField var title: String?,
+    @JvmField var shortDescription: String?,
+    @JvmField var longDescription: String?,
+    @JvmField var portfolioImage: Int
+) {
 
 }

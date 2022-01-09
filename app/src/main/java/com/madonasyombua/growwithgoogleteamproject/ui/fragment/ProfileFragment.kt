@@ -50,7 +50,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), OnSubmitListener, O
     private var mListener: OnFragmentInteractionListener? = null
     private var gd: GestureDetectorCompat? = null
     private var user: User? = null
-    private var fragmentProfileDialogBinding : FragmentProfileBinding? = null
+    private var fragmentProfileDialogBinding: FragmentProfileBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,12 +69,17 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), OnSubmitListener, O
                         intent = Intent(Intent.ACTION_SENDTO)
                         intent.data = Uri.parse("mailto:" + mBinding?.emailTv?.text)
                     }
-                    R.id.web_tv -> intent = Intent(Intent.ACTION_VIEW,
-                            Uri.parse("https://" + mBinding?.webTv?.text
-                            ))
+                    R.id.web_tv -> intent = Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse(
+                            "https://" + mBinding?.webTv?.text
+                        )
+                    )
                 }
 
-                if (activity?.packageManager?.let { intent?.resolveActivity(it) } != null) startActivity(intent)
+                if (activity?.packageManager?.let { intent?.resolveActivity(it) } != null) startActivity(
+                    intent
+                )
                 return true
             }
 
@@ -90,7 +95,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), OnSubmitListener, O
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-       val  mBinding = FragmentProfileBinding.bind(view)
+        val mBinding = FragmentProfileBinding.bind(view)
         fragmentProfileDialogBinding = mBinding
 
         mBinding.btnEditProfile.setOnClickListener {
@@ -103,7 +108,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), OnSubmitListener, O
         mBinding.phoneTv.setOnTouchListener(this)
         mBinding.homeTv.setOnTouchListener(this)
 
-        if (user?.phone != null) user?.phone = PhoneNumberUtils.formatNumber(user?.phone, Locale.getDefault().country) else mBinding.phoneTv.visibility = View.GONE
+        if (user?.phone != null) user?.phone = PhoneNumberUtils.formatNumber(
+            user?.phone,
+            Locale.getDefault().country
+        ) else mBinding.phoneTv.visibility = View.GONE
         user?.status?.let { setStatus(it) }
         mBinding.intro.text = Html.fromHtml("<u>Intro</u>")
 
@@ -123,13 +131,15 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), OnSubmitListener, O
 
         user?.let {
             write(it, CompletionListener { databaseError: DatabaseError?, _: DatabaseReference? ->
-            if (databaseError == null) {
-                Toast.makeText(context, "User created", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(context, "Error creating user:" +
-                        databaseError.toString(), Toast.LENGTH_SHORT).show()
-            }
-        })
+                if (databaseError == null) {
+                    Toast.makeText(context, "User created", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(
+                        context, "Error creating user:" +
+                                databaseError.toString(), Toast.LENGTH_SHORT
+                    ).show()
+                }
+            })
         }
     }
 
@@ -154,12 +164,22 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), OnSubmitListener, O
     private fun setStatus(status: User.Status) {
         when (status) {
             User.Status.ONLINE -> {
-                mBinding?.status?.setCompoundDrawablesWithIntrinsicBounds(ResourcesCompat.getDrawable(resources,R.drawable.ic_online,null), null, null, null)
+                mBinding?.status?.setCompoundDrawablesWithIntrinsicBounds(
+                    ResourcesCompat.getDrawable(
+                        resources,
+                        R.drawable.ic_online,
+                        null
+                    ), null, null, null
+                )
                 mBinding?.status?.text = getString(R.string.online)
             }
             User.Status.OFFLINE -> {
-                mBinding?.status?.setCompoundDrawablesWithIntrinsicBounds(ResourcesCompat.getDrawable(resources,R.drawable.ic_offline, null)
-                       , null, null, null)
+                mBinding?.status?.setCompoundDrawablesWithIntrinsicBounds(
+                    ResourcesCompat.getDrawable(resources, R.drawable.ic_offline, null),
+                    null,
+                    null,
+                    null
+                )
                 mBinding?.status?.text = getString(R.string.offline)
             }
         }
@@ -167,6 +187,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile), OnSubmitListener, O
 
     companion object {
         private val TAG = ProfileFragment::class.java.name
+
         @JvmStatic
         fun newInstance(user: User): ProfileFragment {
             val fragment = ProfileFragment()

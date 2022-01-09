@@ -34,11 +34,19 @@ class OnBoardingActivity : AhoyOnboarderActivity() {
         card1.setBackgroundColor(R.color.black_transparent)
         card1.setTitleColor(R.color.white)
         card1.setDescriptionColor(R.color.grey_200)
-        val card2 = AhoyOnboarderCard("About", "We want to help developers get a platform to share their projects and showcase their work for free.", R.drawable.logo)
+        val card2 = AhoyOnboarderCard(
+            "About",
+            "We want to help developers get a platform to share their projects and showcase their work for free.",
+            R.drawable.logo
+        )
         card2.setBackgroundColor(R.color.black_transparent)
         card2.setTitleColor(R.color.white)
         card2.setDescriptionColor(R.color.grey_200)
-        val card3 = AhoyOnboarderCard("Share Your Work", "Thank you for using our platform. Enjoy", R.drawable.logo)
+        val card3 = AhoyOnboarderCard(
+            "Share Your Work",
+            "Thank you for using our platform. Enjoy",
+            R.drawable.logo
+        )
         card3.setBackgroundColor(R.color.black_transparent)
         card3.setTitleColor(R.color.white)
         card3.setDescriptionColor(R.color.grey_200)

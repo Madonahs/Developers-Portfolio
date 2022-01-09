@@ -25,9 +25,9 @@ import com.madonasyombua.growwithgoogleteamproject.databinding.FragmentSigninBin
 import com.madonasyombua.growwithgoogleteamproject.ui.activities.LoginActivity
 import com.madonasyombua.growwithgoogleteamproject.ui.login.AppLoginManager.signinUser
 
-class LoginFragment : Fragment( R.layout.fragment_signin) {
+class LoginFragment : Fragment(R.layout.fragment_signin) {
 
-    private var fragmentLoginFragmentBinding : FragmentSigninBinding ? = null
+    private var fragmentLoginFragmentBinding: FragmentSigninBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -38,7 +38,8 @@ class LoginFragment : Fragment( R.layout.fragment_signin) {
             val emailText = extractText(binding.editEmail)
             val passwordText = extractText(binding.editPassword)
             if (emailText.isEmpty() || passwordText.isEmpty()) {
-                Toast.makeText(context, "Username and password are required", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Username and password are required", Toast.LENGTH_SHORT)
+                    .show()
                 return@setOnClickListener
             }
             activity?.let { it1 -> signinUser(it1, User(emailText, passwordText)) }

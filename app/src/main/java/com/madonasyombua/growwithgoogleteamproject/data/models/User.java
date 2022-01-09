@@ -12,12 +12,14 @@
 package com.madonasyombua.growwithgoogleteamproject.data.models;
 
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
+
 import com.google.firebase.database.Exclude;
 import com.madonasyombua.growwithgoogleteamproject.data.db.FirebaseObject;
 import com.madonasyombua.growwithgoogleteamproject.util.Constant;
-import java.io.Serializable;
 
+import java.io.Serializable;
 
 /*
   Created by chuk on 2/15/18.
@@ -94,6 +96,7 @@ public class User extends FirebaseObject implements Serializable {
         user.setStatus(data.getBoolean(Constant.STATUS));
         return user;
     }
+
     public Bundle bundleUp() {
         Bundle bundle = new Bundle(11/*Eleven fields*/);
         bundle.putString(Constant.INTRO, intro);
@@ -102,9 +105,10 @@ public class User extends FirebaseObject implements Serializable {
         bundle.putString(Constant.PHONE, phone);
         bundle.putString(Constant.LOCATION, location);
         bundle.putString(Constant.NAME, name);
-        bundle.putBoolean(Constant.STATUS,status == Status.ONLINE);
+        bundle.putBoolean(Constant.STATUS, status == Status.ONLINE);
         return bundle;
     }
+
     public String getName() {
         return this.name;
     }
@@ -170,7 +174,7 @@ public class User extends FirebaseObject implements Serializable {
     }
 
     public void setStatus(boolean status) {
-        this.status = status ? Status.ONLINE:Status.OFFLINE;
+        this.status = status ? Status.ONLINE : Status.OFFLINE;
     }
 
     public String getImage() {

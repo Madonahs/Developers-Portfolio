@@ -43,8 +43,8 @@ import kotlinx.android.synthetic.main.fragment_post_feed.*
 
 class PostFeedFragment : DialogFragment() {
 
-    private var bitmapHandler : BitmapFactory ? = null
-    private var uri: FileUriExposedException ? = null
+    private var bitmapHandler: BitmapFactory? = null
+    private var uri: FileUriExposedException? = null
     private var reference: DatabaseReference? = null
     private var currentUser: FirebaseUser? = null
 
@@ -67,8 +67,10 @@ class PostFeedFragment : DialogFragment() {
         binding.name.text = arguments?.getString("username")
         binding.closeButton.setOnClickListener { dismiss() }
         binding.imageButton.setOnClickListener {
-            val galleryIntent = Intent(Intent.ACTION_PICK,
-                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            val galleryIntent = Intent(
+                Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            )
             startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE)
         }
         binding.cameraButton.setOnClickListener {
@@ -118,8 +120,8 @@ class PostFeedFragment : DialogFragment() {
                 val imageToUpload: Bitmap
 
             }
-        }catch (e: Exception){
-            
+        } catch (e: Exception) {
+
         }
     }
 
@@ -156,7 +158,12 @@ class PostFeedFragment : DialogFragment() {
     companion object {
         private const val RESULT_LOAD_IMAGE = 1
         private const val RESULT_CAMERA = 2
-        fun newInstance(title: String?, postingAs: String?, username: String?, name: String?): PostFeedFragment {
+        fun newInstance(
+            title: String?,
+            postingAs: String?,
+            username: String?,
+            name: String?
+        ): PostFeedFragment {
             val fragment = PostFeedFragment()
             val args = Bundle()
             args.putString("title", title)

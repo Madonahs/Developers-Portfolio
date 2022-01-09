@@ -23,7 +23,8 @@ import java.util.*
 /**
  * Created by Ayo on 2/9/2018.
  */
-class FragmentsAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+class FragmentsAdapter(fm: FragmentManager) :
+    FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     private val fragmentList: MutableList<Fragment> = ArrayList()
 
     override fun getItem(position: Int): Fragment {

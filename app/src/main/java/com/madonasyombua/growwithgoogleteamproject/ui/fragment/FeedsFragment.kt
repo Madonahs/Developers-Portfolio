@@ -1,4 +1,3 @@
-
 package com.madonasyombua.growwithgoogleteamproject.ui.fragment
 
 import android.content.Context
@@ -29,7 +28,7 @@ class FeedsFragment : Fragment(R.layout.fragment_feeds) {
     private var mAdapter: RecyclerView.Adapter<*>? = null
     private var mPosts: ArrayList<Post> = ArrayList()
     private var currentUSer: FirebaseUser? = null
-    private var fragmentFeedsBinding : FragmentFeedsBinding? = null
+    private var fragmentFeedsBinding: FragmentFeedsBinding? = null
 
     private val feedsListener: ChildEventListener = object : ChildEventListener {
         override fun onChildAdded(dataSnapshot: DataSnapshot?, s: String?) {
@@ -91,9 +90,14 @@ class FeedsFragment : Fragment(R.layout.fragment_feeds) {
     fun showPostDialog() {
         val fm = activity?.supportFragmentManager
         println("fm: $fm")
-        val prefs = activity?.getSharedPreferences("com.madonasyombua.growwithgoogleteamproject.ui.fragment", Context.MODE_PRIVATE)
-        val postDialog = PostFeedFragment.newInstance(getString(R.string.new_post), getString(R.string.postingas),
-                currentUSer?.displayName, prefs?.getString("name", ""))
+        val prefs = activity?.getSharedPreferences(
+            "com.madonasyombua.growwithgoogleteamproject.ui.fragment",
+            Context.MODE_PRIVATE
+        )
+        val postDialog = PostFeedFragment.newInstance(
+            getString(R.string.new_post), getString(R.string.postingas),
+            currentUSer?.displayName, prefs?.getString("name", "")
+        )
         if (fm != null) {
             postDialog.show(fm, "fragment_post_dialog")
         }
@@ -119,8 +123,10 @@ class FeedsFragment : Fragment(R.layout.fragment_feeds) {
         mListener = if (context is OnFragmentInteractionListener) {
             context
         } else {
-            throw RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener")
+            throw RuntimeException(
+                context.toString()
+                        + " must implement OnFragmentInteractionListener"
+            )
         }
 
     }
@@ -148,7 +154,7 @@ class FeedsFragment : Fragment(R.layout.fragment_feeds) {
     }
 
     override fun onDestroyView() {
-       fragmentFeedsBinding = null
+        fragmentFeedsBinding = null
         super.onDestroyView()
     }
 }
