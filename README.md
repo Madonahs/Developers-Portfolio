@@ -9,7 +9,7 @@
 </p>
 
 ## Developers Portfolio App
-Update Project to Kotlin
+Maybe Make it cleaner? 
 
 ## Note 
  **This repository is meant for educational purposes**
