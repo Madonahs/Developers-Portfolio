@@ -108,10 +108,6 @@ These files are required in order for google sign in features to work.
 
 ## Landscape 
 ![Image1](https://user-images.githubusercontent.com/11560987/71649784-71fda980-2cdf-11ea-8154-c783352aec83.png)
-![Image2](https://user-images.githubusercontent.com/11560987/71649786-77f38a80-2cdf-11ea-9564-d2dc8fc2b961.png)
-![Image3](https://user-images.githubusercontent.com/11560987/71649790-7b871180-2cdf-11ea-8314-9d58da21e2d4.png)
-![image4](https://user-images.githubusercontent.com/11560987/71649793-80e45c00-2cdf-11ea-9447-068cb9a6b70c.png)
-![image5](https://user-images.githubusercontent.com/11560987/71649797-85a91000-2cdf-11ea-85b6-991aaccc572e.png)
 
 
 ## Tablet Mode
@@ -119,7 +115,7 @@ These files are required in order for google sign in features to work.
 
 ## Licence
 ```
- Copyright [2019] [Madona Syombua]
+ Copyright [2021] [Madona Syombua]
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
